@@ -1,0 +1,82 @@
+2021-09-08 09:50:07.3830 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-09-08 09:50:14.7904 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-09-08 10:06:01.1858 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-09-08 10:10:10.9335 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-09-08 10:10:35.7633 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-09-08 10:10:36.5828 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-09-08 10:11:13.9659 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-09-08 10:12:48.0893 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2021-09-08 10:21:07.5498 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-08 12:10:10.2942 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-08 13:16:14.3079 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-08 13:16:14.7979 TAS.Web.Controllers.ContractManagementController GetPremium: exception: String was not recognized as a valid DateTime., 
+2021-09-08 13:16:56.5194 TAS.Web.Controllers.ContractManagementController GetPremium: exception: String was not recognized as a valid DateTime., 
+2021-09-08 13:17:34.0755 TAS.Web.Controllers.ContractManagementController GetPremium: exception: String was not recognized as a valid DateTime., 
+2021-09-08 13:17:47.5666 TAS.Web.Controllers.ContractManagementController GetPremium: exception: String was not recognized as a valid DateTime., 
+2021-09-08 13:23:16.5515 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-08 13:24:59.7053 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---> System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---> System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2021-09-08 13:37:47.6868 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---> System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---> System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2021-09-08 13:49:05.3916 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---> System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---> System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2021-09-08 13:51:59.0143 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Object reference not set to an instance of an object., 
+2021-09-08 13:56:29.4550 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Object reference not set to an instance of an object., 
+2021-09-08 13:56:42.5817 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Object reference not set to an instance of an object., 
+2021-09-08 13:57:12.9768 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Object reference not set to an instance of an object., 
+2021-09-08 14:04:24.2406 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-08 14:05:02.9896 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---> System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---> System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2021-09-08 14:05:18.9737 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Object reference not set to an instance of an object., 
+2021-09-08 14:05:32.3764 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Object reference not set to an instance of an object., 
+2021-09-08 14:06:02.7141 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Object reference not set to an instance of an object., 
+2021-09-08 14:06:17.1220 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-09-08 14:06:18.6840 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---> System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---> System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)

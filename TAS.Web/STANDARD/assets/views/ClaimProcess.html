@@ -1,0 +1,3995 @@
+﻿<div ng-app="LFA" ng-controller="ClaimProcessCtrl as claimProcessController" ng-init="loadInitailData()">
+    <style>
+        #page-title {
+            padding: 20px 0;
+        }
+
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        #claimItemsTbl > tbody > tr > td {
+            height: 35px;
+            padding: 0px;
+            border-top: 0px;
+        }
+
+
+        #loading {
+            width: 100%;
+            height: 100%;
+            top: 120px;
+            left: 0px;
+            position: fixed;
+            display: block;
+            opacity: 0.7;
+            background-color: black;
+            z-index: 99;
+            text-align: center;
+        }
+
+        .watermark {
+            /*position: absolute;*/
+            top: 50%;
+            font-size: 15px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            z-index: 1000;
+        }
+        /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .table-condensed {
+            font-size: 11px;
+        }
+
+        .ui-select-search {
+            height: 25px;
+        }
+
+        .ui-select-toggle {
+            height: 25px;
+        }
+
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .hiddenInputText::selection {
+            background: #5F8295; /* WebKit/Blink Browsers */
+            color: #5F8295;
+        }
+
+        .hiddenInputText::-moz-selection {
+            background: #5F8295; /* Gecko Browsers */
+            color: #5F8295;
+        }
+    </style>
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-7">
+                <h1 class="mainTitle TitleModifier">{{'pages.claimProcess.title' | translate}} {{IsEndorsement?'ENDORSEMENT':'PROCESS'}}</h1>
+                <span class="mainDescription TitleModifier">{{'pages.claimProcess.mainDescriptionOne' | translate}} {{IsEndorsement?'endorse':'process'}} {{'pages.claimProcess.mainDescriptionTwo' | translate}}</span>
+            </div>
+            <div class="col-md-5">
+
+                <span class="btn btn-twitter pull-right" ng-hide="IsEndorsement" style="margin-left: 10px" ng-click="navigateToClaimListing()">
+                    <i class="fa fa-backward"></i>
+                    | {{'pages.claimProcess.navigateToClaimListing' | translate}}
+                </span>
+                <span class="btn btn-blue pull-right" ng-hide="IsEndorsement" ng-click="doRestartPage()">
+                    <i class="fa fa-refresh"></i>
+                    | {{'pages.claimProcess.startOver' | translate}}
+                </span>
+            </div>
+        </div>
+    </section>
+    <div class="row" style="margin-top: 10px">
+        <div class="col-md-4">
+            <table style="font-size: small">
+                <tr>
+                    <td colspan="6" align="left"> <span><kbd>{{'pages.claimProcess.claimInformation' | translate}}</kbd></span></td>
+                </tr>
+                <tr>
+                    <td style="width: 1%; white-space: nowrap">{{'pages.claimProcess.claimNo' | translate}}</td>
+                    <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td><strong>{{claimProcess.claimNumber}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap">{{'pages.claimProcess.claimDealer' | translate}}</td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25">
+                        <select class="form-control input-sm" style="margin-right: 20px ; width:75%" ng-model="claimProcess.claimDealerId"
+                                ng-change="refreshSelectedClaimDealer()"
+                                ng-disabled="claimId">
+                            <option ng-repeat="option in claimProcess.claimDealers"
+                                    value="{{option.Id}}"
+                                    ng-selected="claimProcess.claimDealerId==option.Id">
+                                {{option.Name}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap">{{'pages.claimProcess.failureDate' | translate}}</td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25">
+                        <input type="text"
+                               ng-readonly="true"
+                               placeholder="{{'common.clickCalender' | translate }}"
+                               style=" width:75%"
+                               class="form-control  input-sm"
+                               ng-model="claimProcess.FailureDate"
+                               ng-class="validate_claimDate"
+                               datepicker-popup="dd-MMM-yyyy"
+                               datepicker-localdate
+                               ng-click="startOpen2 = !startOpen2"
+                               is-open="startOpen2"
+                               ng-init="startOpen2 = false"
+                               close-text="Close" />
+                    </td>
+                </tr>
+                <tr style="padding-top:5px">
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">{{commodityCode=='A'?'Claim Mileage':'Hours Used'}}</td>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="!isProductTire">{{'pages.claimProcess.failureMileage' | translate}}</td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" ng-hide="isProductTire">
+                        <div class="input-group" style=" width:75%">
+                            <input type="number" class="form-control  input-sm"
+                                   ng-model="claimProcess.claimMileage" allow-pattern="(\d)" ng-class="validate_claimMileage">
+                            <span class="input-group-addon input-sm">{{commodityCode=='A'?'KM':'Hrs'}}</span>
+                        </div>
+                    </td>
+                    <td height="25" ng-hide="!isProductTire">
+                        <div class="input-group" style=" width:75%">
+                            <input type="number" class="form-control  input-sm"
+                                   ng-model="claimProcess.claimMileage" allow-pattern="(\d)" ng-class="validate_claimMileage">
+                            <span class="input-group-addon input-sm">KM</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <table style="font-size: small">
+                <tr>
+
+                    <td colspan="6" align="left"> <span><kbd>{{'pages.claimProcess.policyInformation' | translate}}</kbd></span></td>
+                </tr>
+                <tr>
+                    <td style="width: 1%; white-space: nowrap">{{'pages.claimProcess.policyNo' | translate}}</td>
+                    <td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td colspan="4"><strong>{{claimProcess.policyNumber}}</strong></td>
+
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap">{{'pages.claimProcess.customer' | translate}}</td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" colspan="4"><strong>{{claimProcess.customerName}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap">{{'pages.claimProcess.contactNo' | translate}}</td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" colspan="4"><strong>{{policyDetails.mobileNumber}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap">{{'pages.claimProcess.policyDealer' | translate}}</td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" colspan="4"><strong>{{claimProcess.policyDealer}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">
+                    {{'pages.claimCommonData.insurer' | translate}}</td>
+                    <td height="25" ng-hide="isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" colspan="4" ng-hide="isProductTire"><strong>{{policyDetails.insurer}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">
+                        {{'pages.claimCommonData.reInsurer' | translate}}                    </td>
+                    <td height="25" ng-hide="isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" colspan="4" ng-hide="isProductTire"><strong>{{policyDetails.reInsurer}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap">{{'pages.claimProcess.country' | translate}}</td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" colspan="4"><strong>{{claimProcess.country}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">
+                        {{'pages.claimProcess.warrantyType' | translate}}
+                    </td>
+                    <td height="25" ng-hide="isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" colspan="4" ng-hide="isProductTire"><strong>{{policyDetails.warrentyType}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">
+                        {{'pages.claimProcess.uwYear' | translate}}
+                    </td>
+                    <td height="25" ng-hide="isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" colspan="4" ng-hide="isProductTire"><strong>{{policyDetails.uwYear}}</strong></td>
+                </tr>
+            </table>
+
+            <table style="font-size: small">
+                <tr>
+                    <td colspan="6" align="left"> <span><kbd>
+                             {{'pages.claimProcess.itemInformation' | translate}}
+                    </kbd></span></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">
+                        {{'pages.claimCommonData.make' | translate}}
+                    </td>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="!isProductTire">
+                        {{'pages.claimCommonData.brand' | translate}}
+                    </td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25"><strong>{{claimProcess.make}}</strong></td>
+
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">
+                        {{'pages.claimCommonData.model' | translate}}
+                    </td>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="!isProductTire">
+                        {{'pages.claimProcess.productLine' | translate}}
+                    </td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25"><strong>{{claimProcess.model}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">
+                        {{'pages.claimProcess.modelYear' | translate}}
+                    </td>
+                    <td height="25" ng-hide="isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" ng-hide="isProductTire"><strong>{{policyDetails.modelYear}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">
+                        {{'pages.claimProcess.vinSerial' | translate}}
+                    </td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25"><strong>{{claimProcess.vinSerial}}</strong></td>
+                </tr>
+                <tr ng-show="commodityCode=='A'">
+                    <td height="25" style="width: 1%; white-space: nowrap">
+                        {{'pages.claimProcess.cyllinderCount' | translate}}
+                    </td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25"><strong>{{policyDetails.cyllinderCount}}</strong></td>
+                </tr>
+                <tr ng-show="commodityCode=='A'">
+
+                    <td height="25" style="width: 1%; white-space: nowrap">
+                        {{'pages.claimProcess.engineCapacity' | translate}}
+                    </td>
+                    <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25"><strong>{{policyDetails.engineCapacity}}</strong></td>
+                </tr>
+                <tr>
+                    <td height="25" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">
+                        {{'pages.claimProcess.soldPrice' | translate}}
+                    </td>
+                    <td height="25" ng-hide="isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                    <td height="25" ng-hide="isProductTire"><strong>{{policyDetails.salePrice}}</strong></td>
+                </tr>
+            </table>
+            <br />
+
+
+            <div class="clearfix"></div>
+
+            <div class="form-check" ng-show="isGoodwillVisible">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" ng-model="claimProcess.isGoodwillClaim" ng-change="claimGoodWillChanged()">
+                    {{'pages.claimProcess.goodwillClaim' | translate}}
+                </label>
+            </div>
+
+
+        </div>
+        <div class="col-md-8">
+            <button class="btn btn-sm btn-blue" style="width: 19%; margin-top: 5px; " ng-click="showAssesmentHistory()">
+                <i class="fa fa-check"></i>&nbsp;&nbsp;&nbsp; {{'pages.claimProcess.assessments' | translate}}&nbsp;
+            </button>
+            <button class="btn btn-sm  btn-blue" style="width: 19%; margin-top: 5px; " ng-click="showClaimHistory()">
+                <i class="fa fa-history"></i>&nbsp;&nbsp;&nbsp;{{'pages.claimProcess.claimHistory' | translate}}
+            </button>
+
+            <button class="btn btn-sm  btn-blue" style="width: 19%; margin-top: 5px; " ng-click="showAttachmnetDetails()">
+                <i class="fa fa-paperclip"></i>&nbsp;&nbsp;&nbsp;{{'pages.claimProcess.attachmentHistory' | translate}}
+            </button>
+            <button class="btn btn-sm  btn-blue" style="width: 19%; margin-top: 5px; " ng-click="showNotesDetails()">
+                <i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;{{'pages.claimProcess.claimNotes' | translate}}
+            </button>
+            <button class="btn btn-sm  btn-blue" style="width: 19%; margin-top: 5px; " ng-click="showCommentsDetails()">
+                <i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;{{'pages.claimProcess.comments' | translate}}
+            </button>
+            <div class="clearfix"></div>
+
+            <h5 class="pull-left" style="margin-top:10px">
+                {{'pages.claimProcess.requestedClaimAmount' | translate}} :<strong>{{claimProcess.totalClaimAmount | number:2}}&nbsp; {{claimProcess.currencyCode}}</strong> &nbsp;|&nbsp; {{'pages.claimProcess.authorizedClaimAmount' | translate}} :<strong>{{claimProcess.authorizedClaimAmount | number:2}}&nbsp; {{claimProcess.currencyCode}}&nbsp;|&nbsp;</strong>
+                <div class="clearfix"></div>
+                <tabset class="tabbable">
+                    <tab heading="Claim Items">
+                        <button class="btn btn-primary" ng-click="showAddNewClaimItem()">{{'pages.claimProcess.addorEditClaimItem' | translate}}</button>
+                        <p class="text-info pull-right">* {{'pages.claimProcess.allpricesaredisplayedin' | translate}} {{claimProcess.currencyCode}}.</p>
+                        <div style=" height: 200px; overflow-y: scroll;width:650px">
+                            <table class="table table-bordered table-striped table-condensed " id="claimItemsTbl" style="margin-top: 5px;">
+                                <thead class="ngTableheader">
+                                    <tr>
+                                        <th>{{'pages.claimProcess.name' | translate}} </th>
+                                        <th>{{'pages.claimProcess.number' | translate}} </th>
+                                        <th>{{'pages.claimProcess.qty' | translate}}</th>
+                                        <th>{{'pages.claimProcess.price' | translate}}</th>
+                                        <th>{{'pages.claimProcess.discount' | translate}}</th>
+                                        <th>{{'pages.claimProcess.goodwill' | translate}}</th>
+                                        <th>{{'pages.claimProcess.authorized' | translate}}</th>
+                                        <th>{{'pages.claimProcess.status' | translate}}</th>
+                                        <th>{{'pages.claimProcess.Edit' | translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="claimItem in extendedClaimItems | filter: { itemType: '!L'  } " ng-class="validate_claimItemsTable">
+
+                                        <td align="center">{{claimItem.partName}}</td>
+                                        <td align="center">{{claimItem.partNumber}}</td>
+                                        <td align="center">{{claimItem.partQty}}</td>
+                                        <td align="right">{{parseFloat(claimItem.nettAmount)+parseFloat(claimItem.l_nettAmount) | number:2}}</td>
+                                        <td align="right">{{parseFloat(claimItem.discountAmount)+parseFloat(claimItem.l_discountAmount) | number:2}}</td>
+                                        <td align="right">{{parseFloat(claimItem.goodWillAmount)+parseFloat(claimItem.l_goodWillAmount) | number:2}}</td>
+                                        <td align="right">{{claimItem.authorizedAmount | number:2}}</td>
+                                        <td align="center">{{claimItem.itemStatusName}}</td>
+                                        <td align="center">
+                                            <button class="btn btn-xs btn-primary"
+                                                    ng-click="showAddClaimItem(claimItem.id)">
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </tab>
+                    <tab heading="Assessments" active="assesmentTabActive">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimProcess.customerComplaint' | translate}}
+                                </label>
+                                <textarea 
+                                          placeholder=" {{'pages.claimProcess.customerComplaint' | translate}}"
+                                          readonly="readonly"
+                                          ng-model="claimProcess.complaint.customer" 
+                                          style="height: 75px"
+                                          class="form-control" 
+                                          rows="3" 
+                                          cols="4" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimProcess.dealerComment' | translate}}
+                                </label>
+                                <textarea 
+                                          placeholder="{{'pages.claimProcess.dealerComment' | translate}}"
+                                          ng-model="claimProcess.complaint.dealer" 
+                                          readonly="readonly" 
+                                          style="height: 75px" 
+                                          class=" form-control" 
+                                          rows="3" 
+                                          cols="4" />
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimProcess.claimEngineerAssessment' | translate}} <span class="symbol required"></span>
+                                </label>
+                                <textarea
+                                          placeholder="{{'pages.claimProcess.engineerAssessment' | translate}}"
+                                          style="height: 75px"
+                                          ng-class="validate_engineerComment" 
+                                          ng-model="claimProcess.complaint.engineer"
+                                          class="form-control" 
+                                          rows="3"
+                                          cols="4" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimProcess.conclusion' | translate}} <span class="symbol required"></span>
+                                </label>
+                                <textarea placeholder=" {{'pages.claimProcess.conclusion' | translate}}" 
+                                          style="height: 75px" 
+                                          ng-model="claimProcess.complaint.conclution"
+                                          ng-class="validate_conclution" 
+                                          class=" form-control"
+                                          rows="3" 
+                                          cols="4" />
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-12">
+                            <button 
+                                    class="btn btn-primary pull-right"
+                                    ng-click="saveEngineerComment()">
+                                {{'pages.claimCommonData.save' | translate}}
+                            </button>
+                        </div>
+                        <br />
+                        <br />
+
+                    </tab>
+                    <tab heading="Service History">
+                        <div class=" row">
+                            <div class="col-md-5">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.claimProcess.repairOrder' | translate}}<span class="symbol required"></span>
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control  input-sm text-right"
+                                                   ng-model="serviceRecord.serviceNumber" ng-class="validate_serviceNumber">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.claimProcess.serviceDate' | translate}}<span class="symbol required"></span>
+                                        </label>
+
+
+                                        <input type="text" 
+                                               ng-readonly="true" 
+                                               ng-disabled="customerDisabled" 
+                                               placeholder="{{'common.clickCalender' | translate}}" 
+                                               class="form-control  input-sm" 
+                                               ng-model="serviceRecord.serviceDate"
+                                               ng-class="validate_serviceDate"
+                                               datepicker-popup="dd-MMM-yyyy" 
+                                               datepicker-localdate 
+                                               ng-click="startOpen2 = !startOpen2"
+                                               is-open="startOpen2"
+                                               ng-init="startOpen2 = false" 
+                                               close-text="Close" />
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.claimProcess.serviceMileage' | translate}}<span class="symbol required"></span>
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control  input-sm text-right"
+                                                   ng-model="serviceRecord.milage" ng-class="validate_milage">
+                                            <span class="input-group-addon input-sm">KM</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.claimProcess.remark' | translate}}
+                                        </label>
+
+                                        <input type="text" class="form-control  input-sm text-right"
+                                               ng-model="serviceRecord.remarks" ng-class="">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button class="btn  btn-info btn-sm pull-right " ng-click="addServiceHistory()">{{'pages.claimCommonData.add' | translate}} >></button>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h5>{{'pages.claimProcess.serviceHistory' | translate}}</h5>
+                                <table id="serviceHistoryTable" class="table table-bordered table-striped table-condensed">
+                                    <thead class="ngTableheader">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>{{'pages.claimProcess.mileage' | translate}}</th>
+                                            <th>{{'pages.claimProcess.date' | translate}}</th>
+                                            <th>{{'pages.claimProcess.remark' | translate}}</th>
+                                            <th></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="serviceRecord in itemServiceRecords track by $index">
+                                            <td align="center">{{serviceRecord.ServiceNumber}}</td>
+                                            <td align="center">{{serviceRecord.Milage}}</td>
+                                            <td align="center">{{serviceRecord.ServiceDate}}</td>
+                                            <td align="center">{{serviceRecord.Remarks}}</td>
+                                            <td align="center"><button class="btn-xs btn-warning" ng-disabled="!serviceRecord.canEdit" ng-click="updateServiceRecord(serviceRecord.Id)"><i class="fa fa-edit"></i></button></td>
+                                            <td align="center"><button class="btn-xs btn-danger" ng-disabled="!serviceRecord.canEdit" ng-click="deleteServiceRecord(serviceRecord.Id)"><i class="fa fa-trash"></i></button></td>
+                                        </tr>
+                                        <tr><td colspan="5" ng-show="itemServiceRecords.length == 0 || itemServiceRecords==null">
+                                                                             {{'pages.claimCommonData.noServiceRecord' | translate}}
+                                            </td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </tab>
+                    <tab heading="Attachments">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group" ng-hide="customerDisabled">
+                                    <label class="control-label" for="form-field-1">
+                                        Attachment Type
+                                    </label>
+                                    <select class="form-control input-sm" ng-model="claimProcess.docAttachmentType">
+                                        <option value=""> Please Select </option>
+                                        <option ng-repeat="option in docAttachmentTypes" value="{{option.AttachmentTypeCode}}"
+                                                ng-selected="claimProcess.docAttachmentType==option.AttachmentTypeCode">
+                                            {{option.AttachmentTypeDescription}}
+                                        </option>
+                                    </select>
+                                    <span class="btn btn-primary btn-o btn-file btn-xs" style="margin-top: 5px">
+                                        Select file
+                                        <input type="file" nv-file-select="" options="{ documentType: claimProcess.docAttachmentType }" uploader="docUploader" />
+                                    </span>
+                                </div>
+                                <button class="btn btn-primary pull-right" ng-click="documentUploadValidation()">Upload</button>
+                            </div>
+                            <div class="col-md-8">
+                                <table class="table" style="margin-top: 18px">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                Type
+                                            </td>
+                                            <td>
+                                                File Name
+                                            </td>
+                                            <td>
+                                                Size
+                                            </td>
+                                            <td></td>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in docUploader.queue">
+                                            <td>
+                                                <span ng-bind="item.documentType"></span>
+                                            </td>
+                                            <td>
+                                                <span ng-bind="item.file.name"></span>
+                                            </td>
+                                            <td>
+                                                <span>{{item.file.size|byteToKB}}</span>
+                                            </td>
+                                            <td ng-hide="customerDisabled">
+                                                <button class="btn btn-xs btn-danger" ng-show="{{item.ref===undefined}}" ng-click="item.remove()">Remove</button>
+                                            </td>
+
+                                        </tr>
+                                        <tr ng-show="docUploader.queue==null || docUploader.queue.length==0">
+                                            <td align="center" colspan="5"><h4>No Items found.</h4></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </tab>
+                </tabset>
+
+                <div class="clearfix"></div>
+                <div class="col-md-7" ng-hide="isProductTire">
+                    <table style="font-size: small; background-color:#5F8295;color:white">
+                        <tr>
+
+                            <td colspan="3" align="left"> <span><kbd>Warranty Information</kbd></span></td>
+                        </tr>
+
+
+                        <tr>
+                            <td height="25" class="hiddenInputText" style="color:#5F8295;">aaaaaaaaaaaa</td>
+                            <td height="25"><strong>&nbsp;&nbsp;&nbsp;&nbsp;Manufacturer</strong></td>
+                            <td height="25"><strong>Extension</strong></td>
+
+                        </tr>
+                        <tr>
+                            <td height="25" style="width: 1%; white-space: nowrap">Start Date</td>
+
+                            <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;{{policyDetails.manfWarrentyStartDate | date:'dd-MMM-yyyy'}}</td>
+                            <td height="25">{{policyDetails.extensionStartDate | date:'dd-MMM-yyyy'}}</td>
+                        </tr>
+                        <tr>
+                            <td height="25" style="width: 1%; white-space: nowrap">Expiry Date</td>
+                            <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;{{policyDetails.manfWarrentyEndDate | date:'dd-MMM-yyyy'}}</td>
+                            <td height="25">{{policyDetails.extensionEndDate | date:'dd-MMM-yyyy'}}</td>
+                        </tr>
+                        <tr>
+                            <td height="25" style="width: 1%; white-space: nowrap">Month</td>
+                            <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;{{policyDetails.manfWarrentyMonths}}</td>
+                            <td height="25">{{policyDetails.extensionPeriod }}</td>
+                        </tr>
+                        <tr>
+                            <td height="25" style="width: 1%; white-space: nowrap">{{commodityCode=='A'?'Mileage (KM)':'Usage (Hrs)'}}</td>
+                            <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;{{policyDetails.manfWarrentyMilage}}</td>
+                            <td height="25">{{policyDetails.extensionMilage}}</td>
+                        </tr>
+                        <tr>
+                            <td height="25" style="width: 1%; white-space: nowrap">{{commodityCode=='A'?'KM-Cut off':'Hrs-Cut off'}}</td>
+                            <td height="25" colspan="2">&nbsp;&nbsp;:&nbsp;&nbsp;{{policyDetails.cutoff}}</td>
+
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Claim Status<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control form-control-lg" ng-model="claimProcess.claimStatus"
+                                ng-class="validate_claimProcessStatus"
+                                ng-disabled="claimProcess.isGoodwillClaim">
+                            <option value="NA">Please select</option>
+                            <option value="APP">Approve</option>
+                            <option value="PEN">Pending</option>
+                            <option value="REJ">Reject</option>
+
+                            <!--<option value="HOL">Hold</option>
+                <option value="REQ">Pending</option>-->
+                        </select>
+                    </div>
+
+                    <div class="form-group" ng-hide="claimProcess.claimStatus === 'APP' || claimProcess.claimStatus === 'HOL' || claimProcess.claimStatus === 'NA'">
+                        <label class="control-label">
+                            {{claimProcess.claimStatus === 'PEN'?"Pending ":"Rejection "}} Comment <span class="symbol required"></span>
+                        </label>
+                        <textarea class="form-control" ng-class="validate_claimComment" ng-model="claimProcess.comment"></textarea>
+                    </div>
+                    <div class="clearfix"></div>
+
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Claim Taxes
+                        </label>
+                        <div ng-dropdown-multiselect="" options="TaxesList" selected-model="SelectedTaxesList" extra-settings="settings" translation-texts="CustomText"
+                             events="{ onItemSelect: SendTaxes,onItemDeselect:SendTaxess ,onSelectAll:SendTaxes,onUnselectAll:SendTaxes}"></div>
+                        <div class="ScrollHeight">
+                            <ul>
+                                <li ng-repeat="x in SelectedTaxesDList">
+                                    {{x}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+                <div class="clearfix"></div>
+                <div class="col-md-4"></div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <button class="btn btn-primary pull-right" ng-click="processClaim()">Save {{IsEndorsement?'Endorsement':'Claim'}} </button>
+                    </div>
+                </div>
+
+</div>
+
+    </div>
+    <script type="text/ng-template" id="popUpAddClaimItem">
+        <style>
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 1300px !important;
+                height: 600px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 10px;
+            }
+
+            #serviceHistoryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #attachmentTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #claimItemTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            fieldset {
+                border: 2px groove threedface;
+                padding: 5px;
+                margin: 0 !important;
+            }
+
+            legend {
+                display: block !important;
+                width: auto !important;
+                padding: 0 5px !important;
+                margin-bottom: 0 !important;
+                font-size: inherit !important;
+                line-height: inherit !important;
+                border: auto !important;
+                border-bottom: none !important;
+                position: relative !important;
+                top: auto !important;
+            }
+        </style>
+        <!--<h3 class="">Add Claim Item</h3>-->
+        <div class="col-md-8" style="height:580px;overflow-y:scroll">
+            <fieldset>
+                <legend>Part Details</legend>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Part Area<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-model="currentPart.partAreaId"
+                                ng-change="selectedPartAreaChanged()" ng-class="validate_partArea" ng-disabled="isProductTire">
+                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                            <option ng-repeat="option in partAreas" value="{{option.Id}}"
+                                    ng-selected="currentPart.partAreaId==option.Id">
+                                {{option.PartAreaCode +'-'+ option.PartAreaName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Part Name<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-model="currentPart.partId"
+                                ng-change="selectedPartChanged($item)" ng-disabled="isProductTire">
+                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                            <option ng-repeat="part in parts track by $index" value="{{part.Id}}"
+                                    ng-selected="currentPart.partId==part.Id">
+                                {{part.PartCode +'-'+ part.PartName}}
+                            </option>
+                        </select>
+
+                        <!--<ui-select class="input-sm" ng-model="part.selected"
+                                   theme="bootstrap"
+                                   reset-search-input="false"
+                                   style="width: 100%;"
+                                   on-select="selectedPartChanged($item)" ng-disabled="isProductTire">
+                            <ui-select-match placeholder="Enter Part Name...">{{$select.selected.PartName}}</ui-select-match>
+                            <ui-select-choices repeat="part in parts track by $index"
+                                               refresh-delay="0">
+                                <div class="input-sm" ng-bind-html="part.PartCode +'-'+ part.PartName | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>-->
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Part Number<span class="symbol required"></span>
+                        </label>
+                        <input type="text" class="form-control  input-sm"
+                               ng-model="currentPart.partNumber" ng-disabled="true">
+                    </div>
+                </div>
+
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Qty<span class="symbol required"></span>
+                        </label>
+                        <input type="number" class="form-control  input-sm " ng-class="validate_partQty"
+                               ng-model="currentPart.partQty" ng-change="adjustAllDiscounts()" ng-disabled="isProductTire" clear-on-click>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Unit Price<span class="symbol required"></span>
+                        </label>
+                        <div class="input-group">
+                            <input type="number" placeholder="Part Price" class="form-control input-sm text-right"
+                                   ng-model="currentPart.unitPrice" ng-change="adjustAllDiscounts()" allow-pattern="(\d)" clear-on-click ng-class="validate_unitPrice"
+                                   step="1" >
+                            <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Fault<span class="symbol required"></span>
+                        </label>
+                        <div class="input-group">
+                            <select class="form-control input-sm" ng-class="validate_fault" ng-model="currentPart.fault"
+                                    ng-change="selectedFaultChanged()">
+
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in faults" value="{{option.Id}}"
+                                        ng-selected="currentPart.fault==option.Id">
+                                    {{option.FaultCode +'-->'+ option.FaultName }}
+                                </option>
+                            </select>
+
+                            <span class="input-group-addon input-sm btn btn-info" ng-click="faultSearchPopup()">
+                                <i class="fa fa-search"></i> &nbsp;
+                                Search
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Cause Of Failure<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control  input-sm "
+                                ng-model="currentPart.causeOfFailureId" ng-class="validate_causeOfFailureId">
+                            <option value=""> Please Select </option>
+                            <option ng-repeat="option in faultCauseOfFailure" value="{{option.Id}}"
+                                    ng-selected="currentPart.causeOfFailureId==option.Id">
+                                {{option.CauseOfFailure}}
+                            </option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Remarks
+                        </label>
+
+                        <input type="text" class="form-control input-sm"
+                               ng-model="currentPart.remark">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Discount Scheme
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-change="discountSchemaLoad()" ng-model="currentPart.partDiscountScheme">
+                            <option value="NA"> User Defined </option>
+                            <option ng-repeat="option in discountSchemes" value="{{option.Id}}"
+                                    ng-selected="currentPart.partDiscountScheme==option.Id">
+                                {{option.SchemeName}}
+                            </option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Goodwill Type
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-disabled="isPartDiscountDisabled" ng-change="goodWillChanging()"
+                                ng-model="currentPart.goodWillType">
+                            <option value="NA" ng-selected="currentPart.goodWillType=='NA'"> Please Select </option>
+                            <option value="F" ng-selected="currentPart.goodWillType=='F'"> Fixed Amount </option>
+                            <option value="P" ng-selected="currentPart.goodWillType=='P'"> Percentage </option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Goodwill Value<span ng-hide="currentPart.goodWillType=='NA'" class="symbol required"></span>
+                        </label>
+                        <div class="input-group">
+                            <input type="number" placeholder="Goodwill Amount" ng-disabled="isPartDiscountDisabled" class="form-control input-sm text-right"
+                                   ng-model="currentPart.goodWillValue" ng-change="goodWillChanging()" allow-pattern="(\d)"  clear-on-click ng-class="validate_goodWillValue"
+                                   step="1">
+                            <span class="input-group-addon input-sm">{{currentPart.goodWillType=='F'?claimProcess.currencyCode:(currentPart.goodWillType=='P'?'%':'')}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Discount Type
+
+
+                        </label>
+
+                        <select class="form-control  input-sm  input-sm" ng-disabled="isPartDiscountDisabled" ng-change="discountChanging()" ng-model="currentPart.discountType">
+                            <option value="NA" ng-selected="currentPart.discountType=='NA'"> Please Select </option>
+                            <option value="F" ng-selected="currentPart.discountType=='F'"> Fixed Amount </option>
+                            <option value="P" ng-selected="currentPart.discountType=='P'"> Percentage </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Discount Value<span ng-hide="currentPart.discountType=='NA'" class="symbol required"></span>
+                        </label>
+                        <div class="input-group">
+                            <input type="number" ng-change="discountChanging()" ng-disabled="isPartDiscountDisabled" placeholder="Discount Amount" class="form-control input-sm text-right"
+                                   ng-model="currentPart.discountValue" allow-pattern="(\d)" clear-on-click ng-class="validate_discountValue"
+                                   step="1">
+                            <span class="input-group-addon input-sm">{{currentPart.discountType=='F'?claimProcess.currencyCode:(currentPart.discountType=='P'?'%':'')}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Nett Amount<span class="symbol required"></span>
+                        </label>
+
+                        <div class="input-group">
+                            <input type="number" placeholder="Nett Amount" class="form-control input-sm text-right"
+                                   ng-model="currentPart.nettAmount" ng-disabled="true" allow-pattern="(\d)" ng-class="validate_nettAmount"
+                                   step="1">
+                            <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Discount Scheme
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-change="partDiscountSchemeChanged()" ng-model="currentPart.partDiscountScheme">
+                            <option value="NA"> User Defined </option>
+                            <option ng-repeat="option in discountSchemes" value="{{option.Id}}"
+                                    ng-selected="currentPart.partDiscountScheme==option.Id">
+                                {{option.SchemeName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <fieldset class="fieldset">
+                    <legend>Labour Charges</legend>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Charge Type<span class="symbol required"></span>
+                            </label>
+                            <select class="form-control  input-sm  input-sm" ng-model="labourCharge.chargeType"
+                                    ng-change="adjustAllDiscountsLabour()" ng-class="validate_chargeType">
+                                <option value="F"> Fixed Payment </option>
+                                <option value="H"> Hourly Payment </option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{labourCharge.chargeType=='H'?'Hourly Rate':'Amount'}}<span class="symbol required"></span>
+                            </label>
+                            <div class="input-group">
+                                <input type="number" class="form-control  input-sm text-right" allow-pattern="(\d)" clear-on-click
+                                       ng-model="labourCharge.hourlyRate" ng-class="validate_hourlyRate" ng-change="adjustAllDiscountsLabour()">
+                                <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2" ng-show="labourCharge.chargeType=='H'">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Hours Worked<span class="symbol required"></span>
+                            </label>
+                            <input type="number" class="form-control  input-sm text-right" allow-pattern="(\d)" clear-on-click
+                                   ng-model="labourCharge.hours" ng-class="validate_hours" ng-change="adjustAllDiscountsLabour()">
+                        </div>
+                    </div>
+                    <div class="col-md-4" ng-show="labourCharge.chargeType=='H'">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Work Description
+                            </label>
+
+                            <input type="text" class="form-control  input-sm "
+                                   ng-model="labourCharge.description">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6" ng-hide="labourCharge.chargeType=='H'">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Work Description
+                            </label>
+
+                            <input type="text" class="form-control  input-sm text-right"
+                                   ng-model="labourCharge.description">
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Discount Scheme
+                            </label>
+                            <select class="form-control  input-sm  input-sm" ng-change="labourDiscountSchemeChanged()" ng-model="labourCharge.labourDiscountScheme">
+                                <option value="NA"> User Defined </option>
+                                <option ng-repeat="option in discountSchemes" value="{{option.Id}}"
+                                        ng-selected="labourCharge.labourDiscountScheme==option.Id">
+                                    {{option.SchemeName}}
+                                </option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Goodwill Type
+                            </label>
+                            <select class="form-control  input-sm  input-sm" ng-disabled="isLabourDiscountDisabled"
+                                    ng-change="goodWillChangingLabour()" ng-model="labourCharge.goodWillType">
+                                <option value="NA" ng-selected="labourCharge.goodWillType=='NA'"> Please Select </option>
+                                <option value="F" ng-selected="labourCharge.goodWillType=='F'"> Fixed Amount </option>
+                                <option value="P" ng-selected="labourCharge.goodWillType=='P'"> Percentage </option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Goodwill Value<span ng-hide="labourCharge.goodWillType=='NA'" class="symbol required"></span>
+                            </label>
+                            <div class="input-group">
+                                <input type="number" placeholder="Goodwill Amount" class="form-control input-sm text-right" ng-disabled="isLabourDiscountDisabled"
+                                       ng-model="labourCharge.goodWillValue" ng-change="goodWillChangingLabour()"
+                                       allow-pattern="(\d)" ng-class="validate_goodWillLabourValue" clear-on-click
+                                       step="1">
+                                <span class="input-group-addon input-sm">{{labourCharge.goodWillType=='F'?claimProcess.currencyCode:(labourCharge.goodWillType=='P'?'%':'')}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Discount Type
+                            </label>
+                            <select class="form-control  input-sm  input-sm" ng-change="discountChangingLabour()" ng-disabled="isLabourDiscountDisabled"
+                                    ng-model="labourCharge.discountType">
+                                <option value="NA" ng-selected="labourCharge.discountType=='NA'"> Please Select </option>
+                                <option value="F" ng-selected="labourCharge.discountType=='F'">
+                                    Fixed Amount
+                                </option>
+
+                                <option value="P" ng-selected="labourCharge.discountType=='P'"> Percentage </option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Discount Value<span ng-hide="currentPart.discountType=='NA'" class="symbol required"></span>
+                            </label>
+                            <div class="input-group">
+                                <input type="number" ng-change="discountChangingLabour()" placeholder="Goodwill Amount" ng-disabled="isLabourDiscountDisabled" class="form-control input-sm text-right"
+                                       ng-model="labourCharge.discountValue" allow-pattern="(\d)" ng-class="validate_discountLabourValue" clear-on-click
+                                       step="1">
+                                <span class="input-group-addon input-sm">{{labourCharge.discountType=='F'?claimProcess.currencyCode:(labourCharge.discountType=='P'?'%':'')}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Nett Amount<span class="symbol required"></span>
+                            </label>
+                            <div class="input-group">
+                                <input type="number" placeholder="Nett Amount" class="form-control input-sm text-right"
+                                       ng-model="labourCharge.nettAmount" ng-disabled="true" allow-pattern="(\d)" ng-class="validate_nettLabourAmount"
+                                       step="1">
+                                <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+                <div class="clearfix"></div>
+
+
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Authorized Amount<span class="symbol required"></span>
+                        </label>
+                        <div class="input-group">
+                            <input type="number" placeholder="Authorized Amount" class="form-control input-sm text-right"
+                                   ng-model="currentPart.authorizedAmount" allow-pattern="(\d)" ng-class="validate_authorizedAmount"
+                                   step="1" disabled>
+                            <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Status<span class="symbol required"></span>
+                        </label>
+
+                        <select class="form-control input-sm" ng-class="validate_itemStatus"
+                                ng-model="currentPart.itemStatus" ng-change="itemStatusChanged()" >
+                            <option value="" ng-selected="currentPart.itemStatus==''"> Please Select </option>
+                            <option value="A" ng-selected="currentPart.itemStatus=='A'">Approve</option>
+                            <option value="R" ng-selected="currentPart.itemStatus=='R'">Reject</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group" ng-show="currentPart.itemStatus=='R'">
+                        <label class="control-label">
+                            Rejection Type<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control input-sm" ng-class="validate_rejectionType" ng-model="currentPart.rejectionTypeId">
+                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                            <option ng-repeat="option in partRejectionTypes" value="{{option.Id}}"
+                                    ng-selected="currentPart.rejectionTypeId==option.Id">
+                                {{option.Description }}
+                            </option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-2" ng-hide="isProductTire">
+                    <div class="form-group">
+                        <p>
+                            Part is not listed? <a ng-click="showAddNewPartPopup()">Add New Part</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 pull-right">
+                    <button class="btn btn-primary pull-right" style="margin-top:20px" ng-click="addPart()">{{updatePartMode?'Update Part':'Add New'}}</button>
+                    <button class="btn btn-warning pull-right" style="margin-right: 5px; margin-top: 20px" ng-show="PartMode" ng-click="resetPartDetails()">Reset</button>
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-4" ng-show="isProductTire">
+                    <button class="btn btn-xs btn-info" ng-click="showCalculationPopup()" tabindex="115">
+                        Calculation Summary
+                    </button>
+                    <!--<div class="form-group">
+                        <p>
+                            <a ng-click="showCalculationPopup()">Calculation Summary</a>
+                        </p>
+                    </div>-->
+                </div>
+                <div class="clearfix"></div>
+            </fieldset>
+            <fieldset class="fieldset">
+                <legend>Sundries</legend>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Name<span class="symbol required"></span>
+                        </label>
+
+                        <input type="text" class="form-control  input-sm "
+                               ng-model="sundry.name" ng-class="validate_sundryName">
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Value<span class="symbol required"></span>
+                        </label>
+                        <div class="input-group">
+                            <input type="number" class="form-control  input-sm text-right"
+                                   ng-model="sundry.value" allow-pattern="(\d)" ng-class="validate_sundryValue" clear-on-click>
+                            <span class="input-group-addon  input-sm">{{claimProcess.currencyCode}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">
+                           Status<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control input-sm" ng-class="validate_sundry_status" ng-model="sundry.Status">
+                            <option value=""> Please Select </option>
+                            <option value="A"> Approve </option>
+                            <option value="R"> Reject </option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary pull-right" style="margin-top:20px" ng-click="addSundry()">{{updateSundry?'Update Sundry':'Add Sundry'}}</button>
+                        <button class="btn btn-warning pull-right" style="margin-right: 5px; margin-top: 20px" ng-show="updateSundry" ng-click="resetSundryDetails()">Reset</button>
+
+                </div>
+
+                    <div class="clearfix"></div>
+
+</fieldset>
+
+        </div>
+        <div class="col-md-4">
+            <div style=" height: 580px; overflow-y: scroll">
+
+                <p class="text-info pull-right">
+                    * All prices are displayed in {{claimProcess.currencyCode}}.
+
+                </p>
+                <table class="table table-bordered table-striped table-condensed " style="margin-top: 5px;">
+                    <thead class="ngTableheader">
+
+                        <tr>
+                            <th>Part Name</th>
+                            <th> Part Amount</th>
+                            <th>Labour Amount</th>
+                            <th>Authorized Amount</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="claimItem in extendedClaimItems">
+
+                            <td align="center">{{claimItem.partName}}</td>
+
+                            <td align="right">
+                                {{claimItem.nettAmount | number:2}}
+                            </td>
+
+                            <td align="right">
+                                {{claimItem.l_nettAmount | number:2}}
+                            </td>
+
+                            <td align="center">{{parseFloat(claimItem.authorizedAmount) | number:2}}</td>
+                            <td align="center">{{claimItem.itemStatusName}}</td>
+                            <td>
+                                <button class="btn btn-xs btn-primary"
+                                        ng-click="editClaimItem(claimItem.id)">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="popUpSearchFault">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 700px !important;
+                height: 450px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+            .pagination {
+                margin: 1px !important;
+            }
+        </style>
+        <h3 class="">Search Faults</h3>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Fault Category
+                    </label>
+                    <input type="text" class="form-control  input-sm " ng-model="faultSearch.categoryCode">
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Fault Area
+                    </label>
+                    <input type="text" class="form-control  input-sm " ng-model="faultSearch.areaCode">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Fault Code
+                    </label>
+                    <input type="text" class="form-control  input-sm " ng-model="faultSearch.code">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Fault Description
+                    </label>
+                    <input type="text" class="form-control  input-sm " ng-model="faultSearch.description">
+                </div>
+            </div>
+
+
+            <div class="col-md-1">
+                <br />
+                <button class="btn btn-xs btn-primary" style="margin-top:5px" ng-click="refreshFaultSearchGridData()"
+                        ng-disabled="faultsGridLoading">
+                    Search
+                </button>
+            </div>
+            <div class="col-md-1">
+                <br />
+                <button class="btn btn-xs btn-warning" style="margin-top:5px" ng-click="clearRefreshFaultSearchGridData()" ng-disabled="faultsGridLoading">
+                    Clear
+                </button>
+            </div>
+
+        </div>
+        <div class="row">
+            <!--<div class="watermark" ng-hide="!faultsGridLoading">
+                <div class="msg">
+                    <span>
+                        Loading Data...
+                        <i class="fa fa-spinner fa-spin"></i>
+                    </span>
+                </div>
+            </div>-->
+            <table ng-table="faultTable" class="table table-bordered table-striped table-condensed ">
+                <thead class="ngTableheader">
+                    <tr>
+                        <th>Fault Category</th>
+                        <th>Fault Area</th>
+                        <th>Fault Code</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in $data">
+                        <td align="center">{{row.FaultCategoryCode}}</td>
+                        <td align="center">{{row.FaultAreaCode}}</td>
+                        <td align="center">{{row.FaultCode}}</td>
+                        <td align="center">{{row.FaultName}}</td>
+                        <td align="center">
+                            <button class="btn btn-xs btn-primary" ng-click="selectFaultFromSearch(row.Id)">
+                                Select Fault
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="popUpProcessClaimItem">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 700px !important;
+                height: 450px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+            #serviceHistoryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #attachmentTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #claimItemTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+        </style>
+        <h3 class="">Process Claim Item</h3>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Item Status<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control input-sm" ng-class="currentClaimItem.validate_status" ng-model="currentClaimItem.status">
+                        <option value=""> Please Select </option>
+                        <option value="A"> Approve </option>
+                        <option value="R"> Reject </option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4" ng-show="currentClaimItem.claimItem=='P'">
+                <div class="form-group">
+                    <label class="control-label">
+                        Fault<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control input-sm" ng-class="currentClaimItem.validate_fault" ng-model="currentClaimItem.fault">
+
+                        <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                        <option ng-repeat="option in faults" value="{{option.Id}}"
+                                ng-selected="currentClaimItem.fault==option.Id">
+                            {{option.FaultCode +'-->'+ option.FaultName }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Item Name
+                    </label>
+                    <input type="text" class="form-control  input-sm " ng-readonly="true" ng-model="currentClaimItem.itemName">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Item Number
+                    </label>
+                    <input type="text" class="form-control  input-sm " ng-readonly="true" ng-model="currentClaimItem.itemNumber">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Quantity <span class="symbol required"></span>
+                    </label>
+                    <input type="text" class="form-control  input-sm " allow-pattern="(\d)" ng-change="adjustClaimItemValues(currentClaimItem)" ng-model="currentClaimItem.qty">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Unit Price <span class="symbol required"></span>
+                    </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control  input-sm " allow-pattern="(\d)" ng-change="adjustClaimItemValues(currentClaimItem)" ng-model="currentClaimItem.unitPrice">
+                        <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Discount Type
+                    </label>
+                    <select class="form-control  input-sm  input-sm" ng-change="discountRateChange(currentClaimItem)" ng-model="currentClaimItem.discountType">
+                        <option value="NA" ng-selected="currentClaimItem.discountType=='NA'"> Please Select </option>
+                        <option value="F" ng-selected="currentClaimItem.discountType=='F'"> Fixed Amount </option>
+                        <option value="P" ng-selected="currentClaimItem.discountType=='P'"> Percentage </option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Discount Rate
+                    </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control  input-sm" allow-pattern="(\d)" ng-change="discountRateChange(currentClaimItem)" ng-model="currentClaimItem.discountRate">
+                        <span class="input-group-addon input-sm">{{currentClaimItem.discountType=='F'?claimProcess.currencyCode:(currentClaimItem.discountType=='P'?'%':'')}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Discount
+                    </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control  input-sm " ng-readonly="true" ng-model="currentClaimItem.discountAmount">
+                        <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        GoodWill Type
+                    </label>
+                    <select class="form-control  input-sm  input-sm" ng-change="goodWillRateChange(currentClaimItem)" ng-model="currentClaimItem.goodWillType">
+                        <option value="NA" ng-selected="currentClaimItem.goodWillType=='NA'"> Please Select </option>
+                        <option value="F" ng-selected="currentClaimItem.goodWillType=='F'"> Fixed Amount </option>
+                        <option value="P" ng-selected="currentClaimItem.goodWillType=='P'"> Percentage </option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        GoodWill Rate
+                    </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control  input-sm " allow-pattern="(\d)" ng-change="goodWillRateChange(currentClaimItem)" ng-model="currentClaimItem.goodwillRate">
+                        <span class="input-group-addon input-sm">{{currentClaimItem.goodWillType=='F'?claimProcess.currencyCode:(currentClaimItem.goodWillType=='P'?'%':'')}}</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        GoodWill
+                    </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control  input-sm " ng-readonly="true" ng-model="currentClaimItem.goodWillAmount">
+                        <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Total Price
+                    </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control  input-sm " ng-readonly="true" ng-model="currentClaimItem.totalPrice">
+                        <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label class="control-label">
+                        Dealer Remark
+                    </label>
+                    <input type="text" class="form-control  input-sm " ng-model="currentClaimItem.remarks">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Authorized Amount <span class="symbol required"></span>
+                    </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control  input-sm " allow-pattern="(\d)"
+                               ng-class="currentClaimItem.validate_authorizedAmount" ng-model="currentClaimItem.authorizedAmount">
+                        <span class="input-group-addon input-sm">{{claimProcess.currencyCode}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">
+                        Comment
+                    </label>
+                    <input type="text" class="form-control  input-sm " ng-model="currentClaimItem.comment">
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-md-12">
+                <button class="btn btn-primary btn-sm pull-right" ng-click="saveClaimItem(currentClaimItem)">Save Item</button>
+            </div>
+        </div>
+
+    </script>
+    <script type="text/ng-template" id="popUpPolicyDetails">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 800px !important;
+                height: 250px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+            #serviceHistoryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #attachmentTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #claimItemTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+        </style>
+        <h3 class="">Policy Details</h3>
+        <div class="row ">
+            <div class="col-md-12">
+                <table style="font-size: small">
+                    <tr>
+                        <td height="30" style="width: 1%; white-space: nowrap">Policy No</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.policyNo}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Warranty Type</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.warrentyType}}  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Customer</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.customerName}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Contact No</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.mobileNumber}}</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td height="30" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">Insurer</td>
+                        <td height="30" ng-hide="isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30" ng-hide="isProductTire"><strong>{{policyDetails.insurer}} &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">ReInsurer</td>
+                        <td height="30" ng-hide="isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30" ng-hide="isProductTire"><strong>{{policyDetails.reInsurer}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Make</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.make}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Model</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.model}}</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td height="30" style="width: 1%; white-space: nowrap" ng-hide="isProductTire">Model Year</td>
+                        <td height="30" ng-hide="isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30" ng-hide="isProductTire"><strong>{{policyDetails.modelYear}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Cyllinder Count</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.cyllinderCount}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Capacity</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.engineCapacity}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Sale Price</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.salePrice}}</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td height="30" style="width: 1%; white-space: nowrap">Status</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.status}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">UW Year</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.uwYear}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">VIN</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.vin}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap"></td>
+                        <td height="30"></td>
+                        <td height="30"><strong></strong></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+    </script>
+    <script type="text/ng-template" id="popUpCoverDetails">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 700px !important;
+                height: 200px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+            #serviceHistoryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #attachmentTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #claimItemTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+        </style>
+        <h3 class="">Cover Details</h3>
+        <div class="row ">
+            <div class="col-md-12">
+                <table style="font-size: small" width="100%">
+                    <tr>
+                        <td height="30" style="width: 1%; white-space: nowrap">Manuf. Warranty Start Date</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.manfWarrentyStartDate}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Manuf. Warranty End Date</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.manfWarrentyEndDate}}</strong></td>
+
+                    </tr>
+
+                    <tr>
+                        <td height="30" style="width: 1%; white-space: nowrap">Extension Start Date</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.extensionStartDate}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Extension End Date</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.extensionEndDate}}</strong></td>
+
+                    </tr>
+
+                    <tr>
+                        <td height="30" style="width: 1%; white-space: nowrap">Manuf. Warranty Months</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.manfWarrentyMonths}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Extension Period</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.extensionPeriod}}</strong></td>
+
+                    </tr>
+
+                    <tr>
+                        <td height="30" style="width: 1%; white-space: nowrap">Extension Mileage</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.extensionMilage}}</strong></td>
+
+                        <td height="30" style="width: 1%; white-space: nowrap">Manuf. Warranty Mileage</td>
+                        <td height="30">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="30"><strong>{{policyDetails.manfWarrentyMilage}}</strong></td>
+
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </script>
+    <script type="text/ng-template" id="popUpAssesmentHistory">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 910px !important;
+                height: 400px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+
+            #assessmentHistryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+        </style>
+        <h3 class="">Assessment History</h3>
+        <div class="row ">
+            <div class="col-md-12">
+                <div style="height: 300px; overflow-y: scroll">
+                    <table class="table table-bordered" id="assessmentHistryTable" style="margin-top: 18px">
+                        <thead>
+                            <tr>
+                                <td>
+                                    Claim No
+                                </td>
+                                <td>
+                                    Date
+                                </td>
+                                <td>
+                                    Mileage
+                                </td>
+                                <td>
+                                    Customer Complaint
+                                </td>
+                                <td>
+                                    Dealer Comment
+                                </td>
+                                <td>
+                                    Engineer Assessment
+                                </td>
+                                <td>
+                                    Conclusion
+                                </td>
+                                <td>
+                                    Status
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="assesment in assesmentHistory track by $index">
+                                <td align="center">{{assesment.claimNumber}}</td>
+                                <td align="center">{{assesment.s_claimDate}}</td>
+                                <td align="center">{{assesment.milage}}</td>
+                                <td align="center">{{assesment.customerComplaint}}</td>
+                                <td align="center">{{assesment.dealerComment}}</td>
+                                <td align="center">{{assesment.engineerAssesment}}</td>
+                                <td align="center">{{assesment.conclution}}</td>
+                                <td align="center">{{GetStatusByCode(assesment.status)}}</td>
+
+                            </tr>
+                            <tr><td colspan="7" ng-show="assesmentHistory.length == 0 || assesmentHistory==null"> No Assessment History Records found</td></tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </script>
+    <script type="text/ng-template" id="popUpViewClaimRequest">
+        <style>
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 1300px !important;
+                height: 720px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+            #serviceHistoryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #claimItemTable > thead > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #attachmentTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+            #claimItemTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 50px !important;
+                padding-top: 50px !important;
+            }
+
+
+            .alignleft {
+                float: left;
+                width: 33.33333%;
+                text-align: left;
+            }
+
+            .aligncenter {
+                float: left;
+                width: 33.33333%;
+                text-align: center;
+            }
+
+            .alignright {
+                float: left;
+                width: 33.33333%;
+                text-align: right;
+            }
+
+            .nav > li > a {
+                position: relative;
+                display: block;
+                padding: 10px 15px !important;
+            }
+
+            /*chat*/
+            .chat {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+                .chat li {
+                    margin-bottom: 10px;
+                    padding-bottom: 5px;
+                    border-bottom: 1px dotted #B3A9A9;
+                }
+
+                    .chat li.left .chat-body {
+                        margin-left: 60px;
+                    }
+
+                    .chat li.right .chat-body {
+                        margin-right: 60px;
+                    }
+
+
+                    .chat li .chat-body p {
+                        margin: 0;
+                        color: #777777;
+                    }
+
+                .panel .slidedown .glyphicon, .chat .glyphicon {
+                    margin-right: 5px;
+                }
+
+            .panel-body {
+                overflow-y: scroll;
+                height: 250px;
+            }
+
+            ::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                background-color: #F5F5F5;
+            }
+
+            ::-webkit-scrollbar {
+                width: 12px;
+                background-color: #F5F5F5;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                background-color: #555;
+            }
+        </style>
+        <div class="row ">
+            <div class="col-sm-4 col-md-4">
+
+                <div class="alert" ng-class="GetStatusStyleByCode(claimView.claimStatusCode)" role="alert">
+                    <table style="width:100%">
+                        <tr>
+                            <td align="center">Claim Number</td>
+                            <td align="center">Claim Status</td>
+                            <td align="center" ng-hide="isProductTire">Approved Amount</td>
+
+                        </tr>
+                        <tr>
+                            <td align="center"><b>{{claimView.claimNumber}}</b></td>
+                            <td align="center"><b>{{GetStatusByCode(claimView.claimStatusCode)}}</b></td>
+                            <td align="center" ng-hide="isProductTire">
+                                <b ng-show="claimView.AuthorizedClaimAmount!='0'">{{numberWithCommas(claimView.AuthorizedClaimAmount)+' '+claimView.currencyCode}}</b>
+                                <b ng-hide="claimView.AuthorizedClaimAmount!='0'">N/A</b>
+
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="height: 200px; overflow: scroll; ">
+                    <p class="pull-left"><u>Part List</u></p>
+                    <p class="text-info pull-right">
+                        * All prices are displayed in {{claimView.currencyCode}}.
+                    </p>
+                    <table id="claimItemTable" class="table table-bordered table-striped table-condensed " style="font-size:small">
+                        <thead class="ngTableheader">
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Item Number</th>
+                                <th>Qty</th>
+                                <th ng-show="!isProductTire && usertype=='iu'">Cost Price</th>
+                                <th ng-show="!isProductTire">Total Price</th>
+                                <th ng-show="!isProductTire">Discount</th>
+                                <th ng-show="isProductTire">Calculation</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="claimItem in claimView.claimItemList track by $index">
+                                <td>{{claimItem.itemName}}</td>
+                                <td>{{claimItem.itemNumber}}</td>
+                                <td align="center">{{claimItem.qty}}</td>
+                                <td align="right" ng-show="!isProductTire || usertype=='iu'">{{claimItem.totalPrice |number : 2}}</td>
+                                <td align="right" ng-show="!isProductTire">{{claimItem.discountAmount | number : 2}}</td>
+                                <td align="center" ng-show="isProductTire">
+                                    <button class="btn btn-xs btn-primary" ng-click="showCalculationPopup(claimItem.id)">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <div style="background-color:#b3e0ff" ng-hide="isProductTire">
+                    <!--<p class="pull-left ">Discount Amount: <strong>{{claimView.TotalDiscountAmount }}</strong></p>-->
+                    <p class="pull-right">Requested Amount: <strong>{{ numberWithCommas(claimView.TotalClaimAmount) +' '+claimView.currencyCode }}</strong></p>
+
+                </div>
+                <br />
+                <div class="clearfix"></div>
+                <tabset class="tabbable" style="max-height:250px;overflow-y:scroll">
+                    <tab heading="Comments">
+                        <div style="max-height:200px;overflow-y:scroll;width:104%">
+                            <h5 ng-show="claimView.claimMessage.length==0">No comments found.</h5>
+                            <div>
+                                <ul class="chat" ng-repeat="messege in claimView.claimMessage">
+                                    <li ng-class="userType=='iu' && messege.ByTPA?'right clearfix':
+                                    (userType=='du' && messege.ByTPA?'left clearfix':'right clearfix')">
+                                        <span ng-class="userType=='iu' && messege.ByTPA?'chat-img pull-right':
+                                    (userType=='du' && messege.ByTPA?'chat-img pull-left':'chat-img pull-right')">
+                                            <img ng-src="{{'http://placehold.it/50/55C1E7/fff&text='+messege.SentFrom.charAt(0).toUpperCase() }}"
+                                                 alt="User Avatar" class="img-circle" />
+                                        </span>
+                                        <div class="chat-body clearfix">
+                                            <div class="header">
+                                                <strong class="primary-font">
+                                                    {{messege.SentFrom}}
+                                                </strong> <small ng-class="userType=='iu' && messege.ByTPA?'text-muted pull-right':
+                                    (userType=='du' && messege.ByTPA?'text-muted pull-left':'text-muted pull-right')">
+                                                    <span class="glyphicon glyphicon-time"></span>{{messege.EntryDateTime}}
+
+
+                                                </small>
+                                            </div>
+                                            <p>
+                                                {{messege.Comment}}
+
+
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </tab>
+
+                    <tab heading="Notes" ng-show="userType=='iu'">
+                        <table class="table table-bordered table-striped table-condensed " style="font-size:x-small">
+                            <thead class="ngTableheader">
+                                <tr>
+                                    <td>Date</td>
+                                    <td>User</td>
+                                    <td>Note</td>
+                                </tr>
+                            </thead>
+                            <tbody style="max-height:150px; overflow-y:scroll">
+                                <tr ng-show="claimView.claimNotes.length==0">
+                                    <td colspan="3"><h4>No notes found.</h4></td>
+                                </tr>
+                                <tr ng-repeat="note in claimView.claimNotes">
+                                    <td align="center">
+                                        {{note.EntryDateTime}}
+
+
+                                    </td>
+                                    <td align="center">
+                                        {{note.SubmittedUser}}
+
+
+                                    </td>
+                                    <td align="center">
+                                        {{note.Note}}
+
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </tab>
+
+                    <tab heading="History">
+                        <tabset class="tabbable">
+                            <tab heading="Claim" ng-show="userType=='iu'">
+                                <table class="table table-bordered table-striped table-condensed "
+                                       style="font-size:x-small">
+                                    <thead class="ngTableheader">
+                                        <tr>
+                                            <td>Date</td>
+                                            <td>ClaimNo</td>
+                                            <td>Status</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="max-height:150px; overflow-y:scroll">
+                                        <tr ng-show="claimView.claimHistory.length==0">
+                                            <td colspan="3"><h4>No claim history found.</h4></td>
+                                        </tr>
+                                        <tr ng-repeat="claimhistory in claimView.claimHistory">
+                                            <td align="center">
+                                                {{claimhistory.s_date}}
+
+
+                                            </td>
+                                            <td align="center">
+                                                <a href="#" ng-click="loadClaimRequestById(claimhistory.claimId)">
+                                                    {{claimhistory.claimNo}}
+                                                </a>
+
+
+
+                                            </td>
+                                            <td align="center">
+                                                {{claimhistory.s_status}}
+
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </tab>
+
+                            <tab heading="Assessment" ng-show="userType=='iu'">
+                                <table class="table table-bordered table-striped table-condensed " style="font-size:x-small">
+                                    <thead class="ngTableheader">
+                                        <tr>
+                                            <td>Claim</td>
+                                            <td>Assessment</td>
+                                            <td>Conclusion</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="max-height:150px; overflow-y:scroll">
+                                        <tr ng-show="claimView.claimAssessment.length==0">
+                                            <td colspan="3"><h4>No assessment found.</h4></td>
+                                        </tr>
+                                        <tr ng-repeat="assessment in claimView.claimAssessment">
+                                            <td align="center">
+                                                {{assessment.claimNumber}}
+
+
+                                            </td>
+                                            <td align="center">
+                                                {{assessment.engineerAssesment}}
+
+
+                                            </td>
+                                            <td align="center">
+                                                {{assessment.conclution}}
+
+
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </tab>
+
+                            <tab heading="Service">
+                                <table class="table table-bordered table-striped table-condensed " style="font-size:x-small">
+                                    <thead class="ngTableheader">
+                                        <tr>
+                                            <td>#</td>
+                                            <td>Date</td>
+                                            <td>Mileage (km)</td>
+                                            <td>Remark</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="max-height:150px; overflow-y:scroll">
+                                        <tr ng-show="claimView.serviceHistory.length==0">
+                                            <td colspan="4"><h4>No service history found.</h4></td>
+                                        </tr>
+                                        <tr ng-repeat="service in claimView.serviceHistory">
+                                            <td align="center">
+                                                {{service.ServiceNumber}}
+
+
+                                            </td>
+                                            <td align="center">
+                                                {{service.ServiceDate}}
+
+
+                                            </td>
+                                            <td align="center">
+                                                {{service.Milage}}
+
+
+                                            </td>
+                                            <td align="center">
+                                                {{service.Remarks}}
+
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </tab>
+                        </tabset>
+                    </tab>
+
+                    <tab heading="Attachments">
+                        <table class="table table-bordered table-striped table-condensed " style="font-size:x-small">
+                            <thead class="ngTableheader">
+                                <tr>
+                                    <td>Document Type</td>
+                                    <td>File Name</td>
+                                    <td>Date Of Attachment</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody style="max-height:150px; overflow-y:scroll">
+                                <tr ng-show="claimView.claimAttachments.length==0">
+                                    <td colspan="3"><h4>No claim attachments found.</h4></td>
+                                </tr>
+                                <tr ng-repeat="attachment in claimView.claimAttachments">
+                                    <td align="center">
+                                        {{attachment.DocumentType}}
+
+
+                                    </td>
+                                    <td align="center">
+                                        {{attachment.FileName}}
+
+
+                                    </td>
+                                    <td align="center">
+                                        {{attachment.DateOfAttachment}}
+
+
+                                    </td>
+                                    <td align="center">
+                                        <button class="btn btn-xs btn-info" ng-click="downloadAttachmentUploaded(attachment.FileServerRef)">Download</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </tab>
+                </tabset>
+            </div>
+            <div class="col-md-8">
+
+                <table style=" font-size:small;background-color:#F5D6FE" width="100%">
+                    <tr>
+                        <td colspan="9">
+                            <h6><u>Dealer Submitted Policy Details</u></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap">Customer</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25"><strong>{{claimView.customerNameCS}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap">Policy No.</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25"><strong>{{claimView.policyNumber}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">VIN</td>
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="isProductTire">Invoice Code</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25"><strong>{{claimView.vinNo }}</strong></td>
+
+
+                    </tr>
+
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap">Plate No</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25"><strong>{{claimView.plateNo}}</strong></td>
+
+
+                        <td height="25" style="width: 1%; white-space: nowrap">Location</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25"><strong>{{claimView.repairCenterLocation}}</strong></td>
+
+
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">Model</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25"><strong>{{claimView.modelCS}}</strong></td>
+
+                    </tr>
+
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap">Repaire Center</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td title="{{claimView.repairCenter}}" height="25"><strong class="text-primary">{{claimView.DealerCode}}</strong></td>
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">Last Service Date</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25" ng-show="!isProductTire"><strong>{{claimView.lastServiceDate}}</strong></td>
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">Make</td>
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="isProductTire">Brand</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25"><strong>{{claimView.makeCS}}</strong></td>
+
+                    </tr>
+
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">Product Line</td>
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="isProductTire">Failure Date</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25" ng-show="!isProductTire"><strong>{{claimView.modelCS}}</strong></td>
+                        <td height="25" ng-show="isProductTire"><strong>{{claimView.ClaimDate}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">Last Service Mileage</td>
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="isProductTire">Failure Mileage</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;</td>
+                        <td height="25"><strong class="text-primary">{{claimView.lastServiceMileage}} KM</strong></td>
+
+
+
+                        <!--<td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire"> </td>
+                        <td height="25">&nbsp;&nbsp;</td>
+                        <td height="25"> </td>-->
+                        <!--<td height="25" style="width: 1%; white-space: nowrap">Repaire Center </td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>Lexus city</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap">Location</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>Downtown</strong></td>-->
+
+                    </tr>
+                </table>
+
+
+                <table style=" font-size:small;background-color:#eaf0f9 ;margin-top:10px" width="100%" >
+                    <tr>
+                        <td colspan="9"><h6><u>Original Policy Details</u></h6></td>
+                    </tr>
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap">Policy No.</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>{{claimView.oPolicyNumber}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap">Policy Dealer</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25" colspan="4"><strong>{{claimView.oPolicyDealer}}</strong></td>
+
+
+
+
+                    </tr>
+
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap">Claim Number</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong class="text-primary">{{claimView.oClaimNumber}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap">Make & Model</td>
+                        <!--<td height="25" style="width: 1%; white-space: nowrap" ng-show="isProductTire">Brand & Product Line</td>-->
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>{{claimView.oMakeModel}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap">Model Year</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>{{claimView.oModelYear}}</strong></td>
+
+
+                    </tr>
+
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap">Customer</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong class="text-primary">{{claimView.oCustomerName}}</strong></td>
+
+                        <!--<td height="25" style="width: 1%; white-space: nowrap">Co-Buyer </td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong> </strong></td>-->
+
+                        <td height="25" style="width: 1%; white-space: nowrap">Mobile No.</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>{{claimView.oMobileNumber}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap">Usage Type</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>{{claimView.oUsageType}}</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap">Reinsurer</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>{{claimView.oReinsurer}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap">Cedent</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>{{claimView.oCedent}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">Engine Capacity</td>
+                        <td height="25" ng-show="!isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25" ng-show="!isProductTire"><strong>{{claimView.oEngineCapacity}}</strong></td>
+                        <!--<td height="25" style="width: 1%; white-space: nowrap">Prod. Month</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>JAN - 2016</strong></td>-->
+
+
+                    </tr>
+
+
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">Plate No</td>
+                        <td height="25" ng-show="!isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong class="text-primary" ng-show="!isProductTire">{{claimView.oPlateNumber}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">Cylinder Count</td>
+                        <td height="25" ng-show="!isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25" ng-show="!isProductTire"><strong>{{claimView.oCylinderCount}}</strong></td>
+
+
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">Sale Price</td>
+                        <td height="25" ng-show="!isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25" ng-show="!isProductTire"><strong>{{claimView.oSalePrice}}</strong></td>
+
+
+                    </tr>
+
+                    <tr>
+                        <td height="25" style="width: 1%; white-space: nowrap">UW Year</td>
+                        <td height="25">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25"><strong>{{claimView.oUWYear}}</strong></td>
+
+                        <td height="25" style="width: 1%; white-space: nowrap" ng-show="!isProductTire">VIN/Serial</td>
+                        <td height="25" ng-show="!isProductTire">&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                        <td height="25" ng-show="!isProductTire"><strong class="text-primary">{{claimView.oVin}}</strong></td>
+
+
+
+                    </tr>
+                </table>
+
+
+                <div class="col-md-6" ng-show="!isProductTire">
+                    <table style=" font-size:small;background-color:#eaf0f9;margin-top:10px" width="100%" >
+
+                        <thead>
+                            <tr>
+                                <td colspan="3">
+                                    <h6><u>Coverage Details</u></h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="25" style="width: 1%; white-space: nowrap"></td>
+
+                                <td height="25" style="width: 1%; white-space: nowrap">Manufacture</td>
+
+
+                                <td height="25" style="width: 1%; white-space: nowrap">Extension</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td height="25" style="width: 1%; white-space: nowrap">Start</td>
+
+
+                                <td height="25"><strong>{{claimView.oMWStart}}</strong></td>
+
+                                <td height="25"><strong class="text-primary">{{claimView.oExtStart}}</strong></td>
+
+
+                            </tr>
+
+                            <tr>
+                                <td height="25" style="width: 1%; white-space: nowrap">Expiry</td>
+
+                                <td height="25"><strong>{{claimView.oMWExp}}</strong></td>
+
+                                <td height="25"><strong class="text-primary">{{claimView.oExtExp}}</strong></td>
+                            </tr>
+
+                            <tr>
+                                <td height="25" style="width: 1%; white-space: nowrap">Warranty Month</td>
+
+
+                                <td height="25"><strong>{{claimView.oMWMonths}}</strong></td>
+
+
+                                <td height="25"><strong>{{claimView.oExtMonths}}</strong></td>
+
+                            </tr>
+
+                            <tr>
+                                <td height="25" style="width: 1%; white-space: nowrap">Mileage</td>
+
+                                <td height="25"><strong>{{claimView.oMWMileage}}</strong></td>
+
+                                <td height="25"><strong>{{claimView.oExtMileage}}</strong></td>
+
+                            </tr>
+
+                            <tr>
+                                <td height="25" style="width: 1%; white-space: nowrap">KM Cutoff</td>
+
+                                <td height="25" colspan="2"><strong class="text-primary">{{claimView.oCutoffKm}}</strong></td>
+
+
+
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+                <div class="col-md-6" ng-show="!isProductTire">
+                    <div class="col-md-12" ng-show="!isProductTire">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Customer Complaint
+                            </label>
+                            <textarea placeholder="Customer Complaint" readonly="readonly" ng-model="claimView.Complaint.customer" style="height:50px" class="form-control" rows="3" cols="4" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" ng-show="!isProductTire">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Dealer Comment
+                            </label>
+                            <textarea placeholder="Dealer Comment" readonly="readonly" style="height:50px" ng-model="claimView.Complaint.dealer" class=" form-control" rows="3" cols="4" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6" ng-show="isProductTire">
+
+                    <div class="col-md-12" ng-show="isProductTire">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Dealer Comment
+                            </label>
+                            <textarea placeholder="Dealer Comment" readonly="readonly" style="height:65px;width:845px" ng-model="claimView.Complaint.dealer" class=" form-control" rows="3" cols="4" />
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
+                </div>
+
+                <div class="clearfix"></div>
+                <div class="pull-right" style="margin-top:10px">
+
+                    <button class="btn btn-sm btn-info " ng-click="informationRequestView()"
+                            ng-show="userType=='iu'" ng-disabled="claimView.claimStatusCode=='APP' || claimView.claimStatusCode=='REJ' ">
+                        <i class="fa fa-info"></i> &nbsp;
+                        Request Information
+                    </button>
+
+                    <button class="btn btn-sm btn-primary " ng-click="goToProcessClaim()" ng-show="userType=='iu'" ng-disabled="claimView.claimStatusCode=='APP' || claimView.claimStatusCode=='REJ' ">
+                        <i class="fa fa-cogs"></i> &nbsp;
+                        Process Claim
+                    </button>
+
+                    <button class="btn btn-sm btn-danger " ng-click="rejectClaimView()" ng-show="userType=='iu'"
+                            ng-disabled="claimView.claimStatusCode=='APP' || claimView.claimStatusCode=='REJ' ">
+                        <i class="fa fa-ban"></i> &nbsp;
+                        Reject Claim
+                    </button>
+                    <!--<button class="btn btn-sm btn-primary" ng-show="isProductTire"
+                            ng-click="showCalculationPopup()">
+                        <i class="fa fa-calculator"></i> &nbsp;
+                         Claim Calculation Summery
+                    </button>-->
+                    <!--<button class="btn btn-sm btn-primary" ng-hide="userType=='iu'"
+                            ng-disabled="claimView.claimStatusCode!='SUB' && claimView.claimStatusCode!='REQ'"
+                            ng-click="editClaim(claimView.id)">
+                        <i class="fa fa-edit"></i> &nbsp;
+                        Edit Claim
+                    </button>-->
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </script>
+    <script type="text/ng-template" id="popUpClaimHistory">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 1330px !important;
+                height: 500px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+
+            #claimHistryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+        </style>
+        <h3 class="">Claim History</h3>
+        <div class="row ">
+            <div class="col-md-12">
+                <div style="height: 300px; overflow-y: scroll">
+                    <table class="table table-bordered" id="claimHistryTable" style="margin-top: 18px">
+                        <thead>
+                            <tr>
+                                <td>
+                                    Claim No
+                                </td>
+                                <td>
+                                    Failure Date
+                                </td>
+                                <!--<td>
+                                    Date
+                                </td>-->
+                                <td>
+                                    Mileage
+                                </td>
+                                <td>
+                                    Fault
+                                </td>
+                                <td>
+                                    Pre Claim Liability
+                                </td>
+                                <td>
+                                    Approved Date
+                                </td>
+                                <td>
+                                    Requested Amount
+                                </td>
+                                <td>
+                                    Authorized Amount
+                                </td>
+                                <td>
+                                    Total Liability
+                                </td>
+                                <td>
+                                    Status
+                                </td>
+                                <td>
+                                    Comments
+                                </td>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="claim in claimHistory track by $index">
+                                <td align="center">{{claim.claimNo}}</td>
+                                <td align="center">{{claim.failureDate}}</td>
+                                <!--<td align="center">{{claim.failureDate}}</td>-->
+                                <!--<td align="center">{{claim.s_date}}</td>-->
+                                <td align="center">{{claim.milage}}</td>
+                                <td align="center">{{claim.fault}}</td>
+                                <td align="center">{{claim.perClaimLiability}}</td>
+                                <td align="center">{{claim.approvedDate}}</td>
+                                <td align="center">{{claim.requestedAmount}}</td>
+                                <td align="center">{{claim.authorizedAmount}}</td>
+                                <td align="center">{{claim.totalLiability}}</td>
+                                <td align="center">{{GetStatusByCode(claim.status)}}</td>
+                                <td align="center">{{claim.comments}}</td>
+
+                            </tr>
+                            <tr><td colspan="7" ng-show="claimHistory.length == 0 || assesmentHistory==null"> No Assessment History Records found</td></tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </script>
+    <script type="text/ng-template" id="popUpInitialSelection">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 400px !important;
+                height: 100px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+
+            #claimHistryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+        </style>
+        <h4 class="">Please select an action</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-primary pull-right" ng-click="showPolicySearchPopup()">
+                    Submit A New Claim
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-blue " ng-click="showClaimSearchPopup()">
+                    Process Submitted Claim
+                </button>
+            </div>
+
+        </div>
+
+    </script>
+    <script type="text/ng-template" id="popUpClaimSelection">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 1100px !important;
+                height: 570px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+
+            .watermark {
+                /*position: absolute;*/
+                top: 50%;
+                font-size: 15px;
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+                z-index: 1000;
+            }
+        </style>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="watermark" ng-hide="!policyGridloading">
+                    <div class="msg">
+                        <span>
+                            Loading Data...
+                            <i class="fa fa-spinner fa-spin"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="max-height:530px;overflow-y:scroll" >
+                <table ng-table="claimTable" class="table table-bordered table-striped table-condensed " style="margin-bottom:5px">
+                    <thead class="ngTableheader">
+                        <tr>
+                            <th></th>
+                            <th>Commodity Type</th>
+                            <th>Policy No</th>
+                            <th>Claim No</th>
+                            <th>Claim Dealer</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Total Claim Amount</th>
+                            <th>Submitted Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr ng-repeat="row in $data">
+                            <td>
+                                <button class="btn btn-xs btn-primary" ng-click="selectClaimToProcessByGrid(row.Id,row.PolicyId)"><i class="fa fa-book"></i>&nbsp;&nbsp;Process Claim</button>
+
+                            </td>
+                            <td>{{row.CommodityType}}</td>
+                            <td>{{row.PolicyNumber}}</td>
+                            <td>{{row.ClaimNumber==""?'N/A':row.ClaimNumber}}</td>
+                            <td>{{row.ClaimDealer}}</td>
+                            <td>{{row.Make}}</td>
+                            <td>{{row.Model}}</td>
+                            <td align="right">{{row.ClaimAmount}}</td>
+                            <td>{{row.Date}}</td>
+                            <td>{{GetStatusByCode(row.Status)}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-md-12">
+                <br />
+                <br />
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="popUpPolicySelection">
+        <style>
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 800px !important;
+                height: 450px !important;
+            }
+
+            .ui-grid-top-panel {
+                font-weight: 400 !important;
+            }
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .grid {
+                height: 250px !important;
+            }
+
+            .ui-grid-pager-panel {
+                text-align: right;
+                box-sizing: border-box !important;
+            }
+
+            .ui-grid-header-cell .ui-grid-cell-contents {
+                text-align: center;
+            }
+
+            .columCss {
+                text-decoration: none;
+            }
+
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+        </style>
+        <div>
+            <h3 class="">Search Policy</h3>
+            <!--<form>-->
+            <div name="myForm" class="my-form">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Commodity Type</label>
+                            <select name="PolicyCommodityType" id="drpPolicyCommodityType" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.commodityTypeId"
+                                    ng-options="n.CommodityTypeId as n.CommodityTypeDescription for n in commodityTypes"
+                                    ng-change="SetPolicyCommodityTypeValue()" tabindex="22">
+                                <option value=""> Please Select </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Policy No</label>
+                            <input type="text" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.PolicyNo">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">VIN/Serial</label>
+                            <input type="text" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.serialNo">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Cust. Mobile No</label>
+                            <input type="text" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.mobileNo">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Policy Start Date
+                            </label>
+                            <input type="text" placeholder="Click for Calendar" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.policyStartDate"
+                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpenf = !startOpenf" is-open="startOpenf" ng-init="startOpenf = false" close-text="Close" tabindex="8" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Policy End Date
+                            </label>
+                            <input type="text" placeholder="Click for Calendar" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.policyEndDate"
+                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="endOpen = !endOpen" is-open="endOpen" ng-init="endOpen = false" close-text="Close" tabindex="9" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="ngdialog-buttons pull-right">
+                            <input type="button" style="margin-top:20px" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="refresSearchGridData()" value="Search">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="grid" ui-grid-pagination ui-grid="gridOptionsPolicy" style="margin-top:5px">
+                            <div class="grid-msg-overlay" ng-hide="gridOptionsPolicy.data.length>0 && policySearchGridloadAttempted">
+                                <div class="msg">
+                                    <span>No Data</span>
+                                </div>
+                            </div>
+                            <div class="grid-msg-overlay" ng-hide="!policySearchGridloading">
+                                <div class="msg">
+                                    <span>
+                                        Loading Data...
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--</form>-->
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="popUpAddNewPart">
+        <style>
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 600px !important;
+                height: 450px !important;
+            }
+
+            .ui-grid-top-panel {
+                font-weight: 400 !important;
+            }
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .grid {
+                height: 250px !important;
+            }
+
+            .ui-grid-pager-panel {
+                text-align: right;
+                box-sizing: border-box !important;
+            }
+
+            .ui-grid-header-cell .ui-grid-cell-contents {
+                text-align: center;
+            }
+
+            .columCss {
+                text-decoration: none;
+            }
+
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            #loading {
+                width: 100%;
+                height: 100%;
+                top: 120px;
+                left: 0px;
+                position: fixed;
+                display: block;
+                opacity: 0.7;
+                background-color: black;
+                z-index: 99;
+                text-align: center;
+            }
+
+            .watermark {
+                /*position: absolute;*/
+                top: 50%;
+                font-size: 15px;
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+                z-index: 1000;
+            }
+
+            .has-error {
+                border: solid 1px #e84e4e !important;
+                /*#fbaa2b*/
+            }
+        </style>
+        <div class="row">
+            <h3 class="">&nbsp; Add new part</h3>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" for="form-field-1">
+                        Commodity Type<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control"
+                            ng-model="newPart.CommodityId"
+                            ng-class="validate_partCommodityType">
+                        <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                        <option ng-repeat="option in newcommodityTypes" value="{{option.CommodityTypeId}}"
+                                ng-selected="newPart.CommodityId==option.CommodityTypeId">
+                            {{option.CommodityTypeDescription}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">
+                        Part Area<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control" ng-model="newPart.PartAreaId" ng-class="validate_partPartArea"
+                            ng-change="selectedPartAreaChanged()">
+                        <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                        <option ng-repeat="option in partAreas" value="{{option.Id}}"
+                                ng-selected="newPart.PartAreaId==option.Id">
+                            {{option.PartAreaName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label">
+                        Part Name<span class="symbol required"></span>
+                    </label>
+                    <input type="text" class="form-control" ng-model="newPart.PartName" ng-class="validate_partName">
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">
+                        Part Code<span class="symbol required"></span>
+                    </label>
+                    <input type="text" class="form-control" ng-model="newPart.PartCode" ng-class="validate_partCode">
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">
+                        Part Number<span class="symbol required"></span>
+                    </label>
+                    <input type="text" class="form-control" ng-model="newPart.PartNumber" ng-class="validate_partNumber">
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Allocated Hours
+                    </label>
+                    <input type="number" class="form-control"
+                           allow-pattern="(\d)"
+                           ng-model="newPart.AllocatedHours"
+                           name="AllocatedHours">
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Part Price
+                    </label>
+
+                    <div class="input-group">
+                        <input type="number" class="form-control"
+                               ng-class="validate_partPrice"
+                               allow-pattern="(\d)"
+                               ng-model="newPart.Price">
+                        <span class="input-group-addon">{{dealer.currencyCode}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <br />
+                    <input id="IsActive" type="checkbox" ng-model="newPart.IsActive">
+                    <label class="control-label">
+                        Active
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <br />
+                    <input id="IsActive" type="checkbox" ng-model="newPart.ApplicableForAllModels">
+                    <label class="control-label">
+                        Applicable For All Models
+                    </label>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="col-md-3 col-md-offset-9">
+                <br />
+                <button class="btn btn-primary  btn-info" style="width:100%" ng-click="savePart()">
+                    Save <i ng-class="PartSaveBtnIconClass"></i>
+                </button>
+            </div>
+
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="popUpCalcuationUDT">
+        <style>
+            .ngdialog-content {
+                width: 400px !important;
+                height: 560px !important;
+            }
+
+            table {
+                width: 90%;
+            }
+        </style>
+        <div class="ngdialog-message">
+            <div class="row">
+                <table border='0' align='center' cellpadding='0' cellspacing='0'>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>Policy Start Date</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.PolicyStartDate | date:'dd MMM yyyy'}}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>Failure Date</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.FailureDate | date:'dd MMM yyyy'}}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>No of Dates to Failure Date</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.NoofDatetoFaliarDate }}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>KM at Policy Sale</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.KMatPolicySale | number}} &nbsp; KM
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>KM at Failure Date</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.KMatFailureDate | number}} &nbsp; KM
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>Driven KM from Policy Period</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.DrivanKM | number }} &nbsp; KM
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 0px 3px 0px'>
+
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>Tire Tread Depth</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.OriginalTireDepth}}&nbsp; mm
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>Unused Tire Depth (UTD)</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.UnsedTireDepth}}&nbsp; mm
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>UTD Percentage</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.PercentageValue}} &nbsp; %
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>Reimbursement Percentage</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{CalculateUDTvalues.OriginalPercentageValue }} &nbsp; %
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>Tyre Sold Price</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{claimProcess.currencyCode}} &nbsp; {{CalculateUDTvalues.OriginalTirePrice}}
+
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>Tyre Cost Price</strong>
+                            </td>
+                            <td align='right' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 5px 3px 5px'>
+                                {{claimProcess.currencyCode}} &nbsp; {{CalculateUDTvalues.OriginalTirePrice | number :2}}
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr ng-hide="isProductTire">
+                            <td width='60%' align='left' valign='top' style='color:#404041;font-size:14px;line-height:16px;padding:15px 0px 3px 0px'>
+                                <strong>Warranty credits</strong>
+                            </td>
+                            <td align='right' valign='top' style='color: #339933; font-size: 12px; line-height: 16px; padding: 15px 5px 3px 5px'>
+                                {{claimProcess.currencyCode}} &nbsp; {{CalculateUDTvalues.CalculateUDT}}
+                            </td>
+                            <!--<td align='right' valign='top' style='color:#339933;font-size:13px;line-height:16px;padding:5px 5px 3px 5px'>
+                                {{CalculateUDTvalues.CalculateUDT}}
+                            </td>-->
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <table border='1' align='center' cellpadding='0' cellspacing='0'>
+                    <tr>
+                        <th style="color:#ffa500" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dealer</th>
+                        <th style="color:#ffa500" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customer</th>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;&nbsp;{{claimProcess.currencyCode}} &nbsp; {{CalculateUDTvalues.CalculateUDT | number:0 }}</td>
+                        <td>&nbsp;&nbsp;{{claimProcess.currencyCode}} &nbsp; {{CalculateUDTvalues.CustomerValue | number:0 }}</td>
+                    </tr>
+
+
+                </table>
+                <br />
+                <label ng-show="WithinMonthlbl" style="font-size:12px;color:black;font-weight:bold;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;Note: Within the first month below 2000 km.
+                </label>
+            </div>
+
+        </div>
+
+    </script>
+
+    <script type="text/ng-template" id="popUpAttachmnetDetails">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 900px !important;
+                height: 400px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+
+            #claimHistryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+        </style>
+        <h3 class="">Attachment Details</h3>
+        <div class="row ">
+            <div class="col-md-12">
+                <div class="panel panel-white no-radius">
+                    <div style="height: 300px; overflow-y: scroll">
+                        <table class="table" style="margin-top: 18px">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        Type
+                                    </td>
+                                    <td>
+                                        Policy No
+                                    </td>
+                                    <td>
+                                        Claim No
+                                    </td>
+                                    <td>
+                                        File Name
+                                    </td>
+                                    <td>
+                                        Size
+                                    </td>
+                                    <td>
+                                        Attachment Section
+                                    </td>
+                                    <td>
+                                        Date Of Attachments
+                                    </td>
+                                    <td></td>
+                                    <td ng-show="!formAction"></td>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in docUploader.queue">
+                                    <td>
+                                        <span ng-bind="item.documentType"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.policyNumber"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.claimNumber"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.file.name"></span>
+                                    </td>
+                                    <td>
+                                        <span>{{item.file.size|byteToKB}}</span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.attachmentSection"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.dateOfAttachment"></span>
+                                    </td>
+                                    <td ng-show="!formAction">
+                                        <button class="btn btn-xs btn-warning" ng-disabled="{{item.ref===undefined}}" ng-click="downloadAttachmentUploaded(item.ref)" tabindex="42">Download</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
+    <script type="text/ng-template" id="popUpNoteDetails">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 1000px !important;
+                height: 400px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+
+            #claimHistryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+        </style>
+        <h3 class="">Notes added against claim & policy</h3>
+        <div class="row ">
+
+            <div class="col-md-11">
+                <div class="form-group">
+                    <label class="control-label">
+                        Add New Note<span class="symbol required"></span>
+                    </label>
+                    <input type="text" class="form-control" style="width:100%" ng-model="claimNotes.note" />
+                </div>
+            </div>
+
+            <div class="col-md-1 pull-left">
+                <button class="btn btn-primary" style="margin-top:25px" ng-click="addNotes()">
+                    Save
+                </button>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-12">
+                <div style="height: 250px; overflow-y:scroll; margin-top:10px">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>
+                                    Policy No
+                                </td>
+                                <td>
+                                    Claim No
+                                </td>
+                                <td>
+                                    Note
+                                </td>
+                                <td>
+                                    Added By
+                                </td>
+                                <td>
+                                    Added Date
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-show="claimNotes.length == 0">
+                                <td colspan="6"> <h3>No claim notes found.</h3></td>
+                            </tr>
+                            <tr ng-repeat="note in claimNotes">
+                                <td>
+                                    <span ng-bind="note.PolicyNo"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="note.ClaimNo"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="note.Note"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="note.SubmittedUser"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="note.EntryDateTime"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
+    <script type="text/ng-template" id="popUpCommentsDetails">
+        <style>
+            .form-group {
+                margin-bottom: 5px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 1000px !important;
+                height: 400px !important;
+            }
+
+            .row.vdivide [class*='col-']:not(:last-child):after {
+                background: #e0e0e0;
+                width: 1px;
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                min-height: 70px;
+            }
+
+            .ngdialog.ngdialog-theme-plain {
+                padding-bottom: 80px;
+                padding-top: 80px;
+            }
+
+
+            #claimHistryTable > tbody > tr > td {
+                height: 25px;
+                padding: 0px;
+                border-top: 0px;
+            }
+        </style>
+        <h3 class="">Pending Comments</h3>
+        <div class="row ">
+
+
+            <div class="col-md-12">
+                <div style="height: 250px; overflow-y:scroll; margin-top:10px">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>
+                                    Policy No
+                                </td>
+                                <td>
+                                    Claim No
+                                </td>
+                                <td>
+                                    Comment
+                                </td>
+                                <!--<td>
+                                    Added By
+                                </td>
+                                <td>
+                                    Added Date
+                                </td>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-show="claimPendingComments.length == 0">
+                                <td colspan="6"> <h4>No Comments found.</h4></td>
+                            </tr>
+                            <tr ng-repeat="pendingComments in claimPendingComments">
+                                <td>
+                                    <span ng-bind="pendingComments.PolicyNo"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="pendingComments.ClaimNo"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="pendingComments.Comment"></span>
+                                </td>
+                                <!--<td>
+                                    <span ng-bind="note.SubmittedUser"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="note.EntryDateTime"></span>
+                                </td>-->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </script>
+

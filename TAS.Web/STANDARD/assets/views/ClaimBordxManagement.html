@@ -1,0 +1,463 @@
+﻿<div ng-app="LFA" ng-controller="ClaimBordxManagementCtrl as ClaimBordxManagementController" ng-init="">
+
+    <style>
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        #partsTable > tbody > tr > td {
+            height: 30px;
+            padding: 0px;
+            border-top: 0px;
+        }
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+
+
+    </style>
+
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">{{'pages.claimBordxManagement.title' | translate}}</h1>
+                    <span class="mainDescription TitleModifier">{{'pages.claimBordxManagement.mainDescription' | translate}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div name="myForm" class="my-form">
+        <tabset class="tabbable">
+            <!-- start: TAB OVERVIEW -->
+            <tab heading="{{'pages.bordxManagement.tabCreateBordx.createBordx' | translate}}">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimCommonData.insurer' | translate}}<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control input-sm input-sm" 
+                                        ng-model="Claimbordx.insurerId" 
+                                        ng-class="validate_reInsurer" 
+                                        name="insurerId"
+                                        ng-change=""
+                                        ng-options="n.Id as n.InsurerShortName for n in insurers">
+                                    <option value="">{{ 'common.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimCommonData.reInsurer' | translate}} <span class="symbol required"></span>
+                                </label>
+                                <select class="form-control input-sm input-sm" 
+                                        ng-model="Claimbordx.reinsurerId" 
+                                        ng-class="validate_reInsurer" 
+                                        name="reinsurerId"
+                                        ng-change=""
+                                        ng-options="n.Id as n.ReinsurerName for n in reinsurers">
+                                    <option value=""> {{ 'common.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimCommonData.year' | translate}}<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control input-sm" 
+                                        ng-model="Claimbordx.BordxYear"
+                                        ng-change="" 
+                                        name="BordxYear"
+                                        ng-options="n as n for n in ClaimBordxyears">
+                                    <option value="">{{ 'common.pleaseSelect' | translate}}</option>
+
+                                </select>
+                                <!--<input type="number" class="form-control input-sm" ng-model="Claimbordx.BordxYear" />-->
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimCommonData.month' | translate}}<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control input-sm"
+                                        ng-model="Claimbordx.Bordxmonth"
+                                        ng-change="loadBordxNumber()">
+                                    <option value="">{{ 'common.pleaseSelect' | translate}}</option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                    <!--<option ng-repeat="" value="" ng-selected=""></option>-->
+                                </select>
+                                <!--<input type="text" class="form-control input-sm" ng-model="Claimbordx.Bordxmonth" />-->
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimBordxReOpenManagement.bordxNumber' | translate}}
+                                </label>
+                                <input type="text" 
+                                       class="form-control input-sm" 
+                                       ng-model="Claimbordx.BordxNumber" 
+                                       disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimBordxManagement.fromDate' | translate}}
+                                </label>
+                                <input type="text" ng-readonly="true" 
+                                       placeholder="{{'common.clickCalender' | translate}}" 
+                                       class="form-control input-sm" 
+                                       ng-model="Claimbordx.Fromdate"
+                                       datepicker-popup="dd-MMM-yyyy" 
+                                       datepicker-localdate 
+                                       ng-click="startOpen1 = !startOpen1" 
+                                       is-open="startOpen1" 
+                                       ng-init="startOpen1 = false" 
+                                       close-text="Close" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimBordxManagement.toDate' | translate}}
+                                </label>
+                                <input type="text" 
+                                       ng-readonly="true" 
+                                       placeholder="{{'common.clickCalender' | translate}}" 
+                                       class="form-control input-sm" 
+                                       ng-model="Claimbordx.Todate"
+                                       datepicker-popup="dd-MMM-yyyy" 
+                                       datepicker-localdate 
+                                       ng-click="startOpen2 = !startOpen2"
+                                       is-open="startOpen2" 
+                                       ng-init="startOpen2 = false"
+                                       close-text="Close" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <!--<input type="button" class="btn btn-primary pull-right" style="margin-top:5px" ng-click="createBordx()" value="Create Bordereaux" />-->
+                            <button class="btn btn-primary pull-right" 
+                                    ng-disabled="ClaimbordxSaveBtnDisabled"
+                                    ng-click="createClaimBordx()">
+                                {{Claimbordx.Id=='00000000-0000-0000-0000-000000000000' ? 'Create Bordereaux':'Update Bordereaux'}}
+                                <i ng-class="ClaimbordxSaveBtnIconClass"></i>
+                            </button>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="">{{'pages.bordxManagement.tabCreateBordx.lastTenBordx' | translate}}</p>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>{{'pages.bordxManagement.tabCreateBordx.insurer' | translate}}</th>
+                                    <th>{{'pages.bordxManagement.tabCreateBordx.reInsurer' | translate}}</th>
+                                    <th>{{'pages.bordxManagement.tabCreateBordx.year' | translate}}</th>
+                                    <th>{{'pages.bordxManagement.tabCreateBordx.month' | translate}}</th>
+                                    <th>{{'pages.bordxManagement.tabCreateBordx.number' | translate}}</th>
+                                    <th>{{'pages.bordxManagement.tabCreateBordx.startDate' | translate}}</th>
+                                    <th>{{'pages.bordxManagement.tabCreateBordx.endDate' | translate}}</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="option in last10ClaimBordx">
+                                    <th scope="row">{{$index+1}}</th>
+                                    <td>{{option.InsurerShortName}}</td>
+                                    <td>{{option.ReinsurerName}}</td>
+                                    <td>{{option.BordxYear}}</td>
+                                    <td>{{option.Bordxmonth}}</td>
+                                    <td>{{option.BordxNumber}}</td>
+                                    <td>{{option.Fromdate | date:'yyyy-MM-dd'}}</td>
+                                    <td>{{option.Todate | date:'yyyy-MM-dd'}}</td>
+                                    <td>
+                                        <!--<input type="button" class="btn btn-xs btn-info" value="view" />deleteBordx(option.Id)-->
+                                        <input type="button" 
+                                               class="btn btn-xs btn-danger" 
+                                               ng-click="deleteClaimBordx(option.Id)" 
+                                               value="{{'common.button.remove' | translate}}" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </tab>
+            <tab heading="Process Bordereaux">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimCommonData.insurer' | translate}}<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control  input-sm  input-sm" 
+                                        ng-model="ClaimProcessbordx.insurerId" 
+                                        name="processinsurerId"
+                                        ng-change="loadProcessBordxNumber(true)"
+                                        ng-options="n.Id as n.InsurerShortName for n in insurers">
+                                    <option value=""> {{ 'common.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimCommonData.reInsurer' | translate}}<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control input-sm input-sm" 
+                                        ng-model="ClaimProcessbordx.reinsurerId"
+                                        name="processreinsurerId"
+                                        ng-change="loadProcessBordxNumber(true)"
+                                        ng-options="n.Id as n.ReinsurerName for n in reinsurers">
+                                    <option value=""> {{ 'common.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimCommonData.year' | translate}}<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control input-sm" ng-model="ClaimProcessbordx.year" ng-change="loadProcessBordxNumber(true)"
+                                        name="processreyear"
+                                        ng-options="n as n for n in ClaimBordxyears">
+                                    <option value=""> {{'common.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.claimCommonData.month' | translate}}<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control input-sm" ng-model="ClaimProcessbordx.month" ng-change="loadProcessBordxNumber()" name="processmonth">
+                                    <option value=""> {{'common.pleaseSelect' | translate}} </option>
+                                    <option value="1">January</option>
+                                    <option value="2">February</option>
+                                    <option value="3">March</option>
+                                    <option value="4">April</option>
+                                    <option value="5">May</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                    <option value="9">September</option>
+                                    <option value="10">October</option>
+                                    <option value="11">November</option>
+                                    <option value="12">December</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.bordxManagement.tabCreateBordx.bordxNumber' | translate}}<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control input-sm" 
+                                        ng-model="ClaimProcessbordx.bordx"
+                                        name="processBordxNumber" 
+                                        ng-change="checkConfirm()" 
+                                        required
+                                        ng-options="n as n.BordxNumber for n in bordx">
+                                    <option value=""> {{'common.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="button" 
+                               class="btn btn-primary btn-block"
+                               ng-click="showClaimSearchPopup()" 
+                               value="{{'pages.claimBordxManagement.process' | translate}}" 
+                               ng-disabled="!canProcess" />
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button"
+                               class="btn btn-primary btn-block" 
+                               ng-click="Confirm()"
+                               value="{{'pages.claimBordxManagement.confirm' | translate}}"
+                               ng-disabled="!canConfirm" />
+                    </div>
+                    <div class="col-md-3 col-md-offset-3">
+                        <input type="button"
+                               class="btn btn-primary btn-block" 
+                               ng-click="View()" 
+                               value="{{'pages.claimBordxManagement.view' | translate}}" 
+                               ng-disabled="!canView" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div style="height:5px;"></div>
+                        <div class="grid" ui-grid-selection ui-grid-edit ui-grid="gridOptions">
+                            <div class="grid-msg-overlay" 
+                                 ng-hide="processedBordx.length> 0 || processedBordx == null">
+                                <div class="msg">
+                                    <span>{{'common.grid.noData' | translate}}</span>
+                                </div>
+                            </div>
+                            <div class="watermark" ng-hide="!gridloading">
+                                <div class="msg">
+                                    <span>
+                                        {{'common.grid.loading' | translate}}
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+
+    <script type="text/ng-template" id="popUpClaimSelection">
+        <style>
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 1100px !important;
+                height: 380px !important;
+            }
+
+            .ngdialog.ngdialog-theme-plain .ngdialog-content {
+                margin: -100px auto;
+            }
+
+            .ui-grid-top-panel {
+                font-weight: 400 !important;
+            }
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .grid {
+                height: 250px !important;
+            }
+
+            .ui-grid-pager-panel {
+                text-align: right;
+                box-sizing: border-box !important;
+            }
+
+            .ui-grid-header-cell .ui-grid-cell-contents {
+                text-align: center;
+            }
+
+            .columCss {
+                text-decoration: none;
+            }
+
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+        </style>
+
+        <h3 class="">{{'pages.claimBordxManagement.claimsToEndorsed' | translate}}</h3>
+
+        <div class="row">
+            <div class="col-md-12" style="margin-top:5px">
+                <div class="grid" ui-grid-pagination ui-grid="gridOptionsClaim">
+                    <div class="grid-msg-overlay" ng-hide="gridOptionsClaim.data.length>0 && claimGridloadAttempted">
+                        <div class="msg">
+                            <span>{{'common.grid.noData' | translate}}</span>
+                        </div>
+                    </div>
+                    <div class="grid-msg-overlay" ng-hide="!claimSearchGridloading">
+                        <div class="msg">
+                            <span>
+                                {{'common.grid.loading' | translate}}
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="col-md-3 col-md-offset-4">
+                    <input type="button" 
+                           class="btn btn-primary  btn-block" 
+                           ng-click="Process()"
+                           value="{{'pages.claimBordxManagement.processBordx' | translate}}"
+                           ng-disabled="!canProcess" />
+                </div>
+            </div>
+        </div>
+    </script>
+
+</div>
+

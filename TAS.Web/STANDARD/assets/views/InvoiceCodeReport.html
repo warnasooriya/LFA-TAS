@@ -1,0 +1,56 @@
+﻿<div ng-app="LFA"
+     ng-controller="InvoiceCodeReportCtrl as InvoiceCodeReportController" ng-init="loadInitailData()">
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle TitleModifier">Invoice Code</h1>
+                <span class="mainDescription TitleModifier">Invoice code details can be generated here.</span>
+            </div>
+        </div>
+    </section>
+
+    <div ng-form="myForm" class="my-form">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Start Date
+                    </label>
+                    <input type="text" ng-readonly="true" ng-disabled=""
+                           placeholder="Click for Calendar" tabindex="1"
+                           class="form-control  input-sm" ng-model="inviceCode.startDate"
+                           datepicker-popup="dd-MMM-yyyy"  datepicker-localdate
+                           ng-click="startOpen2 = !startOpen2" is-open="startOpen2" ng-init="startOpen2 = false" close-text="Close" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        End Date
+                    </label>
+                    <input type="text" ng-readonly="true" ng-disabled="" tabindex="2"
+                           placeholder="Click for Calendar" class="form-control  input-sm" ng-model="inviceCode.endDate"
+                           datepicker-popup="dd-MMM-yyyy"  datepicker-localdate ng-click="startOpen1 = !startOpen1"
+                           is-open="startOpen1" ng-init="startOpen1 = false" close-text="Close" />
+                </div>
+
+            </div>     
+
+            
+
+           
+            <div class="col-md-3">
+                <label class="control-label">
+                    &nbsp;
+                </label>
+                <button class="btn btn-primary btn-block" ng-click="GenerateInvoiceCode()">
+                    Invoice Code 
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

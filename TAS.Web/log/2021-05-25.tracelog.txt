@@ -1,0 +1,6 @@
+2021-05-25 13:05:55.1801 TAS.Web.Controllers.UserController Login request recived from ip-127.0.0.1 for user - admin for TPA - CycleandCarriage
+2021-05-25 13:05:55.4143 TAS.Web.Controllers.UserController Login success for ip-127.0.0.1 for user - admin for TPA - CycleandCarriage token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjE5MjgxNTUsImp0aSI6ImFjYmM2YmVkLTgzNjEtNDg5Mi05OWZlLTUwMzA2NzNlNTQ1YyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJDeWNsZWFuZENhcnJpYWdlIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImNhM2U3MTBmLTcwZDMtNGVjMy1hYzM0LWI2MWRjZDQzYWM4NiJ9.7hSFUeU1GFNKxIQcMqx69NI2J4ccSCHvFH8fjQKYv5s
+2021-05-25 13:07:04.7476 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-05-25 13:07:04.7476 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-05-25 13:07:56.6108 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-05-25 13:07:56.6128 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache

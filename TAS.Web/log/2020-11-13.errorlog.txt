@@ -1,0 +1,192 @@
+2020-11-13 09:02:47.1970 TAS.Services.Entities.Management.EntityCacheData GetAllCommodities: exception: No such host is known, 
+2020-11-13 09:03:40.0849 TAS.Services.Entities.Management.EntityCacheData GetAllCommodities: exception: No such host is known, 
+2020-11-13 09:03:40.0974 TAS.Services.Entities.Management.EntityCacheData GetAllActiveCountries: exception: No such host is known, 
+2020-11-13 09:03:41.7245 TAS.Services.Entities.Management.EntityCacheData GetItemStatuss: exception: No such host is known, 
+2020-11-13 09:03:42.2968 TAS.Services.Entities.Management.EntityCacheData GetCylinderCounts: exception: No such host is known, 
+2020-11-13 09:03:42.3118 TAS.Services.Entities.Management.EntityCacheData GetEngineCapacities: exception: No such host is known, 
+2020-11-13 09:03:43.2096 TAS.Services.Entities.Management.EntityCacheData GetVehicleWeights: exception: No such host is known, 
+2020-11-13 09:03:43.2355 TAS.Web.Controllers.AutomobileAttributesController GetAllVehicleWeight: exception: Value cannot be null.
+Parameter name: source, 
+2020-11-13 09:03:43.4286 TAS.Services.Entities.Management.EntityCacheData GetWarrantyTypes: exception: No such host is known, 
+2020-11-13 09:03:43.4516 TAS.Web.Controllers.ContractManagementController GetWarrantyTypes: exception: Value cannot be null.
+Parameter name: source, 
+2020-11-13 09:03:43.6648 TAS.Services.Entities.Management.EntityCacheData GetPremiumBasedOns: exception: No such host is known, 
+2020-11-13 09:03:43.7187 TAS.Web.Controllers.ContractManagementController GetPremiumBasedOns: exception: Object reference not set to an instance of an object., 
+2020-11-13 09:03:44.9002 TAS.Services.Entities.Management.EntityCacheData GetNRPCommissionTypess: exception: No such host is known, 
+2020-11-13 09:03:45.0878 TAS.Services.Entities.Management.EntityCacheData GetAllCommodityUsageTypes: exception: No such host is known, 
+2020-11-13 09:03:45.2894 TAS.Services.Entities.Management.EntityCacheData GetDealTypes: exception: No such host is known, 
+2020-11-13 09:03:45.3174 TAS.Web.Controllers.ContractManagementController GetDealTypes: exception: Object reference not set to an instance of an object., 
+2020-11-13 09:04:00.1142 TAS.Services.Entities.Management.EntityCacheData GetAllCommodities: exception: No such host is known, 
+2020-11-13 09:04:00.2573 TAS.Services.Entities.Management.EntityCacheData GetAllActiveCountries: exception: No such host is known, 
+2020-11-13 09:04:00.8619 TAS.Services.Entities.Management.EntityCacheData GetItemStatuss: exception: No such host is known, 
+2020-11-13 09:04:01.2574 TAS.Services.Entities.Management.EntityCacheData GetCylinderCounts: exception: No such host is known, 
+2020-11-13 09:04:01.3173 TAS.Services.Entities.Management.EntityCacheData GetEngineCapacities: exception: No such host is known, 
+2020-11-13 09:04:01.3681 TAS.Services.Entities.Management.EntityCacheData GetVehicleWeights: exception: No such host is known, 
+2020-11-13 09:04:01.3901 TAS.Web.Controllers.AutomobileAttributesController GetAllVehicleWeight: exception: Value cannot be null.
+Parameter name: source, 
+2020-11-13 09:04:01.7440 TAS.Services.Entities.Management.EntityCacheData GetPremiumBasedOns: exception: No such host is known, 
+2020-11-13 09:04:01.7680 TAS.Web.Controllers.ContractManagementController GetPremiumBasedOns: exception: Object reference not set to an instance of an object., 
+2020-11-13 09:04:02.1371 TAS.Services.Entities.Management.EntityCacheData GetWarrantyTypes: exception: No such host is known, 
+2020-11-13 09:04:02.1632 TAS.Web.Controllers.ContractManagementController GetWarrantyTypes: exception: Value cannot be null.
+Parameter name: source, 
+2020-11-13 09:04:03.1543 TAS.Services.Entities.Management.EntityCacheData GetNRPCommissionTypess: exception: No such host is known, 
+2020-11-13 09:04:03.9809 TAS.Services.Entities.Management.EntityCacheData GetAllCommodityUsageTypes: exception: No such host is known, 
+2020-11-13 09:04:04.2022 TAS.Services.Entities.Management.EntityCacheData GetDealTypes: exception: No such host is known, 
+2020-11-13 09:04:04.2271 TAS.Web.Controllers.ContractManagementController GetDealTypes: exception: Object reference not set to an instance of an object., 
+2020-11-13 09:04:07.3197 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.3376 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.3556 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.3736 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.3925 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.4103 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.4273 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.4457 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.4639 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.4829 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.5008 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.5193 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.5373 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:07.5552 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:04:12.5849 TAS.Services.Entities.Management.EntityCacheData GetCommodityCategories: exception: No such host is known, 
+2020-11-13 09:04:32.6372 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: exception: No such host is known, 
+2020-11-13 09:05:26.9280 TAS.Services.Entities.Management.EntityCacheData GetAllActiveCountries: exception: No such host is known, 
+2020-11-13 09:05:27.2582 TAS.Services.Entities.Management.EntityCacheData GetItemStatuss: exception: No such host is known, 
+2020-11-13 09:05:27.4416 TAS.Services.Entities.Management.EntityCacheData GetAllCommodities: exception: No such host is known, 
+2020-11-13 09:05:28.3707 TAS.Services.Entities.Management.EntityCacheData GetCylinderCounts: exception: No such host is known, 
+2020-11-13 09:05:28.7123 TAS.Services.Entities.Management.EntityCacheData GetEngineCapacities: exception: No such host is known, 
+2020-11-13 09:05:28.9171 TAS.Services.Entities.Management.EntityCacheData GetVehicleWeights: exception: No such host is known, 
+2020-11-13 09:05:28.9430 TAS.Web.Controllers.AutomobileAttributesController GetAllVehicleWeight: exception: Value cannot be null.
+Parameter name: source, 
+2020-11-13 09:05:29.0913 TAS.Services.Entities.Management.EntityCacheData GetPremiumBasedOns: exception: No such host is known, 
+2020-11-13 09:05:29.1153 TAS.Web.Controllers.ContractManagementController GetPremiumBasedOns: exception: Object reference not set to an instance of an object., 
+2020-11-13 09:05:29.3231 TAS.Services.Entities.Management.EntityCacheData GetWarrantyTypes: exception: No such host is known, 
+2020-11-13 09:05:29.3630 TAS.Web.Controllers.ContractManagementController GetWarrantyTypes: exception: Value cannot be null.
+Parameter name: source, 
+2020-11-13 09:05:30.2126 TAS.Services.Entities.Management.EntityCacheData GetNRPCommissionTypess: exception: No such host is known, 
+2020-11-13 09:05:30.3745 TAS.Services.Entities.Management.EntityCacheData GetAllCommodityUsageTypes: exception: No such host is known, 
+2020-11-13 09:05:30.8553 TAS.Services.Entities.Management.EntityCacheData GetDealTypes: exception: No such host is known, 
+2020-11-13 09:05:30.8812 TAS.Web.Controllers.ContractManagementController GetDealTypes: exception: Object reference not set to an instance of an object., 
+2020-11-13 09:05:34.3389 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.3588 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.3778 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.3967 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.4147 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.4346 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.4526 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.4705 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.4895 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.5084 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.5264 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.5443 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.5623 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:34.5812 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:05:40.2008 TAS.Services.Entities.Management.EntityCacheData GetCommodityCategories: exception: No such host is known, 
+2020-11-13 09:05:46.9563 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: exception: No such host is known, 
+2020-11-13 09:06:44.8420 TAS.Services.Entities.Management.EntityCacheData GetAllActiveCountries: exception: No such host is known, 
+2020-11-13 09:06:45.3953 TAS.Services.Entities.Management.EntityCacheData GetAllCommodities: exception: No such host is known, 
+2020-11-13 09:06:46.9907 TAS.Services.Entities.Management.EntityCacheData GetCylinderCounts: exception: No such host is known, 
+2020-11-13 09:06:47.1901 TAS.Services.Entities.Management.EntityCacheData GetVehicleWeights: exception: No such host is known, 
+2020-11-13 09:06:47.2101 TAS.Web.Controllers.AutomobileAttributesController GetAllVehicleWeight: exception: Value cannot be null.
+Parameter name: source, 
+2020-11-13 09:06:47.3745 TAS.Services.Entities.Management.EntityCacheData GetItemStatuss: exception: No such host is known, 
+2020-11-13 09:06:47.5702 TAS.Services.Entities.Management.EntityCacheData GetEngineCapacities: exception: No such host is known, 
+2020-11-13 09:06:48.1824 TAS.Services.Entities.Management.EntityCacheData GetPremiumBasedOns: exception: No such host is known, 
+2020-11-13 09:06:48.2173 TAS.Web.Controllers.ContractManagementController GetPremiumBasedOns: exception: Object reference not set to an instance of an object., 
+2020-11-13 09:06:48.4244 TAS.Services.Entities.Management.EntityCacheData GetWarrantyTypes: exception: No such host is known, 
+2020-11-13 09:06:48.4613 TAS.Web.Controllers.ContractManagementController GetWarrantyTypes: exception: Value cannot be null.
+Parameter name: source, 
+2020-11-13 09:06:49.2438 TAS.Services.Entities.Management.EntityCacheData GetNRPCommissionTypess: exception: No such host is known, 
+2020-11-13 09:06:49.8837 TAS.Services.Entities.Management.EntityCacheData GetAllCommodityUsageTypes: exception: No such host is known, 
+2020-11-13 09:06:50.0477 TAS.Services.Entities.Management.EntityCacheData GetDealTypes: exception: No such host is known, 
+2020-11-13 09:06:50.0686 TAS.Web.Controllers.ContractManagementController GetDealTypes: exception: Object reference not set to an instance of an object., 
+2020-11-13 09:06:53.5533 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.5732 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.5932 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.6135 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.6319 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.6499 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.6679 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.6868 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.7048 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.7227 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.7457 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.7666 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.7906 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:53.8105 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:06:59.1756 TAS.Services.Entities.Management.EntityCacheData GetCommodityCategories: exception: No such host is known, 
+2020-11-13 09:07:00.6700 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: exception: No such host is known, 
+2020-11-13 09:08:30.7560 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.7870 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.8059 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.8239 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.8418 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.8598 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.8767 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.8937 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.9116 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.9299 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.9488 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.9668 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:30.9857 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:08:31.0027 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:22.9945 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.0144 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.0414 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.0613 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.0803 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.0993 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.1172 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.1351 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.1531 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.1710 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.1890 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.2069 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.2249 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 09:19:23.2428 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-13 10:14:24.5244 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: exception: No such host is known, 
+2020-11-13 10:14:24.5628 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: exception: No such host is known, 
+2020-11-13 10:14:24.5937 TAS.Services.Entities.Management.EntityCacheData GetAllCommodities: exception: No such host is known, 
+2020-11-13 10:14:24.5937 TAS.Services.Entities.Management.EntityCacheData GetAllCommodityUsageTypes: exception: No such host is known, 
+2020-11-13 10:14:24.5937 TAS.Services.Entities.Management.EntityCacheData GetPremiumBasedOns: exception: No such host is known, 
+2020-11-13 10:14:24.7782 TAS.Web.Controllers.ContractManagementController GetPremiumBasedOns: exception: Object reference not set to an instance of an object., 
+2020-11-13 10:14:26.2280 TAS.Services.Entities.Management.EntityCacheData GetPaymentModes: exception: No such host is known, 
+2020-11-13 10:14:26.5631 TAS.Services.Entities.Management.EntityCacheData GetAllActiveCountries: exception: No such host is known, 
+2020-11-13 10:14:26.8005 TAS.Services.Entities.Management.EntityCacheData GetAllNationalities: exception: No such host is known, 
+2020-11-13 10:14:27.4169 TAS.Services.Entities.Management.EntityCacheData GetAllCustomerTypes: exception: No such host is known, 
+2020-11-13 11:50:54.8095 TAS.Web.Controllers.MakeAndModelManagementController GetAllCommodities: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2020-11-13 14:47:30.4561 TAS.Web.Controllers.CommodityItemAttributesController GetAllCommodityUsageTypes: exception: Object reference not set to an instance of an object., 
+2020-11-13 14:56:08.8920 TAS.Web.Controllers.CommodityItemAttributesController GetAllCommodityUsageTypes: exception: Invalid length for a Base-64 char array or string., 
+2020-11-13 14:59:24.4301 TAS.Web.Controllers.CommodityItemAttributesController GetAllCommodityUsageTypes: exception: Invalid length for a Base-64 char array or string., 
+2020-11-13 15:01:44.8242 TAS.Web.Controllers.CommodityItemAttributesController GetAllCommodityUsageTypes: exception: Illegal base64url string!, 
+2020-11-13 15:02:36.5471 TAS.Web.Controllers.CommodityItemAttributesController GetAllCommodityUsageTypes: exception: Illegal base64url string!, 
+2020-11-13 17:10:20.3475 TAS.Web.Controllers.AutomobileAttributesController GetAllVehicleBodyTypes: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2020-11-13 20:49:28.1989 TAS.Web.Controllers.ContractManagementController GetPremiumBasedOns: exception: could not execute query
+[ select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=@p0 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:suranjika
+[SQL: select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=@p0 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) ---> System.ComponentModel.Win32Exception (0x80004005): The semaphore timeout period has expired
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:5893a4fc-dd6d-45f2-9ed2-445d83b172bc
+Error Number:121,State:0,Class:20
+2020-11-13 20:50:43.0256 TAS.Web.Controllers.AutomobileAttributesController GetAllVehicleBodyTypes: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 

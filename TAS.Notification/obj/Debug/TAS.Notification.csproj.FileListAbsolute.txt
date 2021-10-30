@@ -1,0 +1,24 @@
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\bin\Debug\RevDeBug.setup
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\bin\Debug\TAS.Notification.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\bin\Debug\TAS.Notification.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Debug\TAS.Notification.csprojAssemblyReference.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Debug\TAS.Notification.csproj.CoreCompileInputs.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Debug\TAS.Notification.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Debug\TAS.Notification.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Debug\RdbLog.txt
+G:\TFS\TAS-V3\TAS.Notification\bin\Debug\RevDeBug.setup
+G:\TFS\TAS-V3\TAS.Notification\bin\Debug\TAS.Notification.dll
+G:\TFS\TAS-V3\TAS.Notification\bin\Debug\TAS.Notification.pdb
+G:\TFS\TAS-V3\TAS.Notification\obj\Debug\TAS.Notification.csprojAssemblyReference.cache
+G:\TFS\TAS-V3\TAS.Notification\obj\Debug\TAS.Notification.csproj.CoreCompileInputs.cache
+G:\TFS\TAS-V3\TAS.Notification\obj\Debug\TAS.Notification.dll
+G:\TFS\TAS-V3\TAS.Notification\obj\Debug\TAS.Notification.pdb
+G:\TFS\TAS-V3\TAS.Notification\obj\Debug\RdbLog.txt
+G:\TFS\TAS-Commodity\TAS.Notification\bin\Debug\RevDeBug.setup
+G:\TFS\TAS-Commodity\TAS.Notification\bin\Debug\TAS.Notification.dll
+G:\TFS\TAS-Commodity\TAS.Notification\bin\Debug\TAS.Notification.pdb
+G:\TFS\TAS-Commodity\TAS.Notification\obj\Debug\TAS.Notification.csprojAssemblyReference.cache
+G:\TFS\TAS-Commodity\TAS.Notification\obj\Debug\TAS.Notification.csproj.CoreCompileInputs.cache
+G:\TFS\TAS-Commodity\TAS.Notification\obj\Debug\TAS.Notification.dll
+G:\TFS\TAS-Commodity\TAS.Notification\obj\Debug\TAS.Notification.pdb
+G:\TFS\TAS-Commodity\TAS.Notification\obj\Debug\RdbLog.txt

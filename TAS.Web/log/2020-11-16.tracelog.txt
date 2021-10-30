@@ -1,0 +1,51 @@
+2020-11-16 09:24:17.2447 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2020-11-16 09:24:19.2865 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU0OTg4NTgsImp0aSI6ImQ1NGU0MDA0LTZjNDctNDY3YS04ODZlLTEzNDRjNDMyODMxMiIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.rYpw0ZUMdDNWjHMGGfpn0tM2JIribEMe022MF_dVMpY
+2020-11-16 09:24:42.7375 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2020-11-16 09:24:47.5008 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-16 09:24:49.5096 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-16 09:24:50.7433 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2020-11-16 09:24:51.1760 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2020-11-16 09:24:51.7149 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2020-11-16 09:24:51.7149 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2020-11-16 09:25:31.7887 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2020-11-16 09:25:33.2301 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2020-11-16 09:25:33.6380 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2020-11-16 09:25:34.0405 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2020-11-16 09:25:34.0405 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2020-11-16 09:25:37.0632 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-16 09:25:39.0766 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-16 09:26:07.5424 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2020-11-16 09:26:08.9655 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2020-11-16 09:26:09.3837 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2020-11-16 09:26:09.7778 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2020-11-16 09:26:09.7838 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2020-11-16 09:26:12.4804 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-16 09:26:14.4898 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-16 09:31:21.7120 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2020-11-16 09:31:23.5472 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU0OTkyODIsImp0aSI6Ijc1ZTRkODIxLWRhNmYtNGY4MS1iNmJiLWVmNWRkMDUyODhjNCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0._tKBcURjlu8cdBuaMtRaxyri3KdoExCLaBwhvNR8diM
+2020-11-16 09:32:24.6497 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-16 09:32:26.6587 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-16 09:33:13.5834 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-16 09:33:15.5902 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-16 09:34:57.0898 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2020-11-16 09:34:58.5937 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2020-11-16 09:34:59.0041 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2020-11-16 09:34:59.4333 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2020-11-16 09:34:59.4403 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2020-11-16 09:35:00.9844 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-16 09:35:02.9961 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-16 09:35:31.1002 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2020-11-16 09:35:32.5299 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2020-11-16 09:35:32.9643 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2020-11-16 09:35:33.3774 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2020-11-16 09:35:33.3774 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2020-11-16 09:35:42.6860 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-16 09:35:44.6957 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-16 09:36:58.0328 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-16 09:37:00.0597 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-16 11:33:20.3927 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-16 11:33:22.4004 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-16 15:09:19.1190 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2020-11-16 15:09:21.3493 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU1MTk1NjAsImp0aSI6IjZmYWM4MmQ2LWM1ZTItNGI3NC04MWFhLThlMDY3MDU5Mzc0MiIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.Qyt8Zdclq0fPn0r1rdm7WRW5kG05brT3JnkLysSYcwA
+2020-11-16 15:09:25.9421 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2020-11-16 15:09:27.7787 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU1MTk1NjYsImp0aSI6ImRhNGNhZDlmLTg4N2ItNDE2My1iMzJmLTk5YWQyZDZmMmI4MSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.9m0Eb95T7-VStnLYy4hyKdw3urgoUaiOiz_-FniBCk8

@@ -1,0 +1,64 @@
+2021-02-05 08:56:36.0951 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 09:06:24.0491 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 09:08:04.9221 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 09:10:19.6639 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 09:12:33.5654 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 09:13:23.0324 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 09:14:23.5154 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 09:15:32.2618 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 10:15:50.7123 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 10:16:12.2514 TAS.Services.Entities.Management.PolicyEntityManager UpdatePolicy: exception: a different object with the same identifier value was already associated with the session: 4073b98e-2485-46e7-aa7f-422a06636a3e, of entity: TAS.Services.Entities.Policy,  , object : TAS.Services.Entities.Policy
+2021-02-05 10:16:12.2514 TAS.Services.Entities.Management.PolicyEntityManager Inner exception :
+2021-02-05 10:16:12.2514 TAS.Services.Entities.Management.PolicyEntityManager object : TAS.Services.Entities.Policy
+2021-02-05 10:16:40.4909 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 10:17:20.6267 TAS.Services.Entities.Management.PolicyEntityManager UpdatePolicy: exception: a different object with the same identifier value was already associated with the session: 4073b98e-2485-46e7-aa7f-422a06636a3e, of entity: TAS.Services.Entities.Policy,  , object : TAS.Services.Entities.Policy
+2021-02-05 10:17:20.6267 TAS.Services.Entities.Management.PolicyEntityManager Inner exception :
+2021-02-05 10:17:20.6477 TAS.Services.Entities.Management.PolicyEntityManager object : TAS.Services.Entities.Policy
+2021-02-05 10:18:28.8299 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 10:31:33.9368 TAS.Services.Entities.Management.PolicyEntityManager UpdatePolicy: exception: a different object with the same identifier value was already associated with the session: 4073b98e-2485-46e7-aa7f-422a06636a3e, of entity: TAS.Services.Entities.Policy,  , object : TAS.Services.Entities.Policy
+2021-02-05 10:31:33.9468 TAS.Services.Entities.Management.PolicyEntityManager Inner exception :
+2021-02-05 10:31:33.9541 TAS.Services.Entities.Management.PolicyEntityManager object : TAS.Services.Entities.Policy
+2021-02-05 10:32:27.7406 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 10:36:59.4435 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 10:44:41.0515 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 10:45:34.1401 TAS.Services.Entities.Management.PolicyEntityManager UpdatePolicy: exception: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.,  , object : TAS.Services.Entities.Policy
+2021-02-05 10:45:34.1634 TAS.Services.Entities.Management.PolicyEntityManager Inner exception :
+2021-02-05 10:45:34.1634 TAS.Services.Entities.Management.PolicyEntityManager object : TAS.Services.Entities.Policy
+2021-02-05 10:45:43.9059 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 10:46:49.6507 TAS.Services.Entities.Management.PolicyEntityManager UpdatePolicy: exception: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM.,  , object : TAS.Services.Entities.Policy
+2021-02-05 10:46:49.6587 TAS.Services.Entities.Management.PolicyEntityManager Inner exception :
+2021-02-05 10:46:49.6736 TAS.Services.Entities.Management.PolicyEntityManager object : TAS.Services.Entities.Policy
+2021-02-05 10:47:58.9546 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 10:51:19.5841 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 11:08:39.4740 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 11:09:41.8810 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 11:25:36.7742 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 11:25:56.3593 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 11:28:04.4234 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 11:38:56.3394 TAS.Web.Controllers.ContractManagementController GetPremium: exception: Input string was not in a correct format., 
+2021-02-05 11:39:09.9223 TAS.Web.Controllers.ContractManagementController GetPremium: exception: Input string was not in a correct format., 
+2021-02-05 11:39:09.9616 TAS.Web.Controllers.ContractManagementController GetPremium: exception: Input string was not in a correct format., 
+2021-02-05 11:39:53.0883 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 12:18:04.5463 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 15:25:34.6088 TAS.Web.Controllers.MakeAndModelManagementController GetAllCommodities: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-02-05 15:25:43.8934 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-02-05 15:53:49.6502 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.6700 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.6900 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.7099 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.7309 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.7508 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.7708 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.7927 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.8156 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.8366 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.8573 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.8783 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.8982 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 15:53:49.9181 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-02-05 16:00:19.2577 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2021-02-05 16:00:56.5572 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2021-02-05 16:02:07.8993 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2021-02-05 16:11:14.4399 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 16:25:29.8322 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 
+2021-02-05 16:47:59.5713 TAS.Services.Entities.Management.CurrencyEntityManager GetLocalCurrencyConversionRate: exception: Object reference not set to an instance of an object., 

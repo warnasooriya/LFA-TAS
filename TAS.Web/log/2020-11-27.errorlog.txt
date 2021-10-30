@@ -1,0 +1,47 @@
+2020-11-27 11:35:27.2407 TAS.Services.Entities.Management.EntityCacheData GetMakes: exception: could not resolve property: IsMakeExists of: TAS.Services.Entities.Make [.Select[TAS.Services.Entities.Make,TAS.DataTransfer.Responses.MakeResponseDto](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Make], Quote((Make, ) => (new MakeResponseDto()Make.IdMake.CommodityTypeIdMake.MakeCodeMake.MakeNameMake.ManufacturerIdMake.WarantyGivenMake.IsActiveMake.IsMakeExistsMake.EntryDateTimeMake.EntryUser)), )], 
+2020-11-27 12:43:25.5995 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute batch command.[SQL: SQL not available], System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The semaphore timeout period has expired.) ---> System.ComponentModel.Win32Exception (0x80004005): The semaphore timeout period has expired
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   at System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   at lambda_method(Closure , Object )
+   at NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   at NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+ClientConnectionId:a49b7e27-259f-4c9f-a946-ab1d1b63edb1
+Error Number:121,State:0,Class:20
+2020-11-27 12:49:33.4782 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-11-27 12:49:49.7236 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-11-27 12:49:56.6371 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-11-27 12:49:57.1323 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-11-27 12:49:57.5901 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-11-27 12:49:58.2294 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-11-27 12:50:14.8483 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-11-27 12:52:03.6517 TAS.Services.Entities.Management.UserEntityManager GetUserById: exception: a different object with the same identifier value was already associated with the session: 97e735f7-8b14-4608-bc8a-97c6e16e6926, of entity: TAS.Services.Entities.UserType, 
+2020-11-27 12:52:11.3160 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-11-27 12:54:08.9450 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2020-11-27 12:55:34.6991 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.7220 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.7430 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.7659 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.7859 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.8078 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.8308 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.8527 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.8737 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.8961 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.9170 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.9370 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.9579 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-27 12:55:34.9779 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 

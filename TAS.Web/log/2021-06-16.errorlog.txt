@@ -1,0 +1,28 @@
+2021-06-16 15:22:12.8816 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-06-16 15:22:52.3569 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-06-16 15:22:56.7909 TAS.Services.Entities.Management.ClaimEntityManager ValidateClaimProcessRequest: exception: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM., 
+2021-06-16 15:23:02.8925 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-06-16 15:23:03.6538 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-06-16 15:40:16.5778 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: A task was canceled., 
+2021-06-16 15:40:19.4166 TAS.Services.Entities.Management.UserEntityManager GetUserById: exception: a different object with the same identifier value was already associated with the session: 97e735f7-8b14-4608-bc8a-97c6e16e6926, of entity: TAS.Services.Entities.UserType, 
+2021-06-16 15:40:30.6464 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-06-16 15:44:21.3243 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-06-16 15:44:54.4044 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-06-16 15:44:59.5815 TAS.Services.Entities.Management.ClaimEntityManager ValidateClaimProcessRequest: exception: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM., 
+2021-06-16 15:45:07.6191 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-06-16 15:45:08.2297 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-06-16 16:15:53.8963 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-06-16 16:16:50.7327 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-06-16 16:17:22.0783 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-06-16 16:17:25.9757 TAS.Services.Entities.Management.ClaimEntityManager ValidateClaimProcessRequest: exception: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM., 
+2021-06-16 16:17:33.0100 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-06-16 16:24:43.2807 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. ---> System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2021-06-16 16:25:00.0331 TAS.Services.Entities.Management.UserEntityManager GetUserById: exception: a different object with the same identifier value was already associated with the session: 97e735f7-8b14-4608-bc8a-97c6e16e6926, of entity: TAS.Services.Entities.UserType, 
+2021-06-16 16:25:10.2967 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-06-16 17:06:49.8939 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 

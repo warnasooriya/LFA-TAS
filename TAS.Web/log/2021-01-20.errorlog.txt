@@ -1,0 +1,27 @@
+2021-01-20 08:36:31.1307 TAS.Services.Entities.Management.TempBulkUploadEntityManager AddTempBulkUpload: exception: Input string was not in a correct format., 
+2021-01-20 14:08:04.8298 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:08:31.7067 TAS.Services.Entities.Management.PolicyEntityManager GetPolicyById2: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.ManufacturerWarrantyId), 
+2021-01-20 14:08:35.6229 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Object reference not set to an instance of an object., 
+2021-01-20 14:09:20.3173 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:14:59.4419 TAS.Services.Entities.Management.PolicyEntityManager GetPolicyById2: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.ManufacturerWarrantyId), 
+2021-01-20 14:15:03.1668 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Object reference not set to an instance of an object., 
+2021-01-20 14:15:43.6030 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:17:18.8554 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:17:43.6310 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:17:48.4200 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:17:52.3353 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:17:56.5501 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:18:02.3815 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:20:55.5699 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-01-20 14:23:03.3877 TAS.Services.Entities.Management.EntityCacheData GetContractsByCommodityType: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 

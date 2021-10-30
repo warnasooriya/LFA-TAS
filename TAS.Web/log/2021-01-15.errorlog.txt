@@ -1,0 +1,245 @@
+2021-01-15 09:44:18.6593 TAS.Services.Entities.Management.SystemUserEntityManager LoginAuth: exception: could not execute query
+[ SELECT this_.Id as Id1_8_0_, this_.SequanceNumber as Sequan2_8_0_, this_.RecordVersion as Record3_8_0_, this_.EntryDate as EntryD4_8_0_, this_.EntryBy as EntryB5_8_0_, this_.UserName as UserNa6_8_0_, this_.Password as Passwo7_8_0_, this_.IsActive as IsActi8_8_0_, this_.RoleId as RoleId9_8_0_, this_.UserTypeId as UserT10_8_0_, this_.LoginMapId as Login11_8_0_, this_.LanguageId as Langu12_8_0_ FROM SystemUser this_ WHERE (this_.UserName = @p0 and this_.Password = @p1) ]
+  Name:cp0 - Value:admin  Name:cp1 - Value:oneofakind@987
+[SQL: SELECT this_.Id as Id1_8_0_, this_.SequanceNumber as Sequan2_8_0_, this_.RecordVersion as Record3_8_0_, this_.EntryDate as EntryD4_8_0_, this_.EntryBy as EntryB5_8_0_, this_.UserName as UserNa6_8_0_, this_.Password as Passwo7_8_0_, this_.IsActive as IsActi8_8_0_, this_.RoleId as RoleId9_8_0_, this_.UserTypeId as UserT10_8_0_, this_.LoginMapId as Login11_8_0_, this_.LanguageId as Langu12_8_0_ FROM SystemUser this_ WHERE (this_.UserName = @p0 and this_.Password = @p1)], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'LanguageId'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:1e127ddf-df22-486f-97ab-0901ad73a403
+Error Number:207,State:1,Class:16
+2021-01-15 09:45:06.9853 TAS.Services.Entities.Management.SystemUserEntityManager LoginAuth: exception: could not execute query
+[ SELECT this_.Id as Id1_8_0_, this_.SequanceNumber as Sequan2_8_0_, this_.RecordVersion as Record3_8_0_, this_.EntryDate as EntryD4_8_0_, this_.EntryBy as EntryB5_8_0_, this_.UserName as UserNa6_8_0_, this_.Password as Passwo7_8_0_, this_.IsActive as IsActi8_8_0_, this_.RoleId as RoleId9_8_0_, this_.UserTypeId as UserT10_8_0_, this_.LoginMapId as Login11_8_0_, this_.LanguageId as Langu12_8_0_ FROM SystemUser this_ WHERE (this_.UserName = @p0 and this_.Password = @p1) ]
+  Name:cp0 - Value:admin  Name:cp1 - Value:oneofakind@987
+[SQL: SELECT this_.Id as Id1_8_0_, this_.SequanceNumber as Sequan2_8_0_, this_.RecordVersion as Record3_8_0_, this_.EntryDate as EntryD4_8_0_, this_.EntryBy as EntryB5_8_0_, this_.UserName as UserNa6_8_0_, this_.Password as Passwo7_8_0_, this_.IsActive as IsActi8_8_0_, this_.RoleId as RoleId9_8_0_, this_.UserTypeId as UserT10_8_0_, this_.LoginMapId as Login11_8_0_, this_.LanguageId as Langu12_8_0_ FROM SystemUser this_ WHERE (this_.UserName = @p0 and this_.Password = @p1)], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'LanguageId'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:2e65fce7-cfbd-4286-a8f3-a14df2e51c1f
+Error Number:207,State:1,Class:16
+2021-01-15 10:08:29.7121 TAS.Services.Entities.Management.ClaimEntityManager GetAllClaimDashboardStatus: exception: could not execute query
+[ select claimsubmi0_.Id as Id1_155_, claimsubmi0_.PolicyId as Poli2_155_, claimsubmi0_.PolicyCountryId as Poli3_155_, claimsubmi0_.ClaimCountryId as Clai4_155_, claimsubmi0_.CustomerId as Cust5_155_, claimsubmi0_.CommodityTypeId as Comm6_155_, claimsubmi0_.CommodityCategoryId as Comm7_155_, claimsubmi0_.MakeId as Make8_155_, claimsubmi0_.ModelId as Mode9_155_, claimsubmi0_.ClaimCurrencyId as Cla10_155_, claimsubmi0_.CurrencyPeriodId as Cur11_155_, claimsubmi0_.PolicyDealerId as Pol12_155_, claimsubmi0_.ClaimSubmittedDealerId as Cla13_155_, claimsubmi0_.ClaimSubmittedBy as Cla14_155_, claimsubmi0_.LastUpdatedBy as Las15_155_, claimsubmi0_.StatusId as Sta16_155_, claimsubmi0_.PolicyNumber as Pol17_155_, claimsubmi0_.ClaimNumber as Cla18_155_, claimsubmi0_.TotalClaimAmount as Tot19_155_, claimsubmi0_.ConversionRate as Con20_155_, claimsubmi0_.CustomerComplaint as Cus21_155_, claimsubmi0_.DealerComment as Dea22_155_, claimsubmi0_.ClaimMileage as Cla23_155_, claimsubmi0_.ClaimDate as Cla24_155_, claimsubmi0_.EntryDate as Ent25_155_, claimsubmi0_.LastUpdatedDate as Las26_155_, claimsubmi0_.VINNo as VIN27_155_, claimsubmi0_.CustomerName as Cus28_155_, claimsubmi0_.PlateNo as Pla29_155_, claimsubmi0_.LastServiceMileage as Las30_155_, claimsubmi0_.LastServiceDate as Las31_155_, claimsubmi0_.RepairCenter as Rep32_155_, claimsubmi0_.RepairCenterLocation as Rep33_155_, claimsubmi0_.RejectionTypeId as Rej34_155_, claimsubmi0_.FailureMileage as Fai35_155_, claimsubmi0_.FailureDate as Fai36_155_, claimsubmi0_.Wip as Wip37_155_, claimsubmi0_.MobileNo as Mob38_155_ from ClaimSubmission claimsubmi0_ ]
+[SQL: select claimsubmi0_.Id as Id1_155_, claimsubmi0_.PolicyId as Poli2_155_, claimsubmi0_.PolicyCountryId as Poli3_155_, claimsubmi0_.ClaimCountryId as Clai4_155_, claimsubmi0_.CustomerId as Cust5_155_, claimsubmi0_.CommodityTypeId as Comm6_155_, claimsubmi0_.CommodityCategoryId as Comm7_155_, claimsubmi0_.MakeId as Make8_155_, claimsubmi0_.ModelId as Mode9_155_, claimsubmi0_.ClaimCurrencyId as Cla10_155_, claimsubmi0_.CurrencyPeriodId as Cur11_155_, claimsubmi0_.PolicyDealerId as Pol12_155_, claimsubmi0_.ClaimSubmittedDealerId as Cla13_155_, claimsubmi0_.ClaimSubmittedBy as Cla14_155_, claimsubmi0_.LastUpdatedBy as Las15_155_, claimsubmi0_.StatusId as Sta16_155_, claimsubmi0_.PolicyNumber as Pol17_155_, claimsubmi0_.ClaimNumber as Cla18_155_, claimsubmi0_.TotalClaimAmount as Tot19_155_, claimsubmi0_.ConversionRate as Con20_155_, claimsubmi0_.CustomerComplaint as Cus21_155_, claimsubmi0_.DealerComment as Dea22_155_, claimsubmi0_.ClaimMileage as Cla23_155_, claimsubmi0_.ClaimDate as Cla24_155_, claimsubmi0_.EntryDate as Ent25_155_, claimsubmi0_.LastUpdatedDate as Las26_155_, claimsubmi0_.VINNo as VIN27_155_, claimsubmi0_.CustomerName as Cus28_155_, claimsubmi0_.PlateNo as Pla29_155_, claimsubmi0_.LastServiceMileage as Las30_155_, claimsubmi0_.LastServiceDate as Las31_155_, claimsubmi0_.RepairCenter as Rep32_155_, claimsubmi0_.RepairCenterLocation as Rep33_155_, claimsubmi0_.RejectionTypeId as Rej34_155_, claimsubmi0_.FailureMileage as Fai35_155_, claimsubmi0_.FailureDate as Fai36_155_, claimsubmi0_.Wip as Wip37_155_, claimsubmi0_.MobileNo as Mob38_155_ from ClaimSubmission claimsubmi0_], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'MobileNo'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:99c05654-e6a9-4305-80c7-32d0caf2053f
+Error Number:207,State:1,Class:16
+2021-01-15 10:08:51.3605 TAS.Services.Entities.Management.ClaimEntityManager GetAllClaimDashboardStatus: exception: could not execute query
+[ select claimsubmi0_.Id as Id1_155_, claimsubmi0_.PolicyId as Poli2_155_, claimsubmi0_.PolicyCountryId as Poli3_155_, claimsubmi0_.ClaimCountryId as Clai4_155_, claimsubmi0_.CustomerId as Cust5_155_, claimsubmi0_.CommodityTypeId as Comm6_155_, claimsubmi0_.CommodityCategoryId as Comm7_155_, claimsubmi0_.MakeId as Make8_155_, claimsubmi0_.ModelId as Mode9_155_, claimsubmi0_.ClaimCurrencyId as Cla10_155_, claimsubmi0_.CurrencyPeriodId as Cur11_155_, claimsubmi0_.PolicyDealerId as Pol12_155_, claimsubmi0_.ClaimSubmittedDealerId as Cla13_155_, claimsubmi0_.ClaimSubmittedBy as Cla14_155_, claimsubmi0_.LastUpdatedBy as Las15_155_, claimsubmi0_.StatusId as Sta16_155_, claimsubmi0_.PolicyNumber as Pol17_155_, claimsubmi0_.ClaimNumber as Cla18_155_, claimsubmi0_.TotalClaimAmount as Tot19_155_, claimsubmi0_.ConversionRate as Con20_155_, claimsubmi0_.CustomerComplaint as Cus21_155_, claimsubmi0_.DealerComment as Dea22_155_, claimsubmi0_.ClaimMileage as Cla23_155_, claimsubmi0_.ClaimDate as Cla24_155_, claimsubmi0_.EntryDate as Ent25_155_, claimsubmi0_.LastUpdatedDate as Las26_155_, claimsubmi0_.VINNo as VIN27_155_, claimsubmi0_.CustomerName as Cus28_155_, claimsubmi0_.PlateNo as Pla29_155_, claimsubmi0_.LastServiceMileage as Las30_155_, claimsubmi0_.LastServiceDate as Las31_155_, claimsubmi0_.RepairCenter as Rep32_155_, claimsubmi0_.RepairCenterLocation as Rep33_155_, claimsubmi0_.RejectionTypeId as Rej34_155_, claimsubmi0_.FailureMileage as Fai35_155_, claimsubmi0_.FailureDate as Fai36_155_, claimsubmi0_.Wip as Wip37_155_, claimsubmi0_.MobileNo as Mob38_155_ from ClaimSubmission claimsubmi0_ ]
+[SQL: select claimsubmi0_.Id as Id1_155_, claimsubmi0_.PolicyId as Poli2_155_, claimsubmi0_.PolicyCountryId as Poli3_155_, claimsubmi0_.ClaimCountryId as Clai4_155_, claimsubmi0_.CustomerId as Cust5_155_, claimsubmi0_.CommodityTypeId as Comm6_155_, claimsubmi0_.CommodityCategoryId as Comm7_155_, claimsubmi0_.MakeId as Make8_155_, claimsubmi0_.ModelId as Mode9_155_, claimsubmi0_.ClaimCurrencyId as Cla10_155_, claimsubmi0_.CurrencyPeriodId as Cur11_155_, claimsubmi0_.PolicyDealerId as Pol12_155_, claimsubmi0_.ClaimSubmittedDealerId as Cla13_155_, claimsubmi0_.ClaimSubmittedBy as Cla14_155_, claimsubmi0_.LastUpdatedBy as Las15_155_, claimsubmi0_.StatusId as Sta16_155_, claimsubmi0_.PolicyNumber as Pol17_155_, claimsubmi0_.ClaimNumber as Cla18_155_, claimsubmi0_.TotalClaimAmount as Tot19_155_, claimsubmi0_.ConversionRate as Con20_155_, claimsubmi0_.CustomerComplaint as Cus21_155_, claimsubmi0_.DealerComment as Dea22_155_, claimsubmi0_.ClaimMileage as Cla23_155_, claimsubmi0_.ClaimDate as Cla24_155_, claimsubmi0_.EntryDate as Ent25_155_, claimsubmi0_.LastUpdatedDate as Las26_155_, claimsubmi0_.VINNo as VIN27_155_, claimsubmi0_.CustomerName as Cus28_155_, claimsubmi0_.PlateNo as Pla29_155_, claimsubmi0_.LastServiceMileage as Las30_155_, claimsubmi0_.LastServiceDate as Las31_155_, claimsubmi0_.RepairCenter as Rep32_155_, claimsubmi0_.RepairCenterLocation as Rep33_155_, claimsubmi0_.RejectionTypeId as Rej34_155_, claimsubmi0_.FailureMileage as Fai35_155_, claimsubmi0_.FailureDate as Fai36_155_, claimsubmi0_.Wip as Wip37_155_, claimsubmi0_.MobileNo as Mob38_155_ from ClaimSubmission claimsubmi0_], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'MobileNo'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:99c05654-e6a9-4305-80c7-32d0caf2053f
+Error Number:207,State:1,Class:16
+2021-01-15 10:09:38.2261 TAS.Services.Entities.Management.ClaimEntityManager GetAllClaimDashboardStatus: exception: could not execute query
+[ select claimsubmi0_.Id as Id1_155_, claimsubmi0_.PolicyId as Poli2_155_, claimsubmi0_.PolicyCountryId as Poli3_155_, claimsubmi0_.ClaimCountryId as Clai4_155_, claimsubmi0_.CustomerId as Cust5_155_, claimsubmi0_.CommodityTypeId as Comm6_155_, claimsubmi0_.CommodityCategoryId as Comm7_155_, claimsubmi0_.MakeId as Make8_155_, claimsubmi0_.ModelId as Mode9_155_, claimsubmi0_.ClaimCurrencyId as Cla10_155_, claimsubmi0_.CurrencyPeriodId as Cur11_155_, claimsubmi0_.PolicyDealerId as Pol12_155_, claimsubmi0_.ClaimSubmittedDealerId as Cla13_155_, claimsubmi0_.ClaimSubmittedBy as Cla14_155_, claimsubmi0_.LastUpdatedBy as Las15_155_, claimsubmi0_.StatusId as Sta16_155_, claimsubmi0_.PolicyNumber as Pol17_155_, claimsubmi0_.ClaimNumber as Cla18_155_, claimsubmi0_.TotalClaimAmount as Tot19_155_, claimsubmi0_.ConversionRate as Con20_155_, claimsubmi0_.CustomerComplaint as Cus21_155_, claimsubmi0_.DealerComment as Dea22_155_, claimsubmi0_.ClaimMileage as Cla23_155_, claimsubmi0_.ClaimDate as Cla24_155_, claimsubmi0_.EntryDate as Ent25_155_, claimsubmi0_.LastUpdatedDate as Las26_155_, claimsubmi0_.VINNo as VIN27_155_, claimsubmi0_.CustomerName as Cus28_155_, claimsubmi0_.PlateNo as Pla29_155_, claimsubmi0_.LastServiceMileage as Las30_155_, claimsubmi0_.LastServiceDate as Las31_155_, claimsubmi0_.RepairCenter as Rep32_155_, claimsubmi0_.RepairCenterLocation as Rep33_155_, claimsubmi0_.RejectionTypeId as Rej34_155_, claimsubmi0_.FailureMileage as Fai35_155_, claimsubmi0_.FailureDate as Fai36_155_, claimsubmi0_.Wip as Wip37_155_, claimsubmi0_.MobileNo as Mob38_155_ from ClaimSubmission claimsubmi0_ ]
+[SQL: select claimsubmi0_.Id as Id1_155_, claimsubmi0_.PolicyId as Poli2_155_, claimsubmi0_.PolicyCountryId as Poli3_155_, claimsubmi0_.ClaimCountryId as Clai4_155_, claimsubmi0_.CustomerId as Cust5_155_, claimsubmi0_.CommodityTypeId as Comm6_155_, claimsubmi0_.CommodityCategoryId as Comm7_155_, claimsubmi0_.MakeId as Make8_155_, claimsubmi0_.ModelId as Mode9_155_, claimsubmi0_.ClaimCurrencyId as Cla10_155_, claimsubmi0_.CurrencyPeriodId as Cur11_155_, claimsubmi0_.PolicyDealerId as Pol12_155_, claimsubmi0_.ClaimSubmittedDealerId as Cla13_155_, claimsubmi0_.ClaimSubmittedBy as Cla14_155_, claimsubmi0_.LastUpdatedBy as Las15_155_, claimsubmi0_.StatusId as Sta16_155_, claimsubmi0_.PolicyNumber as Pol17_155_, claimsubmi0_.ClaimNumber as Cla18_155_, claimsubmi0_.TotalClaimAmount as Tot19_155_, claimsubmi0_.ConversionRate as Con20_155_, claimsubmi0_.CustomerComplaint as Cus21_155_, claimsubmi0_.DealerComment as Dea22_155_, claimsubmi0_.ClaimMileage as Cla23_155_, claimsubmi0_.ClaimDate as Cla24_155_, claimsubmi0_.EntryDate as Ent25_155_, claimsubmi0_.LastUpdatedDate as Las26_155_, claimsubmi0_.VINNo as VIN27_155_, claimsubmi0_.CustomerName as Cus28_155_, claimsubmi0_.PlateNo as Pla29_155_, claimsubmi0_.LastServiceMileage as Las30_155_, claimsubmi0_.LastServiceDate as Las31_155_, claimsubmi0_.RepairCenter as Rep32_155_, claimsubmi0_.RepairCenterLocation as Rep33_155_, claimsubmi0_.RejectionTypeId as Rej34_155_, claimsubmi0_.FailureMileage as Fai35_155_, claimsubmi0_.FailureDate as Fai36_155_, claimsubmi0_.Wip as Wip37_155_, claimsubmi0_.MobileNo as Mob38_155_ from ClaimSubmission claimsubmi0_], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'MobileNo'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:d379cb82-30c4-47cd-8add-ce28d21d7e3f
+Error Number:207,State:1,Class:16
+2021-01-15 10:27:16.0307 TAS.Web.Controllers.DashboardController RetrivePolicySectionDataForDashboard: exception: Cannot open database "CycleandCarriageTest" requested by the login. The login failed.
+Login failed for user 'trivowadmin'., 
+2021-01-15 10:27:16.0317 TAS.Web.Controllers.ClaimController GetAllClaimDashboardStatus: exception: Cannot open database "CycleandCarriageTest" requested by the login. The login failed.
+Login failed for user 'trivowadmin'., 
+2021-01-15 10:27:29.0987 TAS.Web.Controllers.DashboardController RetrivePolicySectionDataForDashboard: exception: Cannot open database "CycleandCarriageTest" requested by the login. The login failed.
+Login failed for user 'trivowadmin'., 
+2021-01-15 10:27:29.1227 TAS.Web.Controllers.ClaimController GetAllClaimDashboardStatus: exception: Cannot open database "CycleandCarriageTest" requested by the login. The login failed.
+Login failed for user 'trivowadmin'., 
+2021-01-15 12:02:17.8284 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:1c12b6f4-80c5-40e5-bf03-ed4bb5ebbbc3
+Error Number:208,State:1,Class:16
+2021-01-15 12:02:43.3822 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:66130219-14b9-49cf-bc9c-772b7c0fd270
+Error Number:208,State:1,Class:16
+2021-01-15 12:05:13.0589 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:66130219-14b9-49cf-bc9c-772b7c0fd270
+Error Number:208,State:1,Class:16
+2021-01-15 12:11:55.8664 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:1c12b6f4-80c5-40e5-bf03-ed4bb5ebbbc3
+Error Number:208,State:1,Class:16
+2021-01-15 12:13:36.2610 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:66130219-14b9-49cf-bc9c-772b7c0fd270
+Error Number:208,State:1,Class:16

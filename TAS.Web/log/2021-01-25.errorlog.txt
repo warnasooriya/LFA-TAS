@@ -1,0 +1,51 @@
+2021-01-25 09:49:46.3724 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:06:09.5322 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-01-25 10:06:12.5600 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-01-25 10:06:20.5042 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-01-25 10:08:31.9242 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:08:41.4330 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:08:48.6217 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:08:49.1542 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:09:07.5512 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:20:54.8601 TAS.Services.Entities.Management.UserEntityManager GetUserById: exception: a different object with the same identifier value was already associated with the session: 97e735f7-8b14-4608-bc8a-97c6e16e6926, of entity: TAS.Services.Entities.UserType, 
+2021-01-25 10:21:03.5166 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:21:13.6135 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 54.169.114.193:80
+   at System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   at System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   at System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+2021-01-25 10:22:53.8047 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:23:04.4015 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:23:10.9949 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:23:11.5476 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-01-25 10:23:28.4604 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2021-01-25 11:03:54.5792 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-01-25 11:04:04.4055 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-01-25 11:04:10.4804 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2021-01-25 11:04:11.4474 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-01-25 11:04:27.8582 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2021-01-25 19:07:13.3138 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-01-25 19:11:35.5470 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)

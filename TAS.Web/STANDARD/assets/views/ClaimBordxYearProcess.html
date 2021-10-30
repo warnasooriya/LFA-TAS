@@ -1,0 +1,80 @@
+﻿<div ng-app="LFA" ng-controller="ClaimBordxYearProcessCtrl as ClaimBordxYearProcessController" ng-init="loadInitialDetails()">
+
+    <style>
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        #partsTable > tbody > tr > td {
+            height: 30px;
+            padding: 0px;
+            border-top: 0px;
+        }
+    </style>
+
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">{{'pages.claimBordxYearProcess.title' | translate}}</h1>
+                    <span class="mainDescription TitleModifier">{{'pages.claimBordxYearProcess.mainDescription' | translate}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div name="myForm" class="my-form">
+        <tabset class="tabbable">
+            <!-- start: TAB OVERVIEW -->
+            <tab heading="Bordereaux Process">
+                <div class="row">
+                    <div class="col-md-2 form-group">
+                        <label class="control-label">
+                            {{'pages.claimCommonData.reInsurer' | translate}}<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-model="Claimbordx.reinsurerId" ng-class="validate_reinsurerId" name="reinsurerId"
+                                ng-change=""
+                                ng-options="n.Id as n.ReinsurerName for n in reinsurers">
+                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label">
+                            {{'pages.claimCommonData.insurer' | translate}}<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-model="Claimbordx.insurerId" ng-class="validate_insurerId" name="insurerId"
+                                ng-change=""
+                                ng-options="n.Id as n.InsurerShortName for n in insurers">
+                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label class="control-label">
+                            {{'pages.claimCommonData.year' | translate}}<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control input-sm" ng-class="validate_BordxYear" ng-model="Claimbordx.BordxYear" ng-change="" name="BordxYear"
+                                ng-options="n as n for n in ClaimBordxyears">
+                            <option value="">{{'common.customText.pleaseSelect' | translate}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group" style="margin-top:18px">
+                        <!--<input type="button" class="btn btn-primary pull-right" style="margin-top:5px" ng-click="" value="Year Process" />-->
+                        <button class="btn btn-primary pull-right" ng-disabled="ClaimbordxProcessBtnDisabled" ng-click="claimBordxYearlyProcess()">
+                            {{'pages.claimBordxYearProcess.yearProcess' | translate}}
+                            <i ng-class="ClaimbordxProcessBtnIconClass"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-2 form-group" style="margin-top:18px">
+                        <!--<input type="button" class="btn btn-primary pull-right" style="margin-top:5px" ng-click="" value="Confirm Process" />-->
+                        <button class="btn btn-primary pull-right" ng-disabled="ClaimbordxConfmBtnDisabled" ng-click="claimBordxYearlyProcessConfrm()">
+                            {{'pages.claimBordxYearProcess.confirmProcess' | translate}}
+                            <i ng-class="ClaimbordxConfmBtnIconClass"></i>
+                        </button>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+</div>
+

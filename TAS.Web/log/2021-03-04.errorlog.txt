@@ -1,0 +1,450 @@
+2021-03-04 11:53:52.2179 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: could not execute query
+[ select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'1/1/0001 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'
+	end
+	and Dealer.Id=case
+	when 'f7de6c68-5c72-45f7-98b0-953c5227a59b'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else 'f7de6c68-5c72-45f7-98b0-953c5227a59b'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2021'=''
+	then ReinsurerContract.UWYear
+	else '2021'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription ]
+[SQL: select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'1/1/0001 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'
+	end
+	and Dealer.Id=case
+	when 'f7de6c68-5c72-45f7-98b0-953c5227a59b'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else 'f7de6c68-5c72-45f7-98b0-953c5227a59b'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2021'=''
+	then ReinsurerContract.UWYear
+	else '2021'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription], System.Data.SqlClient.SqlException (0x80131904): The conversion of a varchar data type to a datetime data type resulted in an out-of-range value.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at NHibernate.Driver.NHybridDataReader.Read()
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:1fad03a8-a1a7-4093-8378-42ca6959ee33
+Error Number:242,State:3,Class:16
+2021-03-04 11:53:59.8697 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: could not execute query
+[ select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'1/1/0001 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'
+	end
+	and Dealer.Id=case
+	when 'f7de6c68-5c72-45f7-98b0-953c5227a59b'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else 'f7de6c68-5c72-45f7-98b0-953c5227a59b'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2021'=''
+	then ReinsurerContract.UWYear
+	else '2021'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription ]
+[SQL: select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'1/1/0001 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'
+	end
+	and Dealer.Id=case
+	when 'f7de6c68-5c72-45f7-98b0-953c5227a59b'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else 'f7de6c68-5c72-45f7-98b0-953c5227a59b'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2021'=''
+	then ReinsurerContract.UWYear
+	else '2021'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription], System.Data.SqlClient.SqlException (0x80131904): The conversion of a varchar data type to a datetime data type resulted in an out-of-range value.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at NHibernate.Driver.NHybridDataReader.Read()
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:d4dc3b67-ebde-46e4-a279-f50b487a3b9e
+Error Number:242,State:3,Class:16
+2021-03-04 12:22:04.4391 TAS.Services.Entities.Management.BordxEntityManager GetAllBordxDetailsByYearMonth: exception: A recognition error occurred. [.Select[<>f__AnonymousType1`2[[TAS.Services.Entities.Policy, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TAS.Services.Entities.PolicyTransaction, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]],TAS.Services.Entities.Policy](.Where[<>f__AnonymousType1`2[[TAS.Services.Entities.Policy, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TAS.Services.Entities.PolicyTransaction, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]](.Join[TAS.Services.Entities.Policy,TAS.Services.Entities.PolicyTransaction,System.Guid,<>f__AnonymousType1`2[[TAS.Services.Entities.Policy, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TAS.Services.Entities.PolicyTransaction, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Policy], NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.PolicyTransaction], Quote((b, ) => (b.Id)), Quote((c, ) => (c.PolicyId)), Quote((b, c, ) => (new <>f__AnonymousType1`2(b, c, ))), ), Quote((a, ) => (OrElse(AndAlso(OrElse(Guid.op_Equality(Convert(a.b.BordxId), NULL), AndAlso(Guid.op_Equality(a.b.BordxId, p2), Equal(a.b.IsApproved, p3))), AndAlso(AndAlso(AndAlso(AndAlso(Equal(a.b.Year, p4), Equal(a.b.Month, p5)), AndAlso(DateTime.op_GreaterThan(a.b.ApprovedDate, p6), DateTime.op_LessThanOrEqual(a.b.ApprovedDate, p7))), Guid.op_Equality(a.b.CommodityTypeId, p8)), .Any[TAS.Services.Entities.Contract](.Where[TAS.Services.Entities.Contract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Contract], Quote((b, ) => (.Any[TAS.Services.Entities.ReinsurerContract](.Where[TAS.Services.Entities.ReinsurerContract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.ReinsurerContract], Quote((a, ) => (Guid.op_Equality(a.ReinsurerId, p9))), ), (a, ) => (Guid.op_Equality(a.Id, b.ReinsurerContractId)), ))), ), (b, ) => (Guid.op_Equality(b.Id, a.b.ContractId)), ))), AndAlso(AndAlso(AndAlso(AndAlso(AndAlso(Equal(a.b.IsApproved, p10), Equal(a.b.Year, p11)), Equal(a.b.Month, p12)), Equal(a.b.BordxNumber, p13)), Guid.op_Equality(a.b.CommodityTypeId, p14)), .Any[TAS.Services.Entities.Contract](.Where[TAS.Services.Entities.Contract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Contract], Quote((b, ) => (.Any[TAS.Services.Entities.ReinsurerContract](.Where[TAS.Services.Entities.ReinsurerContract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.ReinsurerContract], Quote((a, ) => (Guid.op_Equality(a.ReinsurerId, p15))), ), (a, ) => (Guid.op_Equality(a.Id, b.ReinsurerContractId)), ))), ), (b, ) => (Guid.op_Equality(b.Id, a.c.ContractId)), ))))), ), Quote((po, ) => (TAS.Services.Entities.Policy)), )], 
+2021-03-04 12:25:53.5378 TAS.Services.Entities.Management.BordxEntityManager GetAllBordxDetailsByYearMonth: exception: A recognition error occurred. [.Select[<>f__AnonymousType1`2[[TAS.Services.Entities.Policy, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TAS.Services.Entities.PolicyTransaction, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]],TAS.Services.Entities.Policy](.Where[<>f__AnonymousType1`2[[TAS.Services.Entities.Policy, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TAS.Services.Entities.PolicyTransaction, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]](.Join[TAS.Services.Entities.Policy,TAS.Services.Entities.PolicyTransaction,System.Guid,<>f__AnonymousType1`2[[TAS.Services.Entities.Policy, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TAS.Services.Entities.PolicyTransaction, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Policy], NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.PolicyTransaction], Quote((b, ) => (b.Id)), Quote((c, ) => (c.PolicyId)), Quote((b, c, ) => (new <>f__AnonymousType1`2(b, c, ))), ), Quote((a, ) => (OrElse(AndAlso(OrElse(Guid.op_Equality(Convert(a.b.BordxId), NULL), AndAlso(Guid.op_Equality(a.b.BordxId, p2), Equal(a.b.IsApproved, p3))), AndAlso(AndAlso(AndAlso(AndAlso(Equal(a.b.Year, p4), Equal(a.b.Month, p5)), AndAlso(DateTime.op_GreaterThan(a.b.ApprovedDate, p6), DateTime.op_LessThanOrEqual(a.b.ApprovedDate, p7))), Guid.op_Equality(a.b.CommodityTypeId, p8)), .Any[TAS.Services.Entities.Contract](.Where[TAS.Services.Entities.Contract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Contract], Quote((b, ) => (.Any[TAS.Services.Entities.ReinsurerContract](.Where[TAS.Services.Entities.ReinsurerContract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.ReinsurerContract], Quote((a, ) => (Guid.op_Equality(a.ReinsurerId, p9))), ), (a, ) => (Guid.op_Equality(a.Id, b.ReinsurerContractId)), ))), ), (b, ) => (Guid.op_Equality(b.Id, a.b.ContractId)), ))), AndAlso(AndAlso(AndAlso(AndAlso(AndAlso(Equal(a.b.IsApproved, p10), Equal(a.b.Year, p11)), Equal(a.b.Month, p12)), Equal(a.b.BordxNumber, p13)), Guid.op_Equality(a.b.CommodityTypeId, p14)), .Any[TAS.Services.Entities.Contract](.Where[TAS.Services.Entities.Contract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Contract], Quote((b, ) => (.Any[TAS.Services.Entities.ReinsurerContract](.Where[TAS.Services.Entities.ReinsurerContract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.ReinsurerContract], Quote((a, ) => (Guid.op_Equality(a.ReinsurerId, p15))), ), (a, ) => (Guid.op_Equality(a.Id, b.ReinsurerContractId)), ))), ), (b, ) => (Guid.op_Equality(b.Id, a.c.ContractId)), ))))), ), Quote((po, ) => (TAS.Services.Entities.Policy)), )], 
+2021-03-04 12:26:55.0890 TAS.Services.Entities.Management.BordxEntityManager GetAllBordxDetailsByYearMonth: exception: A recognition error occurred. [.Select[<>f__AnonymousType1`2[[TAS.Services.Entities.Policy, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TAS.Services.Entities.PolicyTransaction, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]],TAS.Services.Entities.Policy](.Where[<>f__AnonymousType1`2[[TAS.Services.Entities.Policy, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TAS.Services.Entities.PolicyTransaction, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]](.Join[TAS.Services.Entities.Policy,TAS.Services.Entities.PolicyTransaction,System.Guid,<>f__AnonymousType1`2[[TAS.Services.Entities.Policy, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TAS.Services.Entities.PolicyTransaction, TAS.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Policy], NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.PolicyTransaction], Quote((b, ) => (b.Id)), Quote((c, ) => (c.PolicyId)), Quote((b, c, ) => (new <>f__AnonymousType1`2(b, c, ))), ), Quote((a, ) => (OrElse(AndAlso(OrElse(Guid.op_Equality(Convert(a.b.BordxId), NULL), AndAlso(Guid.op_Equality(a.b.BordxId, p2), Equal(a.b.IsApproved, p3))), AndAlso(AndAlso(AndAlso(AndAlso(Equal(a.b.Year, p4), Equal(a.b.Month, p5)), AndAlso(DateTime.op_GreaterThan(a.b.ApprovedDate, p6), DateTime.op_LessThanOrEqual(a.b.ApprovedDate, p7))), Guid.op_Equality(a.b.CommodityTypeId, p8)), .Any[TAS.Services.Entities.Contract](.Where[TAS.Services.Entities.Contract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Contract], Quote((b, ) => (.Any[TAS.Services.Entities.ReinsurerContract](.Where[TAS.Services.Entities.ReinsurerContract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.ReinsurerContract], Quote((a, ) => (Guid.op_Equality(a.ReinsurerId, p9))), ), (a, ) => (Guid.op_Equality(a.Id, b.ReinsurerContractId)), ))), ), (b, ) => (Guid.op_Equality(b.Id, a.b.ContractId)), ))), AndAlso(AndAlso(AndAlso(AndAlso(AndAlso(Equal(a.b.IsApproved, p10), Equal(a.b.Year, p11)), Equal(a.b.Month, p12)), Equal(a.b.BordxNumber, p13)), Guid.op_Equality(a.b.CommodityTypeId, p14)), .Any[TAS.Services.Entities.Contract](.Where[TAS.Services.Entities.Contract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.Contract], Quote((b, ) => (.Any[TAS.Services.Entities.ReinsurerContract](.Where[TAS.Services.Entities.ReinsurerContract](NHibernate.Linq.NhQueryable`1[TAS.Services.Entities.ReinsurerContract], Quote((a, ) => (Guid.op_Equality(a.ReinsurerId, p15))), ), (a, ) => (Guid.op_Equality(a.Id, b.ReinsurerContractId)), ))), ), (b, ) => (Guid.op_Equality(b.Id, a.c.ContractId)), ))))), ), Quote((po, ) => (TAS.Services.Entities.Policy)), )], 
+2021-03-04 14:09:15.0348 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: could not execute query
+[ select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'1/1/0001 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'
+	end
+	and Dealer.Id=case
+	when 'cd9295de-639c-407c-b18d-016780a06512'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else 'cd9295de-639c-407c-b18d-016780a06512'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2021'=''
+	then ReinsurerContract.UWYear
+	else '2021'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription ]
+[SQL: select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'1/1/0001 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'
+	end
+	and Dealer.Id=case
+	when 'cd9295de-639c-407c-b18d-016780a06512'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else 'cd9295de-639c-407c-b18d-016780a06512'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2021'=''
+	then ReinsurerContract.UWYear
+	else '2021'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription], System.Data.SqlClient.SqlException (0x80131904): The conversion of a varchar data type to a datetime data type resulted in an out-of-range value.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at NHibernate.Driver.NHybridDataReader.Read()
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:c9c9e5b9-4e2d-41ae-9ea4-b38f4b5c3281
+Error Number:242,State:3,Class:16
+2021-03-04 14:10:35.2559 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: could not execute query
+[ select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'1/1/0001 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'
+	end
+	and Dealer.Id=case
+	when 'f7de6c68-5c72-45f7-98b0-953c5227a59b'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else 'f7de6c68-5c72-45f7-98b0-953c5227a59b'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2021'=''
+	then ReinsurerContract.UWYear
+	else '2021'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription ]
+[SQL: select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'1/1/0001 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else 'a1df83b2-1f3c-4d5e-8c69-d518d4a2114b'
+	end
+	and Dealer.Id=case
+	when 'f7de6c68-5c72-45f7-98b0-953c5227a59b'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else 'f7de6c68-5c72-45f7-98b0-953c5227a59b'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2021'=''
+	then ReinsurerContract.UWYear
+	else '2021'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription], System.Data.SqlClient.SqlException (0x80131904): The conversion of a varchar data type to a datetime data type resulted in an out-of-range value.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at NHibernate.Driver.NHybridDataReader.Read()
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:e74fc9ca-040a-4e16-a506-2b570d4e4567
+Error Number:242,State:3,Class:16
+2021-03-04 14:42:48.2096 TAS.Web.Controllers.IncurredErningManagementController GetUNWYears: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2021-03-04 14:42:48.2096 TAS.Web.Controllers.DealerManagementController GetAllDealers: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2021-03-04 14:42:48.2096 TAS.Web.Controllers.AutomobileAttributesController GetAllCylinderCounts: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2021-03-04 14:42:56.2884 TAS.Web.Controllers.AutomobileAttributesController GetAllEngineCapacities: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2021-03-04 14:42:56.2884 TAS.Web.Controllers.MakeAndModelManagementController GetAllCommodities: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2021-03-04 14:43:11.1602 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:85cedcbc-7e81-496f-a6ea-723ba869cca5
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The network connection was aborted by the local system.) ---> System.ComponentModel.Win32Exception (0x80004005): The network connection was aborted by the local system
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:654d02ff-db18-4bb5-8ac1-8ed08991bcf2
+Error Number:1236,State:0,Class:20
+2021-03-04 14:43:17.6317 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-03-04 14:47:33.5974 TAS.Web.Controllers.MakeAndModelManagementController GetAllCommodities: exception: Object reference not set to an instance of an object., 
+2021-03-04 14:47:44.4685 TAS.Web.Controllers.DealerManagementController GetAllDealers: exception: Object reference not set to an instance of an object., 
+2021-03-04 14:47:44.4685 TAS.Web.Controllers.IncurredErningManagementController GetUNWYears: exception: could not execute query
+[ select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=? ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:Suranji
+[SQL: select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=? ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NHibernate.Connection.DriverConnectionProvider.GetConnection()
+   at NHibernate.AdoNet.ConnectionManager.GetConnection()
+   at NHibernate.AdoNet.AbstractBatcher.Prepare(IDbCommand cmd)
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:e0382459-a116-4736-8ef3-51c6f012b08b
+Error Number:53,State:0,Class:20
+2021-03-04 14:47:48.5710 TAS.Web.Controllers.MakeAndModelManagementController GetAllCommodities: exception: Object reference not set to an instance of an object., 
+2021-03-04 16:04:25.1810 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-03-04 16:04:50.7839 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-03-04 16:04:57.4996 TAS.Services.Entities.Management.ClaimEntityManager ValidateClaimProcessRequest: exception: SqlDateTime overflow. Must be between 1/1/1753 12:00:00 AM and 12/31/9999 11:59:59 PM., 
+2021-03-04 16:05:06.2701 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2021-03-04 16:05:07.1969 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 

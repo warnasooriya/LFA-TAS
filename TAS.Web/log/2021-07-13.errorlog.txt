@@ -1,0 +1,24 @@
+2021-07-13 09:48:40.6609 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-13 15:34:38.0509 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 15:34:43.5844 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 15:34:53.0354 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 15:35:28.4419 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 15:35:38.7982 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 15:48:03.6153 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 15:54:12.4293 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 15:54:16.4905 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 15:55:23.1829 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 15:55:25.3617 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 16:12:21.1045 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 16:12:25.0921 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 16:14:27.6823 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 
+2021-07-13 16:14:30.8647 TAS.Web.Controllers.PolicyRegController GetEMIValue: exception: Input string was not in a correct format., 

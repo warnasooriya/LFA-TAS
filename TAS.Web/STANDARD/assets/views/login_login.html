@@ -1,0 +1,153 @@
+<!-- start: LOGIN -->
+    <div ng-app="clip-two" ng-controller="loginCtrl as loginController" ng-init="loadTPAId()" id="mylogin">
+
+        <div class="logo-out-of-login-box " ng-show="loginBoxStyle.outerLogo" >
+            <div class="row">
+                <div class="col-md-12" style="margin-top:-2px">
+                    <div class="col-md-4">
+                        <div class="logo">
+                            <img ng-src="/TAS.Web/STANDARD/assets/images/LeftfieldAssuranceLogo.svg" alt="Loading..." class="img-responsive" style="width:170px" />
+                        </div>
+                    </div>
+                    <!--<div class="col-md-8 " ng-show="tpaName=='leftfielddemo' || tpaName=='suranjika'">
+                        <div class="logo pull-right">
+                            <img ng-src="/TAS.Web/STANDARD/assets/images/hannover_re_logo.svg" alt="Loading..." class="img-responsive" style="width:200px;margin-right:47px;margin-top:50px" />
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class={{loginBoxStyle.boxAlignClass}}">
+
+                <!-- start: LOGIN BOX -->
+
+                <div class="box-login" style="{{loginboxBackground}}  ;border:{{loginBoxStyle.loginbox}}">
+                    <form class="form-login" action="">
+                        <div style="height:39px" ng-show="loginBoxStyle.outerLogo && tpaName!='leftfielddemo'"></div>
+                        <div class="logo" ng-show="tpaName!='continental' && tpaName != 'contidentalTest'">
+                            <!--<img src="../images/Login_logo.png" />-->
+                            <img ng-show="loginBoxStyle.outerLogo==false &&  tpaName!='leftfielddemo'" ng-src="data:image/JPEG;base64,{{TpaLogoSrc}}" alt="Loading..." class="img-responsive" />
+                            <!--<img ng-show="tpaName=='leftfielddemo' || tpaName=='suranjika'" ng-src="/TAS.Web/STANDARD/assets/images/biov.svg" alt="Loading..." class="img-responsive" style="width:160px;" />-->
+                            <!--<img ng-src="{{app.layout.logo}}" alt="{{app.name}}" />-->
+                        </div>
+                        <div class="logo" ng-show="tpaName=='continental' || tpaName == 'contidentalTest'">
+                            <img ng-show="loginBoxStyle.outerLogo==false" ng-src="/TAS.Web/STANDARD/assets/images/ContinentalNew.png" alt="Loading..." class="img-responsive" />
+                        </div>
+                        <h3 style="!important" class="{{loginBoxStyle.labelHeading}} " translate="pages.login.title"></h3>
+                        <p style="!important" class="{{loginBoxStyle.color}} ">
+                            <span ng-show="err==0" translate="pages.login.information"></span>
+                        </p>
+
+                        <div class="alert alert-danger" ng-show="err==1">
+                            <span>{{Errormsg}}</span>
+
+                        </div>
+                        <div class="form-group">
+                            <span class="input-icon">
+                                <input type="text" class="form-control" style="{{loginBoxStyle.loginInputStyle}}" name="username" placeholder="{{'pages.login.username' | translate }}" ng-model="userName" tabindex="1" ng-keypress="LoginKeyPress($event)">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        <div class="form-group form-actions" >
+                            <span class="input-icon">
+                                <input type="password"  class="form-control password" name="password" placeholder="{{'pages.login.password' | translate }}" tabindex="2" ng-model="password" ng-keypress="LoginKeyPress($event)" style="{{loginBoxStyle.loginInputStyle}}">
+                                <i class="fa fa-lock"></i>
+                                <a class="forgot" ng-click="navigateToForgotPassword()">{{'pages.login.forgotmypassword' | translate }}</a>
+                            </span>
+                        </div>
+                        <div class="form-actions">
+                            <div></div>
+                            <div class="checkbox clip-check check-primary {{loginBoxStyle.checkboxColor}}">
+                                <input type="checkbox" id="remember" value="1" ng-model="rememberMe" style="{{loginBoxStyle.loginInputStyle}}">
+                                <label style="color:{{loginBoxStyle.colorOrd}}  !important" class="{{loginBoxStyle.color}}" for="remember">
+                                    {{'pages.login.keepmesignedin' | translate }}
+                                </label>
+                            </div>
+                            <button type="button" class={{loginBtnClass}} ng-disabled="loginBtnDisabled" tabindex="3" ng-click="loginAttempt()">
+                                {{'pages.login.btnlogin' | translate }} <i ng-class="loginIconBtnClass"></i>
+                            </button>
+                        </div>
+                        <!--<div class="new-account">
+                        Don't have an account yet?
+                        <a ui-sref="login.registration">
+                            Create an account
+                        </a>
+                    </div>-->
+
+                    </form>
+                    <!-- start: COPYRIGHT -->
+                    <div class="copyright {{loginBoxStyle.color}}" style="!important;font-size:12px;">
+                        <!--{{app.year}} &copy; {{ app.name }} by {{ app.author }}.-->
+                        &copy; 2015-{{copyRightYear}}
+                        <a onmouseover='this.style.color = "loginBoxStyle.colorOrd"'
+                           onmouseout='this.style.color="loginBoxStyle.colorOrd"' href="http://www.leftfieldassurance.com" target="_blank" style="{{loginBoxStyle.copyrightLinkColor}};text-decoration:none;">{{'pages.login.companytitle' | translate }}</a>
+                        {{'pages.login.allrightsreserved' | translate }}
+                    </div>
+                    <!-- end: COPYRIGHT -->
+                </div>
+                <!-- end: LOGIN BOX -->
+            </div>
+        </div>
+        <!-- end: LOGIN -->
+        <style type="text/css">
+            body {
+                background: url("{{image}}") no-repeat {{bgcolor}};
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+        .main-login .box-login, .main-login .box-forgot, .main-login .box-register {
+            background:rgba(0,0,0,0.28)
+            border: solid rgba(255,255,255,0.19) 1px;
+        }
+
+        box-login-border-none {
+            border: 1px solid #0f0f0f ;
+        }
+
+        box-login-border {
+            border: solid rgba(255,255,255,0.19) 1px;
+        }
+
+        .main-login {
+            margin-top: 5%;
+        }
+
+        .form-group {
+            margin-bottom: -20px !important;
+        }
+        .box-internal-fore-color-white {
+            color: #fff;
+        }
+        .box-internal-fore-color-black {
+            color: black;
+            font-size:14px;
+        }
+
+        .box-internal-fore-color-black-heading {
+            color: black;
+            font-size: 24px;
+            font-weight:200;
+        }
+        .box-internal-fore-color-white-heading {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 200;
+        }
+        .logo-out-of-login-box {
+            margin-left:60px;
+        }
+
+        .checkbox-color label:before {
+                background-color: #dae3f3;
+                border: 1px solid;
+        }
+
+
+        </style>
+
+    </div>

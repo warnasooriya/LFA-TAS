@@ -1,0 +1,190 @@
+﻿<div ng-app="LFA" ng-controller="BordxProcessCtrl as BordxProcessController" ng-init="">
+
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        #loading {
+            width: 100%;
+            height: 100%;
+            top: 120px;
+            left: 0px;
+            position: fixed;
+            display: block;
+            opacity: 0.7;
+            background-color: black;
+            z-index: 99;
+            text-align: center;
+        }
+
+        .ngdialog-content {
+            width: 900px !important;
+            height: 200px !important;
+        }
+
+        .fixed-height {
+            height: 10px;
+        }
+
+        .fixedheight {
+            height: 24px;
+        }
+
+        .ScrollHeight {
+            max-height: 200px;
+            max-width: 1000px;
+            border: 1px solid red;
+            overflow: auto;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .grid {
+            height: 400px;
+        }
+
+        .ui-grid-render-container-body {
+            position: absolute;
+            margin-left: 31px;
+        }
+
+        .ui-grid-grid-footer {
+            position: absolute;
+            bottom: 25px;
+        }
+    </style>
+
+    <!--
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">Dealer Cheques</h1>
+                    <span class="mainDescription TitleModifier">You can add dealer cheques here.</span>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <span class="btn btn-twitter pull-right" ng-click="searchPopup()" ng-disabled="searchDisabled">
+                    <i class="fa fa-search"></i>
+                    | Search Cheques
+                </span>
+
+
+            </div>
+
+        </div>
+    </section>
+    -->
+
+    <div ng-form="myForm" class="my-form">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger" ng-show="errorTab1!=''">
+                    {{errorTab1}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Insurer
+                    </label>
+                    <span class="error" ng-show="myForm.Insurer.$error.required">*</span>
+                    <select class="form-control  input-sm  input-sm" ng-model="Claimbordx.insurerId" name="Insurer" required
+                            ng-change="loadBordxNumber()"
+                            ng-options="n.Id as n.InsurerShortName for n in insurers">
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Re-Insurer
+                    </label>
+                    <span class="error" ng-show="myForm.Reinsurer.$error.required">*</span>
+                    <select class="form-control  input-sm  input-sm" ng-model="Claimbordx.reinsurerId" name="Reinsurer" required
+                            ng-change="loadBordxNumber()"
+                            ng-options="n.Id as n.ReinsurerName for n in reinsurers">
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Year
+                    </label>
+                    <span class="error" ng-show="myForm.BordxYear.$error.required">*</span>
+                    <select class="form-control input-sm" ng-model="Claimbordx.year" name="BordxYear" ng-change="loadBordxNumber()"  required
+                            ng-options="n for n in years">
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Month
+                    </label>
+                    <span class="error" ng-show="myForm.BordxMonth.$error.required">*</span>
+                    <select class="form-control input-sm" ng-model="Claimbordx.month" ng-change="loadBordxNumber()" name="BordxMonth" required>
+                        <option value="">Please Select</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Bordx Number
+                    </label>
+                    <span class="error" ng-show="myForm.BordxNumber.$error.required">*</span>
+                    <select class="form-control input-sm" ng-model="bordxObj" name="BordxNumber" required ng-change="checkConfirm()"
+                            ng-options="n as n.BordxNumber for n in bordx">
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <input type="button" class="btn btn-primary  btn-block" ng-click="Process()" value="Process" ng-disabled="!canProcess" />
+            </div>
+            <div class="col-md-3">
+                <input type="button" class="btn btn-primary  btn-block" ng-click="Confirm()" value="Confirm" ng-disabled="!canConfirm" />
+            </div>
+            <div class="col-md-3 col-md-offset-3">
+                <input type="button" class="btn btn-primary  btn-block" ng-click="View()" value="View" ng-disabled="!canView" />
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,79 @@
+2020-12-09 09:14:23.0447 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2020-12-09 09:14:28.9040 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2020-12-09 09:14:34.0577 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2020-12-09 09:15:11.8008 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:15:58.5131 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:16:05.0570 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:16:05.8615 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:16:06.3258 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:16:06.7998 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:16:07.5262 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:16:23.2786 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:23:55.5042 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:24:01.4915 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:24:01.9601 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:24:02.4034 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:24:02.8409 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:24:03.4730 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:24:18.7849 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:35:41.4722 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:35:46.5284 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:35:47.1612 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:35:47.6026 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:35:48.0240 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:35:48.6687 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:36:04.2725 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:36:29.9957 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:36:42.1206 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:36:42.5143 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:36:42.9238 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:36:43.3474 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:36:43.9741 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:36:50.7904 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:37:02.4136 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:37:02.8257 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:37:03.2519 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:37:03.6842 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:37:04.3429 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:38:17.1254 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:39:39.4858 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:39:47.5525 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:39:48.3514 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:39:48.8003 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:39:49.2293 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:39:49.8992 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:44:41.4860 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:44:52.4676 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:44:53.2537 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:44:53.6702 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:44:54.1445 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:44:54.7847 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:45:12.0726 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:49:55.4086 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:50:01.7893 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:50:02.6345 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:50:03.0749 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:50:03.4942 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:50:04.1166 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:50:25.1737 TAS.Services.Entities.Management.ClaimEntityManager GetPolicyDetailsForView: exception: Object reference not set to an instance of an object., 
+2020-12-09 09:57:59.4799 TAS.Services.Entities.Management.ClaimEntityManager ProcessClaim: exception: could not execute batch command.[SQL: SQL not available], System.Data.SqlClient.SqlException (0x80131904): Arithmetic overflow error converting numeric to data type numeric.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   at System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   at lambda_method(Closure , Object )
+   at NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   at NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+ClientConnectionId:32c6e360-fcdb-415c-8d75-89eb3b178010
+Error Number:8115,State:8,Class:16

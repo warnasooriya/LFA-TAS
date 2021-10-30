@@ -1,0 +1,122 @@
+2021-04-07 10:12:51.8698 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:e35ba3b3-ecba-4440-ad6c-92329c3797f2
+Error Number:208,State:1,Class:16
+2021-04-07 10:13:50.5247 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:d5b37b5d-72ec-4120-a597-16b3616b130f
+Error Number:208,State:1,Class:16
+2021-04-07 10:15:34.9389 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-04-07 10:17:31.0777 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2021-04-07 10:48:31.5077 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-04-07 10:50:27.7167 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2021-04-07 11:01:23.2649 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:01:23.2849 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:01:23.3089 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:01:23.3279 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:01:36.3778 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:01:36.3960 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:01:36.4140 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:01:36.4320 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:03:00.4110 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:03:00.4320 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:03:00.4570 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:03:00.4760 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:03:20.6006 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:03:20.6206 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:03:20.6476 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:03:20.6666 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:04:26.2615 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:04:26.2846 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:04:26.3087 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:04:26.3296 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:05:15.7496 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:05:15.7696 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:05:15.7896 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:05:15.8096 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:05:53.2546 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:05:53.2796 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:05:53.3026 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:05:53.3226 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:06:06.3055 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:06:06.3266 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:06:06.3526 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:06:06.3766 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:06:32.4491 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:06:32.4721 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:06:32.4991 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:06:32.5221 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:07:40.5356 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:07:40.5573 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:07:40.5813 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:07:40.6037 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 11:19:26.6480 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:5a16380b-1c13-408b-ba4e-a603923ec5ca
+Error Number:208,State:1,Class:16
+2021-04-07 12:01:34.8110 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 12:01:34.8330 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 12:01:34.8560 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2021-04-07 12:01:34.8780 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 

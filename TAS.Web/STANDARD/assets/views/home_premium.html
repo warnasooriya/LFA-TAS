@@ -1,0 +1,1716 @@
+﻿<style>
+    .my-form {
+        -webkit-transition: all linear 0.5s;
+        transition: all linear 0.5s;
+        background: transparent;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .has-error {
+        border: solid 1px #e84e4e !important;
+        /*#fbaa2b*/
+    }
+
+    .drop-btn {
+        width: 100% !important
+    }
+
+    .dropdown-multiselect {
+        width: 100% !important
+    }
+
+    .continental-color {
+        background-color: #ffa500 !important;
+        color: black;
+    }
+
+
+
+</style>
+<div name="myForm" class="my-form">
+    <div ng-controller="PremiumDetailsCtrl" ng-init="loadInitailData()">
+       
+        <section id="page-title" style="padding: 2px; padding-left:15px">
+            <div class="row">
+
+                <div class="col-md-7">
+                    <img ng-src="data:image/JPEG;base64,{{TpaLogoSrc}}" alt="Loading..."
+                         class="img-responsive" 
+                         ng-click="navigateToProductsPage()" />
+                </div>
+                <div class="col-md-5">
+                    <!--<div class="pull-right" style="margin-top:10px" ng-show="!customerLoggedIn">
+                        <h4 class=" inline-block">Returning Customer ? &nbsp;&nbsp;</h4>
+                        <button class="btn continental-color inline-block " ng-click="ReturningSearchPopup()">
+                            <i class="fa fa-key"></i> | Sign In
+                        </button>
+                    </div>-->
+                    <!--here goes logged in plane-->
+                    <div ng-show="customerLoggedIn">
+                        <div class="navbar-collapse collapse" collapse="navbarCollapsed" ng-init="navbarCollapsed = true"
+                             off-click="navbarCollapsed = true" off-click-if='!navbarCollapsed' off-click-filter="#menu-toggler">
+                            <ul class="nav navbar-right" ct-fullheight="window" data-ct-fullheight-exclusion="header"
+                                data-ct-fullheight-if="isSmallDevice">
+
+                                <li class="dropdown current-user" dropdown on-toggle="toggled(open)">
+                                    <a href class="dropdown-toggle" dropdown-toggle>
+                                        <img ng-src="data:image/JPEG;base64,{{loggedInCustomer.picture}}" alt="" width="50px">
+                                        <span class="username">{{loggedInCustomer.name}} <i class="ti-angle-down"></i></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-dark">
+                                        <li>
+                                            <a ui-sref="home.customerPro" translate="topbar.user.PROFILE">
+                                                My Profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="login.signin" ng-click="signOut()" translate="topbar.user.LOGOUT">
+                                                Log Out
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <!-- end: USER OPTIONS DROPDOWN -->
+                            </ul>
+                            <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+                            <div class="close-handle visible-xs-block menu-toggler" ng-click="navbarCollapsed = true">
+                                <div class="arrow-left"></div>
+                                <div class="arrow-right"></div>
+                            </div>
+                            <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row"><div class="VGap5"></div></div>
+
+        </section>
+        <div class="row">
+            <div class="col-md-12" style="padding:5px">
+                <!--<div ng-controller="ModalDemoCtrl">-->
+                <script type="text/ng-template" id="myModalContent.html">
+                    <div class="modal-header">
+                        <h3 class="modal-title"> Select Your Pacakage</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid container-fullw bg-white">
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <div class="pricing-table pricing-blue">
+                                        <div class="col-lg-12 col-md-12 col-xs-12" ng-repeat="(key,extensionlist) in ContractPrices | groupBy: 'ExtensionID'">
+                                            <h5 style="font-weight:500;">{{extensionlist[0].ExtensionName}}</h5>
+                                            <div class="col-lg-12 col-md-12 col-xs-12" ng-repeat="(key,values) in extensionlist | groupBy: 'contractId'">
+                                                {{values[0].dealName}}
+                                                <div ng-repeat=" a in values">
+                                                    <div class="col-lg-4 col-md-4 col-xs-6">
+                                                        <ul class="plan plan1">
+                                                            <li class="plan-name">
+                                                                {{a.coverType}}
+                                                            </li>
+                                                            <li class="plan-price">
+                                                                <h3> ${{a.price}} <span class="price-cents">99</span></h3>
+                                                            </li>
+
+                                                            <li class="plan-action" ng-click="cancel($event)">
+                                                                <a class="btn btn-blue btn-lg" ng-click="signin(a.contractId,a.price,a.dealName,a.coverType,a.ExtensionName,a.ExtensionID)">
+                                                                    Signup
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="modal-footer">
+                        <button class="btn btn-primary" ng-click="ok($event)">OK</button>
+                        <button class="btn btn-primary" ng-click="cancel($event)">Cancel</button>
+                    </div>-->
+                </script>
+                <!--</div>-->
+                <div class="row">
+                    <!--<div class="col-md-4">
+                        <div class="col-md-12">
+
+                            <h3> {{Product.Productname}} </h3>
+                            <img ng-src="data:image/JPEG;base64,{{Product.DisplayImageSrc}}" alt="Loading..." class="img-responsive img-pr" />
+                        </div>
+
+                    </div>
+                    <div class="col-md-8">
+
+                    </div>-->
+
+                    <!--<div class="clearfix"></div>-->
+                    <div class="col-md-8" ng-show="vwBAndWDetails || vwVehicleDetails || vwYellowGoodsDetails ">
+
+                        <div id="panel2" class="panel panel-white">
+                            <div class="row" id="divVehicleDetails" style="margin-left:10px;margin-right:10px">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Country <span class="symbol required"></span>
+                                        </label>
+                                        <select name="Country" class="form-control" ng-class="validate_CountryId"
+                                                ng-model="Item.CountryId"
+                                                ng-disabled="isCountryReadonly"
+                                                ng-options="c.Id as c.CountryName for c in countries"
+                                                ng-change="SetCountryValue()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Area <span class="symbol required"></span>
+                                        </label>
+                                        <select name="Country" class="form-control" ng-class="validate_CountryId"
+                                                ng-model="Item.CityId">
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Dealer <span class="symbol required"></span>
+                                        </label><!--<span class="error" ng-show="myForm.Dealer.$error.required">*</span>-->
+                                        <select name="Dealer" id="Dealer" class="form-control  input-sm"
+                                                ng-model="Item.DealerId"
+                                                ng-options="c.Id as c.DealerName for c in Dealers"
+                                                ng-class="validate_DealerId"
+                                                ng-change="SetDealerLocationsValues()">
+                                            <!--  ng-disabled="isDealerReadonly"-->
+                                            <option value="">-- Please Select --</option>
+
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Dealer Branch
+                                        </label><!--<span class="error" ng-show="myForm.DealerLocation.$error.required">*</span>-->
+                                        <select name="DealerLocation" id="DealerLocation" class="form-control  input-sm"
+                                                ng-model="Item.DealerLocationId"
+                                                ng-options="c.Id as c.Location for c in DealerLocations"
+                                                ng-class="validate_DealerLocationId"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" ng-show="vwBAndWDetails">
+                        <div id="panel3" class="panel panel-white">
+
+                            <div class="row" style="margin-left:10px;margin-right:10px;margin-top:10px">
+                                <p>
+                                    <b>Item Detail Section</b> - Provide {{Product.CommodityType}} Details Here.
+                                </p>
+                                <fieldset>
+                                    <legend class="text-bold  text-dark"> Tyre Information</legend>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Item Category<span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control  input-sm" ng-model="product.categoryId"
+                                                    ng-disabled="isProductDetailsReadonly" ng-class="validate_categoryId"
+                                                    ng-change="selectedCommodityCategoryChanged()" tabindex="26">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in commodityCategories" value="{{option.CommodityCategoryId}}"
+                                                        ng-selected="product.categoryId==option.CommodityCategoryId">
+                                                    {{option.CommodityCategoryDescription}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                 
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Purchase Date<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" ng-readonly="true" placeholder="Click for Calendar" ng-disabled="isProductDetailsReadonly"
+                                                   class="form-control  input-sm" ng-class="validate_itemPurchasedDate" ng-model="product.itemPurchasedDate"
+                                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen8 = !startOpen8" is-open="startOpen8"
+                                                   ng-init="startOpen8 = false" close-text="Close" max-date="getMaxDate()" tabindex="28" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Brand <span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control  input-sm" ng-disabled="isProductDetailsReadonly"
+                                                    ng-class="validate_makeId" ng-model="product.makeId" ng-change="selectedMakeChanged()" tabindex="29">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in makes" value="{{option.Id}}"
+                                                        ng-selected="product.makeId==option.Id">
+                                                    {{option.MakeName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Product Line<span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control  input-sm" ng-disabled="isProductDetailsReadonly" ng-model="product.modelId"
+                                                    ng-change="selectedModelChange()" ng-class="validate_modelId" tabindex="30">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in models" value="{{option.Id}}"
+                                                        ng-selected="product.modelId==option.Id">
+                                                    {{option.ModelName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                   
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Invoice No<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" ng-disabled="isProductDetailsReadonly" placeholder="Invoice No"
+                                                   class="form-control  input-sm" ng-model="product.invoiceNo" ng-class="validate_invoiceNo" tabindex="32">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Article Number<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" ng-disabled="isProductDetailsReadonly" placeholder="Additional Serial No"
+                                                   class="form-control  input-sm" ng-model="product.additionalSerial" ng-class="validate_additionalSerial" tabindex="33">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Item Status<span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control  input-sm" ng-disabled="isProductDetailsReadonly || isItemStatusDisabled" ng-model="product.itemStatusId"
+                                                    ng-class="validate_itemStatusId" ng-change="selectedVehicleStatusChanged()" tabindex="34">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in itemStatuses" value="{{option.Id}}"
+                                                        ng-selected="product.itemStatusId==option.Id">
+                                                    {{option.Status}}
+                                                </option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Usage Type<span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly || isCommodityUsageTypeFreez"
+                                                    ng-change="selectedCommodityUsageTypeChanged()" ng-model="product.commodityUsageTypeId"
+                                                    ng-class="validate_commodityUsageTypeId" tabindex="35">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in commodityUsageTypes" value="{{option.Id}}"
+                                                        ng-selected="product.commodityUsageTypeId==option.Id">
+                                                    {{option.Name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Purchase Price<span class="symbol required"></span>
+                                            </label>
+                                            <input type="number" allow-pattern="(\d)" placeholder="Purchase Price" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm text-right"
+                                                   ng-model="product.dealerPrice" ng-class="validate_dealerPrice" tabindex="36">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 " ng-hide="true">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Market Price<span class="symbol required"></span>
+                                            </label>
+                                            <input type="number" allow-pattern="(\d)" placeholder="Market Price" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm text-right"
+                                                   ng-model="product.itemPrice" ng-class="validate_itemPrice" tabindex="37">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend class="text-bold  text-dark"> Vehicle Information</legend>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Make <span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control input-sm">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option value="1236">Toyota</option>
+                                                <option value="969">Nissan</option>
+                                                <option value="927">Mitsubishi</option>
+                                                <option value="321">Honda</option>
+                                                <option value="1172">Suzuki</option>
+                                                <option value="1">Abarth</option>
+                                                <option value="3">Acura</option>
+                                                <option value="7">AlfaRomeo</option>
+                                                <option value="1533">ambassador</option>
+                                                <option value="24">Aprilia</option>
+                                                <option value="30">Audi</option>
+                                                <option value="64">Austin</option>
+                                                <option value="68">Bajaj</option>
+                                                <option value="78">BMW</option>
+                                                <option value="1595">Caterpillar</option>
+                                                <option value="108">Chery</option>
+                                                <option value="116">Chevrolet</option>
+                                                <option value="1501">Chrysler</option>
+                                                <option value="131">Citroen</option>
+                                                <option value="153">Daewoo</option>
+                                                <option value="162">Daihatsu</option>
+                                                <option value="1600">Datsun</option>
+                                                <option value="1509">DFSK</option>
+                                                <option value="178">Dimo</option>
+                                                <option value="182">DskBenelli</option>
+                                                <option value="1575">DTM</option>
+                                                <option value="184">Ducati</option>
+                                                <option value="1538">FAW</option>
+                                                <option value="193">Fiat</option>
+                                                <option value="227">Ford</option>
+                                                <option value="294">Foton</option>
+                                                <option value="296">HarleyDavidson</option>
+                                                <option value="309">HeroHonda</option>
+                                                <option value="1558">Hummer</option>
+                                                <option value="376">Hyundai</option>
+                                                <option value="404">Isuzu</option>
+                                                <option value="429">Jaguar</option>
+                                                <option value="460">Jeep</option>
+                                                <option value="494">Jialing</option>
+                                                <option value="1573">JMC</option>
+                                                <option value="1642">Jonway</option>
+                                                <option value="1587">KAMA</option>
+                                                <option value="499">Kawasaki</option>
+                                                <option value="524">Kia</option>
+                                                <option value="544">Kinetic</option>
+                                                <option value="1561">Komatsu</option>
+                                                <option value="546">Ktm</option>
+                                                <option value="552">Lancia</option>
+                                                <option value="556">LandRover</option>
+                                                <option value="575">Lexus</option>
+                                                <option value="605">Leyland</option>
+                                                <option value="607">Mahindra</option>
+                                                <option value="1653">MAN</option>
+                                                <option value="627">MarutiSuzuki</option>
+                                                <option value="643">Mazda</option>
+                                                <option value="690">Mercedes-Benz</option>
+                                                <option value="905">Micro</option>
+                                                <option value="924">MINI</option>
+                                                <option value="967">MorrisGarages</option>
+                                                <option value="1020">Opel</option>
+                                                <option value="1028">Perodua</option>
+                                                <option value="1037">Peugeot</option>
+                                                <option value="1062">Porsche</option>
+                                                <option value="1082">Proton</option>
+                                                <option value="1099">Renault</option>
+                                                <option value="1120">Rover</option>
+                                                <option value="1126">RoyalEnfield</option>
+                                                <option value="1138">Simca</option>
+                                                <option value="1141">Skoda</option>
+                                                <option value="1148">Ssangyong</option>
+                                                <option value="1156">Subaru</option>
+                                                <option value="1650">Tantri</option>
+                                                <option value="1208">Tata</option>
+                                                <option value="1581">Tesla</option>
+                                                <option value="1234">ThaiRungUnion</option>
+                                                <option value="1339">Triumph</option>
+                                                <option value="1354">Tvs</option>
+                                                <option value="1376">Vauxhall</option>
+                                                <option value="1380">Volkswagen</option>
+                                                <option value="1408">Volvo</option>
+                                                <option value="1440">Willys</option>
+                                                <option value="1454">Yamaha</option>
+                                                <option value="1514">Zotye</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Model<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="Model"
+                                                   class="form-control  input-sm text-right" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Model Year<span class="symbol required"></span>
+                                            </label>
+                                            <input type="number" allow-pattern="(\d)" placeholder="Model Year"
+                                                   class="form-control  input-sm text-right" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Mileage <span class="symbol required"></span>
+                                            </label>
+
+                                            <div class="input-group">
+                                                <input type="number" class="form-control input-sm text-right" placeholder="Mileage"
+                                                       allow-pattern="(\d)" />
+                                                <label class="input-group-addon">&nbsp;km&nbsp;</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" ng-show="vwVehicleDetails">
+                        <div id="panel3" class="panel panel-white">
+
+                            <div class="row" style="margin-left: 10px; margin-right: 10px;margin-top: 15px">
+                                <p>
+                                    <b>Item Detail Section</b> - Provide {{Product.CommodityType}} Details Here.
+                                </p>
+                                <hr>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Vehicle Category
+                                        </label><span class="error" ng-show="myForm.VehicleCategory.$error.required">*</span>
+                                        <select name="VehicleCategory" id="VehicleCategory" class="form-control  input-sm" ng-model="Vehicle.CategoryId"
+                                                ng-options="c.CommodityCategoryId as c.CommodityCategoryDescription for c in Categories"
+                                                ng-change="SetVINLength()" ng-class="validate_VehicleCategoryId"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Model <span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.VehicleModel.$error.required">*</span>
+                                        <select name="VehicleModel" id="VehicleModel" class="form-control  input-sm" ng-model="Vehicle.ModelId"
+                                                ng-options="c.Id as c.ModelName for c in Modeles" ng-class="validate_VehicleModelId"
+                                                ng-change="getExtensionTypeValues()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Cylinder Count
+                                        </label><span class="error" ng-show="myForm.CylinderCount.$error.required">*</span>
+                                        <select name="CylinderCount" id="CylinderCount" class="form-control  input-sm" ng-model="Vehicle.CylinderCountId"
+                                                ng-options="c.Id as c.Count for c in CylinderCounts"
+                                                ng-change="loadContractExtension()" ng-class="validate_VehicleCylinderCountId"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Body Type
+                                        </label><span class="error" ng-show="myForm.BodyType.$error.required">*</span>
+                                        <select name="BodyType" id="BodyType" class="form-control  input-sm" ng-model="Vehicle.BodyTypeId"
+                                                ng-options="c.Id as c.VehicleBodyTypeDescription for c in BodyTypes"
+                                                ng-change="SetBodyTypeValue()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Drive Type
+                                        </label><span class="error" ng-show="myForm.DriveType.$error.required">*</span>
+                                        <select name="DriveType" id="DriveType" class="form-control  input-sm" ng-model="Vehicle.DriveTypeId"
+                                                ng-options="c.Id as c.Type for c in DriveTypes"
+                                                ng-change="SetDriveTypeValue()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            VIN No &nbsp;&nbsp;&nbsp;&nbsp; <span class="error" style="color:#ef0404; background-color:#ffeded" ng-show="thisForm.VIN.$error.maxlength||thisForm.VIN.$error.minlength">    &nbsp;Invalid VIN No!&nbsp;   </span>
+                                        </label><span class="error" ng-show="myForm.VIN.$error.required">*</span>
+                                        <input type="text" placeholder="VIN No" class="form-control  input-sm" id="VIN" name="VIN" ng-class="validate_VehicleVINNo" ng-model="Vehicle.VINNo" ng-maxlength="Vehicle.VinLength" ng-minlength="Vehicle.VinLength" ng-model-options="{ debounce: 1000 }" ng-pattern="/^[a-zA-Z0-9]*$/">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Model Year
+                                        </label><span class="error" ng-show="myForm.ModelYear.$error.required">*</span>
+                                        <input type="text" placeholder="Model Year" class="form-control  input-sm" id="ModelYear"
+                                               name="ModelYear" ng-model="Vehicle.ModelYear" ng-class="validate_VehicleModelYear" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Variant
+                                        </label><span class="error" ng-show="myForm.VehicleVariant.$error.required">*</span>
+                                        <select name="VehicleVariant" id="VehicleVariant" class="form-control  input-sm" ng-model="Vehicle.Variant"
+                                                ng-options="c.Id as c.VariantName for c in Variants"
+                                                ng-change="SetVehicleVariantValue()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Aspiration Type
+                                        </label><span class="error" ng-show="myForm.Aspiration.$error.required">*</span>
+                                        <select name="Aspiration" id="Aspiration" class="form-control  input-sm" ng-model="Vehicle.AspirationId"
+                                                ng-options="c.Id as c.AspirationTypeCode for c in Aspirations"
+                                                ng-change="SetAspirationValue()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Milage at Policy Sale
+                                        </label><span class="error" ng-show="myForm.Milage.$error.required">*</span>
+                                        <input type="text" placeholder="Milage" class="form-control  input-sm" id="Milage"
+                                               name="Milage" ng-model="Item.Usage" ng-class="validate_VehicleUsage" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Purchase Date
+                                        </label><span class="error" ng-show="myForm.PurchaseDate.$error.required">*</span>
+                                        <input type="text" placeholder="Click for Calendar" class="form-control  input-sm"
+                                               ng-model="Vehicle.ItemPurchasedDate" name="PurchaseDate" ng-class="validate_VehicleItemPurchasedDate"
+                                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen3 = !startOpen3" is-open="startOpen3" ng-init="startOpen3 = false" close-text="Close" required />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Vehicle Status
+                                        </label><span class="error" ng-show="myForm.VehicleStatus.$error.required">*</span>
+                                        <select name="VehicleStatus" class="form-control  input-sm" ng-model="Vehicle.ItemStatusId"
+                                                ng-options="c.Id as c.Status for c in ItemStatuss" ng-class="validate_VehicleItemStatusId"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Fuel Type
+                                        </label><span class="error" ng-show="myForm.FuelType.$error.required">*</span>
+                                        <select name="FuelType" id="drpFuelType" class="form-control  input-sm" ng-model="Vehicle.FuelTypeId"
+                                                ng-options="c.FuelTypeId as c.FuelTypeDescription for c in FuelTypes"
+                                                ng-change="SetFuelTypeValue()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Plate No
+                                        </label><span class="error" ng-show="myForm.plateNo.$error.required">*</span>
+                                        <input type="text" placeholder="Plate No" class="form-control  input-sm" id="plateNo" name="plateNo" ng-class="validate_VehiclePlateNo"
+                                               ng-model="Vehicle.PlateNo" required>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Purchase Price<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-disabled="isProductDetailsReadonly" placeholder="Purchase Price" class="form-control  input-sm text-right" tabindex="75"
+                                               ng-class="validate_dealerPrice" ng-model="Vehicle.DealerPrice">
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="col-md-3">
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Make <span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.VehicleMake.$error.required">*</span>
+                                        <select name="VehicleMake" id="VehicleMake" class="form-control  input-sm" ng-model="Vehicle.MakeId"
+                                                ng-options="c.Id as c.MakeName for c in Makes" ng-class="validate_VehicleMakeId"
+                                                ng-change="SetModelV()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Engine Capacity
+                                        </label><span class="error" ng-show="myForm.EngineCapacity.$error.required">*</span>
+                                        <select name="EngineCapacity" id="EngineCapacity" class="form-control  input-sm" ng-model="Vehicle.EngineCapacityId"
+                                                ng-options="c.Id as c.EngineCapacityNumber for c in EngineCapacities"
+                                                ng-change="loadContractExtension()" ng-class="validate_VehicleEngineCapacityId"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Transmission Type
+                                        </label><span class="error" ng-show="myForm.TransmissionType.$error.required">*</span>
+                                        <select name="TransmissionType" id="TransmissionType" class="form-control  input-sm" ng-model="Vehicle.TransmissionId"
+                                                ng-options="c.Id as c.TransmissionTypeCode for c in Transmissions"
+                                                ng-change="SetTransmissionTypeValue()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Usage Type<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly" ng-change="selectedCommodityUsageTypeChanged()" ng-model="Vehicle.commodityUsageTypeId" tabindex="56" ng-class="validate_commodityUsageTypeId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in commodityUsageTypes" value="{{option.Id}}"
+                                                    ng-selected="product.commodityUsageTypeId==option.Id">
+                                                {{option.Name}}
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Market Price <span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.VehiclePrice.$error.required">*</span>
+                                        <input type="number" ng-blur="SetCoverTypeValue()" placeholder="Market Price" class="form-control  input-sm text-right"
+                                               id="VehiclePrice" name="VehiclePrice" ng-model="Vehicle.VehiclePrice" ng-class="validate_VehicleVehiclePrice" required>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" ng-show="vwYellowGoodsDetails">
+                        <div id="panel3" class="panel panel-white">
+                            <div class="row" style="margin-left:10px;margin-right:10px;margin-top:15px">
+                                <p>
+                                    <b>Item Detail Section</b> - Provide {{Product.CommodityType}} Details Here.
+                                </p>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Item Category<span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.ProductCategory.$error.required">*</span>
+                                        <select name="ProductCategory" id="drpProductCategory" class="form-control  input-sm" ng-model="yellowGoods.CategoryId"
+                                                ng-options="c.CommodityCategoryId as c.CommodityCategoryDescription for c in Categories"
+                                                ng-change="selectedCommodityCategoryChanged()" ng-class="validate_yellowGoodsCategoryId"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Model<span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.ProductModel.$error.required">*</span>
+                                        <select name="ProductModel" id="ProductModel" class="form-control  input-sm" ng-model="yellowGoods.ModelId"
+                                                ng-options="c.Id as c.ModelName for c in Modeles" ng-class="validate_yellowGoodsModelId"
+                                                ng-change="getExtensionTypeValues()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Item Status<span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.ProductType.$error.required">*</span>
+                                        <select name="ProductType" id="ProductType" class="form-control  input-sm" ng-model="yellowGoods.ItemStatusId"
+                                                ng-options="c.Id as c.Status for c in ItemStatuss" ng-class="validate_yellowGoodsItemStatusId"
+                                                ng-change="SetProductTypeValue()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Market Price<span class="symbol required"></span>
+                                        </label>
+                                        <input type="number" allow-pattern="(\d)" placeholder="Market Price" class="form-control  input-sm text-right"
+                                               ng-model="yellowGoods.ItemPrice" ng-class="validate_yellowGoodsItemPrice">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Serial No<span class="symbol required"></span>
+
+
+                                        </label>
+                                        <!--<span class="pull-right text-muted" ng-show="serialNumberLength!=''">Length must be {{serialNumberLength}} characters</span>-->
+                                      
+                                        <input type="text" ng-class="validate_yellowGoodsSerialNo" placeholder="{{'Serial No'}}" class="form-control  input-sm" ng-blur="serialNumberCheck()"
+                                               ng-model="yellowGoods.SerialNo" ng-maxlength="{{serialNumberLength}}">
+                                        <span class="error text-extra-small block text-muted" ng-show="serialNumberLength!=product.serialNumber.length ">Length must be {{serialNumberLength}} characters</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Model Year<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" allow-pattern="(\d)" class="form-control  input-sm" tabindex="52" ng-class="validate_yellowGoodsModelYear" ng-model=" yellowGoods.ModelYear">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Usage Type<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control input-sm" ng-change="selectedCommodityUsageTypeChanged()" ng-model="yellowGoods.commodityUsageTypeId" tabindex="56" ng-class="validate_yellowGoodscommodityUsageTypeId">
+                                            <option value=""> Please Select </option>
+
+                                            <option ng-repeat="option in commodityUsageTypes" value="{{option.Id}}"
+                                                    ng-selected="yellowGoods.commodityUsageTypeId==option.Id">
+                                                {{option.Name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Purchase Date <span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.yellowGoodsItemPurchasedDate.$error.required">*</span>
+                                        <input type="text" placeholder="Click for Calendar" class="form-control  input-sm" ng-model="yellowGoods.ItemPurchasedDate" name="yellowGoodsItemPurchasedDate"
+                                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen4 = !startOpen4" is-open="startOpen4" ng-class="validate_yellowGoodsItemPurchasedDate"
+                                               ng-init="startOpen4 = false" close-text="Close" />
+                                    </div>
+                                    <!--<div class="form-group">
+                                        <label class="control-label">
+                                            Purchase Date<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text"  placeholder="Click for Calendar" class="form-control  input-sm"
+                                               ng-class="validate_yellowGoodsItemPurchasedDate" ng-model="yellowGoods.ItemPurchasedDate" name="PurchaseDateB"
+                                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen = !startOpenf" is-open="startOpen"
+                                               ng-init="startOpen = false" close-text="Close" />
+                                    </div>-->
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Invoice No<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-disabled="" placeholder="Invoice No" class="form-control  input-sm" ng-model="yellowGoods.InvoiceNo" tabindex="53" ng-class="validate_yellowGoodsInvoiceNo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Hrs Used at Policy Sale<span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.HrsUsed.$error.required">*</span>
+                                        <input type="text" placeholder="Hrs Used" class="form-control  input-sm" id="HrsUsed"
+                                               name="HrsUsed" ng-model="Item.Usage" ng-class="" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Make <span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.VehicleMake.$error.required">*</span>
+                                        <select name="VehicleMake" id="VehicleMake" class="form-control  input-sm" ng-model="yellowGoods.MakeId"
+                                                ng-options="c.Id as c.MakeName for c in Makes" ng-class="validate_yellowGoodsMakeId"
+                                                ng-change="SetModelY()"
+                                                required>
+                                            <option value="">-- Please Select --</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Item Ref No<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-disabled="" placeholder="Additional Serial No" class="form-control  input-sm" ng-model="yellowGoods.AddnSerialNo" tabindex="54" ng-class="validate_additionalSerial">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Purchase Price<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" allow-pattern="(\d)" placeholder="Purchase Price" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm text-right" tabindex="57"
+                                               ng-model="yellowGoods.DealerPrice" ng-class="validate_yellowGoodsDealerPrice">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12 " ng-show="vwTireDetails">
+                        <div id="panel3" class="panel" style="margin-top:6px;">
+                            <div class="row" style="margin-left:10px;margin-right:10px;margin-top:7px">
+                                <div class="col-md-6 col-sm-4 col-xs-12">
+                                    <h5>Tyre Information</h5>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Invoice Code<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="Invoice Code" class="form-control  input-sm"
+                                                   ng-model="product.invoiceCode" ng-change="getDatabyInvoiceCode()"
+                                                   ng-blur="validateInvoiceCodeLength()" allow-pattern="(\d|[A-Z])"
+                                                   ng-class="validate_invoiceCode" capitalize>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="input-group">
+                                            <label class="control-label">
+                                                Invoice No<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text"
+                                                   id="txt_invoiceNumber"
+                                                   placeholder="Invoice No"
+                                                   class="form-control  input-sm" ng-model="product.invoiceNo"
+                                                   ng-class="validate_invoiceNo" tabindex="32">
+                                            <div class="input-group-btn">
+                                                <span class="btn  btn-o btn-file btn-sm btn-primary" style="margin-top:23px">
+                                                    Upload Invoice &nbsp; <i class="fa fa-check"
+                                                                             ng-hide="customerInvoiceUploader.queue.length === 0 && !product.invoiceAttachmentId"></i>
+                                                    <input type="file" nv-file-select=""
+                                                           options="{ documentType: extPolicyRegAttachmentType}"
+                                                           uploader="customerInvoiceUploader" />
+                                                </span>
+                                                <span class="btn  btn-o btn-file btn-sm btn-beige" ng-show="product.invoiceAttachmentId" style="margin-top:24px">
+                                                    <i class="fa fa-download"></i>&nbsp; Download
+
+                                                </span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Brand <!--<span class="symbol required"></span>-->
+                                            </label>
+                                            <select class="form-control  input-sm" ng-disabled="true"
+                                                    ng-class="validate_makeId" ng-model="product.makeId" ng-change="selectedMakeChanged()" tabindex="29">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in makes" value="{{option.Id}}"
+                                                        ng-selected="product.makeId==option.Id">
+                                                    {{option.MakeName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Product Line
+                                            </label>
+                                            <select class="form-control  input-sm" ng-disabled="true"
+                                                    ng-model="product.modelId"
+                                                    ng-change="selectedModelChange()" ng-class="validate_modelId" tabindex="30">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in models" value="{{option.Id}}"
+                                                        ng-selected="product.modelId==option.Id">
+                                                    {{option.ModelName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>-->
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Usage Type<span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control input-sm"
+                                                    ng-model="product.commodityUsageType"
+                                                    ng-class="validate_commodityUsageTypeId" tabindex="35">
+
+                                                <option value="Private" ng-selected="true"> Private </option>
+                                                <option value="Commercial"> Commercial </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <h5 class="FontLarger">Vehicle Information</h5>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Plate Number
+                                            </label>
+
+
+                                            <input type="text" class="form-control input-sm text-left" disabled="disabled"
+                                                   ng-model="product.plateNo" placeholder="Plate Number" />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Make <span class="symbol required"></span>
+                                            </label>
+                                            <div ng-dropdown-multiselect="" options="additionalPolicyDetailsMake" selected-model="additionalSelectedMakeList"
+                                                 extra-settings="settings"  ng-class="validate_additional_make"
+                                                 events="{ onItemSelect: selectedAditionalMakeChange ,onItemDeselect:selectedAditionalMakeChange}"
+                                                 tabindex="6">
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Model <span class="symbol required"></span>
+                                            </label>
+                                            <div ng-dropdown-multiselect="" options="filterdSelectedModelList" selected-model="additionalSelectedModelList"
+                                                 extra-settings="settings" ng-class="validate_additional_model"
+                                                 tabindex="7"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Model Year<span class="symbol required"></span>
+                                            </label>
+                                            <div ng-dropdown-multiselect="" options="additionalPolicyDetailsModelYearList" ng-class="validate_additional_modelYear"
+                                                 selected-model="additionalSelectedModelYearList" extra-settings="settings" translation-texts="CustomText"
+                                                 tabindex="7"></div>
+
+                                            <!--<input type="text" allow-pattern="(\d)" placeholder="Model Year"
+                               class="form-control  input-sm text-left" />-->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Mileage <span class="symbol required"></span>
+                                            </label>
+
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm text-left" placeholder="Mileage"
+                                                       allow-pattern="(\d)" ng-model="product.addMileage" ng-class="validate_additional_mileage" />
+                                                <label class="input-group-addon">&nbsp;km&nbsp;</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-6 col-sm-8 col-xs-12">
+                                    <h5>Purchased Tyre List</h5>
+                                    <!--<h4>Purchased Tire List</h4>-->
+                                    <div class="">
+                                        <table class="table table-striped tbl-tire table-bordered">
+                                            <thead class="ngTableheader">
+                                                <tr>
+                                                    <th class="center">Position</th>
+                                                    <th class="center">{{isMobileView?'Article Number':'Article Number'}}</th>
+                                                    <th class="center">{{isMobileView?'Serial Number':'Serial Number'}}</th>
+                                                    <th class="center">{{isMobileView?"Purchased Price (Excluding VAT)("+product.currencyCode+")":'Purchased Price (Excluding VAT)'}}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-show="availableTireList.length==0">
+                                                    <td class="center" colspan="4"><h6>No data</h6> </td>
+                                                </tr>
+                                                <tr ng-repeat="tyre in availableTireList track by $index">
+                                                    <td>{{tyre.position}}</td>
+                                                    <td>{{tyre.article}}</td>
+                                                    <td>{{tyre.dot}}</td>
+                                                    <td>
+                                                        <div class="input-group">
+                                                            <input type="text" class="input-sm form-control text-right"
+                                                                   allow-pattern="(\d)" ng-model="tyre.price" ng-blur="getPurchasedPrice(tyre.price)"
+                                                                   ng-class="tyre.validate_price" />
+                                                            <span ng-hide="isMobileView" class="input-group-addon input-sm">{{product.currencyCode}}</span>
+                                                        </div>
+
+                                                    </td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="padding:25px">
+                            <input type="button" style="margin-right:20px" class="btn btn-wide continental-color pull-right" ng-click="navigateToBuyingProcess()" value="Next" />
+                            <input type="button" class="btn btn-wide btn-primary pull-right" style="margin-right:10px" ng-click="navigateToProductsPage()" value="Back" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="center" style="padding-top:30px;margin-bottom:10px"> <span> © 2018-2020  <a href="http://www.leftfieldassurance.com" target="_blank" style="text-decoration: none;color:#8e8e93">Leftfield Assurance</a> | All Rights Reserved.</span> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    tbody {
+        display: block;
+        height: 300px;
+        /*overflow-y: scroll;*/
+    }
+
+        thead,
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+    .app-navbar-fixed {
+        padding-top: 15px !important;
+    }
+
+    .img-pr {
+        height: 100px !important;
+    }
+
+    headline-h2, h2 {
+        margin: 0 !important;
+    }
+
+    h5 {
+        overflow: hidden;
+        text-align: center;
+        font-size : 16px;
+    }
+
+        h5:before,
+        h5:after {
+            background-color: #333;
+            content: "";
+            display: inline-block;
+            height: 1px;
+            position: relative;
+            vertical-align: middle;
+            width: 50%;
+            
+        }
+
+        h5:before {
+            right: 0.5em;
+            margin-left: -50%;
+        }
+
+        h5:after {
+            left: 0.5em;
+            margin-right: -50%;
+        }
+
+</style>
+
+<script type="text/ng-template" id="PopAddToGrid">
+    <style>
+        .ngdialog-content {
+            width: 800px !important;
+            height: 450px !important;
+        }
+
+        /* css widgets*/
+        .productbox {
+            background-color: #ffffff;
+            padding: 10px;
+            margin-bottom: 10px;
+            -webkit-box-shadow: 0 8px 6px -6px #999;
+            -moz-box-shadow: 0 8px 6px -6px #999;
+            box-shadow: 0 8px 6px -6px #999;
+        }
+
+        .producttitle {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        .productprice {
+            border-top: 1px solid #dadada;
+            padding-top: 5px;
+        }
+
+        .pricetext {
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+    </style>
+    <link href="assets/css/tyreStyle.css" rel="stylesheet" />
+    <div class="ngdialog-message">
+        <h3>Pealse enter below for all Tires</h3>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <div class="ci-fl-tirefinder-helper">
+                        <div class="ci-tiresize-hint">
+                            <div class="ci-tiresize-hint-tire" data-focused-field="">
+                                <div class="ci-tiresize-hint-item ci-tiresize-width customer-value" data-active="false" data-focus="false">{{addingTyre.width}}</div>
+                                <div class="ci-tiresize-hint-item ci-tiresize-spacer">/</div>
+                                <div class="ci-tiresize-hint-item ci-tiresize-aspect active" data-active="false" data-focus="false">{{addingTyre.cross}}</div>
+                                <div class="ci-tiresize-hint-item ci-tiresize-rim" data-active="false" data-focus="false">
+                                    <!-- react-text: 70 -->R<!-- /react-text --><!-- react-text: 71 -->{{addingTyre.rim}}<!-- /react-text -->
+                                </div>
+                                <div class="ci-tiresize-hint-item ci-tiresize-speed" data-active="false" data-focus="false">{{addingTyre.load}}</div>
+                            </div>
+                            <div class="ci-tiresize-hint-description">You can read off the tyre size on the sidewall of the tyres or read the operating instructions for your vehicle.</div>
+                        </div>
+                    </div>
+                    <div class="ci-tirefinder-form-fl">
+                        <div class="ci-collapsible collapsed">
+
+                            <div class="ci-collapsible-content ci-fl-tirefinder-additional-info-expanded">
+                                <div class="ci-fl-tirefinder-additional-info-text">
+                                    <div class="ci-item ci-fl-tirefinder-additional-info-tire-sidewall">
+                                        <div><b>Tyre Sidewall</b></div>
+                                        <div>The tyre size can typically be found on the tyre sidewall.</div>
+                                    </div>
+                                </div>
+                                <span class="ci-btn-close"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h5>Tyre Size</h5>
+                <div class="col-md-3">
+                    <div class="form-group">
+
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm" placeholder="Width" ng-model="addingTyre.width" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm" placeholder="Cross section" ng-model="addingTyre.cross" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm" placeholder="Diameter " ng-model="addingTyre.rim" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm" placeholder="Load/Speed" ng-model="addingTyre.load" />
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <h5>DOT Number</h5>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-sm" placeholder="DOT Number" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12">
+                    <button class="btn btn-sm pull-left btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="arnum">Article Number(s) <span class="symbol required"></span> </label>
+                    <textarea class="form-control" rows="3" id="arnum"></textarea>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="comment">DOT Number(s) <span class="symbol required"></span> </label>
+                    <textarea class="form-control" rows="3" id="comment"></textarea>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <button class="btn btn-sm pull-right btn-primary" ng-click="addDemoItemToGrid()">Save</button>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</script>
+
+<script type="text/ng-template" id="popContractsView">
+    <style>
+        .ngdialog-content {
+            width: 700px !important;
+            height: 450px !important;
+        }
+
+        /* css widgets*/
+        .productbox {
+            background-color: #ffffff;
+            padding: 10px;
+            margin-bottom: 10px;
+            -webkit-box-shadow: 0 8px 6px -6px #999;
+            -moz-box-shadow: 0 8px 6px -6px #999;
+            box-shadow: 0 8px 6px -6px #999;
+        }
+
+        .producttitle {
+            font-weight: bold;
+            padding: 5px 0 5px 0;
+        }
+
+        .productprice {
+            border-top: 1px solid #dadada;
+            padding-top: 5px;
+        }
+
+        .pricetext {
+            font-weight: bold;
+            font-size: 1.4em;
+        }
+    </style>
+    <div class="ngdialog-message">
+        <h3>Available Deals</h3>
+        <div class="row">
+            <div style="max-height:420px;overflow-y:scroll">
+                <div class="col-md-4 col-md-offset-1 column productbox">
+                    <!--<img src="http://placehold.it/460x250/e67e22/ffffff&text=HTML5" class="img-responsive">-->
+                    <div class="producttitle">CC-Upto17inch</div>
+                    <div class="producttitle"><small>12 Month - <small>1mm Thread</small>  - 1 Tyre</small></div>
+
+                    <div class="productprice">
+                        <div class="pull-right">
+                            <a ng-click="navigateToBuyingProcess()" class="btn btn-info btn-sm"
+                               role="button">Select</a>
+                        </div><div class="pricetext">AED 41 </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-offset-2 column productbox">
+                    <!--<img src="http://placehold.it/460x250/e67e22/ffffff&text=HTML5" class="img-responsive">-->
+                    <div class="producttitle">CC-Upto17inch</div>
+                    <div class="producttitle"><small>12 Month - <small>1mm Thread</small>  - 2 Tyres</small></div>
+
+                    <div class="productprice">
+                        <div class="pull-right">
+                            <a ng-click="navigateToBuyingProcess()" class="btn btn-info btn-sm"
+                               role="button">Select</a>
+                        </div><div class="pricetext">AED 48 </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-4  col-md-offset-1 column productbox">
+                    <!--<img src="http://placehold.it/460x250/e67e22/ffffff&text=HTML5" class="img-responsive">-->
+                    <div class="producttitle">CC-Upto17inch</div>
+                    <div class="producttitle"><small>12 Month - <small>1mm Thread</small>  - 3 Tyres</small></div>
+
+                    <div class="productprice">
+                        <div class="pull-right">
+                            <a ng-click="navigateToBuyingProcess()" class="btn btn-info btn-sm"
+                               role="button">Select</a>
+                        </div><div class="pricetext">AED 56 </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-md-offset-2 column productbox">
+                    <!--<img src="http://placehold.it/460x250/e67e22/ffffff&text=HTML5" class="img-responsive">-->
+                    <div class="producttitle">CC-Upto17inch</div>
+                    <div class="producttitle"><small>12 Month - <small>1mm Thread</small>  - 4 Tyres</small></div>
+
+                    <div class="productprice">
+                        <div class="pull-right">
+                            <a ng-click="navigateToBuyingProcess()" class="btn btn-info btn-sm"
+                               role="button">Select</a>
+                        </div><div class="pricetext">AED 63 </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-4  col-md-offset-1 column productbox">
+                    <!--<img src="http://placehold.it/460x250/e67e22/ffffff&text=HTML5" class="img-responsive">-->
+                    <div class="producttitle">CC-Upto17inch</div>
+                    <div class="producttitle"><small>12 Month - <small>1mm Thread</small>  - 5 Tyres</small></div>
+
+                    <div class="productprice">
+                        <div class="pull-right">
+                            <a ng-click="navigateToBuyingProcess()" class="btn btn-info btn-sm"
+                               role="button">Select</a>
+                        </div><div class="pricetext">AED 78 </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+
+<script type="text/ng-template" id="imageScannerPopUp">
+    <style>
+        .margin10 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 800px !important;
+            height: 500px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /*
+                   This is the background of our overlay. We need it to be
+                   absolutely positioned within the grid, and fill from
+                   top to bottom, and the full width. It will also have
+                   a black background with 40% opacity.
+                */
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+                  This guy will contain our message. We want it centered
+                  so it's positioned absolutely with percentage-based
+                  offsets and dimensions. It also has some basic border
+                  stuff and most important is using "display: table" so
+                  we can vertically center its contents.
+                */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+                  Lastly this is the actual message text. It uses
+                  display: table-cell so the vertical alignment
+                  works properly.
+                */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+    </style>
+    <div class="ngdialog-message">
+        <h3>Scan Documents </h3>
+
+        <div class="container-fluid">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-5" style="margin-top:20px;">
+                <div id="dwtcontrolContainer" style="width: 270px; height: 350px; border: 1px solid rgb(204, 204, 204); display: block; position: relative; background-color: rgb(255, 255, 255);"></div>
+                <input type="button" class="btn btn-primary btn-o btn-file btn-sm" style="margin-top:15px;" value="Scan" ng-click="AcquireImage()" />
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-10">
+                        Document Name
+                        <input type="text" class="form-control input-sm margin10" ng-model="attachmentData.name">
+                        <input type="button" class="btn btn-primary btn-o btn-file btn-sm" value="Select Scanned PDF" ng-click="getSelectedImageFromScanner()" />
+                        <input type="button" class="btn btn-danger btn-o btn-file btn-sm" value="Cancel" ng-click="closedialog()" />
+
+
+                        <table class="table" style="margin-top: 18px">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        #
+                                    </td>
+                                    <td>
+                                        Section
+                                    </td>
+                                    <td>
+                                        Type
+                                    </td>
+                                    <td>
+                                        File Name
+                                    </td>
+                                    <td>
+                                        Pages
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in ImageArray">
+                                    <td>
+                                        {{$index + 1}}
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.section"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.attachmentType"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.documentName"></span>
+                                    </td>
+                                    <td>
+                                        <span>{{item.encodedImage.length}}</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-xs btn-danger" ng-click="removeAttachmentFromImageArray($index)" tabindex="118">Remove</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</script>
+<script type="text/ng-template" id="popUpSearchReturning">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .ngdialog-content {
+            width: 500px !important;
+            height: 300px !important;
+        }
+    </style>
+
+
+    <div class="login-content">
+        <div id="login" style="margin-left:20px">
+            <div class="heading">
+                <i class="fa fa-key"></i>
+                <div class="extra-wrap">
+                    <h3>
+                        Returning Customer
+                    </h3>
+                    <b>I am a returning customer</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-danger" ng-show="err==1">
+                    <span>{{Errormsg}}</span>
+
+                </div>
+            </div>
+
+            <br />
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="form-field-2" class="col-sm-3 control-label">
+                        Username:
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="form-field-1" placeholder="User Name" ng-model="user.userName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="form-field-2" class="col-sm-3 control-label">
+                        Password:
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="form-field-2" placeholder="Password" ng-model="user.password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class=" col-sm-2"></div>
+                    <div class=" col-sm-9">
+
+                        <!--<button type="button" class="btn btn-success" ng-click="loginAttempt()">
+                            Login <i class="fa fa-arrow-circle-right"></i>
+                        </button>-->
+
+                        <button class="btn btn-primary pull-right" ng-click="loginAttempt()">
+                            Login
+                        </button>
+                        <button class="btn btn-success pull-right" style="margin-right:10px" type="button" ng-click="ReturningForgetPasswordPopup()">
+                            Forgot Password
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</script>
+<script type="text/ng-template" id="popUpForgetPassword">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+
+
+        .ngdialog-content {
+            width: 500px !important;
+            height: 300px !important;
+        }
+    </style>
+
+
+    <div class="box-forgot">
+        <div>
+            <div class="row">
+                <div class="text-danger" ng-show="err==1">
+                    <span>{{Errormsg}}</span>
+
+                </div>
+            </div>           
+            <div>
+                <fieldset>
+                    <p style="font-size:12px;">
+                        Forget Password?<br />
+                        Enter your e-mail address below to reset your password.
+                    </p>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <span class="input-icon">
+                                <input type="email" class="form-control" ng-model="email" name="email" placeholder="Email">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class=" col-sm-2"></div>
+                        <div class=" col-sm-9">
+                            <button type="button" class="btn btn-primary pull-right" ng-click="submitForgotPasswordRequest()">
+                                Submit <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+
+                            <a class="btn btn-primary pull-left" ng-click="navigateToLogin()">
+                                <i class="fa fa-chevron-circle-left"></i> Login
+                            </a>
+
+                        </div>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</script>

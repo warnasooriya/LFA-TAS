@@ -1,0 +1,168 @@
+﻿
+
+<div style="margin-left: 30px; margin-right: 30px" ng-app="clip-two" ng-controller="ProductCtrl as productController" ng-init="loadInitailData()">
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle TitleModifier">{{'pages.productManagement.title' | translate}}</h1>
+                <span class="mainDescription TitleModifier">{{'pages.productManagement.title' | translate}}</span>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .error {
+            color: red;
+        }
+
+        .ScrollHeight {
+            max-height: 150px;
+            /*border: 1px solid red;*/
+            overflow: auto;
+        }
+    </style>
+    <div name="myForm" class="my-form">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-danger" ng-show="errorTab1!=''">
+                    {{errorTab1}}
+                </div>
+            </div>
+            <div class="col-md-3" style="margin-top:5px">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.productManagement.commodityType' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.commoditytype.$error.required">*</span>
+                    <select name="commoditytype" id="drpCommoditytype" class="form-control input-sm" ng-model="Product.commodityTypeId"
+                            ng-options="n.CommodityTypeId as n.CommodityTypeDescription for n in CommodityTypes" ng-class="validate_commodityTypeId"
+                            ng-change="SetCommodityTypeValue()" tabindex="1"
+                            required>
+                        <option value=""> {{'pages.productManagement.pleaseSelect' | translate}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3" style="margin-top:5px">
+                <div class="form-group">
+                    <label class="control-label" for="form-field-1">
+                        {{'pages.productManagement.products' | translate}} <span class="symbol required"></span>
+                    </label>
+                    <select name="product" id="drpProducts" class="form-control input-sm" ng-model="Product.Id"
+                            ng-options="n.Id as n.Productname for n in Products" tabindex="2"
+                            ng-change="SetProductValues()">
+                        <option value=""> &lt;&lt; {{'pages.productManagement.newProduct' | translate}} &gt;&gt; </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.productManagement.productName' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.productname.$error.required">*</span>
+                    <input type="text" placeholder="{{'pages.productManagement.productName' | translate}}" class="form-control input-sm" id="productname"
+                           ng-blur="IsExsistingProductName()" ng-class="validate_productname" name="productname"
+                            ng-model="Product.productName" tabindex="3" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.productManagement.productDescription' | translate}}
+                    </label><span class="error" ng-show="myForm.productDescription.$error.required">*</span>
+                    <textarea placeholder="{{'pages.productManagement.productDescription' | translate}}" class="form-control input-sm" id="productDescription" name="productDescription" ng-model="Product.productDescription" tabindex="4"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.productManagement.productShortDescription' | translate}}
+                    </label><span class="error" ng-show="myForm.productShortDescription.$error.required">*</span>
+                    <textarea placeholder="{{'pages.productManagement.productShortDescription' | translate}}" class="form-control input-sm" id="productShortDescription" name="productShortDescription" ng-model="Product.productShortDescription" tabindex="5"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.productManagement.productImage' | translate}}
+                    </label>
+                    <input type="file" ng-model="Product.DiplayImageSrc" uploader="uploader1" nv-file-select=""  tabindex="6" accept="image/*"/>
+                    <img  ng-show="Product.image" ng-src="data:image/JPEG;base64,{{Product.DisplayImageSrc}}" alt="{{Product.Productname}}" class="img-responsive" />
+                  <!--  <img ng-show="Product.image" ng-src="{{Product.DisplayImageSrc}}" type="{{Product.image.file.type}}" />-->
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <br />
+                    <label>
+                        <input type="checkbox" ng-model="Product.Isbundledproduct"  tabindex="7"/> &nbsp;&nbsp;&nbsp; <span>{{'pages.productManagement.isBundleProduct' | translate}}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-3" style="padding-right:0px" ng-show="!Product.Isbundledproduct">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.productManagement.productType' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.productType.$error.required">*</span>
+                    <select name="productType" id="productType" class="form-control input-sm" ng-model="Product.productTypeId" tabindex="8"
+                            ng-class="validate_productTypeId" ng-options="n.Id as n.Type for n in ProductTypes"
+                            required>
+                        <option value=""> {{'pages.productManagement.pleaseSelect' | translate}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <br />
+                    <label>
+                        <input type="checkbox" ng-model="Product.Isactive" tabindex="9" /> &nbsp;&nbsp;&nbsp; <span>{{'pages.productManagement.active' | translate}}</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group col-md-3" ng-show="Product.Isbundledproduct">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.productManagement.product' | translate}}
+                    </label>
+                    <div class="col-md-offset-1">
+                        <div class="ScrollHeight">
+                            <div ng-repeat="pproduct in parentProducts">
+                                <label>
+                                    <input type="checkbox"  ng-model="selectedpp[pproduct.Id]" tabindex="10" /> &nbsp;&nbsp;&nbsp; <span>{{pproduct.Productname}}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-11">
+            </div>
+            <div class="col-md-1">
+               <!-- <input type="button" id="submit" class="btn  btn-primary " ng-disabled="myform.$error.required" value="SAVE" ng-click="submit()" />-->
+                <button id="submit" class="btn  btn-primary " ng-disabled="myform.$error.required || submitBtnDisabled" ng-click="submit()" tabindex="11">
+                    <!--{{Product.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}-->
+                    {{labelSave | translate}}<i ng-class="submitBtnIconClass"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

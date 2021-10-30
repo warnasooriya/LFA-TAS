@@ -1,0 +1,574 @@
+﻿<div style="margin-left: 30px; margin-right: 30px" ng-app="clip-two" ng-controller="VehicleDetailsCtrl as VehicleDetailsController" ng-init="loadInitailData()">
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        .custom {
+            height: 14px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .ngdialog-content {
+            width: 900px !important;
+            height: 550px !important;
+        }
+
+        .grid {
+            height: 200px;
+        }
+
+        .fixedHeight {
+            height: 24px;
+        }
+
+        /*.btn {
+            width: 100%;
+        }*/
+
+        .fixed-height {
+            height: 250px;
+        }
+    </style>
+    <section id="page-title">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                <h1 class="mainTitle TitleModifier">VEHICLE MANAGEMENT</h1>
+                <!--<span class="mainDescription TitleModifier">You can add or update Vehicle Details here.</span>-->
+                <span class="mainDescription TitleModifier">You can save new vehicle details for future use or update existing vehicle details which are not allocated to sold policies.</span>
+            </div>
+                </div>
+            <div class="col-md-4">
+                <span class="btn btn-twitter pull-right" ng-click="SearchVehiclePopup()" ng-disabled="Vehicle.VehicleSearchDisabled">
+                    <i class="fa fa-search"></i>
+                    | Search Vehicle
+                </span>
+                <!--<button class="btn btn-twitter" style="cursor:pointer" ng-click="SearchVehiclePopup()" ng-disabled="Vehicle.VehicleSearchDisabled">
+            <i class="fa fa-search"></i>
+            | Search Vehicle
+        </button>-->
+                <span ng-show="!formAction" ng-click="resetAll()" style="margin-right:10px" class="btn btn btn-beige pull-right">
+                    <i class="fa fa-asterisk"></i>
+                    | Add new
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+    <script type="text/ng-template" id="popUpSearchVehicle">
+        <style>
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 800px !important;
+                height: 420px !important;
+            }
+
+            .ui-grid-top-panel {
+                font-weight: 400 !important;
+            }
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .grid {
+                height: 250px !important;
+            }
+
+            .ui-grid-pager-panel {
+                text-align: right;
+                box-sizing: border-box !important;
+            }
+
+            .ui-grid-header-cell .ui-grid-cell-contents {
+                text-align: center;
+            }
+
+            .columCss {
+                text-decoration: none;
+            }
+
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .watermark {
+                /*position: absolute;*/
+                top: 50%;
+                font-size: 15px;
+                width: 100%;
+                text-align: center;
+                margin-top: 20px;
+                z-index: 1000;
+            }
+            /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+            .grid-msg-overlay {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.4);
+            }
+
+                /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+                .grid-msg-overlay .msg {
+                    opacity: 1;
+                    position: absolute;
+                    top: 20%;
+                    left: 20%;
+                    width: 60%;
+                    height: 50%;
+                    background-color: #eee;
+                    border-radius: 4px;
+                    border: 1px solid #555;
+                    text-align: center;
+                    font-size: 24px;
+                    display: table;
+                }
+
+                    /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                    .grid-msg-overlay .msg span {
+                        display: table-cell;
+                        vertical-align: middle;
+                    }
+        </style>
+        <div>
+            <h3 class="">Search Vehicle</h3>
+            <!--<form>-->
+            <div ng-form="myForm" class="my-form">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">VIN No</label>
+                            <input type="text" class="form-control input-sm" ng-model="vehicalSearchGridSearchCriterias.VINNo">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Make</label>
+                            <select name="Make" class="form-control input-sm" ng-model="vehicalSearchGridSearchCriterias.MakeId"
+                                    ng-options="c.Id as c.MakeName for c in Makes"
+                                    ng-change="SetModelPopup()">
+                                <option value=""> Please Select </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Model
+                            </label><select name="Model" class="form-control input-sm" ng-model="vehicalSearchGridSearchCriterias.ModelId"
+                                                    ng-options="c.Id as c.ModelName for c in ModelsForSearch">
+                                <option value=""> Please Select </option>
+</select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Plate No</label>
+                            <input type="text" class="form-control input-sm" ng-model="vehicalSearchGridSearchCriterias.PlateNo" >
+                        </div>
+                    </div>
+                    <!--<div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Mobile No:</label>
+                            <input type="text" class="form-control input-sm" ng-model="customerSearchGridSearchCriterias.mobileNo">
+                        </div>
+                    </div>-->
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="margin-top:5px">
+                        <div class="ngdialog-buttons">
+                            <input type="button" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="SearchVehiclePopupReset()" value="Reset">
+                            <input type="button" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="refresVehicleSearchGridData()" value="Search">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="margin-top:5px">
+                        <div class="grid" ui-grid-pagination ui-grid="gridOptionsVehicle">
+                            <div class="grid-msg-overlay" ng-hide="gridOptionsVehicle.data.length>0 && VehicleSearchGridloadAttempted">
+                                <div class="msg">
+                                    <span>No Data</span>
+                                </div>
+                            </div>
+                            <div class="grid-msg-overlay" ng-hide="!VehicleSearchGridloading">
+                                <div class="msg">
+                                    <span>
+                                        Loading Data...
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--</form>-->
+        </div>
+
+    </script>
+
+
+   
+    <div name="myForm" class="my-form">
+        <div class="col-md-12">
+            <div class="alert alert-danger" ng-show="errorTab1!=''">
+                {{errorTab1}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Category <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.Category.$error.required">*</span>
+                    <select name="Category" class="form-control" ng-model="Vehicle.CategoryId"
+                            ng-options="c.CommodityCategoryId as c.CommodityCategoryDescription for c in Categories"
+                            ng-change="VINNoValidation();" tabindex="1" ng-class="validate_CategoryId"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <!--<div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">Vehicle Item </label>
+                    <input type="text" name="Vehicles"  class="form-control" ng-model="Vehicle.Id" >
+                    <select name="Vehicles" id="Vehicles" class="form-control" ng-model="Vehicle.Id"
+                            ng-options="n.Id as n.VINNo for n in Vehicles"
+                            ng-change="SetVehicleValues()">
+                        <option value=""> &lt;&lt; New &gt;&gt; </option>
+                    </select>
+                </div>
+            </div>-->
+            <div class="col-md-4">                
+                <div class="form-group">
+                    <label class="control-label">
+                        VINNo <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.VINNo.$error.required">*</span>
+                    <span class="error" ng-show="Vehicle.VINNo.length != VinLength && !Vin">Vin No length should be {{VinLength}}</span>
+                    <input type="text" class="form-control" ng-model="Vehicle.VINNo" ng-class="validate_VINNo" name="VINNo"
+                           ng-blur="VINNoValidate()" tabindex="2"
+                           required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Make <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.Make.$error.required">*</span>
+                    <select name="Make" class="form-control" ng-model="Vehicle.MakeId"
+                            ng-options="c.Id as c.MakeName for c in Makes" ng-class="validate_MakeId"
+                            ng-change="SetModel()" tabindex="3"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Model <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.Model.$error.required">*</span>
+                    <select name="Model" class="form-control" ng-model="Vehicle.ModelId"
+                            ng-options="c.Id as c.ModelName for c in Modeles" ng-class="validate_ModelId"
+                            ng-change="SetVariant()" tabindex="4"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Vehicle Status <span class="symbol required"></span>
+                    </label>
+                    <select name="VehicleStatus" class="form-control" ng-model="Vehicle.ItemStatusId"
+                            ng-options="c.Id as c.Status for c in ItemStatuss" tabindex="5" ng-class="validate_ItemStatusId"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Model Year <span class="symbol required"></span>
+                    </label>
+                    <input type="text" class="form-control" ng-model="Vehicle.ModelYear" name="ModelYear" ng-class="validate_ModelYear" tabindex="6" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Variant 
+                    </label>
+                    <select name="Variant" class="form-control" ng-model="Vehicle.Variant"
+                            ng-options="c.Id as c.VariantName for c in Variantss" tabindex="7"
+                            ng-change="SetVariantD()"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Engine Capacity <span class="symbol required"></span>
+                    </label>
+                    <select name="EngineCapacity" class="form-control" ng-model="Vehicle.EngineCapacityId"
+                            ng-options="c.Id as c.EngineCapacityNumber for c in EngineCapacities" tabindex="8" ng-class="validate_EngineCapacityId" ng-disabled="EngineCapacityDisable"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Cylinder Count <span class="symbol required"></span>
+                    </label>
+                    <select name="CylinderCount" class="form-control" ng-model="Vehicle.CylinderCountId"
+                            ng-options="c.Id as c.Count for c in CylinderCounts" tabindex="9" ng-class="validate_CylinderCountId" ng-disabled="CylinderCountDisable"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Fuel Type
+                    </label>
+                    <select name="FuelType" class="form-control" ng-model="Vehicle.FuelTypeId"
+                            ng-options="c.FuelTypeId as c.FuelTypeDescription for c in FuelTypes" tabindex="10" ng-disabled="FuelTypeDisable"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Transmission
+                    </label>
+                    <select name="Transmission" class="form-control" ng-model="Vehicle.TransmissionId"
+                            ng-options="c.Id as c.TransmissionTypeCode for c in Transmissions" tabindex="11" ng-disabled="TransmissionsDisable"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Drive Type
+                    </label>
+                    <select name="DriveType" class="form-control" ng-model="Vehicle.DriveTypeId" tabindex="12" ng-disabled="DriveTypesDisable"
+                            ng-options="c.Id as c.Type for c in DriveTypes"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Body Type
+                    </label>
+                    <select name="BodyType" class="form-control" ng-model="Vehicle.BodyTypeId" tabindex="13" ng-disabled="BodyTypesDisable"
+                            ng-options="c.Id as c.VehicleBodyTypeDescription for c in BodyTypes"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Aspiration
+                    </label>
+                    <select name="Aspiration" class="form-control" ng-model="Vehicle.AspirationId" tabindex="14" ng-disabled="AspirationsDisable"
+                            ng-options="c.Id as c.AspirationTypeCode for c in Aspirations"
+                            required>
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Usage Type
+                    </label>
+                    <select name="CommodityUsageType" id="CommodityUsageType" class="form-control" ng-model="Vehicle.CommodityUsageTypeId"
+                            ng-options="n.Id as n.Name for n in CommodityUsageTypes" tabindex="15" required ng-class="validate_CommodityUsageTypeId">
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Vehicle Purchased Date <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.ItemPurchasedDate.$error.required">*</span>
+                    <input type="text" name="ItemPurchasedDate" placeholder="Click for Calendar" class="form-control" ng-class="validate_ItemPurchasedDate"
+                           ng-model="Vehicle.ItemPurchasedDate" datepicker-popup="dd-MMM-yyyy" datepicker-localdate tabindex="16"
+                           ng-click="startOpen = !startOpen" is-open="startOpen" ng-init="startOpen = false" close-text="Close" required />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Market Price
+                    </label>
+                    <input type="number" placeholder="Decimal" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" class="form-control text-right" ng-model="Vehicle.VehiclePrice" name="VehiclePrice" ng-class="validate_VehiclePrice" tabindex="17" required>
+                    <span ng-show="myform.VehiclePrice.$error.pattern">Not valid number!</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Purchase Price <span class="symbol required"></span>
+                    </label>
+                    <input type="number" placeholder="Decimal" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" class="form-control text-right" ng-model="Vehicle.DealerPrice" name="DealerPrice" ng-class="validate_DealerPrice" tabindex="18" required>
+                    <span ng-show="myform.DealerPrice.$error.pattern">Not valid number!</span>
+                </div>
+            </div>
+            </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Plate No
+                    </label>
+                    <input type="text" class="form-control" ng-model="Vehicle.PlateNo" name="PlateNo" ng-class="validate_PlateNo" tabindex="19" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Country <span class="symbol required"></span>
+                    </label>
+                    <select class="form-control" ng-model="Vehicle.CountryId" name="CountryId"
+                            ng-options="n.Id as n.CountryName for n in Countries"
+                            ng-change="selectedCountryChanged()" tabindex="20" ng-class="validate_CountryId">
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Dealer <span class="symbol required"></span>
+                    </label>
+                    <select class="form-control" ng-model="Vehicle.DealerId" name="DealerId"
+                            ng-options="n.Id as n.DealerName for n in Dealers"
+                            ng-change="selectedDealerChanged()" ng-class="validate_DealerId" tabindex="21">
+                        >
+                        <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">               
+                <div class="form-group">
+                    <label class="control-label">
+                        Registration Date <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.RegistrationDate.$error.required">*</span>
+                    <input type="text" name="RegistrationDate" placeholder="Click for Calendar" class="form-control" ng-class="validate_RegistrationDate"
+                           ng-model="Vehicle.RegistrationDate" datepicker-popup="dd-MMM-yyyy" datepicker-localdate
+                           ng-click="startOpen2 = !startOpen2" is-open="startOpen2" ng-init="startOpen2 = false" close-text="Close" required />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Gross Weight
+                    </label>
+                    <div class="input-group">
+                        <input type="number" class="form-control input-sm " ng-class="" ng-disabled="GrossWeightDisable"
+                               ng-model="Vehicle.GrossWeight" allow-pattern="(\d)" />
+                        <label class="input-group-addon">&nbsp;Tonne&nbsp;</label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4">                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="fixedheight"></div>
+                <!--<input type="button" class="btn btn-primary  btn-block" ng-click="VehicleSubmit()" ng-value="Vehicle.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'" />-->
+                <button class="btn btn-primary  btn-block" ng-disabled="VehicleSubmitBtnDisabled" ng-click="VehicleSubmit()" tabindex="22">
+                    {{Vehicle.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}} <i ng-class="VehicleSubmitBtnIconClass"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="fixed-height"></div>
+        </div>
+        <!--</form>-->
+        </div>
+    </div>

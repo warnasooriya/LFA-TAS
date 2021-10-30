@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="ClaimInvoiceEntry" table="ClaimInvoiceEntry" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="DealerId" />
+    <property name="InvoiceReceivedDate" />
+    <property name="InvoiceDate" />
+    <property name="InvoiceNumber" />
+    <property name="InvoiceAmount" />
+    <property name="CurrencyId" />
+    <property name="CurrencyPeriodId" />
+    <property name="ConversionRate" />
+    <property name="UserAttachmentId" />
+    <property name="EntryDateTime" />
+    <property name="EntryBy" />
+    <property name="IsConfirm" />
+
+  </class>
+</hibernate-mapping>

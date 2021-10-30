@@ -1,0 +1,482 @@
+﻿
+
+<div style="margin-left: 30px; margin-right: 30px" ng-app="clip-two" ng-controller="ReinsurerManagementCtrl as ReinsurerManagementController" ng-init="loadInitailData()">
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        .fixed-height {
+            height: 250px;
+        }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .error {
+            color: red;
+        }
+
+        .ScrollHeight {
+            max-height: 250px;
+            /*border: 1px solid red;*/
+            overflow: auto;
+            overflow-x: hidden;
+        }
+    </style>
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle TitleModifier">{{'pages.reInsurerManagement.title' | translate}}</h1>
+                <!--<span class="mainDescription TitleModifier">You can add or update reinsurer information here. Select new to add or select existing information to update on each section.</span>-->
+                <span class="mainDescription TitleModifier">{{'pages.reInsurerManagement.mainDescription' | translate}}</span>
+            </div>
+        </div>
+    </section>
+    <!--<form action="#" role="form" id="form" name="myForm" class="my-form">-->
+    <div name="myForm" class="my-form">
+        <tabset class="tabbable">
+            <!-- start: TAB OVERVIEW -->
+            <tab heading="{{'pages.reInsurerManagement.tabReInsurerDetails.title' | translate}}">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" ng-show="errorTab1!=''">
+                        {{errorTab1}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerDetails.reinsurer' | translate}}
+                            </label><span class="error" ng-show="myForm.Reinsurer.$error.required">*</span>
+                            <select class="form-control" ng-model="Reinsurer.Id" name="Reinsurer"
+                                    ng-options="n.Id as n.ReinsurerName for n in Reinsurers"
+                                    ng-change="SetReinsurerValues()">
+                                <option value=""> &lt;&lt; {{'common.customText.new' | translate}} &gt;&gt; </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerDetails.reinsurerName' | translate}} <span class="symbol required"></span>
+                            </label><span class="error" ng-show="myForm.Name.$error.required">*</span>
+                            <input type="text" class="form-control" name="Name" ng-model="Reinsurer.ReinsurerName"
+                                   ng-class="validate_ReinsurerName" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerDetails.reinsurerCode' | translate}} <span class="symbol required"></span>
+                            </label><span class="error" ng-show="myForm.Code.$error.required">*</span>
+                            <input type="text" class="form-control" name="Code" ng-model="Reinsurer.ReinsurerCode"
+                                   ng-class="validate_ReinsurerCode" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">
+                            {{'pages.reInsurerManagement.tabReInsurerDetails.currency' | translate}} <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.Name.$error.required">*</span>
+                        <select name="Currency" class="form-control" ng-model="Reinsurer.CurrencyId"
+                                ng-options="c.Id as c.Code for c in Currencies" ng-class="validate_CurrencyId">
+                            <option value="">{{'common.customText.pleaseSelect' | translate}}</option>
+                        </select>
+                    </div>
+
+
+                   
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <br />
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerDetails.active' | translate}}
+                            </label>
+                            <input id="IsActive" type="checkbox" ng-model="Reinsurer.IsActive">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                    <div class="col-md-3" >
+                        <br />
+                        <!-- <input type="button" class="btn btn-primary  btn-block" ng-click="ReinsurerSubmit()" ng-value="Reinsurer.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'" />-->
+                        <button class="btn btn-primary  btn-block" ng-disabled="ReinsurerSubmitBtnDisabled" ng-click="ReinsurerSubmit()">
+                            <!--{{Reinsurer.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}-->
+                            {{ labelSaveReinsurer | translate}}<i ng-class="ReinsurerSubmitBtnIconClass"></i>
+                        </button>
+                    </div>
+                </div>
+            </tab>
+            <tab heading="{{'pages.reInsurerManagement.tabReInsurerContract.title' | translate}}">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" ng-show="errorTab2!=''">
+                        {{errorTab2}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerDetails.reinsurer' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <!--<span class="error" ng-show="myForm.Reinsurer.$error.required">*</span>-->
+                            <select class="form-control" ng-model="ReinsurerContract.ReinsurerId" name="Reinsurer"
+                                    ng-options="n.Id as n.ReinsurerName for n in Reinsurers" ng-class="validate_RReinsurerId"
+                                    ng-change="SetReinsurerContractsValues()">
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.linkContract' | translate}}
+                            </label>
+                            <select class="form-control" ng-model="ReinsurerContract.LinkContractId" name="Id"
+                                    ng-options="n.Id as n.ContractNo for n in ReinsurerContracts"
+                                    ng-disabled="Disable"
+                                    ng-change="SetReinsurerLinkContractValues()">
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.reinsurerContract' | translate}}
+                            </label>
+                            <select class="form-control" ng-model="ReinsurerContract.Id" name="Id"
+                                    ng-options="n.Id as n.ContractNo for n in ReinsurerContracts"
+                                    ng-disabled="Disable"
+                                    ng-change="SetReinsurerContractValues()">
+                                <option value=""> &lt;&lt; {{'common.customText.new' | translate}} &gt;&gt; </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.contractNo' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <!--<span class="error" ng-show="myForm.ContractNo.$error.required">*</span>-->
+                            <input type="text" class="form-control" name="ContractNo" ng-model="ReinsurerContract.ContractNo" ng-class="validate_ContractNo"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.country' | translate}}  <span class="symbol required"></span>
+                            </label>
+                            <!--<span class="error" ng-show="myForm.Country.$error.required">*</span>-->
+                            <select name="Country" class="form-control" ng-model="ReinsurerContract.CountryId" ng-class="validate_RCountryId"
+                                    ng-options="c.Id as c.CountryName for c in Countries"
+                                    ng-change="SetInsurer()"
+                                    required>
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.insurer' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <!--<span class="error" ng-show="myForm.Insurers.$error.required">*</span>-->
+                            <select class="form-control" ng-model="ReinsurerContract.InsurerId" name="Insurer"
+                                    ng-options="n.Id as n.InsurerFullName  for n in Insurers" ng-class="validate_RInsurerId"
+                                    required>
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.commodityType' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <!--<span class="error" ng-show="myForm.CommodityTypes.$error.required">*</span>-->
+                            <select class="form-control" ng-model="ReinsurerContract.CommodityTypeId" name="CommodityTypes"
+                                    ng-options="n.CommodityTypeId as n.CommodityTypeDescription  for n in CommodityTypes" ng-class="validate_RCommodityTypeId"
+                                    required>
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group popOnTop">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.fromDate' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <!--<span class="error" ng-show="myForm.FromDate.$error.required">*</span>-->
+                            <input type="text" name="FromDate" id="FromDate" placeholder="{{'common.clickCalender' | translate}}" class="form-control"
+                                   ng-model="ReinsurerContract.FromDate" datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-class="validate_RFromDate"
+                                   ng-click="startOpenf = !startOpenf" is-open="startOpenf" ng-init="startOpenf = false" close-text="Close" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group popOnTop">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.toDate' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <!--<span class="error" ng-show="myForm.ToDate.$error.required">*</span>-->
+                            <input type="text" name="ToDate" id="ToDate" placeholder="{{'common.clickCalender' | translate}}" class="form-control"
+                                   ng-model="ReinsurerContract.ToDate" datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-class="validate_RToDate"
+                                   ng-click="startOpen = !startOpen" is-open="startOpen" ng-init="startOpen = false" close-text="Close" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.uWYear' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <!--<span class="error" ng-show="myForm.UWYear.$error.required">*</span>-->
+                            <input type="text" class="form-control" ng-model="ReinsurerContract.UWYear" name="UWYear" ng-class="validate_UWYear" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerContract.broker' | translate}}
+                            </label>
+                            <select class="form-control" ng-model="ReinsurerContract.BrokerId" name="name" ng-class=""
+                                    ng-options="n.Id as n.Name for n in allbrokers" tabindex="5"
+                                    ng-change="" ng-disabled="saveOrUpdateDisabled">
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}}  </option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <br />
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerDetails.active' | translate}}
+                            </label>
+                            <input id="IsActiveC" type="checkbox" ng-model="ReinsurerContract.IsActive">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <!--<input type="button" class="btn btn-primary btn-block" ng-click="ReinsurerContractSubmit()" ng-value="ReinsurerContract.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'" />-->
+                        <button class="btn btn-primary btn-block" ng-disabled="ReinsurerContractSubmitBtnDisabled" ng-click="ReinsurerContractSubmit()">
+                            <!--{{ReinsurerContract.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}-->
+                            {{ labelSaveReinsurerContract | translate}}<i ng-class="ReinsurerContractSubmitBtnIconClass"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="fixed-height"></div>
+                </div>
+            </tab>
+            <tab heading="{{'pages.reInsurerManagement.tabReinsurerConsortium.title' | translate}}">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" ng-show="errorTab3!=''">
+                        {{errorTab3}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReinsurerConsortium.parentReinsurer' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <select class="form-control" ng-model="C.ParentReinsurerId"
+                                    ng-options="n.Id as n.ReinsurerName for n in Reinsurers" ng-class="validate_RParentReinsurerId"
+                                    ng-change="LoadConsortiums()">
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}}  </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerDetails.reinsurer' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <select class="form-control" ng-model="C.ReinsurerId" ng-class="validate_RCReinsurerId"
+                                    ng-options="n.Id as n.ReinsurerName for n in Consortium">
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}}  </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                &nbsp;
+                            </label>
+                            <input type="button" class="btn btn-primary  btn-block" ng-click="AddReinsurer()" value="{{'pages.reInsurerManagement.tabReinsurerConsortium.add' | translate}}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-white no-radius">
+                            <div class="panel-heading border-light panelHeaderModifier">
+                                <b>{{'pages.reInsurerManagement.tabReinsurerConsortium.reinsurerConsortium' | translate}}</b>
+                            </div>
+                            <div class="panel-body">
+                                <div class="ScrollHeight">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    {{'pages.reInsurerManagement.tabReInsurerDetails.reinsurer' | translate}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!--<div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    NRP Share %
+                                                </label>
+                                            </div>
+                                        </div>-->
+                                        <div class="col-md-3"  style="text-align:right">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    {{'pages.reInsurerManagement.tabReinsurerConsortium.riskShare' | translate}} %
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3"  style="text-align:right">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    {{'pages.reInsurerManagement.tabReinsurerConsortium.profitShare' | translate}} %
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-repeat="x in ReinsurerConsortiums">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    {{x.Reinsurer}}
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="number" class="form-control text-right" name="Name" ng-model="x.NRPPercentage" ng-blur="TotalCalc()">
+                                                </div>
+                                            </div>-->
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="number" class="form-control text-right" name="Name" ng-model="x.RiskSharePercentage" ng-blur="TotalCalc()">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="number" class="form-control text-right" name="Name" ng-model="x.ProfitSharePercentage" ng-blur="TotalCalc()">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="button" class="btn btn-primary"
+                                                       ng-click="Remove(x)"
+                                                       value="Remove" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    {{'pages.reInsurerManagement.tabReinsurerConsortium.totalPercentage' | translate}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!--<div class="col-md-3  text-right">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    {{NRPTotal}} %
+                                                </label>
+                                            </div>
+                                        </div>-->
+                                        <div class="col-md-3  text-right">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    {{RiskTotal}} %
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3  text-right">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    {{PercentageTotal}} %
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-4">
+                        <!--<input type="button" class="btn btn-primary  btn-block" ng-click="ConsortiumSubmit()" ng-value="Reinsurer.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'" />-->
+                        <button class="btn btn-primary  btn-block" ng-disabled="ConsortiumSubmitBtnDisabled" ng-click="ConsortiumSubmit()">
+                            <!--{{Reinsurer.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}-->
+                            {{ labelSaveReinsurerConsortium | translate}}<i ng-class="ConsortiumSubmitBtnIconClass"></i>
+                        </button>
+                    </div>
+                </div>
+            </tab>
+            <tab heading="{{'pages.reInsurerManagement.tabReinsurerStaffMapping.title' | translate}}">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReInsurerDetails.reinsurer' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <select class="form-control" ng-model="reinsurerStaff.reinsurerId"
+                                    ng-options="n.Id as n.ReinsurerName for n in Reinsurers" ng-class="validate_RSTInsurerId"
+                                    ng-change="setReinsurerStaffValues()">
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}}  </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.reInsurerManagement.tabReinsurerStaffMapping.user' | translate}}
+                            </label>
+                            <div ng-dropdown-multiselect="" options="UserList" selected-model="SelectedUserList" extra-settings="drpsettings" translation-texts="CustomText"
+                                 events="{ onItemSelect: SendUser,onItemDeselect:SendUser ,onSelectAll:SendUser,onUnselectAll:SendUser}"></div>
+                            <div class="ScrollHeight">
+                                <ul>
+                                    <li ng-repeat="x in SelectedUserIDList">
+                                        {{x}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="control-label">
+                            &nbsp;
+                        </label>
+                        <!-- <input type="button" class="btn btn-primary  btn-block" ng-click="saveStaffMappings()" value="Save" />-->
+                        <button class="btn btn-primary  btn-block" ng-disabled="saveStaffMappingsBtnDisabled" ng-click="saveStaffMappings()">
+                            {{ labelSaveReinsurerConsortium | translate}} <i ng-class="saveStaffMappingsBtnIconClass"></i>
+                        </button>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+        <!--</form>-->
+        </div>
+
+
+    </div>

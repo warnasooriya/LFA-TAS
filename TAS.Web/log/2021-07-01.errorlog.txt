@@ -1,0 +1,372 @@
+2021-07-01 11:05:45.3342 TAS.Web.Controllers.ClaimController ValidateVinSerialNumber: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2021-07-01 12:23:39.8815 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:ba6a8b60-186e-4413-82a5-9a1f25c419f8
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:39.9996 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:912c2139-4e2f-43d7-bb2f-c44bce43176e
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:40.0306 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:6ef37be5-5b14-4d56-91b8-92e61f071e99
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:39.9535 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:79ce19b4-c9fa-474d-97e9-6e2b7a4b1280
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:40.1706 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:9003d64d-165f-48d8-ac7a-be0771ed9afe
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:40.0576 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:cebb873d-b383-4861-b827-099a842569f4
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:40.5077 TAS.Web.Controllers.ClaimController UserValidationClaimListing: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-07-01 12:23:40.5077 TAS.Web.Controllers.ClaimController GetAllCustomerComplaints: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-07-01 12:23:40.5077 TAS.Web.Controllers.ClaimController UserValidationClaimSubmission: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-07-01 12:23:40.5077 TAS.Web.Controllers.MakeAndModelManagementController GetAllCommodities: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-07-01 12:23:40.8107 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:6ef37be5-5b14-4d56-91b8-92e61f071e99
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:40.9497 TAS.Web.Controllers.ClaimController GetAllDealerComments: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-07-01 12:23:41.2907 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:912c2139-4e2f-43d7-bb2f-c44bce43176e
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:41.3027 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:cebb873d-b383-4861-b827-099a842569f4
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:41.5117 TAS.Web.Controllers.ClaimController GetAllClaimDashboardStatus: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-07-01 12:23:41.5707 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMTg3OTAsImp0aSI6ImE2NmJjNTRiLTBhMmUtNGUwMy04MWNlLTU0Y2Y0ODcxOGM4MiIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.laDu4no2u5LcyU0ZoZy_KYgMP0sEhAvGeVN0tgprwmM  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:9003d64d-165f-48d8-ac7a-be0771ed9afe
+Error Number:208,State:1,Class:16
+2021-07-01 12:23:41.6767 TAS.Web.Controllers.DashboardController RetrivePolicySectionDataForDashboard: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-07-01 12:23:44.1423 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:79ce19b4-c9fa-474d-97e9-6e2b7a4b1280
+Error Number:208,State:1,Class:16
+2021-07-01 13:45:48.8582 TAS.Services.Entities.Management.UserLoginEntityManager CheckAndUpdateLogin: exception: could not execute query
+[ select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxMjU0MTcsImp0aSI6ImJjZTU4NGNlLWZmMTgtNGExMy05ZTM4LTA4NDY2Mjk4MWRkOCIsIm5hbWUiOiJyYXZpIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6InN1cmFuamlrYSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiIzYWZlNDU2Yi0xZjQxLTRmYTctOGVlYS03ODhmMzRkNmZiODQifQ.7J97dzge3hbBMORtat1l20hX5axYpyu4BbQDd8970YE  Name:p2 - Value:False
+[SQL: select userlogin0_.ID as ID1_92_, userlogin0_.UserName as UserN2_92_, userlogin0_.SystemUserID as Syste3_92_, userlogin0_.JwtToken as JwtTo4_92_, userlogin0_.IssuedDateTime as Issue5_92_, userlogin0_.LastRequestDateTime as LastR6_92_, userlogin0_.IssuedCountryRegion as Issue7_92_, userlogin0_.IsExpired as IsExp8_92_ from UserLogin userlogin0_ where userlogin0_.JwtToken=@p0 and userlogin0_.IsExpired=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'UserLogin'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:4b69eb30-25ee-47bc-abbe-5c16f7912031
+Error Number:208,State:1,Class:16
+2021-07-01 13:45:51.2481 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:5b3a91dc-e1f4-444d-ba4b-0014962d13f5
+Error Number:208,State:1,Class:16
+2021-07-01 15:38:33.0386 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-07-01 15:39:24.6308 TAS.Web.Controllers.ClaimController GetAllSubmittedClaimsByUserId: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2021-07-01 15:39:25.6174 TAS.Web.Controllers.DealerManagementController GetAllDealersByUserId: exception: Object reference not set to an instance of an object., 
+2021-07-01 17:50:21.3577 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:94f71b80-8349-4b58-829e-dde5a779272a
+Error Number:208,State:1,Class:16
+2021-07-01 17:51:59.7047 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-07-01 17:52:45.6489 TAS.Services.Entities.Management.ClaimEntityManager GetAllDealerComments: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-01 17:53:16.6053 TAS.Services.Entities.Management.ClaimEntityManager GetAllDealerComments: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-01 18:24:44.3426 TAS.Web.Controllers.DealerManagementController GetAllDealersByUserId: exception: Object reference not set to an instance of an object., 
+2021-07-01 18:24:44.3676 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Object reference not set to an instance of an object., 
+2021-07-01 18:31:41.9901 TAS.Web.Controllers.ClaimController SubmitClaim: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 

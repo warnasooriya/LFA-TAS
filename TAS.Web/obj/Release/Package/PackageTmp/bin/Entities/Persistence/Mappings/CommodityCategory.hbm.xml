@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="CommodityCategory" table="CommodityCategory" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="CommodityCategoryId" column="CommodityCategoryId" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="CommodityCategoryDescription" />
+    <property name="CommodityCategoryCode" />
+    <property name="Length" />
+    <property name="CommodityTypeId" />
+   
+  </class>
+</hibernate-mapping>

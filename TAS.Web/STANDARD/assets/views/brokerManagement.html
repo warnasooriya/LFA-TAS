@@ -1,0 +1,141 @@
+﻿<div ng-app="clip-two" ng-controller="BrokerCtrl as brokerController" ng-init="loadInitailData()" >
+    <!--<form name="myForm">-->
+    <div name="myForm" class="my-form">
+        <!-- start: PAGE TITLE -->
+        <section id="page-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1 class="mainTitle TitleModifier">{{'pages.brokerManagement.title' | translate}}</h1>
+                    <!--<span class="mainDescription TitleModifier">You can update a TPA. Select existing TPA to update.</span>-->
+                    <span class="mainDescription TitleModifier">{{'pages.brokerManagement.mainDescription' | translate}}</span>
+                </div>
+                <!--<div ncy-breadcrumb></div>-->
+            </div>
+        </section>
+        <!-- end: PAGE TITLE -->
+        <style>
+            .my-form {
+                -webkit-transition: all linear 0.5s;
+                transition: all linear 0.5s;
+                background: transparent;
+            }
+
+            .fixed-height {
+                height: 250px;
+            }
+
+            .has-error {
+                border: solid 1px #e84e4e !important;
+                /*#fbaa2b*/
+            }
+
+            .ScrollHeight {
+                max-height: 75px;
+                /*border: 1px solid red;*/
+                overflow: auto;
+            }
+
+            .error {
+                color: red;
+            }
+
+            .grid {
+                height: 200px;
+            }
+
+            .ui-grid-render-container-body {
+                position: absolute;
+                margin-left: 31px;
+            }
+
+            .ui-grid-grid-footer {
+                position: absolute;
+                bottom: 25px;
+            }
+        </style>
+        <div class="row" style="margin-left: 3px; margin-right: 3px; margin-top: 5px; margin-bottom: 15px">
+            <div class="col-md-6 ">
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.brokerManagement.country' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.Country.$error.required">*</span>
+                    <select name="Country" id="drpCountry" class="form-control" ng-model="broker.CountryId"
+                            ng-options="c.Id as c.CountryName for c in countries"  tabindex="1" ng-class="validate_CountryId"
+                            ng-change="getBrokersByCountry()" required>
+                        <option value=""> {{ 'common.pleaseSelect' | translate}} </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.brokerManagement.brokerName' | translate}} <span class="symbol required"></span>
+                    </label>
+                    <span class="error" ng-show="myForm.Telephone.$error.required">*</span>
+                    <input type="text" class="form-control input-sm" id="Name" name="Name" tabindex="2" ng-model="broker.Name" ng-class="validate_brokerName">
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.brokerManagement.address' | translate}}
+                    </label>
+                    <textarea style="resize:none" class="form-control input-sm input-sm" ng-model="broker.Address" ng-class="validate_brokerAddress" tabindex="4"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.brokerManagement.broker' | translate}}
+                    </label>
+                    <select class="form-control" ng-model="broker.Id" name="name" ng-class="validate_brokerDropdown"
+                            ng-options="n.Id as n.Name for n in allbrokers" tabindex="5"
+                            ng-change="SetBrokerValues()" ng-disabled="saveOrUpdateDisabled">
+                        <option value=""> &lt;&lt; {{'pages.brokerManagement.new' | translate}} &gt;&gt; </option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.brokerManagement.code' | translate}} <span class="symbol required"></span>
+                    </label>
+                    <span class="error" ng-show="myForm.Code.$error.required">*</span>
+                    <input type="text" class="form-control input-sm" id="Code" name="Code" tabindex="3" ng-model="broker.Code" ng-class="validate_brokerCode" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.brokerManagement.telephoneNumber' | translate}}
+                    </label>
+                    <span class="error" ng-show="myForm.Telephone.$error.required">*</span>
+                    <input type="text" class="form-control input-sm" id="Telephone" name="Telephone" tabindex="7" ng-class="validate_brokerTelephone" ng-model="broker.TelNumber" maxlength="15">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.brokerManagement.active' | translate}}
+                    </label>
+                    <input id="IsActive" type="checkbox" ng-model="broker.Status" tabindex="6" ng-class="validate_brokerStatus">
+                </div>
+
+            </div>
+            <div class="col-md-3 pull-right">
+
+                <button class="btn btn-primary btn-block pull-right" ng-disabled="saveOrUpdateBtnDisabled" ng-click="saveOrUpdateBroker()" tabindex="10">
+                    {{labelSave | translate }}
+                    <i ng-class="saveOrUpdateBtnIconClass"></i>
+                </button>
+            </div>
+        </div>
+        
+
+        <div class="row">
+        
+
+        </div>
+
+     </div>
+</div>
+

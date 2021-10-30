@@ -1,0 +1,429 @@
+﻿<div ng-app="LFA" ng-controller="IncurredErningCtrl as IncurredErningController" ng-init="loadInitailData()">
+
+    <style>
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        #partsTable > tbody > tr > td {
+            height: 30px;
+            padding: 0px;
+            border-top: 0px;
+        }
+
+        /*Forynami Text*/
+
+        .remove {
+            background: #C76868;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 21px;
+            border: 0;
+            cursor: pointer;
+            display: inline-block;
+            padding: 4px 9px;
+            vertical-align: top;
+            line-height: 100%;
+        }
+
+        input[type="text"],
+        select {
+            padding: 5px;
+        }
+    </style>
+
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">{{'pages.incurredErning.title' | translate}}</h1>
+                    <span class="mainDescription TitleModifier">{{ModalDescription}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div ng-form="myForm" class="my-form">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.policyCommonData.country' | translate}} <span class="symbol required"></span>
+                        </label>
+                        validate_incuredCountry
+                        <select class="form-control  input-sm  input-sm" ng-model="IncurredEarn.CountryId" name="Id"
+                                ng-change=""
+                                ng-class="validate_incuredCountry"
+                                ng-options="n.Id as n.CountryName for n in Countries">
+                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.policyCommonData.dealer' | translate}} <span class="symbol required"></span>
+                        </label>
+                        <select class="form-control input-sm input-sm validate_incuredDealer" 
+                                ng-model="IncurredEarn.DealerId"   
+                                name="Year"
+                                ng-change=""
+                                ng-class="validate_incuredDealer"
+                                ng-options="n.Id as n.DealerName for n in Dealers">
+                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.incurredErning.underWritingYear' | translate}} <span class="symbol required"></span>
+                        </label>
+                        <select class="form-control input-sm  input-sm " 
+                                ng-model="IncurredEarn.UNWYear" 
+                                ng-class="validate_incuredYear" 
+                                name="Id"
+                                ng-change=""
+                                ng-options="n as n for n in UNWyears">
+                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary pull-left" style="margin-right: 5px; margin-top: 20px" ng-click="showClaimSearchPopup()">Search</button>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="padding-right:25px ;padding-left:45px;width:90%">
+                    <div class="panel panel-white no-radius">
+                        <div class="panel-body" ng-show="selectedCustomerTypeName!='Corporate'">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.incurredErning.bordxStartDate' | translate}}
+                                        </label>
+                                        <input type="text" 
+                                               ng-readonly="true"
+                                               placeholder="{{'common.clickCalender' | translate}}" 
+                                               class="form-control  input-sm  input-sm"
+                                               ng-model="IncurredEarn.BordxStartDate"
+                                               datepicker-popup="dd-MMM-yyyy" 
+                                               datepicker-localdate 
+                                               is-open="startOpen1" 
+                                               ng-click="startOpen1 = !startOpen1" 
+                                               ng-init="startOpen1 = false" 
+                                               close-text="Close" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.incurredErning.bordxEndDate' | translate}}
+                                        </label>
+                                        <input type="text" 
+                                               ng-readonly="true" 
+                                               placeholder="{{'common.clickCalender' | translate}}" 
+                                               class="form-control  input-sm  input-sm" 
+                                               ng-model="IncurredEarn.BordxEndDate"
+                                               datepicker-popup="dd-MMM-yyyy" 
+                                               datepicker-localdate  
+                                               is-open="startOpen2" 
+                                               ng-click="startOpen2 = !startOpen2" 
+                                               ng-init="startOpen2 = false" 
+                                               close-text="Close" />
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.incurredErning.earnedDate' | translate}}
+                                        </label>
+                                        <input type="text" 
+                                               ng-readonly="true" 
+                                               placeholder="{{'common.clickCalender' | translate}}" 
+                                               class="form-control  input-sm  input-sm" 
+                                               ng-model="IncurredEarn.ErnedDate"
+                                               datepicker-popup="dd-MMM-yyyy" 
+                                               datepicker-localdate 
+                                               is-open="startOpen3" 
+                                               ng-click="startOpen3 = !startOpen3" 
+                                               ng-init="startOpen3 = false"
+                                               close-text="Close"/>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.incurredErning.claimedDate' | translate}}
+                                        </label>
+                                        <input type="text" 
+                                               ng-readonly="true"
+                                               placeholder="{{'common.clickCalender' | translate}}"
+                                               class="form-control input-sm input-sm" 
+                                               ng-model="IncurredEarn.ClaimedDate"  
+                                               max-date="maxClaimDate"
+                                               datepicker-popup="dd-MMM-yyyy" 
+                                               datepicker-localdate 
+                                               is-open="startOpen4" 
+                                               ng-click="startOpen4 = !startOpen4" 
+                                               ng-init="startOpen4 = false" />
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.policyCommonData.make' | translate}}
+                                        </label>
+                                        <select name="Make" class="form-control input-sm input-sm" 
+                                                ng-model="IncurredEarn.MakeId"
+                                                ng-options="c.Id as c.MakeName for c in Makes" 
+                                                ng-class="validate_MakeId"
+                                                ng-change="SetModel()" 
+                                                tabindex="3"
+                                                required>
+                                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.policyCommonData.model' | translate}}
+                                        </label>
+                                        <select class="form-control input-sm input-sm" 
+                                                ng-model="IncurredEarn.ModelId" 
+                                                ng-class="validate_Year" 
+                                                name="Year"
+                                                ng-change="SetMwMonths()"
+                                                ng-options="n.Id as n.ModelName for n in Modeles">
+                                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.policyCommonData.cylinderCount' | translate}}
+                                        </label>
+                                        <select class="form-control input-sm input-sm" 
+                                                ng-model="IncurredEarn.CylindercountId"
+                                                ng-class="validate_reInsurer"
+                                                name="Id"
+                                                ng-change=""
+                                                ng-options="n.Id as n.Count for n in CylinderCounts">
+                                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group" style="margin-top:5px">
+
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn btn-primary pull-left"
+                                            ng-disabled="IncurredErningBtnDisabled"
+                                            ng-click="IncurredErningProcess()">
+                                        <!-- {{'Process'}}-->
+                                        {{'pages.incurredErning.process' | translate}}
+                                        <i ng-class="IncurredErningBtnIconClass"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.policyCommonData.engineCapacity' | translate}}
+                                        </label>
+                                        <select class="form-control input-sm input-sm"
+                                                ng-model="IncurredEarn.EngineCapacityId"
+                                                name="Id"
+                                                ng-change="SetExMonths()"
+                                                ng-options="n.Id as n.EngineCapacityNumber for n in EngineCapacities">
+                                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.incurredErning.extentionMonths' | translate}}
+                                        </label>
+                                        <select class="form-control input-sm input-sm" 
+                                                ng-model="IncurredEarn.InsuaranceLimitationId"
+                                                ng-change=""
+                                                ng-options="n.InsuaranceLimitationId as n.ExtensionName for n in ExtMonths">
+                                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            {{'pages.incurredErning.manufacMoths' | translate}}
+                                        </label>
+                                        <select class="form-control  input-sm  input-sm"
+                                                ng-model="IncurredEarn.MwMonthId"
+                                                ng-change=""
+                                                ng-options="n.Id as n.WarrantyMonths for n in MwMonths">
+                                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 form-group" style="margin-top:5px">
+
+                                </div>
+                                <button class="btn btn-primary pull-left"
+                                        ng-disabled="IncurredErningExcelBtnDisabled"
+                                        ng-click="IncurredErningExcel()"
+                                        style="margin-left:5px">
+                                    <!--{{'Download Excel'}}-->
+                                    {{'pages.incurredErning.downloadExcel' | translate}}
+                                    <i ng-class="IncurredErningExcelBtnIconClass"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group" style="margin-top:18px">
+
+                    </div>
+                    <div class="col-md-3 form-group" style="margin-top:18px">
+
+                    </div>
+
+
+                </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <table id="partsTable" class="table table-bordered table-striped ">
+                        <thead>
+                            <tr>
+
+                                <th class="text-center">{{'pages.incurredErning.dealerName' | translate}}</th>
+                                <th class="text-center">{{'pages.incurredErning.underWritingYear' | translate}}</th>
+                                <th class="text-center">{{'pages.incurredErning.policyStatus' | translate}}</th>
+                                <th class="text-center">{{'pages.incurredErning.warrantyType' | translate}}</th>
+                                <th class="text-center">{{'pages.incurredErning.earningPercentage' | translate}}</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat=" p in IncurredProcessData track by $index">
+                                <td align="center">{{p.DealerName}}</td>
+                                <td align="center">{{p.UNRYear}}</td>
+                                <td align="center">{{p.PolicyStatus}}</td>
+                                <td align="center">{{p.WarantyType}}</td>
+                                <td align="center">{{p.EarnPercenSum}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+<script type="text/ng-template" id="popUpSearchClaim">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 1000px !important;
+            height: 320px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+    <div>
+        <h3 class="">Search claim</h3>
+        <!--<form>-->
+        <div name="myForm" class="my-form">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid" ui-grid-pagination ui-grid="gridOptionsClaim" style="margin-top:5px">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsClaim.data.length>0 ">
+                            <div class="msg">
+                                <span>{{'common.grid.noData' | translate}}</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!claimSearchGridloading">
+                            <div class="msg">
+                                <span>
+                                    {{'common.grid.loading' | translate}}
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--</form>-->
+        </div>
+    </div>
+
+    <!--<div class="ngdialog-buttons" style="margin-top:20px">
+        <input type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('Closed')" value="Load" />
+    </div>-->
+</script>

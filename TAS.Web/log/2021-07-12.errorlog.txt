@@ -1,0 +1,219 @@
+2021-07-12 10:01:01.8980 TAS.Web.Controllers.TempBulkUploadController Upload: exception: Missing required column mapped to: CommodityTypeCode., 
+2021-07-12 10:29:57.4785 TAS.Web.Controllers.TempBulkUploadController Upload: exception: Missing required column mapped to: Gross Premium USD., 
+2021-07-12 10:34:54.3532 TAS.Web.Controllers.TempBulkUploadController Upload: exception: Missing required column mapped to: Gross Premium USD., 
+2021-07-12 11:07:41.4412 TAS.Web.Controllers.TempBulkUploadController Upload: exception: Object reference not set to an instance of an object., 
+2021-07-12 11:07:54.8827 TAS.Web.Controllers.TempBulkUploadController Upload: exception: Object reference not set to an instance of an object., 
+2021-07-12 11:10:55.0310 TAS.Web.Controllers.TempBulkUploadController Upload: exception: Object reference not set to an instance of an object., 
+2021-07-12 11:13:14.9379 TAS.Services.Entities.Management.TempBulkUploadEntityManager AddTempBulkUpload: exception: Input string was not in a correct format., 
+2021-07-12 11:18:46.7538 TAS.Services.Entities.Management.TempBulkUploadEntityManager AddTempBulkUpload: exception: Input string was not in a correct format., 
+2021-07-12 11:19:36.7871 TAS.Services.Entities.Management.TempBulkUploadEntityManager AddTempBulkUpload: exception: Input string was not in a correct format., 
+2021-07-12 11:36:14.5826 TAS.Services.Entities.Management.TempBulkUploadEntityManager AddTempBulkUpload: exception: Input string was not in a correct format., 
+2021-07-12 11:37:15.9585 TAS.Web.Controllers.TempBulkUploadController Upload: exception: Object reference not set to an instance of an object., 
+2021-07-12 11:38:43.1720 TAS.Services.Entities.Management.TempBulkUploadEntityManager AddTempBulkUpload: exception: could not execute batch command.[SQL: SQL not available], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductId'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   at System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   at lambda_method(Closure , Object )
+   at NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   at NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+ClientConnectionId:6fd00127-0289-4472-a81c-0cc73e3dcc51
+Error Number:207,State:1,Class:16
+2021-07-12 11:55:52.0758 TAS.Services.Entities.Management.TempBulkUploadEntityManager AddTempBulkUpload: exception: could not execute batch command.[SQL: SQL not available], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductId'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   at System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   at lambda_method(Closure , Object )
+   at NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   at NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+ClientConnectionId:6fd00127-0289-4472-a81c-0cc73e3dcc51
+Error Number:207,State:1,Class:16
+2021-07-12 11:59:39.2778 TAS.Services.Entities.Management.TempBulkUploadEntityManager SaveTempBulkData: exception: could not execute query
+[ exec spValidateTempBulkData @TempBulkUploadId=@p0 ]
+  Name:TempBulkUploadId - Value:683799f0-b085-4f40-bfe4-e829f8cf25ed
+[SQL: exec spValidateTempBulkData @TempBulkUploadId=@p0], System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'spValidateTempBulkData'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:47549c92-8da0-4fd8-acf1-dbbb9c1ba61c
+Error Number:2812,State:62,Class:16
+2021-07-12 11:59:39.3033 TAS.Web.Controllers.TempBulkUploadController SaveBulkUpload: exception: could not execute query
+[ exec spValidateTempBulkData @TempBulkUploadId=@p0 ]
+  Name:TempBulkUploadId - Value:683799f0-b085-4f40-bfe4-e829f8cf25ed
+[SQL: exec spValidateTempBulkData @TempBulkUploadId=@p0], System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'spValidateTempBulkData'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:47549c92-8da0-4fd8-acf1-dbbb9c1ba61c
+Error Number:2812,State:62,Class:16
+2021-07-12 15:32:04.4041 TAS.Services.Entities.Management.TempBulkUploadEntityManager SaveTempBulkData: exception: could not execute query
+[ exec spValidateTempBulkData @TempBulkUploadId=? ]
+  Name:TempBulkUploadId - Value:703401d6-54bf-438c-88e2-c7ccbe79ff56
+[SQL: exec spValidateTempBulkData @TempBulkUploadId=?], System.IndexOutOfRangeException: ReturnValue
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at NHibernate.Driver.NHybridDataReader.GetOrdinal(String name)
+   at NHibernate.Loader.Custom.CustomLoader.ScalarResultColumnProcessor.PerformDiscovery(MetaData metadata, IList`1 types, IList`1 aliases)
+   at NHibernate.Loader.Custom.CustomLoader.AutoDiscoverTypes(IDataReader rs)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+2021-07-12 15:32:04.4531 TAS.Web.Controllers.TempBulkUploadController SaveBulkUpload: exception: could not execute query
+[ exec spValidateTempBulkData @TempBulkUploadId=? ]
+  Name:TempBulkUploadId - Value:703401d6-54bf-438c-88e2-c7ccbe79ff56
+[SQL: exec spValidateTempBulkData @TempBulkUploadId=?], System.IndexOutOfRangeException: ReturnValue
+   at System.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at NHibernate.Driver.NHybridDataReader.GetOrdinal(String name)
+   at NHibernate.Loader.Custom.CustomLoader.ScalarResultColumnProcessor.PerformDiscovery(MetaData metadata, IList`1 types, IList`1 aliases)
+   at NHibernate.Loader.Custom.CustomLoader.AutoDiscoverTypes(IDataReader rs)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+2021-07-12 16:05:58.6258 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-12 16:14:38.8280 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-12 16:18:38.4583 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-12 16:18:59.4527 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-12 16:19:29.5625 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-12 17:01:53.7409 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-12 17:14:38.3586 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-12 17:15:02.4871 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-12 17:17:36.2425 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-07-12 17:52:17.7771 TAS.Services.Entities.Management.EntityCacheData GetCustomers: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)

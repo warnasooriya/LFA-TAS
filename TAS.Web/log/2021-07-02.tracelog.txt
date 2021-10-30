@@ -1,0 +1,59 @@
+2021-07-02 09:40:08.4807 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - Dealerclm for TPA - suranjika
+2021-07-02 09:40:09.3647 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - Dealerclm for TPA - suranjika
+2021-07-02 09:40:29.1243 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - Dealerclm for TPA - TestCycleandCarriage
+2021-07-02 09:40:31.4961 TAS.Web.Controllers.UserController Login success for ip-::1 for user - Dealerclm for TPA - TestCycleandCarriage token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUxOTkwMzAsImp0aSI6IjZmNjlhNGM3LTIxNWQtNDRmMy05NWI3LWI3Yjk2MzY0NDY3YyIsIm5hbWUiOiJEZWFsZXJjbG0iLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiVGVzdEN5Y2xlYW5kQ2FycmlhZ2UiLCJzaGFyZWRrZXkiOiJhYmNlIiwidXNlcmlkIjoiNjdiZGFiNDQtYjdlMS00NTZmLTgxNzAtOGMxN2YwOGY5MTQ4In0.xIphIEXNfaa7WXjB8kp-o6pcJ5WzScsI9fCf874csYU
+2021-07-02 11:07:26.5291 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - suranjika
+2021-07-02 11:07:28.4110 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUyMDQyNDcsImp0aSI6IjNlMjgzMjQ3LTJjMGMtNDMzOS05YzM5LTkxMDhiMjM2ZTZiYyIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoic3VyYW5qaWthIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImRlYzgzOTg4LWU3ZjMtNGMxNi1iNDMyLTY3NTNmYTRjYWQ0NSJ9.8yb-iI8NgrHj4QbFY4-rc4MF162tyq9rYkjMwyVEh2k
+2021-07-02 11:07:36.6315 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - suranjika
+2021-07-02 11:07:38.4519 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUyMDQyNTcsImp0aSI6IjAxYTRhM2E1LWQ2ODEtNGEwMS04NDNkLTAwYjg2MGMzM2ZhNSIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoic3VyYW5qaWthIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImRlYzgzOTg4LWU3ZjMtNGMxNi1iNDMyLTY3NTNmYTRjYWQ0NSJ9.kIGJ3npk34YSeY58f9hlu90Se_mYSxaRDfJskmCcPX0
+2021-07-02 12:05:19.3969 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUyMDQyNTcsImp0aSI6IjAxYTRhM2E1LWQ2ODEtNGEwMS04NDNkLTAwYjg2MGMzM2ZhNSIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoic3VyYW5qaWthIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImRlYzgzOTg4LWU3ZjMtNGMxNi1iNDMyLTY3NTNmYTRjYWQ0NSJ9.kIGJ3npk34YSeY58f9hlu90Se_mYSxaRDfJskmCcPX0
+2021-07-02 12:07:51.8790 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - suranjika
+2021-07-02 12:07:53.8738 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUyMDc4NzIsImp0aSI6IjAxNmUwMGQzLTBkMTUtNGNmYS04NDRjLWZjODQwM2ZhZjdiYyIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoic3VyYW5qaWthIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImRlYzgzOTg4LWU3ZjMtNGMxNi1iNDMyLTY3NTNmYTRjYWQ0NSJ9.3PGgcGwvOvz99OI-iS4TZnGyEskqWX4qJbPrUKIddCw
+2021-07-02 13:01:50.5675 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 13:01:50.9249 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 13:07:08.7765 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 13:07:08.9875 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 13:12:24.0295 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 13:12:24.2185 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 13:16:04.6985 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUyMDc4NzIsImp0aSI6IjAxNmUwMGQzLTBkMTUtNGNmYS04NDRjLWZjODQwM2ZhZjdiYyIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoic3VyYW5qaWthIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImRlYzgzOTg4LWU3ZjMtNGMxNi1iNDMyLTY3NTNmYTRjYWQ0NSJ9.3PGgcGwvOvz99OI-iS4TZnGyEskqWX4qJbPrUKIddCw
+2021-07-02 13:16:19.6022 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-07-02 13:16:21.3589 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjUyMTE5ODAsImp0aSI6IjM5MGU4ODdhLWMwNWItNDY5NS1hMzUwLTUyNjUyMzkyNmEyMCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIiwidXNlcmlkIjoiMGRmMzIzM2QtODRlMS00N2QzLWJmODUtMGU5Y2JmNWZiMGQ0In0.Dz3lttuN4IiPy1H-kFKrW-_ee2AZ9Tl61YSxlGYfplA
+2021-07-02 13:16:44.1080 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-07-02 13:16:45.5183 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-07-02 13:16:45.9009 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-07-02 13:16:46.2985 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-07-02 13:16:46.2985 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-07-02 13:16:53.2960 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 13:16:53.4970 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 13:27:18.1140 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 13:27:18.3300 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 13:27:26.5520 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 13:27:26.8460 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 13:30:21.2747 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 13:30:21.5352 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 13:40:24.8166 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-07-02 13:40:26.5157 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-07-02 13:40:26.8758 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-07-02 13:40:27.2462 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-07-02 13:40:27.2462 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-07-02 13:40:28.0193 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-07-02 13:40:29.4373 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-07-02 13:40:29.8595 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-07-02 13:40:30.2324 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-07-02 13:40:30.2324 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-07-02 13:40:47.7392 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 13:40:47.9382 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 14:13:06.6823 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 14:13:06.8768 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 14:18:12.8257 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 14:18:13.0442 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 14:18:15.0361 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 14:18:15.2260 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 14:22:34.4207 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 14:22:34.7215 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 14:22:43.7500 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 14:22:43.9412 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 14:23:01.0706 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 14:23:01.2634 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-07-02 14:28:23.7990 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-07-02 14:28:23.9969 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache

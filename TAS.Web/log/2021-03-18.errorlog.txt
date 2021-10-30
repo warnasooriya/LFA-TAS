@@ -1,0 +1,61 @@
+2021-03-18 10:03:59.9943 TAS.Services.Entities.Management.PolicyEntityManager GetPolicyById2: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.ManufacturerWarrantyId), 
+2021-03-18 10:26:11.4658 TAS.Services.Entities.Management.PolicyEntityManager GetPolicyById2: exception: Object reference not set to an instance of an object., 
+2021-03-18 10:26:16.0176 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Object reference not set to an instance of an object., 
+2021-03-18 10:37:08.0888 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-03-18 10:49:03.7332 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. ---> System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2021-03-18 10:58:51.8385 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-03-18 11:10:19.6919 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-03-18 11:13:09.1633 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. ---> System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2021-03-18 11:31:23.9191 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-03-18 11:40:25.9377 TAS.Services.Entities.Management.ContractEntityManager ContrctsRetrievalInPolicyRegistration: exception: could not execute query
+[ SELECT this_.ContractId as y0_ FROM ContractInsuaranceLimitation this_ WHERE this_.Id in (@p0, @p1, @p2, @p3, @p4, @p5) ]
+  Name:cp0 - Value:aa823077-acda-4b32-ae65-86400286a69a  Name:cp1 - Value:ee641679-8906-401a-9c2d-59acfc1c0cf0  Name:cp2 - Value:b1d9c739-18c8-4a35-9f15-c814a8ce2716  Name:cp3 - Value:ee641679-8906-401a-9c2d-59acfc1c0cf0  Name:cp4 - Value:05818dbe-a7c2-4c2c-ad69-6db2aefd416d  Name:cp5 - Value:4b693c38-2ade-462b-84cc-077f079fadb2
+[SQL: SELECT this_.ContractId as y0_ FROM ContractInsuaranceLimitation this_ WHERE this_.Id in (@p0, @p1, @p2, @p3, @p4, @p5)], System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:66155fb8-e072-4347-9b30-7edba5eded56
+Error Number:-2,State:0,Class:11
+2021-03-18 11:42:47.1669 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. ---> System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2021-03-18 11:50:38.7895 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2021-03-18 11:50:39.7568 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2021-03-18 11:51:54.5822 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2021-03-18 11:51:55.5429 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 

@@ -1,0 +1,11 @@
+2021-08-25 09:34:10.7801 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - Gargash
+2021-08-25 09:34:12.7107 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - Gargash token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjk4NjQyNTEsImp0aSI6ImFlYTNkZTMyLWZmM2MtNDY3Zi1hZDg4LWE4NzliMTNlYTc3MyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJHYXJnYXNoIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImNlZDkzZTAxLWRmY2EtNGYwOC05YTNiLWM2M2ZiYTZjZjMyZiJ9.-zLpTTPCR0yDYEzKL3-Mg7AuUnupwLZmeCHi7_zzPjw
+2021-08-25 11:51:37.3659 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - Gargash
+2021-08-25 11:51:39.1130 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - Gargash token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjk4NzI0OTgsImp0aSI6IjZhODJkNDczLWViNTEtNDg3Yi04NjFmLThlYjEwMjdkMDU3NSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJHYXJnYXNoIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImNlZDkzZTAxLWRmY2EtNGYwOC05YTNiLWM2M2ZiYTZjZjMyZiJ9.KO4nktR40bmxAoevi7Q8yyjxDs-XtoOU3nz122nXbHg
+2021-08-25 12:43:48.2448 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-08-25 12:43:53.8337 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-08-25 12:43:54.2583 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-08-25 12:43:55.0770 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-08-25 12:43:55.0770 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-08-25 12:44:04.0554 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-08-25 12:44:04.2703 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache

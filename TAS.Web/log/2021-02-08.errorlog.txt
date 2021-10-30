@@ -1,0 +1,168 @@
+2021-02-08 10:51:26.2673 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:7131ed40-d6a1-4acb-809c-17a33824badf
+Error Number:208,State:1,Class:16
+2021-02-08 10:51:32.4903 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:55d6c2fc-2136-48f5-9aac-c3216cbd77ab
+Error Number:208,State:1,Class:16
+2021-02-08 11:34:21.7541 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:03a3bddf-e37a-4673-9cfe-aafde60d69ea
+Error Number:208,State:1,Class:16
+2021-02-08 13:38:14.8833 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:dc642ff1-54d4-4393-8855-cc9628d05e14
+Error Number:208,State:1,Class:16
+2021-02-08 14:16:37.1828 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:0b336517-ec34-4321-88a0-7e340509c66a
+Error Number:208,State:1,Class:16
+2021-02-08 14:30:21.7046 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:20c552b9-babe-4b00-b573-868d5410589d
+Error Number:208,State:1,Class:16
+2021-02-08 15:04:31.5137 TAS.Services.Entities.Management.EntityCacheData GetTPADetailById: exception: could not execute query
+[ select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0 ]
+  Name:p1 - Value:8cb77627-7825-4e25-be45-ae903eb63d4d
+[SQL: select tpa0_.Id as col_0_0_, tpa0_.TpaCode as col_1_0_, tpa0_.Address as col_2_0_, tpa0_.Banner as col_3_0_, tpa0_.Banner2 as col_4_0_, tpa0_.Banner3 as col_5_0_, tpa0_.Banner4 as col_6_0_, tpa0_.Banner5 as col_7_0_, tpa0_.DiscountDescription as col_8_0_, tpa0_.Logo as col_9_0_, tpa0_.Name as col_10_0_, tpa0_.TelNumber as col_11_0_, tpa0_.OriginalTPAName as col_12_0_ from TPA tpa0_ where tpa0_.Id=@p0], System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'TPA'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:c7b8094a-2a6b-44ec-a377-dff370072d06
+Error Number:208,State:1,Class:16

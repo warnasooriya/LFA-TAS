@@ -1,0 +1,16 @@
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\TAS.Caching.dll.config
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\TAS.Caching.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\TAS.Caching.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\Amazon.ElastiCacheCluster.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\Enyim.Caching.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\Newtonsoft.Json.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\StackExchange.Redis.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\Amazon.ElastiCacheCluster.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\Enyim.Caching.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\Newtonsoft.Json.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\bin\Release\StackExchange.Redis.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\obj\Release\TAS.Caching.csprojAssemblyReference.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\obj\Release\TAS.Caching.csproj.CoreCompileInputs.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\obj\Release\TAS.Caching.csproj.CopyComplete
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\obj\Release\TAS.Caching.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\obj\Release\TAS.Caching.pdb

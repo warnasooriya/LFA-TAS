@@ -1,0 +1,45 @@
+<!-- toaster directive -->
+<toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+<!-- / toaster directive -->
+<!-- sidebar -->
+<div class="sidebar app-aside" id="sidebar" toggleable parent-active-class="app-slide-off" >
+	<div perfect-scrollbar wheel-propagation="false" suppress-scroll-x="true" class="sidebar-container">
+		<div data-ng-include=" 'assets/views/partials/sidebar.html' "></div>
+	</div>
+</div>
+<!-- / sidebar -->
+<div class="app-content" ng-class="{loading: loading}">
+	<!-- top navbar -->
+    <header data-ng-include=" 'assets/views/partials/top-navbar.html' " class="navbar navbar-default navbar-static-top"></header>
+	<!-- / top navbar -->
+	<!-- main content -->
+	<div data-ng-include=" 'assets/views/partials/main-content.html' " class="main-content" ></div>
+	<!-- / main content -->
+</div>
+<!-- footer -->
+<footer data-ng-include=" 'assets/views/partials/footer.html' "></footer>
+<!-- / footer -->
+<div data-ng-include=" 'assets/views/partials/off-sidebar.html' " id="off-sidebar" class="sidebar" toggleable parent-active-class="app-offsidebar-open"></div>
+<div data-ng-include=" 'assets/views/partials/settings.html' " toggleable class="settings panel panel-default hidden-xs hidden-sm" id="settings"></div>
+
+
+
+<script type="text/ng-template" id="warning-dialog.html">
+    <div class="modal-header">
+        <h3>You're Idle. Do Something!</h3>
+    </div>
+    <div idle-countdown="countdown" ng-init="countdown=60" class="modal-body">
+        <progressbar max="60" value="countdown" animate="true" class="progress-striped active">You'll be logged out in {{countdown}} second(s).</progressbar>
+    </div>
+
+</script>
+<script type="text/ng-template" id="timedout-dialog.html">
+    <div class="modal-header">
+        <h3>You've Timed Out!</h3>
+    </div>
+    <div class="modal-body">
+        <p>
+            You were idle too long. You are logged out. Please enter your credentials to login again!
+        </p>
+    </div>
+</script>

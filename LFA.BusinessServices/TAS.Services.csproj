@@ -1,0 +1,2643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AF4507C-E180-47B3-B9D9-0FFDF25F1319}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TAS.Services</RootNamespace>
+    <AssemblyName>TAS.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>bf8cb8de</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!--<Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>-->
+    <Reference Include="Amazon.ElastiCacheCluster, Version=1.0.1.0, Culture=neutral, PublicKeyToken=445456c82d5a0fce, processorArchitecture=MSIL">
+      <HintPath>..\packages\Amazon.ElastiCacheCluster.1.0.1.0\lib\net35\Amazon.ElastiCacheCluster.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.3.0\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.S3.3.3.0.1\lib\net45\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="Enyim.Caching, Version=2.16.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnyimMemcached.2.16.0\lib\net35\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Hashids.net, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hashids.net.1.2.2\lib\net45\Hashids.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.0.4000\lib\net40\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="JWT, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JWT.1.3.4\lib\3.5\JWT.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Tools.Components, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Data.Tools.Schema.Sql.UnitTesting, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>..\packages\ExcelPackage.1.0.0\lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.6\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NReco.PdfGenerator, Version=1.1.15.0, Culture=neutral, PublicKeyToken=231663d50a41b451, processorArchitecture=MSIL">
+      <HintPath>..\packages\NReco.PdfGenerator.1.1.15\lib\net20\NReco.PdfGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="pdfcrowd, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\pdfcrowd.2.7\lib\pdfcrowd.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.5.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.3.8.173\lib\net40\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=3.8.173.5040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.3.8.173\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.6\lib\net45\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessServices\BuyingWizardManagementService.cs" />
+    <Compile Include="BusinessServices\ClaimBordxManagementService.cs" />
+    <Compile Include="BusinessServices\ClaimBatchingManagementService.cs" />
+    <Compile Include="BusinessServices\IncurredErningManagementService.cs" />
+    <Compile Include="BusinessServices\ClaimBordxProcessManagementService.cs" />
+    <Compile Include="BusinessServices\ClaimInvoiceManagementService.cs" />
+    <Compile Include="BusinessServices\ClaimManagementService.cs" />
+    <Compile Include="BusinessServices\ContractManagementService.cs" />
+    <Compile Include="BusinessServices\CommodityUsageTypeManagementService.cs" />
+    <Compile Include="BusinessServices\DealTypeManagementService.cs" />
+    <Compile Include="BusinessServices\BordxManagementService.cs" />
+    <Compile Include="BusinessServices\EligibilityManagementService.cs" />
+    <Compile Include="BusinessServices\FaultManagementServicecs.cs" />
+    <Compile Include="BusinessServices\GetPolicyDetailsByPolicyIdToClaimProcessUnitOfWork.cs" />
+    <Compile Include="BusinessServices\OtherItemManagementService.cs" />
+    <Compile Include="BusinessServices\ReinsurerReceiptManagementService.cs" />
+    <Compile Include="BusinessServices\BrokerManagementService.cs" />
+    <Compile Include="BusinessServices\ReportManagementService.cs" />
+    <Compile Include="BusinessServices\SystemLanguageManagementService.cs" />
+    <Compile Include="BusinessServices\VehicleWeightManagementService.cs" />
+    <Compile Include="Common\CryptoManager.cs" />
+    <Compile Include="Entities\AdditionalPolicyData.cs" />
+    <Compile Include="Entities\AdditionalPolicyFields.cs" />
+    <Compile Include="Entities\AdditionalPolicyMakeData.cs" />
+    <Compile Include="Entities\AdditionalPolicyModeData.cs" />
+    <Compile Include="Entities\ArticleMapping.cs" />
+    <Compile Include="Entities\AvailableTireSizes.cs" />
+    <Compile Include="Entities\AvailableTireSizesPattern.cs" />
+    <Compile Include="Entities\BiBordxSummery.cs" />
+    <Compile Include="Entities\PolicyAdditionalDetails.cs" />
+    <Compile Include="Entities\BordxReportTemplate.cs" />
+    <Compile Include="Entities\BordxReportTemplateDetails.cs" />
+    <Compile Include="Entities\ClaimComment.cs" />
+    <Compile Include="Entities\ClaimItemTireDetails.cs" />
+    <Compile Include="Entities\ClaimNotes.cs" />
+    <Compile Include="Entities\ClaimRejectionType.cs" />
+    <Compile Include="Entities\ContractExtensionPremium.cs" />
+    <Compile Include="Entities\ContractInsuaranceLimitation.cs" />
+    <Compile Include="Entities\CustomerComplaint.cs" />
+    <Compile Include="Entities\CustomerEnterdInvoiceDetails.cs" />
+    <Compile Include="Entities\CustomerEnterdInvoiceTireDetails.cs" />
+    <Compile Include="Entities\CustomerLogin.cs" />
+    <Compile Include="Entities\DealerComment.cs" />
+    <Compile Include="Entities\DealerInvoicecodeReportColumnHeaders.cs" />
+    <Compile Include="Entities\DealerLaborChargeUpdateContainer.cs" />
+    <Compile Include="Entities\ClaimCriteria.cs" />
+    <Compile Include="Entities\InsuaranceLimitation.cs" />
+    <Compile Include="Entities\ClaimBordxPayment.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\ClaimBordx.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\Claim.cs" />
+    <Compile Include="Entities\ClaimBatch.cs" />
+    <Compile Include="Entities\ClaimBatchGroup.cs" />
+    <Compile Include="Entities\ClaimBordxYearly.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\ClaimBordxProcess.cs" />
+    <Compile Include="Entities\ClaimBordxDetail.cs" />
+    <Compile Include="Entities\ClaimBordxValueDetail.cs" />
+    <Compile Include="Entities\ClaimBordxYearlySum.cs" />
+    <Compile Include="Entities\ClaimChequePayment.cs" />
+    <Compile Include="Entities\ClaimChequePaymentDetail.cs" />
+    <Compile Include="Entities\ClaimEndorsement.cs" />
+    <Compile Include="Entities\ClaimEndorsementAttachment.cs" />
+    <Compile Include="Entities\ClaimEndorsementItem.cs" />
+    <Compile Include="Entities\ClaimGroupClaim.cs" />
+    <Compile Include="Entities\ClaimInvoiceEntry.cs" />
+    <Compile Include="Entities\ClaimInvoiceEntryClaim.cs" />
+    <Compile Include="Entities\ClaimItem.cs" />
+    <Compile Include="Entities\ClaimAttachment.cs" />
+    <Compile Include="Entities\ClaimProcessingStat.cs" />
+    <Compile Include="Entities\DashboardChart.cs" />
+    <Compile Include="Entities\DashboardChartAccess.cs" />
+    <Compile Include="Entities\DealerBranchStaff.cs" />
+    <Compile Include="Entities\DealerDiscount.cs" />
+    <Compile Include="Entities\DealerDiscountScheme.cs" />
+    <Compile Include="Entities\DealerLabourCharge.cs" />
+    <Compile Include="Entities\Fault.cs" />
+    <Compile Include="Entities\FaultArea.cs" />
+    <Compile Include="Entities\FaultCauseOfFailure.cs" />
+    <Compile Include="Entities\FaultCategory.cs" />
+    <Compile Include="Entities\InvoiceCode.cs" />
+    <Compile Include="Entities\InvoiceCodeDetails.cs" />
+    <Compile Include="Entities\InvoiceCodeTireDetails.cs" />
+    <Compile Include="Entities\Management\ClaimBatchingEntityManager.cs" />
+    <Compile Include="Entities\Management\BordxPaymentEntityManager.cs" />
+    <Compile Include="Entities\Management\ClaimBordxEntityManager.cs" />
+    <Compile Include="Entities\Management\CountryEntityManager.cs" />
+    <Compile Include="Entities\Management\IncurredErningProcessEntityManager.cs" />
+    <Compile Include="Entities\Management\ClaimBordxProcessEntityManager.cs" />
+    <Compile Include="Entities\Management\ClaimInvoiceEntityManager.cs" />
+    <Compile Include="Entities\Management\FaultEntityManager.cs" />
+    <Compile Include="Entities\Management\BrokerEntityManager.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Entities\Management\NotificationEntityManager.cs" />
+    <Compile Include="Entities\Management\ProfileUtil.cs" />
+    <Compile Include="Entities\Management\SystemLanguageEntityManager.cs" />
+    <Compile Include="Entities\Management\VehicleWeightEntityManager.cs" />
+    <Compile Include="Entities\ManufacturerWarrantyDetails.cs" />
+    <Compile Include="Entities\OtherItemServiceHistory.cs" />
+    <Compile Include="Entities\PartRejectionType.cs" />
+    <Compile Include="Entities\ClaimTax.cs" />
+    <Compile Include="Entities\SystemLanguage.cs" />
+    <Compile Include="Entities\Report.cs" />
+    <Compile Include="Entities\PolicyNumberFormat.cs" />
+    <Compile Include="Entities\Broker.cs" />
+    <Compile Include="Entities\ReportDataQuery.cs" />
+    <Compile Include="Entities\ReportParameter.cs" />
+    <Compile Include="Entities\ReturningCustomer.cs" />
+    <Compile Include="Entities\TireSizeVariantMap.cs" />
+    <Compile Include="Entities\TireUTDValuation.cs" />
+    <Compile Include="Entities\VehicleWeight.cs" />
+    <Compile Include="Entities\ReinsureBordxReportColumns.cs" />
+    <Compile Include="Entities\TPAAllowedIP.cs" />
+    <Compile Include="Entities\TPAConfig.cs" />
+    <Compile Include="Entities\VariantPremiumAddon.cs" />
+    <Compile Include="IBuyingWizardManagementService.cs" />
+    <Compile Include="IClaimBordxManagementService.cs" />
+    <Compile Include="IClaimBatchingManagementService.cs" />
+    <Compile Include="IIncurredErningManagementService.cs" />
+    <Compile Include="IClaimBordxProcessManagementService.cs" />
+    <Compile Include="IReinsurerReceiptManagementService.cs" />
+    <Compile Include="IClaimInvoiceManagementService.cs" />
+    <Compile Include="IFaultManagementService.cs" />
+    <Compile Include="IBrokerManagementService.cs" />
+    <Compile Include="IReportManagementService.cs" />
+    <Compile Include="ISystemLanguageManagementService.cs" />
+    <Compile Include="IVehicleWeightManagementService.cs" />
+    <Compile Include="Reports\ClaimAuthorization\ClaimAuthorizationReport.cs" />
+    <Compile Include="Reports\ClaimAuthorization\Default\ClaimAuthorization.cs">
+      <DependentUpon>ClaimAuthorization.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\ClaimAuthorization\Default\ClaimAuthorization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClaimAuthorization.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClaimAuthorizationOther.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\ClaimChequeStatement\ClaimChequeReport.cs" />
+    <Compile Include="Reports\Common\HtmlPdfConverter.cs" />
+    <Compile Include="Reports\DealerInvoiceCode\Default\DealerInvoiceCode.cs">
+      <DependentUpon>DealerInvoiceCode.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\DealerInvoiceCode\Default\DealerInvoiceCode.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DealerInvoiceCode.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\InvoiceSummary\InvoiceSummaryProcessor.cs" />
+    <Compile Include="Reports\InvoiceSummary\Default\DebitNote.cs">
+      <DependentUpon>DebitNote.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\InvoiceSummary\Default\DebitNote.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DebitNote.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\PolicyStatementContinental\Default\PolicyStatementContinental.Designer.cs">
+      <DependentUpon>PolicyStatementContinental.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\PolicyStatement\Default\PolicyStatementContinental.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PolicyStatementContinental.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Reports\ProductionReport\Default\ProductionReport.cs">
+      <DependentUpon>ProductionReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductionReport\Default\ProductionReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductionReport.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UnitsOfWork\AddNewInsuaranceLimitaionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\AddNewPartByDealerUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\AttachmentsRetrivalByPolicyIdByUserTypeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordexNumbersYearsMonthsRetrievalUnotOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimAjusmentsInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimInvoiceDataRetrievalForDashboardUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimItemsRetriveByClaimIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRequestUpdateClaimUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRequestViewUpdateUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractsByComodityTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ConfirmClaimInvoiceEntryUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractsRetrievalByDealerAndProductUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountriesRetrievalByMakeNModelsIdsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountriesActiveRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountryTaxRetrievalByCountryUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerRetrievalByBordxUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealersRetrievalByCountryUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerLocationsRetrievalByUserUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ValidateFaultCodeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetArticleNoByTyreSizeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\AddPolicyAttachementUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetTyreDetailsByArticleNoUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetTyreDetailsByPolicyNumberUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ModelesRetrievalByMakesIdsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PoliciesByIdAndTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyAndClaimAttachmentsRetrivalByClaimIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicySearchOnClaimSubmissionNewUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProcessClaimBordxForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetriveByInvoiceClaimSubmittedDealerIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimHistoryByPolicyIdUnitOfWork .cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UnitsOfWork\CustomersInILOERetrievalByCustomerIDUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DeleteServiceHistoryUnitOfWork .cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UnitsOfWork\AllClaimHistoryDetailsByClaimIdRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\AttachmentScannerUploadUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\AttachmentsToClaimInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\AttachmentUploadExternalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportTemplateColumnsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportTemplateInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportColumnsesRetrievalByReinsureIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportTemplateNameIsExistsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportTemplateRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportTemplateRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportTemplateRetrieveByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportTemplateUpdateUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrokerIsExsistsBrokerCodeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrokerUpdateUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrokerRetriveByCountryUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrokerRetriveUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ChangeForgotPasswordCustomerUnotOfWork.cs" />
+    <Compile Include="UnitsOfWork\ChangePasswordCustomerUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CheckTPAIpRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimAuthorizationFormExportUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBatchGroupRetrievalForSearchGridV2UnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBatchByIDRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordexCanConfirmedByYearUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxBordxNumbersUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBatchGroupInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBatchGroupRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxProcessedDetailsByYearUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimCommentInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimCommentsRetrivalByPolicyIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimInformationRequestUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimNotesRetrivalByPolicyIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRejectionTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRequestRejectionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetrievalForEditByIdOtherTireUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityTypebByCommodityCategoryIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityTypeIdbyCommodityCategoryIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomerComplaintsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomerDisplayRetrievalByUserNameUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomerLoginAuthUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerCommentRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerCommentAddUnitOfWork.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="UnitsOfWork\ExcelDownloadReportUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultCauseOfFailureRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ForgotPasswordCustomerUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GenerateInvoiceCodeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllAdditionalFieldDetailsByProductCodeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllAllocatedClaimsByGroupIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllAttributeSpecificationsByInsuranceUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllAvailableTireSizesUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllCauseOfFailuresByFaultIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllCitiesByTpaIdAndCountryIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllClaimDashboardStatusResponseUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllClaimStatusResponseUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllConfirmedBordxByYearAndMonth.cs" />
+    <Compile Include="UnitsOfWork\GetAllCustomerTypesTpaIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllDataForReportDropdownElementUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllDataForReportFromParentDropdownUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllEligibleClaimsByBatchIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllExtensionTypeByMakeModelUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllExtensionTypeByContractIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllMakeModelDetailsByExtensionIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllNationalitiesByTpaIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllOriginalPolicyDetailsByClaimIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllOtherTirePolicyDetailsByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllPolicyDetailsByCustomerIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllPolicyDetailsByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllPremiumsByExtensionIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllReportInformationByUserIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllReportParamInformationByReportIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllTireDetailsByInvoiceCodeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllUsageTypesByTpaIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAttributeSpecificationByExtensionIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetBatchNumberListUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetCalculateUDTvalueUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetClaimAuthorizationFormforTYERUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetClaimGroupsByBatchIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetContractDetailsByContractIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetContractInsuaranceLimitationByContarctIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetCoverTypesByAttributeIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetDocumentTypesByPageNameUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CheckCustomerExistUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetEMIValueBYProductPriceUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetGetCoverTypesByExtensionIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetInvoiceSummaryDataIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetLast10BatchesBySearchCriteraUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetNextBatchNumberUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetNextClaimNumberByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetPolicyNumberUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetPolicyStatementforTYERUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetPremiumUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GoodwillAuthorizationByUserIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\IncurredErningToExcelUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetDealerLabourChargeByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetMakesBytDealerIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\IncurredErningProcessUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxProcessUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxConfirmUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxRetriveByYearAndMonthUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsuaranceLimitationDetailsRetrievalByContractInsuaranceLimitationIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsuaranceLimitationsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InvoiceCodeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\IsExsistingProductNameUnitOfWorks.cs" />
+    <Compile Include="UnitsOfWork\LoadInvoceCodeDetailsByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\LoadSavedCustomerInvoiceDataByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\LoadTyreDetailsByCrossUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\LoadTyreDetailsByLoadSpeedUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\LoadTyreDetailsByPatternUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\LoadTyreDetailsByWithUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerWarrantyDetailsRetrievalUnitOfWork2.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerWarrantyDetailsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerWarrentyAvailabilityCheckUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NotesInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\OtherDetailsRetrievalByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\OtherItemDetailsRetrievalByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyAndClaimAttachmentsRetrivalByPolicyIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PloicyRetrievalForSearchGridReneval.cs" />
+    <Compile Include="UnitsOfWork\PremiumAddonForVariantRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsuaranceLimitaionsRetirevalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PremiumAddonTypesRetrievalUnitOfWorkV2.cs" />
+    <Compile Include="UnitsOfWork\ProductSearchOnClaimSubmissionIloeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductsRetrivlByCommodityTypeIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsureBordxReportColumnsInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerBordxRetrievalByYearandReinsurerIdyGirdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerInsertionOrUpdateUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReturnigCustomerLoginAuthUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SaveClaimBatchGroupUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SaveCustomerEnterdInvoiceDetailsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SaveCustomerEnterdPolicyByTpaIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SaveDealerLabourChargeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SaveTyrePolicyUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SearchDealerInvoiceCodeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SearchDealerLabourChargeSchemesUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SearchFaultsGridPagineUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SearchFaultsByCriteriasUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SearchManufactureWarrentyUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SubmitOtherTireClaimUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SubmittedClaimForEditRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SubmitVehicleWeightUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrokerInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SystemLanguageGetAllUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASDealerAssignedCountryRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASGetVariantsByModelIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TyreContractLoadingUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UNWYearsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxRetriveYearsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxReopenUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxsYearsForProcessRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxsYearsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxRetrievalByDateGirdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxToExcelUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxYearlyReopenUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxYearlyRetrievalByYearandCountryGirdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimChequeGetAttachmentByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimChequeNoIsExistsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimChequePaymentInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBatchGroupRetrievalByGroupIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBatchingInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBatchingRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBatchRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimChequeRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxPaymentInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxPaymentUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxPaymentsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimEndorsementInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimEngineerCommentInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimforInquiryRetrievalByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetrievalByIdforClaimEndorsementUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetrievalForClaimInquirySearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimWithLabourChargeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimYearsRetriveUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ConfirmedClaimBordxForGridRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ConfirmedClaimBordxYearlybyYearUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ConfirmedClaimBordxYearsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxYearProcessUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxYearProcessConfirmUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContactTaxesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DashBoardChartMappingInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DashBoardChartMappingRetrivalUniteOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerDiscountRetrievalByClaimDetailsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerDiscountSchemeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerStaffLocationsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerStaffRetrievalByDealerIdandBranchIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DeleteClaimBordxUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EndoresClaimUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetClaimDetailsForViewUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetDealerDiscountByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetExcitingEndrosmentByClaimIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetNextClaimBordxNumberUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimProcessValidationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetOldandNewEndrosmentByEndrosmentIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetPolicyDetailsByPolicyIdToClaimProcessUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetPolicyDetailsForViewUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\IsExixtingAspirationTypesByCodeUnitOfWorks.cs" />
+    <Compile Include="UnitsOfWork\IsExixtingHorsePowerByHorsePowerUnitOfWorks.cs" />
+    <Compile Include="UnitsOfWork\IsExixtingVehicleKiloWattByKiloWattUnitOfWorks.cs" />
+    <Compile Include="UnitsOfWork\PolicySectionDataRetrievalForDashboardUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProcessClaimEndorsementUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProcessClaimUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReClaimBordxRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimBordxsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimInvoiceEntryClaimRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimInvoiceEntryRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimInvoiceEntryRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimInvoiceEntryUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimInvoiceInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimItemInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimListRetrievalForProcessUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetrievalByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetrievalForEditByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetriveByClaimBatchGroupIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ClaimRetriveByClaimSubmittedDealerIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultAreaInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultAreaRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultAreasRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultAreaUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultCategoryInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultCategoryRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultCategorysRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FaultCategoryUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\IsExixtingItemStatusByStatusUnitOfWorks.cs" />
+    <Compile Include="UnitsOfWork\IsExixtingTpaBranchCodeUnitOfWorks.cs" />
+    <Compile Include="UnitsOfWork\IsExsistingAspirationTypesByCodeUnitOfWorks.cs" />
+    <Compile Include="UnitsOfWork\IsExsistingCommodityCategoryByDescriptionandCode.cs" />
+    <Compile Include="UnitsOfWork\IsExsistingCommodityUsageTypeByName.cs" />
+    <Compile Include="UnitsOfWork\IsExsistingEngineCapacityByEngineCapacityNumberUnitOfWorks.cs" />
+    <Compile Include="UnitsOfWork\PartAreasRetrivlByCommodityTypeIdUnitOfWork.cs" />
+    <Compile Include="BusinessServices\PaymentManagementService.cs" />
+    <Compile Include="BusinessServices\TempBulkUploadManagementService.cs" />
+    <Compile Include="Common\Enums\Months.cs" />
+    <Compile Include="Entities\BordxReportColumnHeaders.cs" />
+    <Compile Include="Entities\ClaimItemType.cs" />
+    <Compile Include="Entities\ClaimStatusCode.cs" />
+    <Compile Include="Entities\ClaimSubmission.cs" />
+    <Compile Include="Entities\ClaimSubmissionAttachment.cs" />
+    <Compile Include="Entities\ClaimSubmissionItem.cs" />
+    <Compile Include="Entities\ContractExtensionVariant.cs" />
+    <Compile Include="Entities\DealerInvoiceReportColumns.cs" />
+    <Compile Include="Entities\Management\ClaimEntityManager.cs" />
+    <Compile Include="Entities\Management\TempBulkUploadEntityManager.cs" />
+    <Compile Include="Entities\Part.cs" />
+    <Compile Include="Entities\PartArea.cs" />
+    <Compile Include="Entities\PartModel.cs" />
+    <Compile Include="Entities\PartPrice.cs" />
+    <Compile Include="Entities\PartSuggestion.cs" />
+    <Compile Include="Entities\PolicyRenewal.cs" />
+    <Compile Include="Entities\PolicyTax.cs" />
+    <Compile Include="Entities\TempBulkHeader.cs" />
+    <Compile Include="Entities\TempBulkUpload.cs" />
+    <Compile Include="Entities\TimeZone.cs" />
+    <Compile Include="Entities\VehicleServiceHistory.cs" />
+    <Compile Include="IClaimManagementService.cs" />
+    <Compile Include="ITempBulkUploadManagementService.cs" />
+    <Compile Include="UnitsOfWork\AddServiceHistoryUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordexAllowedYearsMonthsRetrievalUnotOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxDetailsRetrivalByYearMonthUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReopenUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrownAndWhiteUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ConfirmBordxUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractTaxesRetrievalByContractIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractWithTaxValidityUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ConvertFromBaseCurrencyUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CreateBordxUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomersRetrievalByCustomerIDUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerCurrencyValidationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerInvoicesGenerateUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerInvoicesYearsMonthsRetrivalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DeleteBordxUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllPolicyInquiryDetailsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetConversionRateUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetLast10BordxUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetBordxNumbersUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetNextBordxNumberUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetPolicyTransferHistoryByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetPremiumBreakdownUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\IsExixtingTaxCodeNameUnitOfWorks.cs" />
+    <Compile Include="UnitsOfWork\ModelsRetriveByMakeIdandCatogaryIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartAreaByIdRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartAreaByMakeIdRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartAreaInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartAreasRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartAreasRetriveByCommodityCategoryIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartAreaUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartByAreaIdRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartByIdRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartRejectionTypeByIdRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartRejectionTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartRejectionTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartRejectionTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartRetrivalByMakePartAreaUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartsRetriveByPartAreaAndMakeIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartSuggestionsByPartIdRetrivalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PartUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PendingClaimGroupsRetrievalByDealerUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PloicyRetrievalForSearchGridInquiry.cs" />
+    <Compile Include="UnitsOfWork\PoliciesRetrievalByCustomerIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyDetailsOnClaimSubmissionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyGetAttachmentByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyRenewalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicySearchOnClaimSubmissionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyTransferUnitOfWork.cs" />
+    <Compile Include="BusinessServices\RegionManagementService.cs" />
+    <Compile Include="BusinessServices\RSAProviderManagementService.cs" />
+    <Compile Include="BusinessServices\MenuManagementService.cs" />
+    <Compile Include="BusinessServices\TaxManagementService.cs" />
+    <Compile Include="BusinessServices\CurrencyManagementService.cs" />
+    <Compile Include="BusinessServices\ExtensionTypeManagementService.cs" />
+    <Compile Include="BusinessServices\NRPCommissionTypesManagementService.cs" />
+    <Compile Include="BusinessServices\ProductTypeManagementService.cs" />
+    <Compile Include="BusinessServices\PremiumAddonTypeManagementService.cs" />
+    <Compile Include="BusinessServices\PremiumBasedOnManagementService.cs" />
+    <Compile Include="BusinessServices\SystemUserManagementService.cs" />
+    <Compile Include="BusinessServices\UploadManagementService.cs" />
+    <Compile Include="BusinessServices\VehicleKiloWattManagementService.cs" />
+    <Compile Include="BusinessServices\VehicleHorsePowerManagementService.cs" />
+    <Compile Include="BusinessServices\WarrantyTypeManagementService.cs" />
+    <Compile Include="BusinessServices\ManufacturerWarrantyManagementService.cs" />
+    <Compile Include="BusinessServices\PolicyManagementService.cs" />
+    <Compile Include="BusinessServices\TASTPAManagementService.cs" />
+    <Compile Include="BusinessServices\VehicleAspirationTypeManagementService.cs" />
+    <Compile Include="BusinessServices\TransmissionTypeManagementService.cs" />
+    <Compile Include="BusinessServices\VariantManagementService.cs" />
+    <Compile Include="BusinessServices\VehicleDetailsManagementService.cs" />
+    <Compile Include="BusinessServices\CityManagementService.cs" />
+    <Compile Include="BusinessServices\CommodityManagementService.cs" />
+    <Compile Include="BusinessServices\CountryManagementService.cs" />
+    <Compile Include="BusinessServices\CylinderCountManagementService.cs" />
+    <Compile Include="BusinessServices\DealerLocationManagementService.cs" />
+    <Compile Include="BusinessServices\DealerManagementService.cs" />
+    <Compile Include="BusinessServices\MakeManagementService.cs" />
+    <Compile Include="BusinessServices\ModelManagementService.cs" />
+    <Compile Include="BusinessServices\ProductCategoryManagementService.cs" />
+    <Compile Include="BusinessServices\BrownAndWhiteDetailsManagementService.cs" />
+    <Compile Include="BusinessServices\InsurerManagementService.cs" />
+    <Compile Include="BusinessServices\ReinsurerContractManagementService.cs" />
+    <Compile Include="BusinessServices\ReinsurerManagementService.cs" />
+    <Compile Include="BusinessServices\YellowGoodManagementService.cs" />
+    <Compile Include="Common\AwsS3Helper.cs" />
+    <Compile Include="Common\CommonGridResponseDto.cs" />
+    <Compile Include="Common\AuthorizeUOW.cs" />
+    <Compile Include="Common\Notification\EmailService.cs" />
+    <Compile Include="Common\PredicateBuilder.cs" />
+    <Compile Include="Common\Transformer\DBDTOTransformer.cs" />
+    <Compile Include="Entities\BrownAndWhiteDetailsHistory.cs" />
+    <Compile Include="Entities\CustomerHistory.cs" />
+    <Compile Include="Entities\Management\AttachmentEntityManager.cs" />
+    <Compile Include="Entities\Management\CommonEntityManager.cs" />
+    <Compile Include="Entities\Management\YellowGoodEntityManager.cs" />
+    <Compile Include="Entities\OtherItemDetailsHistory.cs" />
+    <Compile Include="Entities\PolicyAttachment.cs" />
+    <Compile Include="Entities\PolicyAttachmentTransaction.cs" />
+    <Compile Include="Entities\UserAttachment.cs" />
+    <Compile Include="Entities\AttachmentSection.cs" />
+    <Compile Include="Entities\AttachmentType.cs" />
+    <Compile Include="Entities\DealerStaff.cs" />
+    <Compile Include="Entities\ForgotPasswordRequest.cs" />
+    <Compile Include="Entities\Management\ContractEntityManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\Management\OtherItemEntityManager.cs" />
+    <Compile Include="Entities\Management\PaymentEntityManager.cs" />
+    <Compile Include="Entities\Management\ReportEntityManager.cs" />
+    <Compile Include="Entities\Management\YellowGoodsEntityManager.cs" />
+    <Compile Include="Entities\UnitOfWork.cs" />
+    <Compile Include="Entities\OtherItemDetails.cs" />
+    <Compile Include="Entities\OtherItemPolicy.cs" />
+    <Compile Include="Entities\PaymentMode.cs" />
+    <Compile Include="Entities\PaymentOption.cs" />
+    <Compile Include="Entities\ReinsurerUser.cs" />
+    <Compile Include="Entities\Management\VehicleKiloWattEntityManager.cs" />
+    <Compile Include="Entities\Management\VehicleHorsePowerEntityManager.cs" />
+    <Compile Include="Entities\NRPCommissionContractMapping.cs" />
+    <Compile Include="Entities\TransmissionTechnologyMap.cs" />
+    <Compile Include="Entities\TransmissionTechnology.cs" />
+    <Compile Include="Entities\UserBranch.cs" />
+    <Compile Include="Entities\VehicleDetailsHistory.cs" />
+    <Compile Include="Entities\VehicleKiloWatt.cs" />
+    <Compile Include="Entities\VehicleHorsePower.cs" />
+    <Compile Include="Entities\YellowGoodDetailsHistory.cs" />
+    <Compile Include="Entities\YellowGoodDetails.cs" />
+    <Compile Include="Entities\YellowGoodPolicy.cs" />
+    <Compile Include="IOtherItemManagementService.cs" />
+    <Compile Include="IPaymentManagementService.cs" />
+    <Compile Include="ItemStatusManagementService.cs" />
+    <Compile Include="BusinessServices\DriveTypeManagementService.cs" />
+    <Compile Include="BusinessServices\EngineCapacityManagementService .cs" />
+    <Compile Include="BusinessServices\FuelTypeManagementService.cs" />
+    <Compile Include="BusinessServices\ImageManagementService.cs" />
+    <Compile Include="BusinessServices\ProductManagementService.cs" />
+    <Compile Include="BusinessServices\CustomerManagementService.cs" />
+    <Compile Include="BusinessServices\CustomerTypeManagementService.cs" />
+    <Compile Include="BusinessServices\IdTypeManagementService.cs" />
+    <Compile Include="BusinessServices\ManufatureManagementService.cs" />
+    <Compile Include="BusinessServices\NationalityManagementService.cs" />
+    <Compile Include="BusinessServices\TPABranchManagementService.cs" />
+    <Compile Include="BusinessServices\TPAManagementService.cs" />
+    <Compile Include="BusinessServices\UsageTypeManagementService.cs" />
+    <Compile Include="BusinessServices\VehicleBodyTypeManagementService.cs" />
+    <Compile Include="BusinessServices\VehicleColorManagementService.cs" />
+    <Compile Include="Common\CacheData.cs" />
+    <Compile Include="Common\ConfigurationData.cs" />
+    <Compile Include="Common\DtoConversionHelper.cs" />
+    <Compile Include="Common\TASJWTHelper.cs" />
+    <Compile Include="Common\JWTHelper.cs" />
+    <Compile Include="Entities\BordxReportColumnsMap.cs" />
+    <Compile Include="Entities\BordxReportColumns.cs" />
+    <Compile Include="Entities\BordxDetails.cs" />
+    <Compile Include="Entities\CommodityUsageType.cs" />
+    <Compile Include="Entities\CurrencyConversions.cs" />
+    <Compile Include="Entities\CurrencyConversionPeriods.cs" />
+    <Compile Include="Entities\Currency.cs" />
+    <Compile Include="Entities\InsurerConsortium.cs" />
+    <Compile Include="Entities\DealType.cs" />
+    <Compile Include="Entities\CurrencyEmail.cs" />
+    <Compile Include="Entities\Bordx.cs" />
+    <Compile Include="Entities\Eligibility.cs" />
+    <Compile Include="Entities\Management\BordxEntityManager.cs" />
+    <Compile Include="Entities\Management\EligiblityEntityManager.cs" />
+    <Compile Include="Entities\Management\RSAAnualPremiumEntityManager.cs" />
+    <Compile Include="Entities\RSAAnualPremium.cs" />
+    <Compile Include="Entities\Management\CommodityUsageTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\DealTypeEntityManager.cs" />
+    <Compile Include="Entities\PolicyBundleTransaction.cs" />
+    <Compile Include="Entities\PolicyBundleHistory.cs" />
+    <Compile Include="Entities\PolicyBundle.cs" />
+    <Compile Include="Entities\StagOnlinePurchase.cs" />
+    <Compile Include="Entities\TASMenu.cs" />
+    <Compile Include="Entities\Management\RegionEntityManager.cs" />
+    <Compile Include="Entities\Management\RSAProviderEntityManager.cs" />
+    <Compile Include="Entities\PriviledgeLevel.cs" />
+    <Compile Include="Entities\Management\MenuEntityManager.cs" />
+    <Compile Include="Entities\Management\TaxEntityManager.cs" />
+    <Compile Include="Entities\ContractTaxMapping.cs" />
+    <Compile Include="Entities\Region.cs" />
+    <Compile Include="Entities\RSAProvider.cs" />
+    <Compile Include="Entities\TaxTypes.cs" />
+    <Compile Include="Entities\Management\NRPCommissionTypesEntityManager.cs" />
+    <Compile Include="Entities\NRPCommissionTypes.cs" />
+    <Compile Include="Entities\Management\CurrencyEntityManager.cs" />
+    <Compile Include="Entities\Management\EntityCacheData.cs" />
+    <Compile Include="Entities\Management\ProductTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\SystemMenuEntityManager.cs" />
+    <Compile Include="Entities\Management\TASUserLoginEntityManager.cs" />
+    <Compile Include="Entities\Management\UserLoginEntityManager.cs" />
+    <Compile Include="Entities\Management\UserEntityManager.cs" />
+    <Compile Include="Entities\PolicyHistory.cs" />
+    <Compile Include="Entities\PolicyTransaction.cs" />
+    <Compile Include="Entities\ProductType.cs" />
+    <Compile Include="Entities\Management\ExtensionTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\PremiumAddonTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\PremiumBasedOnEntityManager.cs" />
+    <Compile Include="Entities\Management\WarrantyTypeEntityManager.cs" />
+    <Compile Include="Entities\Menu.cs" />
+    <Compile Include="Entities\ReinsurerConsortium.cs" />
+    <Compile Include="Entities\TASUserLogin.cs" />
+    <Compile Include="Entities\UserLogin.cs" />
+    <Compile Include="Entities\RoleMenuMapping.cs" />
+    <Compile Include="Entities\UserRoleMapping.cs" />
+    <Compile Include="Entities\UserRole.cs" />
+    <Compile Include="Entities\PolicyTransactionType.cs" />
+    <Compile Include="Entities\UserType.cs" />
+    <Compile Include="Entities\InternalUser.cs" />
+    <Compile Include="Entities\WarrantyType.cs" />
+    <Compile Include="Entities\Management\ContractExtensionsEntityManager.cs" />
+    <Compile Include="Entities\Contract.cs" />
+    <Compile Include="Entities\Management\ManufacturerWarrantyEntityManager.cs" />
+    <Compile Include="Entities\Management\TASSystemUserEntityManager.cs" />
+    <Compile Include="Entities\Management\TASTPAEntityManager.cs" />
+    <Compile Include="Entities\ManufacturerWarranty.cs" />
+    <Compile Include="Entities\Management\PolicyEntityManager.cs" />
+    <Compile Include="Entities\Management\VehicleAspirationTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\TransmissionTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\VariantEntityManager.cs" />
+    <Compile Include="Entities\Persistence\TASEntitySessionManager.cs" />
+    <Compile Include="Entities\Policy.cs" />
+    <Compile Include="Entities\TASSystemUser.cs" />
+    <Compile Include="Entities\TASTPA.cs" />
+    <Compile Include="Entities\VehicleAspirationType.cs" />
+    <Compile Include="Entities\TransmissionType.cs" />
+    <Compile Include="Entities\Management\VehicleEntityManager.cs" />
+    <Compile Include="Entities\Variant.cs" />
+    <Compile Include="Entities\VehicleDetails.cs" />
+    <Compile Include="Entities\DealerLocation.cs" />
+    <Compile Include="Entities\Dealer.cs" />
+    <Compile Include="Entities\Make.cs" />
+    <Compile Include="Entities\Management\DealerLocationEntityManager.cs" />
+    <Compile Include="Entities\Management\MakeEntityManager.cs" />
+    <Compile Include="Entities\Management\ModelEntityManager.cs" />
+    <Compile Include="Entities\Management\CommodityCategoryEntityManager.cs" />
+    <Compile Include="Entities\Management\BrownAndWhiteEntityManager.cs" />
+    <Compile Include="Entities\Management\InsurerEntityManager.cs" />
+    <Compile Include="Entities\Management\ReinsurerContractEntityManager.cs" />
+    <Compile Include="Entities\Management\ReinsurerEntityManager.cs" />
+    <Compile Include="Entities\ProductCategory.cs" />
+    <Compile Include="Entities\BrownAndWhiteDetails.cs" />
+    <Compile Include="Entities\Insurer.cs" />
+    <Compile Include="Entities\ReinsurerContract.cs" />
+    <Compile Include="Entities\Reinsurer.cs" />
+    <Compile Include="Entities\ItemStatus.cs" />
+    <Compile Include="Entities\Management\CylinderCountEntityManager.cs" />
+    <Compile Include="Entities\Management\DealerEntityManager.cs" />
+    <Compile Include="Entities\Management\ItemStatusEntityManager.cs" />
+    <Compile Include="Entities\Management\DriveTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\EngineCapacityEntityManager.cs" />
+    <Compile Include="Entities\Management\FuelTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\VehicleBodyTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\VehicleColorEntityManager.cs" />
+    <Compile Include="Entities\Model.cs" />
+    <Compile Include="Entities\VehicleColor.cs" />
+    <Compile Include="Entities\VehicleBodyType.cs" />
+    <Compile Include="Entities\FuelType.cs" />
+    <Compile Include="Entities\EngineCapacity.cs" />
+    <Compile Include="Entities\DriveType.cs" />
+    <Compile Include="Entities\CylinderCount.cs" />
+    <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\CommodityCategory.cs" />
+    <Compile Include="Entities\CommodityType.cs" />
+    <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\CustomerType.cs" />
+    <Compile Include="Entities\IdType.cs" />
+    <Compile Include="Entities\Image.cs" />
+    <Compile Include="Entities\Management\CityEntityManager.cs" />
+    <Compile Include="Entities\Management\CommodityEntityManager.cs" />
+    <Compile Include="Entities\Management\ImageEntityManager.cs" />
+    <Compile Include="Entities\Management\ProductEntityManager.cs" />
+    <Compile Include="Entities\Management\CustomerEntityManager.cs" />
+    <Compile Include="Entities\Management\CustomerTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\IdTypeEntityManager.cs" />
+    <Compile Include="Entities\Management\ManufacturerEntityManager.cs" />
+    <Compile Include="Entities\Management\NationalityEntityManager.cs" />
+    <Compile Include="Entities\Management\TPABranchEntityManager.cs" />
+    <Compile Include="Entities\Management\TPAEntityManager.cs" />
+    <Compile Include="Entities\Management\UsageTypeEntityManager.cs" />
+    <Compile Include="Entities\Manufacturer.cs" />
+    <Compile Include="Entities\MasterTableMapping.cs" />
+    <Compile Include="Entities\Nationality.cs" />
+    <Compile Include="Entities\Persistence\EntitySessionManager.cs" />
+    <Compile Include="Entities\BundledProduct.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\SystemUser.cs" />
+    <Compile Include="Entities\TPA.cs" />
+    <Compile Include="Entities\TPABranch.cs" />
+    <Compile Include="Entities\UsageType.cs" />
+    <Compile Include="GetTPABranchManagementService.cs" />
+    <Compile Include="IBordxManagementService.cs" />
+    <Compile Include="IContractManagementService.cs" />
+    <Compile Include="ICurrencyManagementService.cs" />
+    <Compile Include="IExtensionTypeManagementService.cs" />
+    <Compile Include="ICommodityUsageTypeManagementService.cs" />
+    <Compile Include="IDealTypeManagementService.cs" />
+    <Compile Include="IEligibilityManagementService.cs" />
+    <Compile Include="IRegionManagementService.cs" />
+    <Compile Include="IRSAProviderManagementService.cs" />
+    <Compile Include="IMenuManagementService.cs" />
+    <Compile Include="ITaxManagementService.cs" />
+    <Compile Include="INRPCommissionTypesManagementService.cs" />
+    <Compile Include="IProductTypeManagementService.cs" />
+    <Compile Include="IPremiumAddonTypeManagementService.cs" />
+    <Compile Include="IPremiumBasedOnManagementService.cs" />
+    <Compile Include="ISystemUserManagementService.cs" />
+    <Compile Include="IUploadManagementService.cs" />
+    <Compile Include="IVehicleKiloWattManagementService.cs" />
+    <Compile Include="IVehicleHorsePowerManagementService.cs" />
+    <Compile Include="IWarrantyTypeManagementService.cs" />
+    <Compile Include="IManufacturerWarrantyManagementService.cs" />
+    <Compile Include="IPolicyManagementService.cs" />
+    <Compile Include="ITASTPAManagementService.cs" />
+    <Compile Include="IVehicleAspirationTypeManagementService.cs" />
+    <Compile Include="ITransmissionTypeManagementService.cs" />
+    <Compile Include="IVariantManagementService.cs" />
+    <Compile Include="IVehicleDetailsManagementService.cs" />
+    <Compile Include="ICityManagementService.cs" />
+    <Compile Include="ICommodityManagementService.cs" />
+    <Compile Include="ICountryManagementService.cs" />
+    <Compile Include="IDealerLocationManagementService.cs" />
+    <Compile Include="IDealerManagementService.cs" />
+    <Compile Include="IManufacturerManagementService.cs" />
+    <Compile Include="IModelManagementService.cs" />
+    <Compile Include="IProductCategoryManagementService.cs" />
+    <Compile Include="IBrownAndWhiteDetailsManagementService.cs" />
+    <Compile Include="IInsurerManagementService.cs" />
+    <Compile Include="IReinsurerContractManagementService.cs" />
+    <Compile Include="IReinsurerManagementService.cs" />
+    <Compile Include="IItemStatusManagementService.cs" />
+    <Compile Include="IVehicleColorManagementService.cs" />
+    <Compile Include="IVehicleBodyTypeManagementService.cs" />
+    <Compile Include="IFuelTypeManagementService.cs" />
+    <Compile Include="IEngineCapacityManagementService.cs" />
+    <Compile Include="IDriveTypeManagementService.cs" />
+    <Compile Include="IImageManagementService.cs" />
+    <Compile Include="ICylinderCountManagementService.cs" />
+    <Compile Include="IProductManagementService.cs" />
+    <Compile Include="ICustomerManagementService.cs" />
+    <Compile Include="ICustomerTypeManagementService.cs" />
+    <Compile Include="IIdTypeManagementService.cs" />
+    <Compile Include="IMakeManagementService.cs" />
+    <Compile Include="INationalityManagementService.cs" />
+    <Compile Include="ITPABranchManagementService.cs" />
+    <Compile Include="ITPAManagementService.cs" />
+    <Compile Include="IUsageTypeManagementService.cs" />
+    <Compile Include="IUserManagementService.cs" />
+    <Compile Include="BusinessServices\UserManagementService.cs" />
+    <Compile Include="Entities\Management\SystemUserEntityManager.cs" />
+    <Compile Include="IYellowGoodManagementService.cs" />
+    <Compile Include="OtherItemManagementService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\PolicyBooklet\PolicyBookletReport.cs" />
+    <Compile Include="Reports\PolicyStatement\PolicyStatementReport.cs" />
+    <Compile Include="Reports\ReportsForSend.cs" />
+    <Compile Include="ServiceFactory.cs" />
+    <Compile Include="Common\Transformer\UserTransformer.cs" />
+    <Compile Include="UnitsOfWork\AttachmentDeleteUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\AttachmentDownloadUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\AttachmentsRetrivalByPolicyIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\AttachmentUploadUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportColumnsMapRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportColumnsMapInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxDetailsInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportColumnsMapUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportColumnsMapsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxDetailsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrownAndWhiteItemsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ChangeForgotPasswordUnotOfWork.cs" />
+    <Compile Include="UnitsOfWork\ChangePassswordLinkCheckUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ChangePasswordUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CityRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxsDetailsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxReportColumnsesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxDetailsUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BordxUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ConfirmedBordxForGridRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ConfirmedBordxYearsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractsForSearchGridRetrievalUnotOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractsUpdateValidityCheckUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractUpdateV2UnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContrctsRetrievalInPolicyRegistrationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountryTaxessRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountryTaxesInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountryTaxesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountryTaxesUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractTaxessRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractTaxesInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractTaxesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractTaxesUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityUsageTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityUsageTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityUsageTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityUsageTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyPeriodCheckUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyPeriodOverlapsValidateUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyRateAvailabilityCheckUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomerCheckUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomersRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerAccessRetrivalByUserIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerRetrievalByUserIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyEmailsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyEmailInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyEmailRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyEmailUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DocumentTypesRetrievalByPageNameUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EligibilitiesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EligibilityCheckUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EligibilityInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EligibilityRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EligibilityUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerStaffsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerStaffInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DelerStaffRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerStaffUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EndorsementApprovalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EndorsementRejectionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ForgotPasswordUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FullContractDetailsByIdRetrevialUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\GetAllPolicyEndorsementDetailsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MakesRetrievalByCommodityCategoryIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MarritalStatusesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ModelRetrievalByMakeIdsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NewContractInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\OtherItemRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PaymentModesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PaymentTypesByPaymentModeIdRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PloicyRetrievalByBordxIdExportUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PloicyRetrievalByBordxIdGirdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PloicyRetrievalByBordxIdViewUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PloicyRetrievalForSearchGrid.cs" />
+    <Compile Include="UnitsOfWork\PolicyCancellationApprovalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyCancellationCommentByPolicyBundleIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyCancellationRejectUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyCancellationRequestUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyEndorseMentUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyUpdationUnitOfWorkV2.cs" />
+    <Compile Include="UnitsOfWork\PolicyInsertionUnitOfWorkV2.cs" />
+    <Compile Include="UnitsOfWork\PriceRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProcessBordxUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerRetervalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerStaffInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerStaffRetervalByReinsurerIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RelatedPartRetirvalByPartIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RoleMenuLevelMappingInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RSAAnualPremiumsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RSAAnualPremiumInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RSAAnualPremiumRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RSAAnualPremiumUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RoleMenuLevelMappingRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SaveDealerDiscountUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SavePartSuggestionsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SavePartWithClaimUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SearchDealerDiscountSchemesUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SerialNumberCheckUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ServiceHistoryByPolicyIdRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SubmitClaimUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SubmittedClaimRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TempBulkGetValidationFailedDataUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TempBulkUploadGetTemplateByCommodityCodeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TempBulkUploadInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TempBulkSaveUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TempBulkUploadIsUploadedUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TimeZoneRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TitlesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\OccupationsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\OccupationInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\OnlinePurchaseInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleTransactionsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleTransactionInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleHistoryInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleTransactionRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleHistoryRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleHistoriesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleTransactionUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundlesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleHistoryUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyBundleUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyRetrievalUnitOfWork.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UnitsOfWork\RegionesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RegionInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RegionRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RegionUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsurerConsortiumInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsurerConsortiumRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsurerConsortiumUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsurereConsortiumsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RSAProvideresRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RSAProviderInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RSAProviderRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RSAProviderUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PriviledgeLevelsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PriviledgeLevelInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PriviledgeLevelRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PriviledgeLevelUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MenusRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MenuInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MenuRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MenuUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NRPCommissionContractMappingsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NRPCommissionContractMappingInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NRPCommissionContractMappingRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NRPCommissionContractMappingUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASLoadTpaMenuUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TempSystemUserInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TaxesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TaxInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TaxRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TaxUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyConversionsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyConversionInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyConversionRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyConversionUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyConversionPeriodsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyConversionPeriodInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyConversionPeriodRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyConversionPeriodUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountryInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountryRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountryUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NRPCommissionTypessRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NRPCommissionTypesInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NRPCommissionTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NRPCommissionTypesUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyRenewUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyHistoryRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyHistoriesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\LogoutUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurereConsortiumsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerConsortiumInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerConsortiumRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerConsortiumUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASContractPricesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASContractExtensionsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASDealerLocationsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASDealeresRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASCountryRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASDriveTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASEngineCapacitiesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASFuelTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASCylinderCountsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASModelesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASItemStatusesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASMakesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASCommodityTypeByProdIdRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASCommodityCategoriesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractAllExtentionsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractExtensionsInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractExtensionsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractExtensionsUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CurrencyRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomerUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ExtensionTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ExtensionTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ExtensionTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ExtensionTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyHistoryInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyTransactionsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyTransactionInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyTransactionRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyTransactionUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASLogoutUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASTransmissionTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RoleMenuMappingInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TempUserInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\LoginKeepAliveUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPABranchesRetrievalBySystemUserIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPADisplayRetrievalByNameUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TransferPolicyToBordxUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TransmissionTechnologiesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UpdateClaimUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UpdateContractStatusUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UpdateOtherTireClaimUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserProfilePicUpdateUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserAlreadyExistCheckUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerUserPermissionCheckingUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserRoleInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RoleMenuMappingRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserRoleRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyTransactionTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RoleMenuMappingsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\RoleMenuMappingUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TempUserTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserRolesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UsersRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserRoleUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPADisplayImageRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPAImageRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\LoadTpaMenuUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PremiumAddonTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PremiumAddonTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PremiumAddonTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PremiumAddonTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PremiumBasedOnsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PremiumBasedOnInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PremiumBasedOnRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PremiumBasedOnUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASLoginAuthUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPADisplayRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASVehicleBodyTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASVehicleAspirationTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASVariantsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserValidationClaimListingUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserValidationClaimSubmissionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UserValidationReinsurerBordxSubmissionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ValidateClaimEndorsementUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ValidateInvoiceCodeUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ValidatePartInformationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ValidatePolicyNumberOnClaimSubmissionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ValidateUserOnDealerInvoiceCodeGeneration.cs" />
+    <Compile Include="UnitsOfWork\ValidateVinNumberUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ValidateVinSerialNumberAndGetPolicyDetailsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VariantRetrivalByModelIdsUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleDetailsValidateByVinUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleDetailsRetrievalByVinUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleKiloWattInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleHorsePowerInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleKiloWattRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleHorsePowerRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleKiloWattsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleHorsePowersRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleKiloWattUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleHorsePowerUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehiclesRetrievalForSearchGridByDealerIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehiclesRetrievalForSearchGridUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleWeightRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleWeightsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ViewReportUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\WarrantyTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\WarrantyTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\WarrantyTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\WarrantyTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerWarrantiesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerWarrantyInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerWarrantyRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerWarrantyUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PoliciesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\PolicyUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SystemUserUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SystemUserRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASTPAInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASTPARetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TASTPAUpdatingUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VariantsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ContractUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleAspirationTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleAspirationTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleAspirationTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TransmissionTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TransmissionTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TransmissionTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleAspirationTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TransmissionTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleAllDetailsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VariantInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleDetailsInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VariantRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleDetailsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VariantUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleDetailsUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CitiesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityCategoryRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CountriesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CylinderCountInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CylinderCountRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CylinderCountsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CylinderCountUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerLocationsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerLocationInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerLocationRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerLocationUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MakeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ModelInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MakeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ModelRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityCategoryInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductCategoryRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrownAndWhiteDetailsInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrownAndWhiteDetailsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsurerInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsurerRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerContractsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerContractInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerContractRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsureresRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ItemStatusRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ItemStatusInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DriveTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DriveTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MakesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ModelesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\MakeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ModelUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityCategoriesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CommodityCategoryUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrownAndWhiteAllDetailsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\BrownAndWhiteDetailsUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealerUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DealeresRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsurersRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\InsurerUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerContractUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ReinsurerUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ItemStatusUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ItemStatusesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DriveTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\DriveTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EngineCapacitiesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EngineCapacityInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EngineCapacityRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\EngineCapacityUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FuelTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FuelTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FuelTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\FuelTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ImageInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ImageRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPAProductsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomerInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ProductRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomerRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomersRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\CustomerTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\IdTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\LoginAuthUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\ManufacturerRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\NationalityRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SystemUserInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPABranchesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPABranchInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPABranchUpdatingUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPAInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPARetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\TPAUpdatingUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\SystemUsersRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\UsageTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleBodyTypeInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleBodyTypeRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleBodyTypesRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleBodyTypeUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleColorInsertionUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleColorRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleColorsRetrievalUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\VehicleColorUpdationUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\YellowGoodDetailRetrievalByIdUnitOfWork.cs" />
+    <Compile Include="UnitsOfWork\YellowGoodRetrievalUnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Reports\BulkUploadFormat\BulkUploadAutomobile.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\BulkUploadFormat\BulkUploadBank.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\BulkUploadFormat\BulkUploadElectronic.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\BulkUploadFormat\BulkUploadTyres.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ClaimAuthorization\Default\ClaimAuthorization.xsc">
+      <DependentUpon>ClaimAuthorization.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ClaimAuthorization\Default\ClaimAuthorization.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClaimAuthorization.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ClaimAuthorization\Default\ClaimAuthorization.xss">
+      <DependentUpon>ClaimAuthorization.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xsc">
+      <DependentUpon>ClaimAuthorizationOther.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClaimAuthorizationOther.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xss">
+      <DependentUpon>ClaimAuthorizationOther.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ClaimAuthorization\src\claimAuth.prpt" />
+    <None Include="Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xsc">
+      <DependentUpon>DealerInvoiceCode.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DealerInvoiceCode.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xss">
+      <DependentUpon>DealerInvoiceCode.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\InvoiceSummary\Default\DebitNote.xsc">
+      <DependentUpon>DebitNote.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\InvoiceSummary\Default\DebitNote.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DebitNote.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\InvoiceSummary\Default\DebitNote.xss">
+      <DependentUpon>DebitNote.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyBooklet\CycleandCarriageTest\AEW\CandC\C\MB\New\LFA-Policy-Booklet-Template-V.1.0.pdf" />
+    <None Include="Reports\PolicyBooklet\CycleandCarriageTest\AEW\CandC\T\Fuso\New\LFA-Policy-Booklet-Template-V.1.0.pdf" />
+    <None Include="Reports\PolicyBooklet\CycleandCarriage\AEW\CandC\C\MB\New\LFA-Policy-Booklet-Template-V.1.0.pdf" />
+    <None Include="Reports\PolicyBooklet\CycleandCarriage\AEW\CandC\T\Fuso\New\LFA-Policy-Booklet-Template-V.1.0.pdf" />
+    <None Include="Reports\PolicyBooklet\Default\ADT\LFA-Policy-Booklet-Template-V.1.0.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyBooklet\Default\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyBooklet\Default\TYRE\LFA-Policy-Booklet-Template-V.1.0.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyBooklet\leftfielddemo\AEW\CandC\C\MB\New\LFA-Policy-Booklet-Template-V.1.0.pdf" />
+    <None Include="Reports\PolicyBooklet\leftfielddemo\AEW\CandC\T\Fuso\New\LFA-Policy-Booklet-Template-V.1.0.pdf" />
+    <None Include="Reports\PolicyBooklet\Sampro\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyBooklet\LFA\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xsc">
+      <DependentUpon>PolicyStatementContinental.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PolicyStatementContinental.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xss">
+      <DependentUpon>PolicyStatementContinental.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyStatement\Default\PolicyStatementContinental.xsc">
+      <DependentUpon>PolicyStatementContinental.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyStatement\Default\PolicyStatementContinental.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PolicyStatementContinental.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\PolicyStatement\Default\PolicyStatementContinental.xss">
+      <DependentUpon>PolicyStatementContinental.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ProductionReport\Default\ProductionReport.xsc">
+      <DependentUpon>ProductionReport.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ProductionReport\Default\ProductionReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductionReport.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\ProductionReport\Default\ProductionReport.xss">
+      <DependentUpon>ProductionReport.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LFA.Caching\TAS.Caching.csproj">
+      <Project>{684c4fb2-37aa-4299-ac5b-57b69a3433e7}</Project>
+      <Name>TAS.Caching</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LFA.Core\TAS.Core.csproj">
+      <Project>{af4bd3c8-c111-4b88-8234-93af370df1dc}</Project>
+      <Name>TAS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LFA.DataTransfer\TAS.DataTransfer.csproj">
+      <Project>{6f86b5ba-bcfd-4ad6-8bab-b889b6cc0197}</Project>
+      <Name>TAS.DataTransfer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\Persistence\hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\Country.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entities\Persistence\Mappings\CommodityCategory.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\CommodityType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\Manufacturer.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\SystemUser.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\Persistence\Mappings\CommodityCategoryAttributeTableFieldMap.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\Persistence\Mappings\MasterTableMapping.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Common\Templates\ContinentalNew.png" />
+    <Content Include="Common\Templates\ContinentalNewForEmail.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\EUTLogoEmail.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\forgotPasswordTyre.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\rejectionemail.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\logo.jpg" />
+    <Content Include="Common\Templates\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\SalesSubmitConfirmation.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\StatementAndBookletTire.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\StatementAndBooklet.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\TyreClaimApproved.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\TyreClaimRejection.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\TyreClaimSubmition.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ArticleMapping.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyAdditionalDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimCriteria.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\OtherItemServiceHistory.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\SystemLanguage.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\BordxExportTyre.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\ClaimAuthorizationOther.sql" />
+    <Content Include="Entities\Persistence\Scripts\IloePremiumDetails.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\IncurredProcessMain.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\IncurredProcess.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\LostRatioOther.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatementContinental\Default\AEW\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatementContinental\Default\AEW\PolicyStatement_automobile_Coperate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatementContinental\Default\PolicyStatementContinental.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatementContinental\Default\TYRE\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatementContinental\Default\TYRE\PolicyStatement_automobile_Coperate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatementContinental\LFA\AEW\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatementContinental\Sampro\AEW\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\ADT\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\ADT\PolicyStatement_automobile_Coperate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\OW\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\OW\PolicyStatement_automobile_Coperate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\MI\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\MI\PolicyStatement_automobile_Coperate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\RSA\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\RSA\PolicyStatement_automobile_Coperate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\ILOE\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\ILOE\PolicyStatement_automobile_Coperate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ProductionReport\CNC\ProductionReport.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ProductionReport\CycleandCarriage\ProductionReport.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ProductionReport\Default\ProductionReport.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Reports\ClaimAuthorization\Default\ClaimAuthorization.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DealerInvoiceCode\Default\DealerInvoiceCode.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InvoiceSummary\Default\InvoiceSummary.rdlc">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PolicyStatementContinental\Default\PolicyStatementContinental.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PolicyStatement\Default\PolicyStatementContinental.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionReport\CNC\ProductionReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionReport\CycleandCarriage\ProductionReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductionReport\Default\ProductionReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Entities\Persistence\Mappings\PaymentMode.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Common\Templates\ClaimApproved.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\ClaimRejected.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\UserRegistration.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Common\Templates\UserRegistrationConfirm.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BiBordxSummery.hbm.xml" />
+    <Content Include="Entities\Persistence\Mappings\AvailableTireSizesPattern.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BordxReportTemplate.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BordxReportTemplateDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimTax.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerInvoiceCodeReportColumnHeader.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ReportParameter.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Report.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ReportDataQuery.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CustomerEnterdInvoiceTireDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CustomerEnterdInvoiceDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\AvailableTireSizes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\AdditionalPolicyData.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\AdditionalPolicyFields.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\AdditionalPolicyMakeData.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\AdditionalPolicyModelData.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimItemTireDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimRejectionType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Broker.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimComment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimNotes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensionPremium.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensionGVW.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractInsuaranceLimitation.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CustomerComplaint.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CustomerLogin.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerComment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\InvoiceCode.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\InvoiceCodeDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\InvoiceCodeTireDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\StoredProcedures.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\InsuaranceLimitation.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DashboardChartAccess.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimBordxYearlySum.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DashboardChart.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerBranchStaff.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerDiscount.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerDiscountScheme.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimEndorsement.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimEndorsementAttachment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimEndorsementItem.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimProcessingStat.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimBordxPayment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimBordx.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Claim.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimBatch.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimBatchGroup.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimBordxProcess.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimBordxDetail.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimBordxValueDetail.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimBordxYearly.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimChequePayment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimChequePaymentDetail.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimGroupClaim.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimInvoiceEntry.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimInvoiceEntryClaim.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimItem.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimAttachment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerLabourCharge.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\FaultCauseOfFailure.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Fault.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\FaultArea.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\FaultCategory.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimSubmissionItem.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimSubmissionAttachment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimItemType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimStatusCode.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ClaimSubmission.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ManufacturerWarrantyDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PartRejectionType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyNumberFormat.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ReinsureBordxReportColumns.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TireSizeVariantMap.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TireUTDValuation.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TPAAllowedIP.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TPAConfig.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VariantPremiumAddon.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VehicleServiceHistory.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BordxReportColumnHeaders.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerInvoiceReportColumns.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BrownAndWhiteDetailsHistory.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Entities\Persistence\Mappings\CustomerHistory.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensionVariant.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\OtherItemDetailsHistory.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Part.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PartArea.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PartModel.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PartPrice.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PartSuggestion.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyTax.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyAttachmentTransaction.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyAttachment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TempBulkHeader.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TempBulkUpload.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TimeZone.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\UserAttachment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\AttachmentType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\AttachmentSection.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\UnitOfWork.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\OtherItemDetails.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Entities\Persistence\Mappings\PaymentOption.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Entities\Persistence\Mappings\VehicleDetailsHistory.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VehicleWeight.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\YellowGoodDetailsHistory.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\YellowGoodDetails.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\OtherItemPolicy.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyRenewal.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\YellowGoodPolicy.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\BiBordxSummery.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\BiBordxSummerydelete.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\BordxExportReportName.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\ClaimAuthorizationReportMainOther.sql" />
+    <Content Include="Entities\Persistence\Scripts\ClaimAuthorizationReportSub.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\ClaimAuthorizationReportMain.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\BordxClaimMonth&amp;Year.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\BordxClaimSummary.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\ClaimBordx.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\BordxExport.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\CountryWise.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\LostRatio.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\PaymentSchedule.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\PolicySummaryViewInClaim.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\DealerInvoiceExport.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimAuthorization\Default\ClaimAuthorization.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationBodyContinental.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationBody.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationTireDtl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationDtl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationBody.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationBodyContinental.html" />
+    <Content Include="Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationDtl.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationTireDtl.html" />
+    <Content Include="Reports\ClaimChequeStatement\Default\AEW\ClaimChequeStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimChequeStatement\LFA\AEW\ClaimChequeStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\ClaimChequeStatement\Sampro\AEW\ClaimChequeStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\DealerInvoiceCode\Default\DealerInvoiceCode.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\DealerInvoiceCode\Default\DealerInvoiceCodeAll.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\InvoiceSummary\Default\InvoiceSummary.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\InvoiceSummary\Default\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\AEW\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\AEW\PolicyStatement_automobile_Coperate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\PolicyStatementContinental.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\TYRE\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Default\TYRE\PolicyStatement_automobile_Coperate.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\Sampro\AEW\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\PolicyStatement\LFA\AEW\PolicyStatement_automobile.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Entities\Persistence\Mappings\CountryTaxes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\ContractTaxes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="Entities\Persistence\Mappings\StagOnlinePurchase.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Common\Templates\forgotPassword.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BordxReportColumnsMap.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BordxReportColumns.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BordxDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CurrencyConversionPeriods.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CurrencyConversions.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Currency.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CountryMakes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CountryModeles.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerStaff.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ForgotPasswordRequest.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\InsurerCommodityTypes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\InsurerProducts.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CurrencyEmail.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Bordx.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Eligibility.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\RSAAnualPremium.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\MaritalStatus.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Occupation.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Title.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyBundleHistory.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyBundleTransaction.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyBundle.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyContractProduct.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Region.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\InsurerConsortium.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\RSAProvider.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PriviledgeLevel.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TaxTypes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\NRPCommissionContractMapping.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\NRPCommissionTypes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Menu.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Entities\Persistence\Mappings\User.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\UserRole.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\UserType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\UserRoleMapping.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Entities\Persistence\Mappings\PolicyHistory.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PolicyTransaction.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Entities\Persistence\Mappings\PolicyTransactionType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Entities\Persistence\Mappings\ReinsurerConsortium.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Entities\Persistence\Mappings\UserLogin.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\RoleMenuMapping.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Entities\Persistence\Mappings\CommodityUsageType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TransmissionTechnologyMap.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TransmissionTechnology.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Entities\Persistence\Mappings\ReinsurerUser.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Entities\Persistence\Mappings\UserBranch.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Entities\Persistence\Mappings\VehicleKiloWatt.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VehicleHorsePower.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\TPADBCreate.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Scripts\TPATableCreate.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\TAShibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\TASMappings\TASSystemUser.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\TASMappings\TASMenu.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\TASMappings\TASUserLogin.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\TASMappings\TASTPA.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Entities\Persistence\Mappings\City.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\Persistence\Mappings\Customer.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Entities\Persistence\Mappings\Contract.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensionManufacturerWarranty.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ExtensionType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ProductType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PremiumBasedOn.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\PremiumAddonType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensions.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensionsPremiumAddon.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensionMake.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensionModel.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensionEngineCapacity.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ContractExtensionCylinderCount.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\WarrantyType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ManufacturerWarranty.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VehiclePolicy.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BAndWPolicy.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Policy.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ManufacturerComodityTypes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VariantAspirations.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VariantBodyTypes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VariantCountrys.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VariantDriveTypes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VariantFuelTypes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VariantTransmissions.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ItemStatus.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VehicleAspirationType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Variant.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VehicleDetails.hbm.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerMakes.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DealerLocation.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\InsurerCountries.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CustomerType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\CylinderCount.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Dealer.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Make.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ProductCategory.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\BrownAndWhiteDetails.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Insurer.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\ReinsurerContract.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Reinsurer.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TransmissionType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\EngineCapacity.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\FuelType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Model.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VehicleColor.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\VehicleBodyType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\DriveType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\IdType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Image.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Image.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\Nationality.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="Entities\Persistence\Mappings\Product.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\Persistence\Mappings\BundledProduct.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Entities\Persistence\Mappings\TPABranch.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TPA.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\TPABranch.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Entities\Persistence\Mappings\UsageType.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\Entities\Persistence\Mappings\" />
+    <Folder Include="Reports\ClaimAuthorization\Default\TYER\" />
+    <Folder Include="Reports\PolicyBooklet\CycleandCarriageTest\AEW\CandC\C\MB\Used\" />
+    <Folder Include="Reports\PolicyBooklet\CycleandCarriageTest\AEW\CandC\T\Fuso\Used\" />
+    <Folder Include="Reports\PolicyBooklet\CycleandCarriage\AEW\CandC\C\MB\Used\" />
+    <Folder Include="Reports\PolicyBooklet\CycleandCarriage\AEW\CandC\T\Fuso\Used\" />
+    <Folder Include="Reports\PolicyBooklet\leftfielddemo\AEW\CandC\C\MB\Used\" />
+    <Folder Include="Reports\PolicyBooklet\leftfielddemo\AEW\CandC\T\Fuso\Used\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.S3.3.3.0.1\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

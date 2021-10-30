@@ -1,0 +1,239 @@
+﻿<script>
+    function showOne(id) {
+        //alert(id);
+        showAll();
+        $('.hideus').not('#' + id).hide();
+    }
+
+    function showAll() {
+        $('.hideus').show();
+    }
+
+    function relocate(elem) {
+        //alert('triggerd');
+        location.href = '#/home/homePremium/' + $(elem).attr("id");
+    }
+
+
+    function productPopover() {
+        $('[data-toggle="popover"]').popover({ html: true, container: '' });
+        $('[data-toggle="popover"]').popover('toggle');
+       
+    }
+
+    function sleep(delay) {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + delay);
+    }
+
+    $(document).ready(function () {
+       
+        productPopover();
+        
+    });
+
+
+
+  //  $('.carousel').carousel();
+    $('.carousel').carousel({
+        interval: 1000000
+    })
+     
+</script>
+<style type="text/css">
+    .popover {
+        max-width: 100%; /* Max Width of the popover (depending on the container!) */
+    }
+
+
+    #slides_control > div {
+        /*height: 200px;*/
+    }
+
+    img {
+        margin: auto;
+        /*width: 400px;*/
+    }
+
+    #slides_control {
+        /*position: absolute;*/
+        /*width: 400px;*/
+        /*left: 50%;*/
+        /*top: 20px;*/
+        /*margin-left: -200px;*/
+    }
+
+    element {
+    }
+
+
+
+    /*.carousel-inner > .item {
+        position: relative;
+        display: none;
+        -webkit-transition: .6s ease-in-out left;
+        -o-transition: .6s ease-in-out left;
+        transition: .6s ease-in-out left;
+    }*/
+
+    .continental-color {
+        background-color: #ffa500 !important;
+        color: black;
+    }
+</style>
+
+<div class="row" style="margin-left: 30px; margin-right: 30px">
+
+    <div ng-app="clip-two" ng-controller="TpaHomeCtrl as tpaController" ng-init="LoadDetails()">
+        <section id="page-title" style="padding: 0px;border-bottom:none !important ">
+            <div class="row" style="padding: 0px; ">
+                <div class="col-sm-3 col-sm-3 col-md-3"
+                     style="padding: 0px; ">
+                    <img ng-src="data:image/JPEG;base64,{{TpaLogoSrc}}" 
+                         alt="Loading..." class="img-responsive" 
+                         />
+                </div>
+
+            </div>
+
+        </section>
+        <div class="row" style="display:none">
+            <div class="col-sm-8">
+                <h1 class="mainTitle tasTitle">{{tpa.Name}}</h1>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 20px; margin-right: 20px;margin-top: 20px">
+            <div class="product-container">
+                <div class="row">
+                    <div class="carousel slide" id="indexslider">
+                        <div class="carousel-inner">
+                            <div class="item">
+                                <img src="data:image/JPEG;base64,{{TpaImageSrc}}"  class="img-responsive" style=" max-height:200px"/>
+                            </div>
+                            <div class="item active">
+                                <img src="data:image/JPEG;base64,{{TpaImageSrc2}}" class="img-responsive" style=" max-height: 200px"/>
+                            </div>
+                            <div class="item">
+                                <img src="data:image/JPEG;base64,{{TpaImageSrc3}}"  class="img-responsive" style=" max-height: 200px"/>
+                            </div>
+                            <div class="item">
+                                <img src="data:image/JPEG;base64,{{TpaImageSrc4}}" class="img-responsive" style=" max-height: 200px" />
+                            </div>
+                            <div class="item">
+                                <img src="data:image/JPEG;base64,{{TpaImageSrc5}}"  class="img-responsive" style=" max-height: 200px"/>
+                            </div>
+                        </div>
+                        <a class="left carousel-control" style="height:200px;width:100px;font-size:xx-large" href="#indexslider" data-slide="prev">‹‹</a>
+                        <a class="right carousel-control" style="height: 200px; width: 100px; font-size: xx-large" href="#indexslider" data-slide="next">››</a>
+                    </div>
+                   
+
+                    <section class="wrapper padding50">
+                        <div class="row-fluid">
+
+                            <div class="col-md-12">
+                                <hr />
+                                <p class="tpa-desc">{{tpa.DiscountDescription}} </p>
+                                <!--<a href="https://www.leftfield.xyz/TAS.Web/Documents/ContiSure%20FAQ%20and%20participating%20stores.pdf" target="_blank" style="text-decoration: none;color:#8e8e93"><button class="btn continental-color btn-sm center-block pull-right" role="button">FAQ & Participating Stores</button></a>-->
+                            </div>
+
+                        </div>
+
+                    </section>
+                </div>
+                <div class="row"><div class="col-md-12 vgap30"></div></div>
+                <div class="row" >
+
+                    <div class="product-container">
+
+                        <section class="wrapper padding50">
+
+                            <div ng-repeat="(key, values) in Products | groupBy: 'CommodityType' ">
+                               
+                                <div class="row">
+
+                                    <div ng-repeat="product in values">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="thumbnail">
+                                                <!--<img ng-src='data:image/JPEG;base64,{{product.DisplayImageSrc}}'
+                                                     alt='{{product.Productname}}'>-->
+                                                <div class="caption">
+                                                    <h4 style="font-weight:bold;text-align:center">Frequently Asked Questions</h4>
+                                                    <p>{{product.Productdescription}}</p>
+
+                                                    <a href="https://www.leftfield.xyz/TAS.Web/Documents/ContiSure%20FAQ%20and%20participating%20stores.pdf" target="_blank" style="text-decoration: none;color:#8e8e93"><button class="btn continental-color btn-sm center-block" role="button">Click Here</button></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-4 col-xs-12" >
+                                            <div class="thumbnail">
+                                                <!--<img ng-src='data:image/JPEG;base64,{{product.DisplayImageSrc}}'
+                                                     alt='{{product.Productname}}'>-->
+                                                <div class="caption">
+                                                    <h4 style="font-weight:bold;text-align:center">Participating Stores</h4>
+                                                    <p>{{product.Productdescription}}</p>
+
+                                                    <a href="https://www.leftfield.xyz/TAS.Web/Documents/ParticipatingStores.pdf" target="_blank" style="text-decoration: none;color:#8e8e93"><button class="btn continental-color btn-sm center-block" role="button">Click Here</button></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="thumbnail">
+                                                <!--<img ng-src='data:image/JPEG;base64,{{product.DisplayImageSrc}}'-->
+                                                     <!--alt='{{product.Productname}}'>-->
+                                                <div class="caption">
+                                                    <h4 style="font-weight:bold;text-align:center">{{product.Productname}}</h4>
+                                                    <p>{{product.Productdescription}}</p>
+
+                                                    <button id='{{product.Id}}' onclick='relocate(this)' class="btn continental-color btn-sm center-block " role="button">Click Here</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row"><div class="col-md-12 vgap30"></div></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="center" style="padding-top: 25px;margin-bottom:10px"> <span> © 2018-2020  <a  href="http://www.leftfieldassurance.com" target="_blank" style="text-decoration: none;color:#8e8e93">Leftfield Assurance</a> | All Rights Reserved.</span> </div>
+            
+          
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,400italic);
+
+    font-family: 'Open Sans', sans-serif;
+
+    html {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    body {
+        
+      
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .thumbnail {
+        position: relative;
+        padding: 0px;
+        margin-bottom: 20px;
+        background-color: #eaeaec00;
+        border:none;
+    }
+
+        .thumbnail img {
+            width: 100%;
+        }
+</style>
+

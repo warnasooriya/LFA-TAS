@@ -1,0 +1,74 @@
+2020-11-16 09:32:11.9103 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:11.9325 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:11.9532 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:11.9752 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:11.9941 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:12.0160 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:12.0370 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:12.0579 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:12.0789 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:12.0988 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:12.1178 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:12.1377 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:12.1567 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:32:12.1766 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.3999 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.4218 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.4527 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.4727 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.4930 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.5129 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.5329 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.5535 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.5737 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.5930 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.6129 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.6329 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.6528 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 09:33:02.6718 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-16 11:29:34.1423 TAS.Services.Entities.Management.ClaimEntityManager GetAllDealerComments: exception: could not execute query
+[ select dealercomm0_.Id as col_0_0_, dealercomm0_.CommentCode as col_1_0_, dealercomm0_.Comment as col_2_0_, dealercomm0_.IsRejectionType as col_3_0_ from DealerComment dealercomm0_ order by dealercomm0_.CommentCode desc ]
+[SQL: select dealercomm0_.Id as col_0_0_, dealercomm0_.CommentCode as col_1_0_, dealercomm0_.Comment as col_2_0_, dealercomm0_.IsRejectionType as col_3_0_ from DealerComment dealercomm0_ order by dealercomm0_.CommentCode desc], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsRejectionType'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:dc606184-0cf6-4ca6-9793-ff793f63cc6b
+Error Number:207,State:1,Class:16
+2020-11-16 15:09:45.2275 TAS.Services.Entities.Management.ClaimEntityManager GetAllDealerComments: exception: could not execute query
+[ select dealercomm0_.Id as col_0_0_, dealercomm0_.CommentCode as col_1_0_, dealercomm0_.Comment as col_2_0_, dealercomm0_.IsRejectionType as col_3_0_ from DealerComment dealercomm0_ order by dealercomm0_.CommentCode desc ]
+[SQL: select dealercomm0_.Id as col_0_0_, dealercomm0_.CommentCode as col_1_0_, dealercomm0_.Comment as col_2_0_, dealercomm0_.IsRejectionType as col_3_0_ from DealerComment dealercomm0_ order by dealercomm0_.CommentCode desc], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsRejectionType'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:55ca69c3-a864-4462-a178-dd66ac920ea3
+Error Number:207,State:1,Class:16

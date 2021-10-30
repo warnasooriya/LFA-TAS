@@ -1,0 +1,21 @@
+2020-11-18 09:18:51.5114 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2020-11-18 09:18:53.6155 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU2NzEzMzIsImp0aSI6ImRhYmQwMGE3LTlmNzctNDFiZS04YWI0LTllODcwMjJkNzY5YyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.KDpS1G857c-MpG0Ogn21Fj0yCUwt2KYoN5hp3mmNJWQ
+2020-11-18 09:19:10.3780 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2020-11-18 09:19:14.8146 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2020-11-18 09:19:15.2794 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2020-11-18 09:19:15.7969 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2020-11-18 09:19:15.8190 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2020-11-18 09:19:20.2546 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Trying to Cache Retrieval in get All GetAllCurrencies
+2020-11-18 09:19:22.3140 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2020-11-18 09:20:03.0879 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2020-11-18 09:20:04.6056 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2020-11-18 09:20:05.0377 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2020-11-18 09:20:05.4864 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2020-11-18 09:20:05.4864 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2020-11-18 09:52:57.2144 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU2NzEzMzIsImp0aSI6ImRhYmQwMGE3LTlmNzctNDFiZS04YWI0LTllODcwMjJkNzY5YyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.KDpS1G857c-MpG0Ogn21Fj0yCUwt2KYoN5hp3mmNJWQ
+2020-11-18 09:53:11.2424 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2020-11-18 09:53:13.6830 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU2NzMzOTIsImp0aSI6IjcwMzJiNjI1LTM5NGItNGU5ZS1iZmVlLTE5YjI3ZmMxYjY2OSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.WJhn1uoPqEnITB7AQ-7kLcZrRThuFEDNHSmVZgkXg-k
+2020-11-18 10:22:53.8278 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2020-11-18 10:22:56.9949 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU2NzUxNzUsImp0aSI6Ijc4YTY1ZTlhLTgxN2EtNDA3Zi05ZThlLTM5YjA4MGM4MDViNyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.qFcnCSjiJ619X0Lwd5lqm8yOQ3fEirRVbhMT9jS0lIA
+2020-11-18 10:24:04.1441 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2020-11-18 10:24:08.0501 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU2NzUyNDYsImp0aSI6IjVkZGRkMWZjLWNjNDgtNDMzMy1iZjBjLTgyZWI3N2M4OGQxZSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.KinUZPN6JDFSE0_NwcxIAOk-j4bO5lLf6QuEq3wkeIs

@@ -1,0 +1,9 @@
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\bin\Release\TAS.Core.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\bin\Release\TAS.Core.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\bin\Release\NLog.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\bin\Release\NLog.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\obj\Release\TAS.Core.csprojAssemblyReference.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\obj\Release\TAS.Core.csproj.CoreCompileInputs.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\obj\Release\TAS.Core.csproj.CopyComplete
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\obj\Release\TAS.Core.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\obj\Release\TAS.Core.pdb

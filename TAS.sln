@@ -1,0 +1,88 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2B820C1C-E91D-47E1-A661-7DDD4CC3799B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAS.Caching", "LFA.Caching\TAS.Caching.csproj", "{684C4FB2-37AA-4299-AC5B-57B69A3433E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAS.Services", "LFA.BusinessServices\TAS.Services.csproj", "{4AF4507C-E180-47B3-B9D9-0FFDF25F1319}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAS.DataTransfer", "LFA.DataTransfer\TAS.DataTransfer.csproj", "{6F86B5BA-BCFD-4AD6-8BAB-B889B6CC0197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAS.Core", "LFA.Core\TAS.Core.csproj", "{AF4BD3C8-C111-4B88-8234-93AF370DF1DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAS.Web", "TAS.Web\TAS.Web.csproj", "{7B2D1813-B283-4242-BD4E-39DB6EF678C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAS.Notification", "TAS.Notification\TAS.Notification.csproj", "{AEE6C616-B205-4376-90EA-054E0A3B36F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{C0DE0442-2CAF-441D-83FF-616663F4923A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{684C4FB2-37AA-4299-AC5B-57B69A3433E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{684C4FB2-37AA-4299-AC5B-57B69A3433E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{684C4FB2-37AA-4299-AC5B-57B69A3433E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{684C4FB2-37AA-4299-AC5B-57B69A3433E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF4507C-E180-47B3-B9D9-0FFDF25F1319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF4507C-E180-47B3-B9D9-0FFDF25F1319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF4507C-E180-47B3-B9D9-0FFDF25F1319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF4507C-E180-47B3-B9D9-0FFDF25F1319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F86B5BA-BCFD-4AD6-8BAB-B889B6CC0197}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F86B5BA-BCFD-4AD6-8BAB-B889B6CC0197}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F86B5BA-BCFD-4AD6-8BAB-B889B6CC0197}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F86B5BA-BCFD-4AD6-8BAB-B889B6CC0197}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF4BD3C8-C111-4B88-8234-93AF370DF1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF4BD3C8-C111-4B88-8234-93AF370DF1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF4BD3C8-C111-4B88-8234-93AF370DF1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF4BD3C8-C111-4B88-8234-93AF370DF1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B2D1813-B283-4242-BD4E-39DB6EF678C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B2D1813-B283-4242-BD4E-39DB6EF678C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B2D1813-B283-4242-BD4E-39DB6EF678C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B2D1813-B283-4242-BD4E-39DB6EF678C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE6C616-B205-4376-90EA-054E0A3B36F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE6C616-B205-4376-90EA-054E0A3B36F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE6C616-B205-4376-90EA-054E0A3B36F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE6C616-B205-4376-90EA-054E0A3B36F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {751A7CC4-4433-410C-A731-5BCCDE6DD32E}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://trivow.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LFA.BusinessServices\\TAS.Services.csproj
+		SccProjectName1 = LFA.BusinessServices
+		SccLocalPath1 = LFA.BusinessServices
+		SccProjectUniqueName2 = LFA.Caching\\TAS.Caching.csproj
+		SccProjectName2 = LFA.Caching
+		SccLocalPath2 = LFA.Caching
+		SccProjectUniqueName3 = LFA.Core\\TAS.Core.csproj
+		SccProjectName3 = LFA.Core
+		SccLocalPath3 = LFA.Core
+		SccProjectUniqueName4 = LFA.DataTransfer\\TAS.DataTransfer.csproj
+		SccProjectName4 = LFA.DataTransfer
+		SccLocalPath4 = LFA.DataTransfer
+		SccProjectUniqueName5 = TAS.Notification\\TAS.Notification.csproj
+		SccProjectName5 = TAS.Notification
+		SccLocalPath5 = TAS.Notification
+		SccProjectUniqueName6 = TAS.Web\\TAS.Web.csproj
+		SccProjectName6 = TAS.Web
+		SccLocalPath6 = TAS.Web
+	EndGlobalSection
+EndGlobal

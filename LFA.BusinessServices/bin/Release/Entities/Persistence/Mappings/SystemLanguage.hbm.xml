@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="TAS.Services" namespace="TAS.Services.Entities" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="SystemLanguage" table="SystemLanguage" lazy="true" >
+    <id name="Id" column="Id" />
+    <property name="LanguageCode"/>
+    <property name="Language"/>
+  </class>
+</hibernate-mapping>

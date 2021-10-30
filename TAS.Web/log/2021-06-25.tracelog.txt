@@ -1,0 +1,4 @@
+2021-06-25 10:12:23.7656 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - contidentalTest
+2021-06-25 10:12:24.9421 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - contidentalTest
+2021-06-25 10:12:31.1696 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - contidentalTest
+2021-06-25 10:12:33.4582 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - contidentalTest token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjQ1OTYxNTIsImp0aSI6ImM0YzJlYmM0LWVhODItNDc5NS1hYTBiLTU4MDBmMjY4N2FhOSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aWRlbnRhbFRlc3QiLCJzaGFyZWRrZXkiOiJhYmNlIiwidXNlcmlkIjoiY2VkOTNlMDEtZGZjYS00ZjA4LTlhM2ItYzYzZmJhNmNmMzJmIn0.vhZIxxfL_q4eD4x-FhJ2X7t-Gkszj_OLNnF6p1RjD2s

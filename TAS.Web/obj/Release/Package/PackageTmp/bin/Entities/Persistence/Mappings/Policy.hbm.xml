@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="Policy" table="Policy" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="CommodityTypeId" />
+    <property name="ProductId" />
+    <property name="DealerId" />
+    <property name="DealerLocationId" />
+    <property name="ContractId" />
+    <property name="ExtensionTypeId" />
+    <property name="Premium" precision="18" scale="8" />
+    <property name="TPABranchId" />
+    <property name="PremiumCurrencyTypeId" />
+    <property name="CoverTypeId" />
+    <property name="HrsUsedAtPolicySale" />
+    <property name="IsPreWarrantyCheck" />
+    <property name="PolicySoldDate" />
+    <property name="SalesPersonId" />
+    <property name="PolicyNo" />
+    <property name="IsSpecialDeal" />
+    <property name="IsPartialPayment" />
+    <property name="DealerPayment" precision="18" scale="8"  />
+    <property name="DealerPaymentCurrencyTypeId" />
+    <property name="CustomerPayment" precision="18" scale="8"  />
+    <property name="CustomerPaymentCurrencyTypeId" />
+    <property name="PaymentModeId" />
+    <property name="RefNo" />
+    <property name="Comment" />
+    <property name="CustomerId" />
+    <property name="EntryDateTime" />
+    <property name="EntryUser" />
+    <property name="IsApproved" />
+    <property name="PolicyApprovedBy" />
+    <property name="CurrencyPeriodId" />
+    <property name="IsPolicyRenewed" />
+    <property name="LocalCurrencyConversionRate" precision="18" scale="8"  />
+
+
+    <property name="IsPolicyCanceled" />
+    <property name="PolicyStartDate" />
+    <property name="PolicyEndDate" />
+    <property name="Discount" precision="18" scale="8"  />
+    <property name="PolicyBundleId" />
+    <property name="BordxId" />
+    <property name="ForwardComment" />
+    <property name="Year" />
+    <property name="Month" />
+    <property name="BordxNumber" />
+    <property name="BordxCountryId" />
+    <property name="PaymentTypeId" />
+    <property name="ContractInsuaranceLimitationId" />
+    <property name="ContractExtensionsId" />
+    <property name="ContractExtensionPremiumId" />
+    <property name="DiscountPercentage" />
+    <property name="MonthlyEMI" />
+    <property name="SequenceNo" />
+    <property name="PaymentMethodFee" precision="18" scale="8"  />
+    <property name="PaymentMethodFeePercentage" />
+    <property name="GrossPremiumBeforeTax"  precision="18" scale="8" />
+    <property name="EligibilityFee"  precision="18" scale="8" />
+    <property name="NRP" precision="18" scale="8"  />
+    <property name="TotalTax" precision="18" scale="8"  />
+    <property name="FinanceAmount" precision="18" scale="8"  />
+
+
+
+
+    <property name="BookletNumber" />
+    <property name="MWStartDate" />
+    <property name="MWIsAvailable" />
+    <property name="DealerPolicy" />
+
+
+  <property name="Co_Customer" />
+  <property name="ApprovedDate" />
+
+
+  </class>
+</hibernate-mapping>

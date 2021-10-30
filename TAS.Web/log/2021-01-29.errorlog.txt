@@ -1,0 +1,376 @@
+2021-01-29 16:29:54.7594 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: could not execute query
+[ select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'{EarnedDate}') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when '7b450e0a-5de5-4bcf-9093-288c96e557be'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else '7b450e0a-5de5-4bcf-9093-288c96e557be'
+	end
+	and Dealer.Id=case
+	when '46909ff7-eb57-4c43-af7e-9438bce24440'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else '46909ff7-eb57-4c43-af7e-9438bce24440'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2020'=''
+	then ReinsurerContract.UWYear
+	else '2020'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription ]
+[SQL: select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'{EarnedDate}') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when '7b450e0a-5de5-4bcf-9093-288c96e557be'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else '7b450e0a-5de5-4bcf-9093-288c96e557be'
+	end
+	and Dealer.Id=case
+	when '46909ff7-eb57-4c43-af7e-9438bce24440'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else '46909ff7-eb57-4c43-af7e-9438bce24440'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2020'=''
+	then ReinsurerContract.UWYear
+	else '2020'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription], System.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting date and/or time from character string.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at NHibernate.Driver.NHybridDataReader.Read()
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:87e535c1-7c2e-4c8f-a5d7-0660447e4ab0
+Error Number:241,State:1,Class:16
+2021-01-29 16:32:32.4650 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: could not execute query
+[ select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'{EarnedDate}') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when '7b450e0a-5de5-4bcf-9093-288c96e557be'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else '7b450e0a-5de5-4bcf-9093-288c96e557be'
+	end
+	and Dealer.Id=case
+	when '46909ff7-eb57-4c43-af7e-9438bce24440'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else '46909ff7-eb57-4c43-af7e-9438bce24440'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2020'=''
+	then ReinsurerContract.UWYear
+	else '2020'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription ]
+[SQL: select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'{EarnedDate}') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when '7b450e0a-5de5-4bcf-9093-288c96e557be'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else '7b450e0a-5de5-4bcf-9093-288c96e557be'
+	end
+	and Dealer.Id=case
+	when '46909ff7-eb57-4c43-af7e-9438bce24440'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else '46909ff7-eb57-4c43-af7e-9438bce24440'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2020'=''
+	then ReinsurerContract.UWYear
+	else '2020'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription], System.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting date and/or time from character string.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at NHibernate.Driver.NHybridDataReader.Read()
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:6dc43123-7f5a-4a99-966a-1f7056e81d08
+Error Number:241,State:1,Class:16
+2021-01-29 16:35:43.7408 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: could not execute query
+[ select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'{EarnedDate}') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when '7b450e0a-5de5-4bcf-9093-288c96e557be'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else '7b450e0a-5de5-4bcf-9093-288c96e557be'
+	end
+	and Dealer.Id=case
+	when '46909ff7-eb57-4c43-af7e-9438bce24440'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else '46909ff7-eb57-4c43-af7e-9438bce24440'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2020'=''
+	then ReinsurerContract.UWYear
+	else '2020'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription ]
+[SQL: select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'{EarnedDate}') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when '7b450e0a-5de5-4bcf-9093-288c96e557be'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else '7b450e0a-5de5-4bcf-9093-288c96e557be'
+	end
+	and Dealer.Id=case
+	when '46909ff7-eb57-4c43-af7e-9438bce24440'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else '46909ff7-eb57-4c43-af7e-9438bce24440'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2020'=''
+	then ReinsurerContract.UWYear
+	else '2020'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription], System.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting date and/or time from character string.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at NHibernate.Driver.NHybridDataReader.Read()
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:4d8d6aef-c9ba-4a5b-89de-39958393c93f
+Error Number:241,State:1,Class:16
+2021-01-29 16:37:11.2322 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: could not execute query
+[ select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'{EarnedDate}') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when '7b450e0a-5de5-4bcf-9093-288c96e557be'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else '7b450e0a-5de5-4bcf-9093-288c96e557be'
+	end
+	and Dealer.Id=case
+	when '46909ff7-eb57-4c43-af7e-9438bce24440'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else '46909ff7-eb57-4c43-af7e-9438bce24440'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2020'=''
+	then ReinsurerContract.UWYear
+	else '2020'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription ]
+[SQL: select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'{EarnedDate}') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+join Bordx on Policy.BordxId=Bordx.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+ where Contract.CountryId=case
+	when '7b450e0a-5de5-4bcf-9093-288c96e557be'='00000000-0000-0000-0000-000000000000'
+	then Contract.CountryId
+	else '7b450e0a-5de5-4bcf-9093-288c96e557be'
+	end
+	and Dealer.Id=case
+	when '46909ff7-eb57-4c43-af7e-9438bce24440'='00000000-0000-0000-0000-000000000000'
+	then Dealer.Id
+	else '46909ff7-eb57-4c43-af7e-9438bce24440'
+	end
+	and ReinsurerContract.UWYear=case
+	when '2020'=''
+	then ReinsurerContract.UWYear
+	else '2020'
+	end
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription], System.Data.SqlClient.SqlException (0x80131904): Conversion failed when converting date and/or time from character string.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at NHibernate.Driver.NHybridDataReader.Read()
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:b6628280-fb8f-4224-891a-43f4c912118c
+Error Number:241,State:1,Class:16

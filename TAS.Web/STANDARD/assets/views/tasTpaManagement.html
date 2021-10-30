@@ -1,0 +1,87 @@
+﻿<div ng-app="clip-two" ng-controller="TASTpaCtrl as tpaController" ng-init="loadExistingTPAs()">
+    <!--<form name="myForm">-->
+    <div name="myForm" class="my-form">
+        <!-- start: PAGE TITLE -->
+        <section id="page-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1 class="mainTitle">TPA Management</h1>
+                    <span class="mainDescription TitleModifier">You can add or update a TPA. Select new to add or select existing TPA to update.</span>
+                </div>
+                <!--<div ncy-breadcrumb></div>-->
+            </div>
+        </section>
+        <!-- end: PAGE TITLE -->
+
+
+
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class=" form-group">
+
+                    <label class="control-label">
+                        TPA
+                    </label>
+                    <select class="form-control input-sm" ng-model="tpa.Id"
+                            ng-options="n.Id as n.Name for n in tpas"
+                            ng-change="SetTpa()">
+                        <option value="">NEW</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Name
+                    </label><span class="error" ng-show="myForm.firstname.$error.required">*</span><span style="color:darkred" ng-show="myForm.firstname.$invalid && !myForm.firstname.$error.required">   &nbsp;&nbsp;&nbsp; (Only characters accepted!)</span>
+                    <input type="text" class="form-control input-sm" id="firstname" name="firstname" pattern="[a-zA-Z]+" ng-pattern-restrict ng-model="tpa.Name" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Telephone Number
+                    </label><span class="error" ng-show="myForm.Telephone.$error.required">*</span>
+                    <input type="text" class="form-control input-sm" id="Telephone" name="Telephone" ng-model="tpa.TelNumber">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Address
+                    </label>
+                    <textarea class="form-control input-sm" ng-model="tpa.Address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Client Description
+                    </label>
+                    <textarea class="form-control input-sm" ng-model="tpa.DiscountDescription"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">
+                        Public URL
+                    </label>
+                    <!--<textarea class="form-control input-sm" ng-model="tpa.Address"></textarea>-->
+                    <span style="font-size:small" class="form-control input-sm">{{publicLink}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Signin URL
+                    </label>
+                    <!--<textarea class="form-control input-sm" ng-model="tpa.Address"></textarea>-->
+                    <span style="font-size: small" class="form-control input-sm">{{signInLink}}</span>
+                </div>
+
+                <input type="button" class="btn btn-primary pull-right" ng-click="saveOrUpdateTpa()" ng-value="(!tpa.Id) ? 'Save':'Update'" ng-disabled="myForm.$invalid" />
+
+
+            </div>
+            <!--<div class="col-md-6">
+
+
+            </div>-->
+            <!--<div class="col-md-12">
+
+            </div>-->
+        </div>
+
+        <!--</form>-->
+        </div>
+    </div>
+

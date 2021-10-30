@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="TASTPA" table="TPA" dynamic-update="true" >
+    <cache usage="read-write"/>
+  
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="Name" />
+    <property name="TelNumber" />
+    <property name="Address" />
+    <property name="Banner" />
+    <property name="Logo" />
+    <property name="DiscountDescription" />
+    <property name="DBName" />
+    <property name="DBConnectionString" />
+    <property name="DBConnectionStringViewOnly" />
+    <property name="OriginalTPAName" />
+    
+
+  </class>
+</hibernate-mapping>

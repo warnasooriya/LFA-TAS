@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="PolicyTax" table="PolicyTax" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+   
+    <property name="PolicyId" />
+    <property name="TaxTypeId" />
+    <property name="TaxValue"  precision="18" scale="8" />
+    <property name="IsOnPreviousTax" />
+    <property name="IsPercentage" />
+    <property name="IsOnNRP" />
+    <property name="IsOnGross" />
+    <property name="IndexVal" />
+    <property name="ValueIncluededInPolicy"   precision="18" scale="8"/>
+    
+
+    
+  </class>
+</hibernate-mapping>

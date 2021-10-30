@@ -1,0 +1,4 @@
+2020-11-20 09:51:32.9224 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-20 10:02:52.0814 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-20 10:06:16.9860 TAS.Web.Controllers.ClaimController GetAllClaimDashboardStatus: exception: Object reference not set to an instance of an object., 
+2020-11-20 10:07:44.2491 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 

@@ -1,0 +1,161 @@
+﻿<div ng-app="LFA" ng-controller="ReinsurerReceiptCtrl as ReinsurerReceiptController" ng-init="">
+
+    <style>
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        #partsTable > tbody > tr > td {
+            height: 30px;
+            padding: 0px;
+            border-top: 0px;
+        }
+    </style>
+
+
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">Reinsurer Receipt </h1>
+                    <span class="mainDescription TitleModifier">You can record reinsure receipt here.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div ng-form="myForm" class="my-form">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Re-Insurer
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-model="reinsurer.Id" ng-class="validate_reInsurer" name="Id"
+                                ng-change=""
+                                ng-options="n.Id as n.ReinsurerName for n in reinsurers">
+                            <option value=""> Please Select </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Insurer
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-model="insurer.Id" ng-class="validate_insurer" name="Id"
+                                ng-change=""
+                                ng-options="n.Id as n.InsurerShortName for n in insurers">
+                            <option value=""> Please Select </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Bordereaux Year
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-model="Bordx.BordxYear" ng-class="validate_Year" name="Year"
+                                ng-change="GetBordxNum()"
+                                ng-options="n.BordxYear as n.BordxYear for n in Bordxs  | unique:'BordxYear'">
+                            <option value="">Please Select </option>
+                        </select>
+                    </div>
+                </div>
+               
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+           
+           
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <table id="partsTable" class="table table-bordered table-striped ">
+                    <thead class="ngTableheader">
+                        <tr>
+
+                            <th>Bordx No</th>
+                            <th>Bordx Amount</th>
+                            <th>Paid Amount</th>
+                            <th>Bordx Month</th>
+                            <th>RefNo</th>
+                            <th>Invoice Received Date</th>
+                            <th></th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr ng-repeat=" p in BordxPayments track by $index">
+                            <td align="center">{{p.BordxNumber}}</td>
+                            <td align="center">{{p.BordxAmount | number:2}}</td>
+                            <td align="center">{{p.PaidAmount | number:2}}</td>
+                            <td align="center">{{p.Bordxmonth==1?'January':p.Bordxmonth==2?'February':p.Bordxmonth==3?'March':p.Bordxmonth==4?'April':p.Bordxmonth==5?'May':p.Bordxmonth==6?'June':p.Bordxmonth==7?'July':p.Bordxmonth==8?'August':p.Bordxmonth==9?'September':p.Bordxmonth==10?'October':p.Bordxmonth==11?'November':'December'}}</td>
+                            <td align="center">{{p.RefNo}}</td>
+                            <td align="center">{{p.InvoiceReceivedDate}}</td>
+                            <td align="center">
+                                <button class="btn-xs btn-primary" ng-click="SetBordxPayments(p.Id,p.BordxAmount,p.BalanceAmount,p.PaidAmount,p.RefNo)" ng-disabled="{{p.IsPaid == true?true:false}}">{{p.IsPaid == true?'Paid':'Payment'}}</button>
+                            </td>
+                        </tr>
+                        <tr ng-show="BordxPayments==null || BordxPayments.length==0">
+                            <td align="center" colspan="7"><h4>No Data.</h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <!--<h4>Payment</h4>-->
+                <h4><span><kbd>Payment Details</kbd></span></h4>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Bordx Amount :
+                        </label>
+                        <input type="text" class="form-control input-sm" ng-model="BordxPayment.BordxAmount" ng-class="validate_BordxAmount" disabled="disabled" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Paid Amount :
+                        </label>
+                        <input type="number" class="form-control input-sm" ng-model="BordxPayment.PaidAmount" ng-class="validate_PaidAmount" ng-change="calBalance()" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Balance Amount :
+                        </label>
+                        <input type="text" class="form-control input-sm" ng-model="BordxPayment.BalanceAmount" ng-class="validate_BalanceAmount" disabled="disabled" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Reference No :
+                        </label>
+                        <input type="text" class="form-control input-sm" ng-model="BordxPayment.RefNo" ng-class="validate_RefNo" />
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-offset-9">
+                    <br />
+                    <button class="btn btn-primary  btn-info" style="width:100%" ng-disabled="BordrxPaymtSaveBtnDisabled" ng-click="saveBordxPayment()">
+                        {{'Save'}}
+                        <i ng-class="BordrxPaymtSaveBtnIconClass"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>

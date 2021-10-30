@@ -1,0 +1,512 @@
+﻿<div style="margin-left: 30px; margin-right: 30px" ng-app="clip-two"
+     ng-controller="UserManagementCtrl as UserManagementController" ng-init="loadInitailData()">
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        .custom {
+            height: 14px;
+        }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .error {
+            color: red;
+        }
+
+        .ngdialog-content {
+            width: 900px !important;
+            height: 550px !important;
+        }
+
+        .grid {
+            height: 200px;
+        }
+
+        .fixedHeight {
+            height: 24px;
+        }
+
+        .btn {
+            /*width: 100%;*/
+/**/            height: 30px;
+            line-height: 30px;
+            padding-top: 0px;
+        }
+
+        .fixed-height {
+            height: 250px;
+        }
+
+        .multiselect-dropdown .dropdown-btn {
+            height: 30px;
+            line-height: 30px;
+            padding-top: 0px;
+        }
+    </style>
+
+    <section id="page-title">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">{{'pages.userManagement.title' | translate }}</h1>
+                    <span class="mainDescription TitleModifier">{{'pages.userManagement.mainDescription' | translate }}</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <span class="btn btn-twitter pull-right" ng-click="searchPopup()">
+                    <i class="fa fa-files-o"></i>
+                    | {{'pages.userManagement.user' | translate }}
+                </span>
+                <span ng-show="!formAction" ng-click="resetAll()" style="margin-right:10px" class="btn btn btn-beige pull-right">
+                    <i class=" fa fa-asterisk">
+                    </i>
+                    | {{'pages.userManagement.addnew' | translate }}
+                </span>
+            </div>
+        </div>
+
+    </section>
+
+<!--Search User-->
+<script type="text/ng-template" id="popUpSearchUser">
+
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 800px !important;
+            height: 420px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+    </style>
+
+
+    <div>
+        <h3 class="">{{'pages.userManagement.searchUser' | translate }}</h3>
+        <div name="myForm" class="my-form">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'pages.userManagement.firstName' | translate }}:</label>
+                        <input type="text" class="form-control input-sm" ng-model="UserSearchGridSearchCriterias.firstName">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'pages.userManagement.lastName' | translate }}:</label>
+                        <input type="text" class="form-control input-sm" ng-model="UserSearchGridSearchCriterias.lastName">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'pages.userManagement.ëmail' | translate }}:</label>
+                        <input type="text" class="form-control input-sm" ng-model="UserSearchGridSearchCriterias.email">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'pages.userManagement.mobileNo' | translate }}:</label>
+                        <input type="text" class="form-control input-sm" ng-model="UserSearchGridSearchCriterias.mobileNo" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="col-md-12" style="margin-top:5px">
+                <div class="ngdialog-buttons">
+                    <input type="button" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="searchPopupReset()" value="{{'pages.userManagement.Reset' | translate }}">
+                    <input type="button" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="refresUserSearchGridData()" value="{{'pages.userManagement.Search' | translate }}">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="margin-top:5px">
+                    <div class="grid" ui-grid-pagination ui-grid="gridOptionsUser">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsUser.data.length>0 && UserSearchGridloadAttempted">
+                            <div class="msg">
+                                <span>{{'pages.userManagement.noData' | translate }}</span>
+                            </div>
+                        </div>
+
+                        <div class="grid-msg-overlay" ng-hide="!UserSearchGridloading">
+                            <div class="msg">
+                                <span>
+                                    {{'pages.userManagement.loadingData' | translate }}
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="ngdialog-buttons">
+        <input type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('Closed')" value="LOAD" />
+    </div>-->
+</script>
+
+<div role ="form" id="form" ng-form="myForm" class="my-form">
+    <div class="col-md-12">
+        <div class="alert alert-danger" ng-show="errorTab1!=''">
+            {{errorTab1}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.userManagement.firstName' | translate }}
+                </label><span class="error" ng-show="myForm.firstname.$error.required">*</span>
+                <input type="text" placeholder="{{'pages.userManagement.firstName' | translate }}" class="form-control  input-sm " id="firstname" tabindex="1"
+                       name="firstname" ng-model="User.FirstName" ng-class="validate_FirstName" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.userManagement.lastName' | translate }}
+                </label>
+                <input type="text" placeholder="{{'pages.userManagement.lastName' | translate }}" class="form-control  input-sm " id="lastname" name="lastname"
+                       ng-model="User.LastName" tabindex="2">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="form-field-1">
+                    {{'pages.userManagement.nationality' | translate }}
+                </label><span class="error" ng-show="myForm.Nationality.$error.required">*</span>
+                <select name="Nationality" id="drpNationality" class="form-control  input-sm " ng-model="User.NationalityId"
+                        ng-options="n.Id as n.NationalityName for n in Nationalities" ng-class="validate_NationalityId" tabindex="3"
+                        required>
+                    <option value="">{{'common.pleaseSelect' | translate }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="form-field-1">
+                    {{'pages.userManagement.country' | translate }}
+                </label><span class="error" ng-show="myForm.Country.$error.required">*</span>
+                <select name="Country" id="drpCountry" class="form-control  input-sm " ng-model="User.CountryId"
+                        ng-options="c.Id as c.CountryName for c in countries" tabindex="4" ng-class="validate_CountryId"
+                        ng-change="SetPhoneCode()"
+                        required>
+                    <option value="">{{'common.pleaseSelect' | translate }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.userManagement.branch' | translate }}
+                </label>
+                <div ng-dropdown-multiselect="" options="BranchesList"  style="height:30px;line-height:30px"
+                     events="{ onItemSelect: SendBranches,onItemDeselect:SendBranches }"
+                     selected-model="BranchesSelectedList" extra-settings="settings" translation-texts="CustomText" tabindex="6">
+                </div>
+                <!--<div class="ScrollHeight">
+                <ul>
+                    <li ng-repeat="x in BranchesSelectedDList">
+                        {{x}}
+                    </li>
+                </ul>
+            </div>-->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.userManagement.emailAddress' | translate }}
+                </label><span class="error" ng-show="myForm.email.$error.required">*</span>
+                <input type="email" placeholder="peter@example.com" class="form-control  input-sm " id="email" tabindex="7" ng-class="validate_Email"
+                       name="email" ng-model="User.Email" required>
+                <span class="error" ng-show="myForm.email.$error.email">
+                    {{'pages.userManagement.notvalidemail' | translate }}
+                </span>
+                <span class="error" ng-show="validation.userName">
+                    {{'pages.userManagement.emailAlreadyExists' | translate }}
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.userManagement.mobilePhone' | translate }}
+                </label><span class="error" ng-show="myForm.mobilePhone.$error.required">*</span>
+                <input type="text" placeholder="{{'pages.userManagement.mobilePhone' | translate }}" class="form-control  input-sm " id="mobilePhone" tabindex="8" ng-class="validate_MobileNo"
+                       name="mobilePhone" ng-model="User.MobileNo" required>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.userManagement.otherPhone' | translate }}
+                </label>
+                <input type="text" placeholder="{{'pages.userManagement.otherPhone' | translate }}" class="form-control  input-sm " id="otherPhone" tabindex="9"
+                       name="otherPhone" ng-model="User.OtherTelNo">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.userManagement.internalExtension' | translate }}
+                </label>
+                <input type="tel" placeholder="{{'pages.userManagement.otherPhone' | translate }}" class="form-control  input-sm " id="otherPhone" name="otherPhone"
+                       ng-model="User.InternalExtension" tabindex="10">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.userManagement.gender' | translate }}
+                </label>
+                <div>
+                    <label class="radio-inline">
+                        <input type="radio" class="grey" value="F" name="gender" id="gender_female" ng-model="User.Gender" tabindex="11">
+                        {{'pages.userManagement.female' | translate }}
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" class="grey" value="M" name="gender" id="gender_male" ng-model="User.Gender" tabindex="12">
+                        {{'pages.userManagement.male' | translate }}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.userManagement.address' | translate }}
+                        </label>
+                        <input type="text" placeholder="Address1" class="form-control  input-sm " id="Address1" name="Address1" ng-model="User.Address1" tabindex="13"><div class="custom"></div>
+                        <input type="text" placeholder="Address2" class="form-control  input-sm " id="Address2" name="Address2" ng-model="User.Address2" tabindex="14"><div class="custom"></div>
+                        <input type="text" placeholder="Address3" class="form-control  input-sm " id="Address3" name="Address3" ng-model="User.Address3" tabindex="15"><div class="custom"></div>
+                        <input type="text" placeholder="Address4" class="form-control  input-sm " id="Address4" name="Address4" ng-model="User.Address4" tabindex="16">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.userManagement.profilePicture' | translate }}
+                        </label>
+                        <img ng-src="data:image/JPEG;base64,{{User.ProfilePictureByte}}"
+                             class=" img-responsive"
+                             ng-show="isShowing(User.ProfilePicture)"
+                             alt="User ProfilePicture" />
+                        <input type="file"
+                               ng-model="User.ProfilePicture"
+                               uploader="uploader1" nv-file-select="" tabindex="17" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.userManagement.userRole' | translate }}
+                        </label>
+                        <div ng-dropdown-multiselect="" options="RoleList" class=" input-sm "
+                             events="{ onItemSelect: SendRoles,onItemDeselect:SendRoles }"
+                             selected-model="RoleSelectedList" extra-settings="settings" translation-texts="CustomText" tabindex="18">
+                        </div>
+                        <div class="ScrollHeight">
+                            <ul>
+                                <li ng-repeat="x in RoleSelectedDList">
+                                    {{x}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.userManagement.dateOfBirth' | translate }}
+                        </label>
+                        <input type="text" placeholder="Click for Calendar" class="form-control  input-sm " ng-model="User.DateOfBirth"
+                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate max-date="maxdate"
+                               ng-click="startOpenb = !startOpenb" is-open="startOpenb" ng-init="startOpenb = false"
+                               close-text="Close" tabindex="19" datepicker-append-to-body="true"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.userManagement.userName' | translate }}
+                        </label><span class="error" ng-show="myForm.UserName.$error.required">*</span>
+                        <input type="text" placeholder="User Name" class="form-control  input-sm "   id="UserName" ng-class="validate_UserName"
+                               name="UserName" ng-model="User.UserName" ng-blur="checkUserNameAvailability()" maxlength="10" tabindex="20" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.userManagement.password' | translate }}
+                        </label><span class="error" ng-show="myForm.password.$error.required">*</span>
+                        <input type="password" placeholder="Password : Minimum 6 characters" class="form-control  input-sm " name="password" tabindex="21" ng-class="validate_Password"
+                               id="password" ng-blur="checkPasswordMatch()" ng-model="User.Password" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.userManagement.confirmPassword' | translate }}
+                        </label><span class="error" ng-show="myForm.confirm_password.$error.required">*</span>
+                        <input type="password" placeholder="{{'pages.userManagement.minimumsixCharacters' | translate }}" class="form-control  input-sm " ng-class="validate_passwordAgain"
+                               id="password_again" ng-model="passwordAgain" name="confirm_password" tabindex="22" ng-blur="checkPasswordMatch()" required data-password-verify="User.Password">
+                        <span class="error" ng-show="validation.password">{{'pages.userManagement.passwordsdoesnotmatch' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label" for="form-field-1">
+                    {{'pages.userManagement.language' | translate }}
+                </label><span class="error" ng-show="myForm.Language.$error.required">*</span>
+                <select name="Language" id="drpLanguage" class="form-control  input-sm " ng-model="User.LanguageId"
+                        ng-options="c.Id as c.Language for c in LanguageList" tabindex="23" ng-class="validate_LanguageId"
+                        required>
+                    <option value="">{{'common.pleaseSelect' | translate }}</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4">
+            <span ng-show="myForm.$error.required || validation.password || validation.userName">
+                {{'pages.userManagement.pleasefill' | translate }}
+            </span>
+            <!--<input type="button" id="submit"
+                   class="btn btn-primary btn-block"
+                   ng-disabled="myform.$error || validation.password || validation.userName"
+                   value="{{savebuttonName}}" ng-click="UserSubmit()" />-->
+
+            <button id="submit" class="btn btn-primary btn-block" tabindex="23" ng-disabled="myform.$error || validation.password || validation.userName || UserSaveBtnDisabled" ng-click="UserSubmit()">
+                {{'pages.userManagement.save' | translate }} <!--{{User.Id=='00000000-0000-0000-0000-000000000000' ? 'Create Account':'Update Account'}}-->  <i ng-class="UserSaveBtnIconClass"></i>
+            </button>
+        </div>
+    </div>
+    <div class="fixed-height"></div>
+    </div>
+    </div>
+

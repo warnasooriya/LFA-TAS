@@ -1,0 +1,60 @@
+﻿<!-- start: FORGOT -->
+<div ng-app="clip-two" ng-controller="verifyEmailCtrl as verifyEmailController" ng-init="pageValidityCheck()">
+    <div class="row">
+        <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+
+            <div class="logo">
+                <!--<img ng-src="{{app.layout.logo}}" alt="{{app.name}}" />-->
+            </div>
+            <!-- start: FORGOT BOX -->
+            <div class="box-forgot">
+                <form class="form-forgot">
+                    <!--<div class="alert alert-danger" ng-show="err==1">
+                        <span>{{Errormsg}}</span>
+
+                    </div>-->
+                    <fieldset>
+
+                        <p style="color:#fff !important;font-size:16px;">
+                            Your account has been successfully verified.<br />
+                        </p>
+
+                        <br />
+                        <div class="form-actions">
+                            <!-- <a href="{ResetPasswordLink}" target="_blank" style="text-decoration:none;">-->
+                            <button type="button" class="btn btn-primary center" ng-click="redirectHomePage()">
+                                Go to home page <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <!-- start: COPYRIGHT -->
+                <div class="copyright" style="color:#fff !important;font-size:12px;">
+                    <!--{{app.year}} &copy; {{ app.name }} by {{ app.author }}.-->
+                    &copy; 2015-2020 <a onmouseover='this.style.color = "#dceeff"'
+                                        onmouseout='this.style.color="#fff"' href="http://www.leftfieldassurance.com" target="_blank" style="text-decoration:none;color:#fff">Leftfield Assurance</a> | All Rights Reserved.
+                </div>
+                <!-- end: COPYRIGHT -->
+
+
+            </div>
+            <!-- end: FORGOT BOX -->
+        </div>
+        <style type="text/css">
+            body {
+                background: url("/TAS.Web/STANDARD/assets/images/new_LoginBg.jpg") no-repeat #4e6c86;
+            }
+
+            .main-login .box-login, .main-login .box-forgot, .main-login .box-register {
+                background: rgba(228,228,228,0.28);
+                border: solid rgba(255,255,255,0.19) 1px;
+            }
+
+            .form-group {
+                margin-bottom: -20px !important;
+            }
+        </style>
+    </div>
+    <!-- end: FORGOT -->
+</div>

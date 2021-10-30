@@ -1,0 +1,15 @@
+2021-01-05 11:21:11.8820 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-01-05 11:21:12.7840 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - suranjika
+2021-01-05 11:21:27.3717 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-01-05 11:21:28.2663 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - suranjika
+2021-01-05 11:21:34.9330 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-01-05 11:21:35.7628 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - suranjika
+2021-01-05 11:21:39.2606 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-01-05 11:21:40.0739 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - suranjika
+2021-01-05 11:21:47.0509 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-01-05 11:21:48.8913 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDk4MjU5MDcsImp0aSI6IjIxYjVmNGYzLWYyNDAtNDM0My04YmZjLTQzNjQ3ODQ3YzE5ZiIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.YwjehdkPNKK5KZJYFtzVIaOtJ9n_FYSeAvaMUQ-qyVw
+2021-01-05 11:22:47.7463 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDk4MjU5MDcsImp0aSI6IjIxYjVmNGYzLWYyNDAtNDM0My04YmZjLTQzNjQ3ODQ3YzE5ZiIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.YwjehdkPNKK5KZJYFtzVIaOtJ9n_FYSeAvaMUQ-qyVw
+2021-01-05 11:23:07.9805 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - Suranji
+2021-01-05 11:23:09.8182 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - Suranji token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDk4MjU5ODgsImp0aSI6IjVhNGM5ODkxLTVmMDAtNDkwMC1iZTE3LTgyYWUwMzJkYjExMyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJTdXJhbmppIiwic2hhcmVka2V5IjoiYWJjZSJ9.CgJ8OHnKff9jh4n5Af9jZAbTG-mHZNoKzEJwkPmoB2I
+2021-01-05 11:23:42.2585 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-01-05 11:23:42.4829 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache

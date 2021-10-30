@@ -1,0 +1,134 @@
+2021-09-27 11:18:34.2652 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-09-27 11:19:24.3241 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2021-09-27 11:23:21.4331 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-09-27 11:24:17.5382 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2021-09-27 11:56:19.3612 TAS.Services.Entities.Management.TempBulkUploadEntityManager SaveTempBulkData: exception: could not execute query
+[ exec UploadBulkPolicyADT @TempBulkUploadId=@p0 ]
+  Name:TempBulkUploadId - Value:7c527054-715e-4a0f-a158-18d9d9b83e3a
+[SQL: exec UploadBulkPolicyADT @TempBulkUploadId=@p0], System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'UploadBulkPolicyADT'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:9e688e33-a355-4373-be75-4f154ba9d879
+Error Number:2812,State:62,Class:16
+2021-09-27 11:56:19.3992 TAS.Web.Controllers.TempBulkUploadController SaveBulkUpload: exception: could not execute query
+[ exec UploadBulkPolicyADT @TempBulkUploadId=@p0 ]
+  Name:TempBulkUploadId - Value:7c527054-715e-4a0f-a158-18d9d9b83e3a
+[SQL: exec UploadBulkPolicyADT @TempBulkUploadId=@p0], System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'UploadBulkPolicyADT'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:9e688e33-a355-4373-be75-4f154ba9d879
+Error Number:2812,State:62,Class:16
+2021-09-27 11:57:13.9448 TAS.Services.Entities.Management.TempBulkUploadEntityManager SaveTempBulkData: exception: could not execute query
+[ exec UploadBulkPolicyADT @TempBulkUploadId=@p0 ]
+  Name:TempBulkUploadId - Value:7c527054-715e-4a0f-a158-18d9d9b83e3a
+[SQL: exec UploadBulkPolicyADT @TempBulkUploadId=@p0], System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'UploadBulkPolicyADT'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:a021c8ef-dbd8-4f0d-b879-cf4854057e54
+Error Number:2812,State:62,Class:16
+2021-09-27 11:57:13.9878 TAS.Web.Controllers.TempBulkUploadController SaveBulkUpload: exception: could not execute query
+[ exec UploadBulkPolicyADT @TempBulkUploadId=@p0 ]
+  Name:TempBulkUploadId - Value:7c527054-715e-4a0f-a158-18d9d9b83e3a
+[SQL: exec UploadBulkPolicyADT @TempBulkUploadId=@p0], System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'UploadBulkPolicyADT'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:a021c8ef-dbd8-4f0d-b879-cf4854057e54
+Error Number:2812,State:62,Class:16
+2021-09-27 13:54:31.8362 TAS.Services.Entities.Management.UserEntityManager GetUserById: exception: a different object with the same identifier value was already associated with the session: 97e735f7-8b14-4608-bc8a-97c6e16e6926, of entity: TAS.Services.Entities.UserType, 
+2021-09-27 13:54:40.4648 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---> System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---> System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2021-09-27 14:07:52.5365 TAS.Web.Controllers.ContractManagementController GetLinkContracts: exception: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index, 
+2021-09-27 14:09:02.1097 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 
+2021-09-27 14:14:48.0709 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-27 14:15:20.9104 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-27 14:17:40.3357 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-27 14:18:27.9502 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-27 14:18:40.1904 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-27 14:21:11.1876 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-27 14:22:27.7600 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-27 14:22:42.5621 TAS.Services.Entities.Management.PolicyEntityManager GetEMIValue: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.InsuaranceLimitationId), 
+2021-09-27 14:27:07.7485 TAS.Services.Entities.Management.NotificationEntityManager MoveNext: exception: An error occurred while sending the request., System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a send. ---> System.IO.IOException: Unable to read data from the transport connection: An existing connection was forcibly closed by the remote host. ---> System.Net.Sockets.SocketException: An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at System.Net.Sockets.NetworkStream.EndRead(IAsyncResult asyncResult)
+   --- End of inner exception stack trace ---
+   at System.Net.TlsStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.PooledStream.EndWrite(IAsyncResult asyncResult)
+   at System.Net.ConnectStream.WriteHeadersCallback(IAsyncResult ar)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)

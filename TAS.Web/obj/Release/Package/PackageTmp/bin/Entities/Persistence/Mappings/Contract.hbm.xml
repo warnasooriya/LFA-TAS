@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="Contract" table="Contract" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="CountryId" />
+    <property name="DealerId" />
+    <property name="CommodityTypeId" />
+    <property name="CommodityCategoryId" />
+    
+    <property name="ProductId" />
+    <property name="LinkDealId" />
+    <property name="DealName" />
+    <property name="DealType" />
+    <property name="InsurerId" />
+    <property name="IsAutoRenewal" />
+    <property name="IsPromotional" />
+    <property name="DiscountAvailable" />
+    <property name="IsActive" />
+    <property name="StartDate" />
+    <property name="EndDate" />
+    <property name="Remark" />
+    <property name="EntryDateTime" />
+    <property name="EntryUser" />
+    <property name="ClaimLimitation" precision="18" scale="8"  />
+    <property name="LiabilityLimitation" precision="18" scale="8"  />
+    <property name="CommodityUsageTypeId" />
+    <property name="labourChargeApplicableOnPolicySold" />
+    <property name="ReinsurerContractId" />
+    <property name="ConversionRate" precision="18" scale="8" />
+    <property name="CurrencyId" />
+    <property name="CurrencyPeriodId" />
+    <property name="IsPremiumVisibleToDealer" />
+    <property name="AnnualInterestRate" />
+
+
+
+    
+  </class>
+</hibernate-mapping>

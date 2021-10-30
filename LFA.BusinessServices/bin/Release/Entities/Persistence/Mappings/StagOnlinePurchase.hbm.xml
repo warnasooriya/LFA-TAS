@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="StagOnlinePurchase" table="StagOnlinePurchase" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="StagOnlinePurchaseID" column="StagOnlinePurchaseID" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="PurchaseDate" />
+    <property name="CustomerID" type="Guid"/>
+    <property name="DealerID" type="Guid"/>
+    <property name="DealerLocationId" type="Guid"/>
+    <property name="VINNo" />
+    <property name="VehicleCategoryID" type="Guid"/>
+    <property name="MakeID" type="Guid"/>
+    <property name="ModelID" type="Guid"/>
+    <property name="Status"/>
+    <property name="ModelYear"/>
+    <property name="VarientID" type="Guid"/>
+    <property name="EngineCapacityId" type="Guid"/>
+    <property name="CeylinderCountID" type="Guid"/>
+    <property name="FuelTypeID" type="Guid"/>
+    <property name="TransmissionID" type="Guid"/>
+    <property name="DriveTypeID" type="Guid"/>
+    <property name="BodyTypeID" type="Guid"/>
+    <property name="AspirationID" type="Guid"/>
+    <property name="VehiclePurchaseDate"/>
+    <property name="PlateNo" />
+    <property name="VehiclePrice" />
+    <property name="ExtensionTypeID" type="Guid"/>
+    <property name="MilageAtPolicySale" />
+    <property name="ItemCategoryID" type="Guid"/>
+    <property name="SerialNo" />
+    <property name="InvoiceNo" />
+    <property name="AddnSerialNo" />
+    <property name="ItemPrice" />
+    <property name="HrsUsedAtPolicySale"/>
+    <property name="ContractID" type="Guid"/>
+    <property name="StartDate" />
+    <property name="EndDate" />
+    <property name="SelectedPremium"/>
+
+
+  </class>
+</hibernate-mapping>

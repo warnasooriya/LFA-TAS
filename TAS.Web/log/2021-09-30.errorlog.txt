@@ -1,0 +1,19 @@
+2021-09-30 11:41:36.4234 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-09-30 11:41:46.1014 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-09-30 11:41:56.6918 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-09-30 11:41:58.2813 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-09-30 11:50:32.7763 TAS.Services.Entities.Management.BordxEntityManager GetAllBordxReportTemplateForSearchGrid: exception: Could not execute query[SQL: SQL not available], System.NullReferenceException: Object reference not set to an instance of an object.
+   at lambda_method(Closure , Object[] )
+   at NHibernate.Linq.ResultTransformer.TransformTuple(Object[] tuple, String[] aliases)
+   at NHibernate.Loader.Hql.QueryLoader.GetResultList(IList results, IResultTransformer resultTransformer)
+   at NHibernate.Loader.Loader.ListIgnoreQueryCache(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Loader.Loader.List(ISessionImplementor session, QueryParameters queryParameters, ISet`1 querySpaces, IType[] resultTypes)
+   at NHibernate.Loader.Hql.QueryLoader.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Hql.Ast.ANTLR.QueryTranslatorImpl.List(ISessionImplementor session, QueryParameters queryParameters)
+   at NHibernate.Engine.Query.HQLQueryPlan.PerformList(QueryParameters queryParameters, ISessionImplementor session, IList results)
+   at NHibernate.Impl.SessionImpl.List(IQueryExpression queryExpression, QueryParameters queryParameters, IList results)
+2021-09-30 14:45:30.5700 TAS.Services.Entities.Management.BordxEntityManager GetBordxReportTemplates: exception: Specified method is not supported., 

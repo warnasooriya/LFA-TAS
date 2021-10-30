@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="Manufacturer" table="Manufacturer" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="ManufacturerCode" />
+    <property name="ManufacturerName" />
+    <property name="ManufacturerClassId" />
+    <property name="IsWarrentyGiven" />
+    <property name="IsActive" />
+    <property name="EntryDateTime" />
+    <property name="EntryUser" />
+  </class>
+</hibernate-mapping>

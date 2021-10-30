@@ -1,0 +1,12 @@
+2021-07-29 09:22:44.0297 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - LFADemo
+2021-07-29 09:22:47.4761 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - LFADemo token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjc1MzA3NjYsImp0aSI6IjFmNmVmZWQ0LTE1NTItNGVlNC04OTU1LWFjNDg3MzQxNzk5OCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJMRkFEZW1vIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6IjBkZjMyMzNkLTg0ZTEtNDdkMy1iZjg1LTBlOWNiZjVmYjBkNCJ9.IpPRdDBb3N8KIHykrXVI4dC5dW7qXs3RzHJJnXCYcww
+2021-07-29 09:34:33.0573 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-07-29 09:34:34.4427 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-07-29 09:34:35.0427 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-07-29 09:34:35.4147 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-07-29 09:34:35.8194 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-07-29 09:34:35.8194 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-07-29 09:34:35.8194 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-07-29 09:34:36.2246 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-07-29 09:34:36.7848 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-07-29 09:34:36.7848 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning

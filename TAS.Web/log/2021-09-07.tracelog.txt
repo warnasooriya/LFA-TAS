@@ -1,0 +1,186 @@
+2021-09-07 09:15:57.3557 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - CM
+2021-09-07 09:15:57.5127 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - CM token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzA5ODYzNTcsImp0aSI6IjQ2ZjFmMTIxLWQ2Y2ItNDlmNy05M2EwLTIwMTk2ZGE2ZDJmMSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJDTSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjYTNlNzEwZi03MGQzLTRlYzMtYWMzNC1iNjFkY2Q0M2FjODYifQ.Mz6OmVmcXnN2iWCSL5uWTEoh8hNIvMl20DIqH3OzBlA
+2021-09-07 09:19:04.0872 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 09:19:04.1073 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 09:19:04.1073 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 09:19:04.4032 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 09:19:04.4032 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 09:19:10.5013 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 09:19:10.5063 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 09:20:22.5429 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 09:20:22.5674 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 09:20:22.6124 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 09:20:22.6200 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 09:20:22.6200 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 09:20:25.5029 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 09:20:25.5029 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 09:20:44.4891 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 09:20:44.5245 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 09:20:44.5245 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 09:20:44.5445 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 09:20:44.5445 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 09:20:44.8825 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 09:20:45.0240 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 09:52:19.6738 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 09:52:22.8286 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 09:52:22.8456 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 09:52:22.9396 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 09:52:22.9396 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 09:52:29.5830 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 09:52:29.5870 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 09:53:28.4310 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 09:53:28.4777 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 09:53:28.4777 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 09:53:28.5427 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 09:53:28.5427 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 09:53:31.5920 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 09:53:31.5920 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 09:54:30.1766 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 09:54:30.3507 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 09:54:30.3857 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 09:54:30.4517 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 09:54:30.4517 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 09:54:33.1105 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 09:54:33.1105 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 09:59:26.8128 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 09:59:26.8608 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 09:59:26.9748 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 09:59:27.1018 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 09:59:27.1018 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 09:59:29.0526 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 09:59:29.0526 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:00:43.6079 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:00:43.7059 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:00:43.7419 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:00:43.7419 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:00:43.7419 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:00:47.1876 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:00:47.1876 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:08:07.3241 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:08:07.3992 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:08:07.4652 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:08:07.5352 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:08:07.5352 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:08:08.8918 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:08:08.8918 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:11:24.0047 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:11:24.0591 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:11:24.0591 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:11:24.1401 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:11:24.1401 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:19:02.9720 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:19:03.0070 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:19:03.0070 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:19:03.0800 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:19:03.0800 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:19:09.1081 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:19:09.1081 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:19:43.1233 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:19:43.1453 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:19:43.1855 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:19:43.2605 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:19:43.2605 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:19:45.0883 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:19:45.0883 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:19:51.1867 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:19:51.2298 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:19:51.3129 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:19:51.4418 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:19:51.4428 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:19:55.5244 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:19:55.5244 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:25:31.5684 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:25:33.8497 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:25:33.8497 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:25:33.9327 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:25:33.9327 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:25:40.5193 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:25:40.5423 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:25:43.4163 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:25:43.4548 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:25:43.4548 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:25:43.4628 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:25:43.4628 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:25:48.8223 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:25:48.9282 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:27:15.5775 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:27:15.6435 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:27:15.6475 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:27:15.7148 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:27:15.7148 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:46:36.9294 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:46:39.1460 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:46:39.1460 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:46:39.2310 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:46:39.2310 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:46:45.6960 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:46:45.6960 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:47:18.2763 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:47:18.3179 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:47:18.3179 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:47:18.3829 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:47:18.3829 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:47:19.5557 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:47:19.5557 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:47:33.4501 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:47:33.4501 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 10:47:36.4373 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:47:36.4713 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:47:36.4713 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:47:36.4783 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:47:36.4783 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:58:58.7636 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 10:58:58.8626 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 10:58:58.9046 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 10:58:58.9766 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 10:58:58.9766 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 10:59:02.8408 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 10:59:02.8408 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 11:34:06.0036 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 11:34:06.2096 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 11:34:06.2096 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 11:34:06.2846 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 11:34:06.2846 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 11:34:12.8031 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 11:34:12.8031 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 12:18:04.6994 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzA5ODYzNTcsImp0aSI6IjQ2ZjFmMTIxLWQ2Y2ItNDlmNy05M2EwLTIwMTk2ZGE2ZDJmMSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJDTSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjYTNlNzEwZi03MGQzLTRlYzMtYWMzNC1iNjFkY2Q0M2FjODYifQ.Mz6OmVmcXnN2iWCSL5uWTEoh8hNIvMl20DIqH3OzBlA
+2021-09-07 12:18:11.1142 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - CM
+2021-09-07 12:18:11.2252 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - CM token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzA5OTcyOTEsImp0aSI6IjhkNzQ2ZGUyLWFmNDYtNDRlNC1hNzU0LTQwNDE4YTEyMmRjOCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJDTSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjYTNlNzEwZi03MGQzLTRlYzMtYWMzNC1iNjFkY2Q0M2FjODYifQ.MtoVZf7jXbalU0RcoSrKApFkEzXlkK3qs3p0J11P5X0
+2021-09-07 13:51:07.4237 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - CM
+2021-09-07 13:51:07.5597 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - CM token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzEwMDI4NjcsImp0aSI6ImNjOGRiNGMxLWIyMjktNGNiZC1hOWY1LTAwZDY0MTE0MWI4ZSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJDTSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjYTNlNzEwZi03MGQzLTRlYzMtYWMzNC1iNjFkY2Q0M2FjODYifQ.SIgvdN6dvso4gXuIkzoZaH2hjs9SL3JJGdFstdzZLb4
+2021-09-07 14:12:19.0873 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 14:12:19.1343 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 14:12:19.1343 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 14:12:19.4849 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 14:12:19.4849 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 14:12:25.5634 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 14:12:25.5854 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 14:12:49.9759 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 14:12:49.9759 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 14:13:00.2723 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 14:13:00.2982 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 14:13:00.3022 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 14:13:00.4712 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 14:13:00.4712 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 14:25:11.0447 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 14:25:11.0987 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 14:25:11.0987 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 14:25:11.1967 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 14:25:11.1967 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 15:20:37.6086 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 15:20:37.6426 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 15:20:37.6526 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 15:20:37.8206 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 15:20:37.8206 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 15:20:44.1053 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 15:20:44.1263 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 15:21:16.8108 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 15:21:16.8398 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-09-07 15:21:16.8498 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-09-07 15:21:16.9499 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-09-07 15:21:16.9499 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-09-07 15:21:17.9912 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-09-07 15:21:18.0232 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-09-07 17:45:03.2423 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-09-07 17:45:28.1832 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - CM
+2021-09-07 17:45:28.3653 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - CM token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MzEwMTY5MjgsImp0aSI6ImJiOTJmYjJiLWEzNDUtNGNiYi1hNDNiLTZjMjljODcwMGNjOCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJDTSIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjYTNlNzEwZi03MGQzLTRlYzMtYWMzNC1iNjFkY2Q0M2FjODYifQ.hh3n5_a4y64nkhAD5vkyijk06-jeJW-pxsG4E1lmuos

@@ -1,0 +1,1210 @@
+﻿<div ng-app="LFA" ng-controller="ClaimInquiryCtrl as ClaimInquiryController" ng-init="loadInitailData()">
+
+    <style>
+
+        .right-align-text {
+            float: right;
+            margin-right: 5px;
+        }
+
+        .right-align-text-th {
+            float: right;
+            font-weight:bold;
+            margin-right:5px;
+        }
+
+        #page-title {
+            padding: 20px 0;
+        }
+
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        #claimItemsTbl > tbody > tr > td {
+            height: 35px;
+            padding: 0px;
+            border-top: 0px;
+        }
+
+
+        #loading {
+            width: 100%;
+            height: 100%;
+            top: 120px;
+            left: 0px;
+            position: fixed;
+            display: block;
+            opacity: 0.7;
+            background-color: black;
+            z-index: 99;
+            text-align: center;
+        }
+
+        .watermark {
+            /*position: absolute;*/
+            top: 50%;
+            font-size: 15px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            z-index: 1000;
+        }
+        /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 26px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .table-condensed {
+            font-size: 11px;
+        }
+
+        .ui-select-search {
+            height: 25px;
+        }
+
+        .ui-select-toggle {
+            height: 25px;
+        }
+    </style>
+
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-7">
+                <h1 class="mainTitle TitleModifier">{{'pages.claimInquiry.mainTitle' | translate }}</h1>
+                <span class="mainDescription TitleModifier">
+                    {{'pages.claimInquiry.mainDescription' | translate }}
+                </span>
+            </div>
+            <div class="col-md-5">
+
+                <span class="btn btn-twitter pull-right" style="margin-left: 10px" ng-click="showClaimInquirySearchPopup()">
+                    <i class="fa fa-search"></i>
+                    | {{'pages.claimInquiry.spanSearch' | translate }}
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/ng-template" id="popUpClaimInquirySelection">
+        <style>
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 1100px !important;
+                height: 500px !important;
+            }
+
+            .ngdialog.ngdialog-theme-plain .ngdialog-content {
+                margin: -100px auto;
+            }
+
+            .ui-grid-top-panel {
+                font-weight: 400 !important;
+            }
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .grid {
+                height: 250px !important;
+            }
+
+            .ui-grid-pager-panel {
+                text-align: right;
+                box-sizing: border-box !important;
+            }
+
+            .ui-grid-header-cell .ui-grid-cell-contents {
+                text-align: center;
+            }
+
+            .columCss {
+                text-decoration: none;
+            }
+
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+        </style>
+
+        <div>
+            <h3 class="">{{'pages.claimInquiry.searchPopUp.title' | translate }}</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'pages.claimInquiry.searchPopUp.claimNo' | translate }}</label>
+                        <input type="text" class="form-control input-sm" ng-model="claimInquirySearchGridSearchCriterias.claimNumber" tabindex="1">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'pages.claimInquiry.searchPopUp.policyNo' | translate }}</label>
+                        <input type="text" class="form-control input-sm" ng-model="claimInquirySearchGridSearchCriterias.policyId" tabindex="2">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group ">
+                        <label>{{'pages.claimInquiry.searchPopUp.dealer' | translate }}</label>
+                        <select ng-model="claimInquirySearchGridSearchCriterias.dealerId" class="form-control input-sm" tabindex="3">
+                            <option value="00000000-0000-0000-0000-000000000000" selected>All</option>
+                            <option ng-repeat="option in dealers" value="{{option.Id}}">{{option.DealerName}}</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>{{'pages.claimInquiry.searchPopUp.country' | translate }}</label>
+                        <select ng-model="claimInquirySearchGridSearchCriterias.country" class="form-control input-sm" tabindex="4">
+                            <option value="00000000-0000-0000-0000-000000000000" selected>All</option>
+                            <option ng-repeat="option in countries" value="{{option.Id}}"
+                                    ng-selected="policySearchInquiryGridSearchCriterias.Country==option.Id">
+                                {{option.CountryName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">{{'pages.claimInquiry.searchPopUp.customerName' | translate }}</label>
+                        <input type="text" class="form-control input-sm" ng-model="claimInquirySearchGridSearchCriterias.customerId" tabindex="5">
+                    </div>
+                </div>
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-3">
+
+                    <div class="ngdialog-buttons pull-right">
+                        <input type="button" style="margin-top:20px" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="showClaimInquirySearchPopupReset()" tabindex="6" value="{{'common.button.reset' | translate }}">
+                        <input type="button" style="margin-top:20px" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="refresSearchGridData()" tabindex="6" value="{{'common.button.search' | translate }}">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12" style="margin-top:5px">
+                    <div class="grid" ui-grid-pagination ui-grid="gridOptionsClaimInquiry">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsClaimInquiry.data.length>0 && claimInquiryGridloadAttempted">
+                            <div class="msg">
+                                <span>{{'common.grid.noData' | translate }}</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!claimInquirySearchGridloading">
+                            <div class="msg">
+                                <span>
+                                    {{'common.grid.loading' | translate }}
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <div class="row">
+        <div class="col-md-12">
+            <tabset class="tabbable">
+                <tab heading="{{'pages.claimInquiry.tabClaim.title' | translate }}">
+                    <div class="panel-body">
+                        <div class="row" style=" font-size:small;background-color:#F5D6FE">
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.policyNo' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                :
+                                <b> {{Claim.policyNumber}} </b>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.claimNo' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                :
+                                <b> {{Claim.claimNumber}} </b>
+                            </div>
+
+
+                        </div>
+                        <div class="row" style=" font-size:small;background-color:#F5D6FE">
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.vinSerail' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                :
+                                <b> {{Claim.vinSerial}} </b>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.customer' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.customerName}} </b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.customerTel' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.customerTel}}  </b>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.make' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.make}} </b>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.model' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.model}} </b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.policyDealer' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.policyDealer}} </b>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.claimDealer' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.claimDealer}} </b>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.country' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.country}} </b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.totalClaimAmount' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.currencyCode}} {{Claim.totalClaimAmount | number : 2}} </b>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.authorizedAmount' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b>{{Claim.currencyCode}} {{Claim.authorizedClaimAmount | number : 2}} </b>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.paidAmount' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b>{{Claim.currencyCode}} {{Claim.PaidAmount | number : 2}}</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.submittedDate' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.entryDate}} </b>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.approvedDate' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.approvedDate}} </b>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label class="control-label">
+                                    {{'pages.claimInquiry.tabClaim.approvedBy' | translate }}
+                                </label>
+                            </div>
+                            <div class="col-md-2">
+                                :
+                                <b> {{Claim.approvedBy}} </b>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                    </div>
+                    <div class="panel panel-white no-radius">
+                        <div class="panel-heading border-light panelHeaderModifier">
+                            <b>{{'pages.claimInquiry.tabClaim.claimItem' | translate }}</b>
+                        </div>
+                        <div style=" height: 300px; overflow-y: scroll">
+                            <table class="table table-bordered table-striped table-condensed " id="claimItemsTbl" style="margin-top: 5px;font-size:13px">
+                                <thead class="ngTableheader">
+                                    <tr>
+                                        <th><label class="right-align-text-th">{{'pages.claimInquiry.tabClaim.grid.unitPrice' | translate }}</label></th>
+                                        <th><label class="right-align-text-th">{{'pages.claimInquiry.tabClaim.grid.discount' | translate }}</label></th>
+                                        <th><label class="right-align-text-th">{{'pages.claimInquiry.tabClaim.grid.goodwillAmount' | translate }}</label></th>
+                                        <th><label class="right-align-text-th">{{'pages.claimInquiry.tabClaim.grid.labourCharge' | translate }}</label></th>
+                                        <th><label class="right-align-text-th">{{'pages.claimInquiry.tabClaim.grid.authorizedAmount' | translate }}</label></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="claimItem in Claim.claimItemList ">
+                                        <td><label class="right-align-text">{{claimItem.unitPrice | number:2}}</label></td>
+                                        <td><label class="right-align-text">{{claimItem.discountAmount | number:2}}</label></td>
+                                        <td><label class="right-align-text">{{claimItem.goodWillAmount | number:2}}</label></td>
+                                        <td><label class="right-align-text">{{claimItem.totalGrossPrice | number:2}}</label></td>
+                                        <td><label class="right-align-text">{{claimItem.authorizedAmount | number:2}}</label></td>
+                                    </tr>
+                                    <tr ng-show="Claim.claimItemList==null || Claim.claimItemList.length==0">
+                                        <td align="center" colspan="5"><h4>{{'common.grid.noItem' | translate }}</h4></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="{{'pages.claimInquiry.tabEndorsements.title' | translate }}">
+                    <div class="row">
+                        <div class="col-md-4" style="width: 100%">
+                            <div class="panel panel-white no-radius">
+                                <div class="panel-heading border-light panelHeaderModifier">
+                                    <b>{{'pages.claimInquiry.tabEndorsements.existingEndorsement' | translate }}</b>
+                                </div>
+                                <div class="panel-body" style="height: 110px;">
+                                    <div style="overflow-y: scroll">
+                                        <table class="table table-bordered table-striped table-condensed " id="claimItemsTbl" style="margin-top: 5px;">
+                                            <thead class="ngTableheader">
+                                                <tr>
+                                                    <th>{{'pages.claimInquiry.tabEndorsements.gridClaimItems.date' | translate }}</th>
+                                                    <th>{{'pages.claimInquiry.tabEndorsements.gridClaimItems.submittedBy' | translate }}</th>
+                                                    <th>{{'pages.claimInquiry.tabEndorsements.gridClaimItems.status' | translate }}</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="claimItem in claimEndorsement.ExcitingEndoresList ">
+                                                    <td align="center">{{claimItem.EntryDate}}</td>
+                                                    <td align="center">{{claimItem.ClaimSubmittedBy}}</td>
+                                                    <td align="center">{{claimItem.Status}}</td>
+                                                    <td>
+                                                        <button class="btn btn-xs btn-primary"
+                                                                ng-click="showClaimEndrosement(claimItem.CliamId,claimItem.CliamEndrosmentId)">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr ng-show="claimEndorsement.ExcitingEndoresList==null || claimEndorsement.ExcitingEndoresList.length==0">
+                                                    <td align="center" colspan="5"><h4>{{'common.grid.noItem' | translate }}</h4></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="row">
+                                <div class="panel panel-white no-radius">
+                                    <div class="panel-heading border-light panelHeaderModifier">
+                                        <b>{{'pages.claimInquiry.tabEndorsements.oldClaimEndorsement' | translate }}</b>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.policyNo' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.PolicyNumber}} </b></div></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.claimNo' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.ClaimNumber}}</b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.customer' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.customer}} </b></div></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.vinSerial' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.Serial}} </b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.make' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.MakeId}} </b></div></div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.model' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.ModelId}} </b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.policyDealer' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b>{{claimEndorsement.PolicyDealerId}}</b></div></div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.claimDealer' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.ClaimDealer}} </b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.totalClaimAmount' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.TotalClaimAmount}} </b></div></div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.totalGrossClaimAmount' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.TotalGrossAmount}} </b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.paidAmount' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b>{{claimEndorsement.PaidAmount}}</b></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="panel-body">
+                                    <v-accordion class="vAccordion--default">
+
+                                        <!-- add expanded attribute to open the section -->
+                                        <v-pane disabled>
+                                            <v-pane-header>
+                                                {{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.title' | translate }}
+                                            </v-pane-header>
+
+                                            <v-pane-content>
+                                                <!--<div class="row">-->
+                                                <div style=" height: 300px; overflow-y: scroll">
+                                                    <table class="table table-bordered table-striped table-condensed " id="claimItemsTbl" style="margin-top: 5px;">
+                                                        <thead class="ngTableheader">
+                                                            <tr>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.name' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.number' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.qty' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.unitPrice' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.price' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.discount' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.goodWill' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.authorized' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.comment' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.failure' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.status' | translate }}</th>
+                                                                <!--<th></th>-->
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat="claimEndorsementItem in claimEndorsement.ClaimItemList  track by $index" ng-class="validate_claimItemsTable">
+                                                                <td align="center">{{claimEndorsementItem.itemName}}</td>
+                                                                <td align="center">{{claimEndorsementItem.itemNumber}}</td>
+                                                                <td align="center">{{claimEndorsementItem.qty}}</td>
+                                                                <td align="right">{{claimEndorsementItem.unitPrice | number:2}}</td>
+                                                                <td align="right">{{claimEndorsementItem.totalPrice | number:2}}</td>
+                                                                <td align="right">{{claimEndorsementItem.discountAmount | number:2}}</td>
+                                                                <td align="right">{{claimEndorsementItem.goodWillAmount | number:2}}</td>
+                                                                <td align="right">{{claimEndorsementItem.authorizedAmount | number:2}}</td>
+                                                                <td align="center">{{claimEndorsementItem.comment}}</td>
+                                                                <td align="center">{{claimEndorsementItem.faultName}}</td>
+                                                                <td align="center">{{claimEndorsementItem.status}}</td>
+                                                                <!--<td>
+                                                                    <button class="btn btn-xs btn-primary"
+                                                                            ng-click="showProcessClaimItem(claimItem.id)">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                </td>-->
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!--</div>-->
+                                            </v-pane-content>
+                                        </v-pane>
+
+                                        <v-pane disabled>
+                                            <v-pane-header>
+                                                {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.title' | translate }}
+                                            </v-pane-header>
+
+                                            <v-pane-content>
+
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                <label class="control-label">
+                                                                    {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.customerComplaint' | translate }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.complaint.customer}} </b></div></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                <label class="control-label">
+                                                                    {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.dealerComment' | translate }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.complaint.dealer }} </b></div></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                <label class="control-label">
+                                                                    {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.claimEngineerAssesment' | translate }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.complaint.engineer}} </b></div></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                <label class="control-label">
+                                                                    {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.conclusion' | translate }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{claimEndorsement.complaint.conclution}} </b></div></div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                            </v-pane-content>
+                                        </v-pane>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="row">
+                                <div class="panel panel-white no-radius">
+                                    <div class="panel-heading border-light panelHeaderModifier">
+                                        <b>{{'pages.claimInquiry.tabEndorsements.newClaimEndorsement' | translate }}</b>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.policyNo' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.PolicyNumber}} </b></div></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.claimNo' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.ClaimNumber}}</b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.customer' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.customer}} </b></div></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.vinSerial' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.Serial}} </b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.make' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.MakeId}} </b></div></div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.model' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.ModelId}} </b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.policyDealer' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b>{{newClaimEndorsement.PolicyDealerId}}</b></div></div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.claimDealer' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.ClaimDealer}} </b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.totalClaimAmount' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.TotalClaimAmount}} </b></div></div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.paidAmount' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.TotalGrossAmount}} </b></div></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-md-4">
+                                                <label class="control-label">
+                                                    {{'pages.claimInquiry.tabEndorsements.paidAmount' | translate }}
+                                                </label>
+                                            </div>
+                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b>{{newClaimEndorsement.PaidAmount}}</b></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="panel-body">
+                                    <v-accordion class="vAccordion--default">
+
+                                        <!-- add expanded attribute to open the section -->
+                                        <v-pane disabled>
+                                            <v-pane-header>
+                                                {{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.title' | translate }}
+                                            </v-pane-header>
+
+                                            <v-pane-content>
+                                                <!--<div class="row">-->
+                                                <div style=" height: 300px; overflow-y: scroll">
+                                                    <table class="table table-bordered table-striped table-condensed " id="claimItemsTbl" style="margin-top: 5px;">
+                                                        <thead class="ngTableheader">
+                                                            <tr>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.name' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.number' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.qty' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.unitPrice' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.price' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.discount' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.goodWill' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.authorized' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.comment' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.failure' | translate }}</th>
+                                                                <th>{{'pages.claimInquiry.tabEndorsements.vpaneClaimItem.grid.status' | translate }}</th>
+                                                                <!--<th></th>-->
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat="newClaimEndorsementItem in newClaimEndorsement.ClaimItemList  track by $index" ng-class="validate_claimItemsTable">
+                                                                <td align="center">{{newClaimEndorsementItem.itemName}}</td>
+                                                                <td align="center">{{newClaimEndorsementItem.itemNumber}}</td>
+                                                                <td align="center">{{newClaimEndorsementItem.qty}}</td>
+                                                                <td align="right">{{newClaimEndorsementItem.unitPrice | number:2}}</td>
+                                                                <td align="right">{{newClaimEndorsementItem.totalPrice | number:2}}</td>
+                                                                <td align="right">{{newClaimEndorsementItem.discountAmount | number:2}}</td>
+                                                                <td align="right">{{newClaimEndorsementItem.goodWillAmount | number:2}}</td>
+                                                                <td align="right">{{newClaimEndorsementItem.authorizedAmount | number:2}}</td>
+                                                                <td align="center">{{newClaimEndorsementItem.comment}}</td>
+                                                                <td align="center">{{newClaimEndorsementItem.faultName}}</td>
+                                                                <td align="center">{{newClaimEndorsementItem.status}}</td>
+                                                                <!--<td>
+                                                                    <button class="btn btn-xs btn-primary"
+                                                                            ng-click="showProcessClaimItem(claimItem.id)">
+                                                                        <i class="fa fa-edit"></i>
+                                                                    </button>
+                                                                </td>-->
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <!--</div>-->
+                                            </v-pane-content>
+                                        </v-pane>
+
+                                        <v-pane disabled>
+                                            <v-pane-header>
+                                                {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.title' | translate }}
+                                            </v-pane-header>
+
+                                            <v-pane-content>
+
+                                                <div class="col-md-6">
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                <label class="control-label">
+                                                                    {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.customerComplaint' | translate }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.complaint.customer}} </b></div></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                <label class="control-label">
+                                                                    {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.dealerComment' | translate }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.complaint.dealer}} </b></div></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                <label class="control-label">
+                                                                    {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.claimEngineerAssesment' | translate }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.complaint.engineer }} </b></div></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6">
+                                                                <label class="control-label">
+                                                                    {{'pages.claimInquiry.tabEndorsements.vpaneAssesment.conclusion' | translate }}
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-6">:&nbsp;<div style="display:inline" ng-class=""><b> {{newClaimEndorsement.complaint.conclution}} </b></div></div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+
+                                            </v-pane-content>
+                                        </v-pane>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </tab>
+                <!--<tab heading="BATCH DETAILS">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-white no-radius">
+                                <div class="panel-heading border-light panelHeaderModifier">
+                                    <b>Invoice</b>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Claim Invoice Date
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.invoiceDate}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Claim Invoice Received Date
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.invoiceReceivedDate}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Claim Invoice Number
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.invoiceNumber}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <b class="center-block"> {{claimBatch.invoceWarning}} </b>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-white no-radius">
+
+                                <div class="panel-heading border-light panelHeaderModifier">
+                                    <b>Batch Details</b>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Claim Batch Number
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.batchNumber}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Claim Batch Date
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.batchEntryDate}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Group Number
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.groupName}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <b class="center-block"> {{claimBatch.batchGroupWarning}} </b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-white no-radius">
+                                <div class="panel-heading border-light panelHeaderModifier">
+                                    <b>Bordx Details</b>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Insurer
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.insurer}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Reinsurer
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.reinsurer}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Bordx Year
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.bordxYear}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Bordx Month
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.bordxmonth}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                Bordx Number
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            :
+                                            <b> {{claimBatch.bordxNumber}} </b>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <b class="center-block"> {{claimBatch.bordxWarning}} </b>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+
+                </tab>-->
+            </tabset>
+        </div>
+    </div>
+
+
+</div>

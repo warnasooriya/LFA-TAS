@@ -1,0 +1,152 @@
+﻿<div ng-app="clip-two" ng-controller="TpaBranchCtrl as tpaBranchController" ng-init="loadInitailData()">
+    <style>
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+    <!--<form name="myForm">-->
+    <div ng-form="myForm" class="my-form">
+        <section id="page-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1 class="mainTitle TitleModifier">{{'pages.tpaBranchManagement.title' | translate}}</h1>
+                    <span class="mainDescription TitleModifier">{{'pages.tpaBranchManagement.mainDescription' | translate}}</span>
+                    <!--<span class="mainDescription">This Page Allows you to add & update TPAs</span>-->
+                </div>
+                <!--<div ncy-breadcrumb></div>-->
+            </div>
+        </section>
+        <div class="row" style="margin-left: 1px; margin-right: 1px; margin-top: 5px; margin-bottom: 15px">
+            <!--<div class="col-md-12">
+                <h3>TPA Branch Management</h3>
+                <hr>
+            </div>-->
+            <div class="col-md-12">
+                <div class="alert alert-danger" ng-show="errorTab1!=''">
+                    {{errorTab1}}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.tpaBranchManagement.Branch' | translate}}
+                    </label><!--<span class="error" ng-show="myForm.Id.$error.required">*</span>-->
+                    <select class="form-control input-sm" ng-model="tpaBranch.Id" name="Id" tabindex="1"
+                            ng-options="n.Id as n.BranchName for n in tpaBranches"
+                            ng-change="SetTpaBranch()">
+                        <option value=""> {{'pages.tpaBranchManagement.new' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.tpaBranchManagement.State' | translate}}
+                    </label>
+                    <input type="text" class="form-control input-sm" ng-model="tpaBranch.State" tabindex="4">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.tpaBranchManagement.TimeZone' | translate}}
+                    </label><span class="error" ng-show="myForm.TimeZone.$error.required">*</span>
+                    <select name="TimeZone" class="form-control input-sm" ng-model="tpaBranch.TimeZone" tabindex="7"
+                            ng-options="t.Id as t.NameofTimeZone + t.Time  for t in timeZones"
+                            ng-change="SetTimeZone()" ng-selected="tpaBranch.TimeZone==t.Id" ng-class="validate_TimeZone"
+                            required>
+                        <option value="">{{'pages.tpaBranchManagement.select' | translate}}</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.tpaBranchManagement.BranchCode' | translate}}
+                    </label><span class="error" ng-show="myForm.BranchCode.$error.required">*</span>
+                    <input type="text" class="form-control input-sm" name="BranchCode" ng-blur="IsExsistingTpaByCode()" ng-model="tpaBranch.BranchCode" ng-class="validate_BranchCode" tabindex="2" required>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.tpaBranchManagement.Country' | translate}}
+                    </label><span class="error" ng-show="myForm.Country.$error.required">*</span>
+                    <select name="Country" class="form-control input-sm" ng-model="tpaBranch.ContryId" tabindex="5"
+                            ng-options="c.Id as c.CountryName for c in countries"
+                            ng-change="SetCountryValue()" ng-selected="tpaBranch.ContryId==c.Id" ng-class="validate_ContryId"
+                            required>
+                        <option value="">{{'pages.tpaBranchManagement.select' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.tpaBranchManagement.Address' | translate}}
+                    </label>
+                    <textarea rows="2" class="form-control input-sm" ng-model="tpaBranch.Address" tabindex="8"></textarea>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.tpaBranchManagement.BranchName' | translate}}
+                    </label><span class="error" ng-show="myForm.BranchName.$error.required">*</span>
+                    <input type="text" class="form-control input-sm" ng-model="tpaBranch.BranchName" name="BranchName" tabindex="3" ng-class="validate_BranchName" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        {{'pages.tpaBranchManagement.City' | translate}}
+                    </label><span class="error" ng-show="myForm.City.$error.required">*</span>
+                    <select name="City" id="drpCity" class="form-control input-sm" ng-model="tpaBranch.CityId" tabindex="6"
+                            ng-options="n.Id as n.CityName for n in Cities" ng-class="validate_CityId"
+                            ng-change="SetCityValue()" ng-selected="tpaBranch.CityId==n.Id" ng-disabled="tpaBranchCityDisabled"
+                            required>
+                        <option value="">{{'pages.tpaBranchManagement.select' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div style="margin-top:50px">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" value="IsHeadOffice" ng-model="tpaBranch.IsHeadOffice" tabindex="9" /> &nbsp;&nbsp;&nbsp; <span>{{'pages.tpaBranchManagement.IsHeadOffice' | translate}}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 pull-right" style="text-align : right">
+                <!--<div class="col-md-offset-11 col-md-1">-->
+                <!--<input type="button" class="btn btn-primary" ng-click="saveOrUpdateTpaBranch()" ng-value="tpaBranch.Id=='' ? 'Save Branch':'Update Branch'" />-->
+                <!--<button class="btn btn-primary" ng-disabled="TpaBranchBtnDisabled" ng-click="saveOrUpdateTpaBranch()" tabindex="10">
+        {{tpaBranch.Id=='00000000-0000-0000-0000-000000000000' ? 'Save Branch':'Update Branch'}} <i ng-class="TpaBranchBtnIconClass"></i>
+    </button>-->
+                <button class="btn btn-primary" ng-disabled="TpaBranchBtnDisabled" ng-click="saveOrUpdateTpaBranch()" tabindex="10">
+                    {{'pages.tpaBranchManagement.save' | translate}} <i ng-class="TpaBranchBtnIconClass"></i>
+                </button>
+                <!--</div>-->
+            </div>
+
+            <div style="display:none" ng-hide="true">
+                <label class="control-label">
+                    Tpa Name
+                </label><span class="error" ng-show="myForm.TpaId.$error.required">*</span>
+                <select class="form-control input-sm" ng-model="tpaBranch.TpaId" name="TpaId"
+                        ng-options="n.Id as n.Name for n in tpas"
+                        ng-change="SetTpa()"
+                        required>
+                    <option value="">-- Please Select --</option>
+                </select>
+            </div>
+        </div>
+        <!--</form>-->
+    </div>
+</div>
+

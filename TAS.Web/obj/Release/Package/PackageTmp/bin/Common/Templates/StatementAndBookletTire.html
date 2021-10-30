@@ -1,0 +1,150 @@
+﻿<!--<div ng-app="LFA" ng-controller="PolicyStatementCtrl as policyStatementController" ng-init="loadInitailData()">-->
+    <body style="background-color:#f5f8fa">
+        <table style="width:100%;background-color:white" align="center">
+            <tr>
+                <td colspan="2">
+                    <table width="100%">
+                        <tr>
+                            <td><img title="" alt="" src="cid:LeftFieldLogo"></td>
+                            <td> <img title="" alt="" src="cid:ContinentalLogo"></td>
+                        </tr>
+                    </table>
+                </td>
+
+
+            <tr>
+                <td colspan="2">
+                    <hr style="border: 0;height: 0;border-top: 1px solid rgba(0, 0, 0, 0.1);
+                        border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="margin-left:20px;width:100%">
+
+                        <tr>
+                            <td colspan="2">
+                                <p style="font-family:Tahoma;font-size:10px;line-height:23px">
+                                    <i>
+
+
+                                <p style="font-family: Tahoma; font-size: 10px;"><b>Dear {FirstName} , </b></p>
+
+                                <p>
+                                    Congratulations on the purchase of your <span style="color:#ff9900">ContiSure</span> Service Contract and welcome to the <span style="color:#ff9900">ContiSure</span> family.
+                                </p>
+
+                                </i>
+                                <p>
+                                    <i>Service contract No : </i><span style="font-family:Calibri;font-size:13px"><strong>{ContractNo}</strong></span>
+                                </p>
+                                <i>
+                                <p>
+                                    Please be assured that your Continental tyres have been manufactured to the highest possible standards and engineered specifically for the prevailing conditions in the UAE.
+                                </p>
+
+                                <p>
+                                    We are delighted you have chosen to further protect your tyres with our accidental damage service contract, to guard against irreparable damage caused by road hazards.
+                                </p>
+
+                                <p>
+                                    Please read the attached document which clearly defines the terms, conditions and benefits of your <span style="color:#ff9900">ContiSure</span> contract.
+                                </p>
+
+                                <p>
+                                    It is our mission to provide you with a unique automotive experience by offering innovative products and services that deliver value and ensure your faith in <span style="color:#ff9900">ContiSure</span> is well-founded.
+                                </p>
+
+                                <p>
+                                    We thank you for choosing <span style="color:#ff9900">ContiSure</span> and wish you safe motoring.
+                                </p>
+
+                                <p>
+                                    Respectfully,
+                                </p>
+
+                                <br />
+                                <p>
+                                    <b>Your dedicated “ <span style="color:#ff9900">ContiSure</span>” partner</b>
+                                </p>
+
+
+                                </i>
+                                </p>
+                                <table style="font-family:Calibri; font-size: 11px" width="100%">
+                                    <tr>
+                                        <td>
+                                            <b> Call us at 800 <span style="color:#ff9900">CONTI</span> (26684)  <span style="margin-left:30px"></span>    Email: <a href="mailto:customercare@amsconti.ae" target="_top">customercare@amsconti.ae</a></b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <br />
+                                            <b>Service Showrooms:</b>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <br />
+                                        <b>Emirates for Universal Tyres Dubai</b> </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Al Ghurair Complex , Al Quoz 3   </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://eu-central-1.protection.sophos.com/?d=goo.gl&u=aHR0cHM6Ly9tYXBzLmFwcC5nb28uZ2wvUmhNRTdDOWdQM1ZkYnBnYkE=&e=c21AbGVmdGZpZWxkLm5ldA==&t=eGhXS285RC9kRTgyR1BmZDlNWTZtZ1BzTkt2VmNHZ0FSTWNFVFFJczVMYz0=&h=c0228075167a4dd2b7063e82b5ff14ee">Location Link</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><br /><b>Emirates for Universal Tyres Abu Dhabi </b></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> Al Masaood Building, Musaffah Industrial Area M12 </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <a href="https://eu-central-1.protection.sophos.com/?d=goo.gl&u=aHR0cHM6Ly9tYXBzLmFwcC5nb28uZ2wvTXFWUVBHa0x4dDlEYVZWbjc=&e=c21AbGVmdGZpZWxkLm5ldA==&t=UmVzV2lPVEh3RURiQ1ZlMzFXejQ2T1EwS0M2OWUydnNucE1ROXJwVjlhVT0=&h=c0228075167a4dd2b7063e82b5ff14ee">Location Link</a></td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <br />
+                <br />
+            </tr>
+
+
+
+
+
+        </table>
+
+
+    </body>
+
+<!--</div>-->
+<script>
+    function downloadStatement(id) {
+        var Id = id;
+        //console.log(id);
+        //document.getElementById("demo").innerHTML = "Hello World";
+        if (Id !== "undefined" && Id !== "") {
+            var url = 'https://www.leftfield.xyz/TAS.Web/ReportExplorer.aspx?key=' + Id + "&jwt=" + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTYxNjM4MTUsImp0aSI6IjAwNTRjNWFmLTgwOWUtNDcyNy04Y2I3LTJlNGJkNDBjNzYwYSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.HwtG9x4Ezo3okUnlurIxeHpWUOhgPRtL4FixYK6lpoM';
+            // alert(url);
+            window.open(url, '_blank')
+            //var publicurl = $location.protocol() + '://' + $location.host() + '/TAS.Web/contisurewarranty.pdf';
+            //window.open(publicurl, '_blank')
+            swal.close();
+        } else {
+            customErrorMessage("Someting went wrong. Pelase contract administrator.");
+            swal.close();
+        }
+    }
+</script>
+
+   <!-- </html>-->

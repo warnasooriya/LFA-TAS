@@ -1,0 +1,1274 @@
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\obj\Debug\TAS.Services.csprojAssemblyReference.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\obj\Debug\RdlCompile.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\obj\Debug\RdlCompile.compiled
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\obj\Debug\TAS.Services.csproj.CoreCompileInputs.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\RevDeBug.setup
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\ContinentalNewForEmail.png
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\EUTLogoEmail.png
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\forgotPasswordTyre.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\rejectionemail.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\logo.png
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\SalesSubmitConfirmation.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\StatementAndBookletTire.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\StatementAndBooklet.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\TyreClaimApproved.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\TyreClaimRejection.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\TyreClaimSubmition.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ArticleMapping.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyAdditionalDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimCriteria.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemServiceHistory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\SystemLanguage.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxExportTyre.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\IloePremiumDetails.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\IncurredProcessMain.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\IncurredProcess.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\LostRatioOther.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\AEW\PolicyStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\AEW\PolicyStatement_automobile_Coperate.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\TYRE\PolicyStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\TYRE\PolicyStatement_automobile_Coperate.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\LFA\AEW\PolicyStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Sampro\AEW\PolicyStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CNC\ProductionReport.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CycleandCarriage\ProductionReport.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\ClaimApproved.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\ClaimRejected.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\UserRegistration.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\UserRegistrationConfirm.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AvailableTireSizesPattern.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportTemplate.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportTemplateDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimTax.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerInvoiceCodeReportColumnHeader.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReportParameter.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Report.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReportDataQuery.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerEnterdInvoiceTireDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerEnterdInvoiceDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AvailableTireSizes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyData.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyFields.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyMakeData.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyModelData.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimItemTireDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimRejectionType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Broker.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimComment.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimNotes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionPremium.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionGVW.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractInsuaranceLimitation.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerComplaint.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerLogin.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerComment.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InvoiceCode.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InvoiceCodeDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InvoiceCodeTireDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\StoredProcedures.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsuaranceLimitation.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DashboardChartAccess.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxYearlySum.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DashboardChart.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerBranchStaff.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerDiscount.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerDiscountScheme.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimEndorsement.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimEndorsementAttachment.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimEndorsementItem.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimProcessingStat.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxPayment.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordx.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Claim.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBatch.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBatchGroup.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxProcess.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxDetail.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxValueDetail.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxYearly.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimChequePayment.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimChequePaymentDetail.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimGroupClaim.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimInvoiceEntry.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimInvoiceEntryClaim.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimItem.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimAttachment.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerLabourCharge.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FaultCauseOfFailure.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Fault.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FaultArea.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FaultCategory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimSubmissionItem.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimSubmissionAttachment.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimItemType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimStatusCode.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimSubmission.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ManufacturerWarrantyDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartRejectionType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyNumberFormat.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsureBordxReportColumns.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TireSizeVariantMap.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TireUTDValuation.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPAAllowedIP.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPAConfig.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantPremiumAddon.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleServiceHistory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportColumnHeaders.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerInvoiceReportColumns.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BrownAndWhiteDetailsHistory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionVariant.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemDetailsHistory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Part.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartArea.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartModel.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartPrice.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartSuggestion.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyTax.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyAttachmentTransaction.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyAttachment.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TempBulkHeader.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TempBulkUpload.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TimeZone.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserAttachment.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AttachmentType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AttachmentSection.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UnitOfWork.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleDetailsHistory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleWeight.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\YellowGoodDetailsHistory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\YellowGoodDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemPolicy.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyRenewal.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\YellowGoodPolicy.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BiBordxSummery.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BiBordxSummerydelete.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxExportReportName.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\ClaimAuthorizationReportSub.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\ClaimAuthorizationReportMain.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxClaimMonth&Year.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxClaimSummary.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\ClaimBordx.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxExport.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\CountryWise.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\LostRatio.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\PaymentSchedule.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\PolicySummaryViewInClaim.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\DealerInvoiceExport.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationBodyContinental.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationBody.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationTireDtl.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationDtl.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationBody.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationDtl.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimChequeStatement\Default\AEW\ClaimChequeStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimChequeStatement\LFA\AEW\ClaimChequeStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimChequeStatement\Sampro\AEW\ClaimChequeStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCodeAll.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\InvoiceSummary.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\logo.png
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\AEW\PolicyStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\AEW\PolicyStatement_automobile_Coperate.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\TYRE\PolicyStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\TYRE\PolicyStatement_automobile_Coperate.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Sampro\AEW\PolicyStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\LFA\AEW\PolicyStatement_automobile.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Common\Templates\forgotPassword.html
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportColumnsMap.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportColumns.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CurrencyConversionPeriods.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CurrencyConversions.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Currency.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CountryMakes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CountryModeles.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerStaff.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ForgotPasswordRequest.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerCommodityTypes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerProducts.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CurrencyEmail.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Bordx.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Eligibility.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\RSAAnualPremium.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\MaritalStatus.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Occupation.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Title.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyBundleHistory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyBundleTransaction.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyBundle.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyContractProduct.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Region.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerConsortium.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\RSAProvider.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PriviledgeLevel.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TaxTypes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\NRPCommissionContractMapping.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\NRPCommissionTypes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Menu.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyHistory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyTransaction.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsurerConsortium.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityUsageType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TransmissionTechnologyMap.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TransmissionTechnology.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleKiloWatt.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleHorsePower.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\TPADBCreate.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\TPATableCreate.sql
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\TAShibernate.cfg.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASSystemUser.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASMenu.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASUserLogin.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASTPA.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Contract.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionManufacturerWarranty.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ExtensionType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ProductType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PremiumBasedOn.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PremiumAddonType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensions.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionsPremiumAddon.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionMake.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionModel.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionEngineCapacity.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionCylinderCount.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\WarrantyType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ManufacturerWarranty.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehiclePolicy.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BAndWPolicy.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Policy.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ManufacturerComodityTypes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantAspirations.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantBodyTypes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantCountrys.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantDriveTypes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantFuelTypes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantTransmissions.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ItemStatus.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleAspirationType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Variant.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerMakes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerLocation.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerCountries.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CylinderCount.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Dealer.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Make.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ProductCategory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BrownAndWhiteDetails.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Insurer.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsurerContract.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Reinsurer.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TransmissionType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\EngineCapacity.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FuelType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Model.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleColor.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleBodyType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DriveType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\IdType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Image.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Nationality.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPABranch.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPA.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UsageType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.rdlc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.rdlc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.rdlc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\InvoiceSummary.rdlc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.rdlc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.rdlc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CNC\ProductionReport.rdlc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CycleandCarriage\ProductionReport.rdlc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.rdlc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerHistory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\StagOnlinePurchase.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\City.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Customer.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Product.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BundledProduct.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\ClaimBordxPayment.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\ClaimBordx.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\ClaimBordxYearly.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Management\BrokerEntityManager.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.Designer.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.Designer.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.Designer.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.Designer.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.Designer.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.Designer.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.Designer.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\UnitsOfWork\ClaimHistoryByPolicyIdUnitOfWork .cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\UnitsOfWork\DeleteServiceHistoryUnitOfWork .cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\UnitsOfWork\DealerCommentAddUnitOfWork.cs
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadAutomobile.xlsx
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadBank.xlsx
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadElectronic.xlsx
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadTyres.xlsx
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.xsc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.xsd
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.xss
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xsc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xsd
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xss
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xsc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xsd
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xss
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.xsc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.xsd
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.xss
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Default\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Default\TYRE\LFA-Policy-Booklet-Template-V.1.0.pdf
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Sampro\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\LFA\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xsc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xsd
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xss
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.xsc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.xsd
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.xss
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.xsc
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.xsd
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.xss
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\hibernate.cfg.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Country.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityCategory.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Manufacturer.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\SystemUser.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityCategoryAttributeTableFieldMap.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\MasterTableMapping.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PaymentMode.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PaymentOption.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CountryTaxes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractTaxes.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\User.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserRole.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserRoleMapping.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyTransactionType.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserLogin.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\RoleMenuMapping.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsurerUser.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserBranch.hbm.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.Services.dll.config
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.Services.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.Services.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Amazon.ElastiCacheCluster.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\AWSSDK.Core.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\AWSSDK.S3.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Enyim.Caching.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Hashids.net.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Iesi.Collections.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\itextsharp.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\JWT.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\NHibernate.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\NLog.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\NReco.PdfGenerator.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\pdfcrowd.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Spire.License.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Spire.Pdf.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\StackExchange.Redis.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\System.Web.Http.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\System.Web.Mvc.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.Caching.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.Core.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.DataTransfer.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Microsoft.mshtml.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.Caching.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.Caching.dll.config
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.Core.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\TAS.DataTransfer.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Amazon.ElastiCacheCluster.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\AWSSDK.Core.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\AWSSDK.Core.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\AWSSDK.S3.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\AWSSDK.S3.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Enyim.Caching.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Iesi.Collections.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\itextsharp.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\NHibernate.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\NLog.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\NReco.PdfGenerator.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\pdfcrowd.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Spire.License.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\Spire.Pdf.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\StackExchange.Redis.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\System.Web.Http.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\bin\Debug\System.Web.Mvc.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\obj\Debug\TAS.Services.csproj.CopyComplete
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\obj\Debug\TAS.Services.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\obj\Debug\TAS.Services.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.BusinessServices\obj\Debug\RdbLog.txt
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\RevDeBug.setup
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\ContinentalNewForEmail.png
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\EUTLogoEmail.png
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\forgotPasswordTyre.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\rejectionemail.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\logo.png
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\SalesSubmitConfirmation.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\StatementAndBookletTire.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\StatementAndBooklet.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\TyreClaimApproved.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\TyreClaimRejection.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\TyreClaimSubmition.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ArticleMapping.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyAdditionalDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimCriteria.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemServiceHistory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\SystemLanguage.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxExportTyre.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\IloePremiumDetails.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\IncurredProcessMain.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\IncurredProcess.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\LostRatioOther.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\AEW\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\TYRE\PolicyStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\TYRE\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\LFA\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Sampro\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CNC\ProductionReport.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CycleandCarriage\ProductionReport.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\ClaimApproved.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\ClaimRejected.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\UserRegistration.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\UserRegistrationConfirm.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AvailableTireSizesPattern.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportTemplate.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportTemplateDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimTax.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerInvoiceCodeReportColumnHeader.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReportParameter.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Report.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReportDataQuery.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerEnterdInvoiceTireDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerEnterdInvoiceDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AvailableTireSizes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyData.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyFields.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyMakeData.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyModelData.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimItemTireDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimRejectionType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Broker.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimComment.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimNotes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionPremium.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionGVW.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractInsuaranceLimitation.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerComplaint.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerLogin.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerComment.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InvoiceCode.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InvoiceCodeDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InvoiceCodeTireDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\StoredProcedures.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsuaranceLimitation.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DashboardChartAccess.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxYearlySum.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DashboardChart.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerBranchStaff.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerDiscount.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerDiscountScheme.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimEndorsement.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimEndorsementAttachment.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimEndorsementItem.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimProcessingStat.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxPayment.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordx.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Claim.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBatch.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBatchGroup.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxProcess.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxDetail.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxValueDetail.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxYearly.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimChequePayment.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimChequePaymentDetail.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimGroupClaim.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimInvoiceEntry.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimInvoiceEntryClaim.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimItem.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimAttachment.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerLabourCharge.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FaultCauseOfFailure.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Fault.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FaultArea.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FaultCategory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimSubmissionItem.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimSubmissionAttachment.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimItemType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimStatusCode.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimSubmission.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ManufacturerWarrantyDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartRejectionType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyNumberFormat.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsureBordxReportColumns.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TireSizeVariantMap.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TireUTDValuation.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPAAllowedIP.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPAConfig.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantPremiumAddon.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleServiceHistory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportColumnHeaders.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerInvoiceReportColumns.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BrownAndWhiteDetailsHistory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionVariant.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemDetailsHistory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Part.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartArea.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartModel.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartPrice.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartSuggestion.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyTax.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyAttachmentTransaction.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyAttachment.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TempBulkHeader.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TempBulkUpload.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TimeZone.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserAttachment.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AttachmentType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AttachmentSection.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UnitOfWork.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleDetailsHistory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleWeight.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\YellowGoodDetailsHistory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\YellowGoodDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemPolicy.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyRenewal.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\YellowGoodPolicy.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BiBordxSummery.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BiBordxSummerydelete.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxExportReportName.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\ClaimAuthorizationReportSub.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\ClaimAuthorizationReportMain.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxClaimMonth&Year.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxClaimSummary.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\ClaimBordx.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxExport.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\CountryWise.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\LostRatio.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\PaymentSchedule.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\PolicySummaryViewInClaim.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\DealerInvoiceExport.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationBodyContinental.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationBody.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationTireDtl.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationDtl.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationBody.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationDtl.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimChequeStatement\Default\AEW\ClaimChequeStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimChequeStatement\LFA\AEW\ClaimChequeStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimChequeStatement\Sampro\AEW\ClaimChequeStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCodeAll.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\InvoiceSummary.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\logo.png
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\AEW\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\TYRE\PolicyStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\TYRE\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Sampro\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\LFA\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Common\Templates\forgotPassword.html
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportColumnsMap.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportColumns.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CurrencyConversionPeriods.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CurrencyConversions.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Currency.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CountryMakes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CountryModeles.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerStaff.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ForgotPasswordRequest.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerCommodityTypes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerProducts.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CurrencyEmail.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Bordx.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Eligibility.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\RSAAnualPremium.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\MaritalStatus.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Occupation.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Title.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyBundleHistory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyBundleTransaction.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyBundle.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyContractProduct.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Region.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerConsortium.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\RSAProvider.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PriviledgeLevel.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TaxTypes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\NRPCommissionContractMapping.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\NRPCommissionTypes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Menu.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyHistory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyTransaction.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsurerConsortium.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityUsageType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TransmissionTechnologyMap.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TransmissionTechnology.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleKiloWatt.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleHorsePower.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\TPADBCreate.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\TPATableCreate.sql
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\TAShibernate.cfg.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASSystemUser.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASMenu.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASUserLogin.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASTPA.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Contract.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionManufacturerWarranty.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ExtensionType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ProductType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PremiumBasedOn.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PremiumAddonType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensions.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionsPremiumAddon.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionMake.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionModel.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionEngineCapacity.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionCylinderCount.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\WarrantyType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ManufacturerWarranty.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehiclePolicy.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BAndWPolicy.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Policy.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ManufacturerComodityTypes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantAspirations.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantBodyTypes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantCountrys.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantDriveTypes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantFuelTypes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantTransmissions.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ItemStatus.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleAspirationType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Variant.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerMakes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerLocation.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerCountries.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CylinderCount.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Dealer.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Make.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ProductCategory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BrownAndWhiteDetails.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Insurer.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsurerContract.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Reinsurer.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TransmissionType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\EngineCapacity.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FuelType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Model.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleColor.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleBodyType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DriveType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\IdType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Image.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Nationality.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPABranch.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPA.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UsageType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.rdlc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.rdlc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.rdlc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\InvoiceSummary.rdlc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.rdlc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.rdlc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CNC\ProductionReport.rdlc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CycleandCarriage\ProductionReport.rdlc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.rdlc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerHistory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\StagOnlinePurchase.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\City.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Customer.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Product.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BundledProduct.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\ClaimBordxPayment.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\ClaimBordx.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\ClaimBordxYearly.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Management\BrokerEntityManager.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.Designer.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.Designer.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.Designer.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.Designer.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.Designer.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.Designer.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.Designer.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\UnitsOfWork\ClaimHistoryByPolicyIdUnitOfWork .cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\UnitsOfWork\DeleteServiceHistoryUnitOfWork .cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\UnitsOfWork\DealerCommentAddUnitOfWork.cs
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadAutomobile.xlsx
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadBank.xlsx
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadElectronic.xlsx
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadTyres.xlsx
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.xsc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.xsd
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.xss
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xsc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xsd
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xss
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xsc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xsd
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xss
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.xsc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.xsd
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.xss
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Default\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Default\TYRE\LFA-Policy-Booklet-Template-V.1.0.pdf
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Sampro\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\LFA\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xsc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xsd
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xss
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.xsc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.xsd
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.xss
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.xsc
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.xsd
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.xss
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\hibernate.cfg.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Country.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityCategory.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Manufacturer.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\SystemUser.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityCategoryAttributeTableFieldMap.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\MasterTableMapping.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PaymentMode.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PaymentOption.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CountryTaxes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractTaxes.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\User.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserRole.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserRoleMapping.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyTransactionType.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserLogin.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\RoleMenuMapping.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsurerUser.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserBranch.hbm.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.Services.dll.config
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.Services.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.Services.pdb
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Amazon.ElastiCacheCluster.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\AWSSDK.Core.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\AWSSDK.S3.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Enyim.Caching.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Hashids.net.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Iesi.Collections.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\itextsharp.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\itextsharp.xmlworker.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\JWT.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Microsoft.ReportViewer.Common.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Newtonsoft.Json.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\NHibernate.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\NLog.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\NReco.PdfGenerator.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\pdfcrowd.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Spire.License.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Spire.Pdf.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\StackExchange.Redis.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\System.Net.Http.Formatting.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\System.Web.Http.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\System.Web.Mvc.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.Caching.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.Core.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.DataTransfer.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Microsoft.mshtml.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.Caching.pdb
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.Caching.dll.config
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.Core.pdb
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\TAS.DataTransfer.pdb
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Amazon.ElastiCacheCluster.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\AWSSDK.Core.pdb
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\AWSSDK.Core.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\AWSSDK.S3.pdb
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\AWSSDK.S3.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Enyim.Caching.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Iesi.Collections.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\itextsharp.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Newtonsoft.Json.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\NHibernate.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\NLog.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\NReco.PdfGenerator.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\pdfcrowd.pdb
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Spire.License.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\Spire.Pdf.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\StackExchange.Redis.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\System.Net.Http.Formatting.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\System.Web.Http.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\bin\Debug\System.Web.Mvc.xml
+G:\TFS\TAS-V3\LFA.BusinessServices\obj\Debug\TAS.Services.csprojAssemblyReference.cache
+G:\TFS\TAS-V3\LFA.BusinessServices\obj\Debug\RdlCompile.cache
+G:\TFS\TAS-V3\LFA.BusinessServices\obj\Debug\RdlCompile.compiled
+G:\TFS\TAS-V3\LFA.BusinessServices\obj\Debug\TAS.Services.csproj.CoreCompileInputs.cache
+G:\TFS\TAS-V3\LFA.BusinessServices\obj\Debug\TAS.Services.csproj.CopyComplete
+G:\TFS\TAS-V3\LFA.BusinessServices\obj\Debug\TAS.Services.dll
+G:\TFS\TAS-V3\LFA.BusinessServices\obj\Debug\TAS.Services.pdb
+G:\TFS\TAS-V3\LFA.BusinessServices\obj\Debug\RdbLog.txt
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\RevDeBug.setup
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\ContinentalNewForEmail.png
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\EUTLogoEmail.png
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\forgotPasswordTyre.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\rejectionemail.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\logo.png
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\SalesSubmitConfirmation.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\StatementAndBookletTire.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\StatementAndBooklet.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\TyreClaimApproved.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\TyreClaimRejection.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\TyreClaimSubmition.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ArticleMapping.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyAdditionalDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimCriteria.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemServiceHistory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\SystemLanguage.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxExportTyre.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\IloePremiumDetails.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\IncurredProcessMain.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\IncurredProcess.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\LostRatioOther.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\AEW\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\TYRE\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\TYRE\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\LFA\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Sampro\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\ADT\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\ADT\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CNC\ProductionReport.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CycleandCarriage\ProductionReport.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\ClaimApproved.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\ClaimRejected.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\UserRegistration.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\UserRegistrationConfirm.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AvailableTireSizesPattern.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportTemplate.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportTemplateDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimTax.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerInvoiceCodeReportColumnHeader.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReportParameter.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Report.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReportDataQuery.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerEnterdInvoiceTireDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerEnterdInvoiceDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AvailableTireSizes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyData.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyFields.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyMakeData.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AdditionalPolicyModelData.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimItemTireDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimRejectionType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Broker.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimComment.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimNotes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionPremium.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionGVW.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractInsuaranceLimitation.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerComplaint.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerLogin.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerComment.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InvoiceCode.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InvoiceCodeDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InvoiceCodeTireDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\StoredProcedures.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsuaranceLimitation.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DashboardChartAccess.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxYearlySum.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DashboardChart.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerBranchStaff.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerDiscount.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerDiscountScheme.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimEndorsement.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimEndorsementAttachment.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimEndorsementItem.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimProcessingStat.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxPayment.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordx.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Claim.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBatch.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBatchGroup.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxProcess.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxDetail.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxValueDetail.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimBordxYearly.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimChequePayment.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimChequePaymentDetail.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimGroupClaim.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimInvoiceEntry.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimInvoiceEntryClaim.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimItem.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimAttachment.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerLabourCharge.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FaultCauseOfFailure.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Fault.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FaultArea.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FaultCategory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimSubmissionItem.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimSubmissionAttachment.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimItemType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimStatusCode.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ClaimSubmission.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ManufacturerWarrantyDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartRejectionType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyNumberFormat.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsureBordxReportColumns.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TireSizeVariantMap.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TireUTDValuation.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPAAllowedIP.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPAConfig.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantPremiumAddon.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleServiceHistory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportColumnHeaders.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerInvoiceReportColumns.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BrownAndWhiteDetailsHistory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionVariant.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemDetailsHistory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Part.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartArea.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartModel.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartPrice.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PartSuggestion.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyTax.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyAttachmentTransaction.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyAttachment.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TempBulkHeader.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TempBulkUpload.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TimeZone.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserAttachment.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AttachmentType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\AttachmentSection.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UnitOfWork.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleDetailsHistory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleWeight.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\YellowGoodDetailsHistory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\YellowGoodDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\OtherItemPolicy.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyRenewal.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\YellowGoodPolicy.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BiBordxSummery.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BiBordxSummerydelete.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxExportReportName.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\ClaimAuthorizationReportSub.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\ClaimAuthorizationReportMain.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxClaimMonth&Year.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxClaimSummary.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\ClaimBordx.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\BordxExport.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\CountryWise.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\LostRatio.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\PaymentSchedule.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\PolicySummaryViewInClaim.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\DealerInvoiceExport.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationBodyContinental.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationBody.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationTireDtl.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Dealer\ClaimsAuthorizationDtl.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationBody.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\Tpa\ClaimsAuthorizationDtl.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimChequeStatement\Default\AEW\ClaimChequeStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimChequeStatement\LFA\AEW\ClaimChequeStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimChequeStatement\Sampro\AEW\ClaimChequeStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCodeAll.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\InvoiceSummary.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\logo.png
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\AEW\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\TYRE\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\TYRE\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Sampro\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\LFA\AEW\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Common\Templates\forgotPassword.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportColumnsMap.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxReportColumns.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BordxDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CurrencyConversionPeriods.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CurrencyConversions.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Currency.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CountryMakes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CountryModeles.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerStaff.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ForgotPasswordRequest.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerCommodityTypes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerProducts.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CurrencyEmail.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Bordx.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Eligibility.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\RSAAnualPremium.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\MaritalStatus.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Occupation.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Title.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyBundleHistory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyBundleTransaction.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyBundle.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyContractProduct.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Region.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerConsortium.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\RSAProvider.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PriviledgeLevel.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TaxTypes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\NRPCommissionContractMapping.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\NRPCommissionTypes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Menu.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyHistory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyTransaction.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsurerConsortium.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityUsageType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TransmissionTechnologyMap.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TransmissionTechnology.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleKiloWatt.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleHorsePower.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\TPADBCreate.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Scripts\TPATableCreate.sql
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\TAShibernate.cfg.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASSystemUser.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASMenu.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASUserLogin.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\TASMappings\TASTPA.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Contract.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionManufacturerWarranty.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ExtensionType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ProductType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PremiumBasedOn.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PremiumAddonType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensions.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionsPremiumAddon.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionMake.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionModel.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionEngineCapacity.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractExtensionCylinderCount.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\WarrantyType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ManufacturerWarranty.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehiclePolicy.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BAndWPolicy.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Policy.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ManufacturerComodityTypes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantAspirations.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantBodyTypes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantCountrys.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantDriveTypes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantFuelTypes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VariantTransmissions.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ItemStatus.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleAspirationType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Variant.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerMakes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DealerLocation.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\InsurerCountries.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CylinderCount.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Dealer.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Make.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ProductCategory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BrownAndWhiteDetails.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Insurer.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsurerContract.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Reinsurer.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TransmissionType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\EngineCapacity.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\FuelType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Model.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleColor.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\VehicleBodyType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\DriveType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\IdType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Image.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Nationality.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPABranch.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\TPA.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UsageType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.rdlc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.rdlc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.rdlc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\InvoiceSummary.rdlc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.rdlc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.rdlc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CNC\ProductionReport.rdlc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\CycleandCarriage\ProductionReport.rdlc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.rdlc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CustomerHistory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\StagOnlinePurchase.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\City.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Customer.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Product.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\BundledProduct.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\ClaimBordxPayment.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\ClaimBordx.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\ClaimBordxYearly.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Management\BrokerEntityManager.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.Designer.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.Designer.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.Designer.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.Designer.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.Designer.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.Designer.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.Designer.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\UnitsOfWork\ClaimHistoryByPolicyIdUnitOfWork .cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\UnitsOfWork\DeleteServiceHistoryUnitOfWork .cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\UnitsOfWork\DealerCommentAddUnitOfWork.cs
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadAutomobile.xlsx
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadBank.xlsx
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadElectronic.xlsx
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\BulkUploadFormat\BulkUploadTyres.xlsx
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.xsc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.xsd
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorization.xss
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xsc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xsd
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ClaimAuthorization\Default\ClaimAuthorizationOther.xss
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xsc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xsd
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\DealerInvoiceCode\Default\DealerInvoiceCode.xss
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.xsc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.xsd
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\InvoiceSummary\Default\DebitNote.xss
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Default\ADT\LFA-Policy-Booklet-Template-V.1.0.pdf
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Default\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Default\TYRE\LFA-Policy-Booklet-Template-V.1.0.pdf
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\Sampro\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyBooklet\LFA\AEW\LFA-Policy-Booklet-Template-V.1.0.pdf
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xsc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xsd
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatementContinental\Default\PolicyStatementContinental.xss
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.xsc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.xsd
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\PolicyStatementContinental.xss
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.xsc
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.xsd
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\ProductionReport\Default\ProductionReport.xss
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\hibernate.cfg.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Country.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityCategory.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\Manufacturer.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\SystemUser.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CommodityCategoryAttributeTableFieldMap.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\MasterTableMapping.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PaymentMode.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PaymentOption.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\CountryTaxes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ContractTaxes.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\User.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserRole.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserRoleMapping.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\PolicyTransactionType.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserLogin.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\RoleMenuMapping.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\ReinsurerUser.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Entities\Persistence\Mappings\UserBranch.hbm.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.Services.dll.config
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.Services.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.Services.pdb
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Amazon.ElastiCacheCluster.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\AWSSDK.Core.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\AWSSDK.S3.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Enyim.Caching.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Hashids.net.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Iesi.Collections.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\itextsharp.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\itextsharp.xmlworker.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\JWT.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Microsoft.ReportViewer.Common.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Newtonsoft.Json.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\NHibernate.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\NLog.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\NReco.PdfGenerator.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\pdfcrowd.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Spire.License.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Spire.Pdf.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\StackExchange.Redis.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\System.Net.Http.Formatting.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\System.Web.Http.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\System.Web.Mvc.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.Caching.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.Core.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.DataTransfer.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Microsoft.mshtml.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.Caching.pdb
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.Caching.dll.config
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.Core.pdb
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\TAS.DataTransfer.pdb
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Amazon.ElastiCacheCluster.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\AWSSDK.Core.pdb
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\AWSSDK.Core.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\AWSSDK.S3.pdb
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\AWSSDK.S3.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Enyim.Caching.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Iesi.Collections.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\itextsharp.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Newtonsoft.Json.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\NHibernate.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\NLog.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\NReco.PdfGenerator.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\pdfcrowd.pdb
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Spire.License.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Spire.Pdf.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\StackExchange.Redis.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\System.Net.Http.Formatting.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\System.Web.Http.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\System.Web.Mvc.xml
+G:\TFS\TAS-Commodity\LFA.BusinessServices\obj\Debug\TAS.Services.csprojAssemblyReference.cache
+G:\TFS\TAS-Commodity\LFA.BusinessServices\obj\Debug\RdlCompile.cache
+G:\TFS\TAS-Commodity\LFA.BusinessServices\obj\Debug\RdlCompile.compiled
+G:\TFS\TAS-Commodity\LFA.BusinessServices\obj\Debug\TAS.Services.csproj.CoreCompileInputs.cache
+G:\TFS\TAS-Commodity\LFA.BusinessServices\obj\Debug\TAS.Services.csproj.CopyComplete
+G:\TFS\TAS-Commodity\LFA.BusinessServices\obj\Debug\TAS.Services.dll
+G:\TFS\TAS-Commodity\LFA.BusinessServices\obj\Debug\TAS.Services.pdb
+G:\TFS\TAS-Commodity\LFA.BusinessServices\obj\Debug\RdbLog.txt
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\OW\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\OW\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\MI\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\MI\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\RSA\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\RSA\PolicyStatement_automobile_Coperate.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\ILOE\PolicyStatement_automobile.html
+G:\TFS\TAS-Commodity\LFA.BusinessServices\bin\Debug\Reports\PolicyStatement\Default\ILOE\PolicyStatement_automobile_Coperate.html

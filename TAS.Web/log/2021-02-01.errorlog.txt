@@ -1,0 +1,14 @@
+2021-02-01 09:30:20.2606 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-02-01 09:31:22.1601 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-02-01 09:35:00.6730 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-02-01 09:49:49.0588 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-02-01 09:54:25.0944 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2021-02-01 10:16:16.2727 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-02-01 10:16:24.5329 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-02-01 18:05:23.1231 TAS.Web.Controllers.ClaimController UserValidationClaimListing: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2021-02-01 18:05:23.3043 TAS.Web.Controllers.DealerManagementController GetAllDealers: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2021-02-01 18:05:23.5391 TAS.Web.Controllers.ApiManagerForPolicyApprovalController GetUsersPaymentModeCurrencies: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2021-02-01 18:05:28.2322 TAS.Web.Controllers.ApiManagerForPolicyApprovalController GetCountryNationalitiesCustomerTypesUsageTypesIdTypesCommoditiesItemStatus: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2021-02-01 18:05:36.3021 TAS.Web.Controllers.ApiManagerForPolicyApprovalController GetAutomibileAttribRelatedData: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found

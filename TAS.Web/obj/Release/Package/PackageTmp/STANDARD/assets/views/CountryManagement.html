@@ -1,0 +1,321 @@
+﻿
+
+<div style="margin-left: 30px; margin-right: 30px" ng-app="clip-two" ng-controller="CountryManagementCtrl as CountryManagementController" ng-init="loadInitailData()">
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        .fixed-height {
+            height: 250px;
+        }
+
+        .ScrollHeight {
+            max-height: 75px;
+            /*border: 1px solid red;*/
+            overflow: auto;
+        }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .error {
+            color: red;
+        }
+
+        .grid {
+            height: 200px;
+        }
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+        }
+            .grid-msg-overlay .msg span {
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+        .ui-grid-render-container-body {
+            position: absolute;
+            margin-left: 31px;
+        }
+
+        .ui-grid-grid-footer {
+            position: absolute;
+            bottom: 25px;
+        }
+    </style>
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle TitleModifier">{{'pages.countryManagement.title' | translate}}</h1>
+                <span class="mainDescription TitleModifier">{{'pages.countryManagement.mainDescription' | translate}}</span>
+            </div>
+        </div>
+    </section>
+    <!--<form action="#" role="form" id="form" name="myForm" class="my-form">-->
+    <div ng-form="myForm" class="my-form">
+        <tabset class="tabbable">
+            <tab heading="{{'pages.countryManagement.title' | translate}}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" ng-show="errorTab1!=''">
+                            {{errorTab1}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.countryManagement.country' | translate}}
+                            </label>
+                            <select class="form-control" ng-model="Country.Id" name="Id"
+                                    ng-options="n.Id as n.CountryName for n in Countries"
+                                    ng-change="SetCountryValues()" tabindex="1">
+                                <option value=""> &lt;&lt; {{'pages.countryManagement.New' | translate}} &gt;&gt; </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.countryManagement.countryName' | translate}}
+                            </label><span class="error">*</span>
+                            <input type="text" class="form-control" ng-model="Country.CountryName" name="CountryName" ng-class="validate_CountryName" tabindex="2">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.countryManagement.countryCode' | translate}}
+                            </label><span class="error">*</span>
+                            <input type="text" class="form-control" name="CountryCode" ng-model="Country.CountryCode" ng-class="validate_CountryCode" tabindex="3">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.countryManagement.phoneCode' | translate}}
+                            </label><span class="error">*</span>
+                            <input type="number" class="form-control" name="PhoneCode" ng-model="Country.PhoneCode" maxlength="4" allow-pattern="(\d|\.[0-9]{1,2})" ng-class="validate_PhoneCode" tabindex="4">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.countryManagement.defaultCurrency' | translate}}
+                            </label><span class="error">*</span>
+                            <select ng-class="validate_CountryCurrency" name="Currency" class="form-control" ng-model="Country.CurrencyId"
+                                    ng-options="c.Id as c.Code for c in Currencies" tabindex="5">
+                                <option value=""> {{'pages.countryManagement.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.countryManagement.Make' | translate}}
+                                </label>
+                                <div ng-dropdown-multiselect="" options="MakeList" selected-model="SelectedMakeList" extra-settings="settings" translation-texts="CustomText"
+                                     events="{ onItemSelect: SendMake,onItemDeselect:SendMake ,onSelectAll:SendMake,onUnselectAll:SendMake}" tabindex="6"></div>
+                                <div class="ScrollHeight">
+                                    <ul>
+                                        <li ng-repeat="x in SelectedMakeDList">
+                                            {{x}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.countryManagement.Model' | translate}}
+                                </label>
+                                <div ng-dropdown-multiselect="" options="ModelList" selected-model="SelectedModelList" extra-settings="settings" translation-texts="CustomText"
+                                     events="{ onItemSelect: SendModel,onItemDeselect:SendModel ,onSelectAll:SendModel,onUnselectAll:SendModel}" tabindex="7"></div>
+                                <div class="ScrollHeight">
+                                    <ul>
+                                        <li ng-repeat="x in SelectedModelDList">
+                                            {{x}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <br />
+                            <label class="control-label">
+                                {{'pages.countryManagement.Active' | translate}}
+                            </label>
+                            <input id="IsActive" type="checkbox" ng-model="Country.IsActive" tabindex="8">
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-3">
+                        <br />
+                        <!--<input type="button" class="btn btn-primary  btn-block" ng-click="CountrySubmit()" ng-value="Country.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'" />-->
+                        <button class="btn btn-primary  btn-block" ng-disabled="CountrySaveBtnDisabled" ng-click="CountrySubmit()" tabindex="9">
+                            <!--{{Country.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}} <i ng-class="CountrySaveBtnIconClass"></i>-->
+                            {{'pages.countryManagement.save' | translate}}
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="fixed-height"></div>
+                </div>
+            </tab>
+            <tab heading="{{'pages.countryManagement.countrytaxManagement' | translate}}">
+                <h4><!--COUNTRY TAX INFORMATION--></h4>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" ng-show="errorTab2!=''">
+                            {{errorTab2}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.countryManagement.country' | translate}}
+                            </label><span class="error">*</span>
+                            <select class="form-control" ng-model="CountryTax.CountryId" name="Country" ng-class="validate_CountryId"
+                                    ng-options="n.Id as n.CountryName for n in Countries"
+                                    ng-change="SetCountryTaxValues()" tabindex="1">
+                                <option value="">  {{'pages.countryManagement.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.countryManagement.Tax' | translate}}
+                            </label><span class="error">*</span>
+                            <select class="form-control" ng-model="CountryTax.TaxTypeId" name="TaxTypeId" ng-class="validate_TaxTypeId"
+                                    ng-options="n.Id as n.TaxName for n in AllTaxes" tabindex="2">
+                                <option value=""> {{'pages.countryManagement.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.countryManagement.TaxValue' | translate}}
+                            </label><span class="error">*</span>
+                            <input type="number" class="form-control text-right" ng-class="validate_Taxvalue" ng-model="CountryTax.TaxValue" allow-pattern="(\d|\.[0-9]{1,2})" min="0"
+                                   name="TaxValue" tabindex="3">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.countryManagement.MinimumValue' | translate}}
+                            </label>
+                            <input type="number" class="form-control text-right" name="MinimumValue" allow-pattern="(\d|\.[0-9]{1,2})" min="0"
+                                   ng-model="CountryTax.MinimumValue" tabindex="4">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <br />
+                                <label class="control-label">
+                                    {{'pages.countryManagement.Percentage' | translate}}
+                                </label>
+                                <input id="IsPercentage" type="checkbox" ng-model="CountryTax.IsPercentage" tabindex="5">
+                            </div>
+                        </div>
+                        <div class="col-md-3" ng-show="CountryTax.IsPercentage">
+                            <div class="form-group">
+                                <br />
+                                <label class="control-label">
+                                    {{'pages.countryManagement.OnPrevious' | translate}}
+                                </label>
+                                <input id="IsOnPreviousTax" type="checkbox" ng-model="CountryTax.IsOnPreviousTax" tabindex="6">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <br />
+                                <label class="control-label">
+                                    {{'pages.countryManagement.OnNRP' | translate}}
+                                </label>
+                                <input id="IsOnNRP" type="checkbox" ng-model="CountryTax.IsOnNRP"
+                                       ng-change="NRP()" tabindex="7">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <br />
+                                <label class="control-label">
+                                    {{'pages.countryManagement.OnGross' | translate}}
+                                </label>
+                                <input id="IsOnGross" type="checkbox" ng-model="CountryTax.IsOnGross"
+                                       ng-change="Gross()" tabindex="8">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <!--<input type="button" class="btn btn-primary  btn-block" ng-click="CountryTaxSubmit()" ng-value="CountryTax.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'" />-->
+                        <button class="btn btn-primary  btn-block" ng-disabled="CountryTaxSaveBtnDisabled" ng-click="CountryTaxSubmit()" tabindex="9">
+                            <!--{{CountryTax.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}} <i ng-class="CountryTaxSaveBtnIconClass"></i>-->
+                            {{'pages.countryManagement.save' | translate}}
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="grid" ui-grid-selection ui-grid="gridOptionsTax" ui-grid-auto-resize>
+                            <div class="grid-msg-overlay" ng-hide="CountryTaxesList.length>0 && TaxGridloadAttempted">
+                                <div class="msg">
+                                    <span>{{'pages.countryManagement.NoData' | translate}}</span>
+                                </div>
+                            </div>
+                            <div class="grid-msg-overlay" ng-hide="!gridOptionsTaxGridloading ">
+                                <div class="msg">
+                                    <span>
+                                        {{'pages.countryManagement.LoadingData' | translate}}
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </div>
+    <!--</form>-->
+</div>

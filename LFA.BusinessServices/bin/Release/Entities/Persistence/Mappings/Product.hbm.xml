@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="Product" table="Product" lazy="true" >
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="CommodityTypeId">
+      <column name="CommodityTypeId" sql-type="uniqueidentifier" not-null="true" />
+    </property>
+    <property name="Productname">
+      <column name="ProductName" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Productcode">
+      <column name="ProductCode" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Productdescription">
+      <column name="ProductDescription" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Productshortdescription">
+      <column name="ProductShortDescription" sql-type="varchar" not-null="false" />
+    </property>
+    <property name="Displayimage">
+      <column name="DisplayImage" sql-type="uniqueidentifier" not-null="false" />
+    </property>
+    <property name="ProductTypeId">
+      <column name="ProductTypeId" sql-type="uniqueidentifier" not-null="false" />
+    </property>
+    <property name="Isbundledproduct">
+      <column name="IsBundledProduct" sql-type="bit" not-null="true" />
+    </property>
+    <property name="Isactive">
+      <column name="IsActive" sql-type="bit" not-null="true" />
+    </property>
+    <property name="Ismandatoryproduct">
+      <column name="IsMandatoryProduct" sql-type="bit" not-null="true" />
+    </property>
+    <property name="Entrydatetime">
+      <column name="EntryDatetime" sql-type="datetime" not-null="true" />
+    </property>
+    <property name="Entryuser">
+      <column name="EntryUser" sql-type="uniqueidentifier" not-null="true" />
+    </property>
+    <property name="Lastupdatedatetime">
+      <column name="LastUpdateDatetime" sql-type="datetime" not-null="false" />
+    </property>
+    <property name="Lastupdateuser">
+      <column name="LastUpdateUser" sql-type="uniqueidentifier" not-null="false" />
+    </property>
+    <!--<bag name="Bundledproduct">
+      <key column="ParentProductId" />
+      <one-to-many class="Bundledproduct" />
+    </bag>
+    <bag name="Bundledproduct">
+      <key column="ProductId" />
+      <one-to-many class="Bundledproduct" />
+    </bag>-->
+  </class>
+</hibernate-mapping>

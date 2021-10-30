@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="Dealer" table="Dealer" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="DealerCode" />
+    <property name="DealerName" />
+    <property name="DealerAliase" />
+    <property name="CountryId" />
+    <property name="CurrencyId" />
+    <property name="Type" />
+    <property name="CommodityTypeId" />
+    <property name="InsurerId" />
+    <property name="CityId" />
+    <property name="Location" />
+    <property name="IsActive" />
+    <property name="IsAutoApproval" />
+    <property name="EntryDateTime" />
+    <property name="EntryUser" />
+    <property name="ManHourRate" precision="18" scale="8"  />
+    <property name="CurrencyPeriodId" />
+    <property name="ConversionRate" precision="18" scale="8"  />
+
+
+
+
+  </class>
+</hibernate-mapping>

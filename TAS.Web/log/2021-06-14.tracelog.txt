@@ -1,0 +1,34 @@
+2021-06-14 10:30:09.8451 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-06-14 10:30:11.6138 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - suranjika
+2021-06-14 10:30:17.3609 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-06-14 10:30:19.1257 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM2NDY4MTgsImp0aSI6IjI4MTZhNDc5LTVjNzAtNDdkZC1iN2U0LTk4YWU5ZmNiYWI3MCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIiwidXNlcmlkIjoiMGRmMzIzM2QtODRlMS00N2QzLWJmODUtMGU5Y2JmNWZiMGQ0In0.uu6EuAoq8irqC8w4XtPkRcDk3TJkWT-eE5Sz2_O67ag
+2021-06-14 12:21:00.3910 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-06-14 12:21:02.3789 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM2NTM0NjEsImp0aSI6ImM3NTQyZWQyLWUwNjUtNDFjNS04NDMxLTQ3NTlkMzcyMTdiOCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjZWQ5M2UwMS1kZmNhLTRmMDgtOWEzYi1jNjNmYmE2Y2YzMmYifQ.1eQt5aursQRmkOp1RULn24QXBXyUOkYzDF0EXGwrSPk
+2021-06-14 12:40:17.0757 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 12:40:17.2807 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 12:59:54.6193 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM2NTM0NjEsImp0aSI6ImM3NTQyZWQyLWUwNjUtNDFjNS04NDMxLTQ3NTlkMzcyMTdiOCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjZWQ5M2UwMS1kZmNhLTRmMDgtOWEzYi1jNjNmYmE2Y2YzMmYifQ.1eQt5aursQRmkOp1RULn24QXBXyUOkYzDF0EXGwrSPk
+2021-06-14 13:00:58.9790 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-06-14 13:01:01.4904 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM2NTU4NTksImp0aSI6IjYyNDI4OTcxLTM4NzQtNDA3Ni05NzY1LWRiMzA4NmY2YWVhZCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIiwidXNlcmlkIjoiMGRmMzIzM2QtODRlMS00N2QzLWJmODUtMGU5Y2JmNWZiMGQ0In0.bwJJuI6FCokpn0BmFu8wK-5NObpqM5iQ-MuWglThz3k
+2021-06-14 13:01:33.9155 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:01:34.3350 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:03:48.9101 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:03:49.0984 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:05:43.8869 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:05:44.2467 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:07:51.0315 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:07:51.7664 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:09:42.8534 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:09:43.0742 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:18:16.3744 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:18:16.5713 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:20:11.6422 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:20:11.8370 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:21:58.3310 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:21:58.5974 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:22:29.4558 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:22:29.6406 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:24:11.9199 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-06-14 13:24:12.1178 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-06-14 13:55:48.3523 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM2NTU4NTksImp0aSI6IjYyNDI4OTcxLTM4NzQtNDA3Ni05NzY1LWRiMzA4NmY2YWVhZCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIiwidXNlcmlkIjoiMGRmMzIzM2QtODRlMS00N2QzLWJmODUtMGU5Y2JmNWZiMGQ0In0.bwJJuI6FCokpn0BmFu8wK-5NObpqM5iQ-MuWglThz3k
+2021-06-14 13:56:01.4210 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-06-14 13:56:02.9425 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjM2NTkxNjIsImp0aSI6IjQ1NGQ0OTA4LWU1ZTctNDE0NC1iY2E1LTE0ZGUwYTE5Y2I4YSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjZWQ5M2UwMS1kZmNhLTRmMDgtOWEzYi1jNjNmYmE2Y2YzMmYifQ.n49v9elUGyDUIJRSIV_wpGIh8kjVHGsylXJQXyB3Swo

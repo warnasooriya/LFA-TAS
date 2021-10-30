@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="PolicyAdditionalDetails" table="PolicyAdditionalDetails" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="PolicyId" />
+    <property name="NumberOfTyreCover" />
+    <property name="FrontWidth" />
+    <property name="FrontTyreProfile" />
+    <property name="FrontRadius" />
+    <property name="FrontSpeedRating" />
+    <property name="FrontDot" />
+    <property name="RearWidth" />
+    <property name="RearTyreProfile" />
+    <property name="RearRadius" />
+    <property name="RearSpeedRating" />
+    <property name="RearDot" />
+    <property name="TyreBrand" />
+  </class>
+</hibernate-mapping>

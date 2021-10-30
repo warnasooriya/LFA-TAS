@@ -1,0 +1,98 @@
+﻿<div style="margin-left: 30px; margin-right: 30px;" ng-app="LFA" ng-controller="ClaimBordxYearlyReOpenManagementCtrl as ClaimBordxYearlyReOpenManagementController" ng-init="">
+    <style>
+      
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+    </style>
+    
+    <section id="page-title">
+        <div class="row">
+            <div class="pull-left">
+                <h1 class="mainTitle TitleModifier">Claim Bordereaux Yearly Re-Open Management</h1>
+                <!--<span class="mainDescription TitleModifier">{{ModalDescription}}</span>-->
+            </div>            
+        </div>
+    </section>
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group ">
+                    <label>
+                        Year<span class="symbol required"></span>
+                    </label>
+                    <select ng-model="currentBordxYear" class="form-control input-sm" ng-class="validate_Year">
+                        <option value="" selected>All</option>
+                        <option ng-repeat="option in bordxAvailableYears" value="{{option}}">{{option}}</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Country<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control input-sm" ng-model="currentCountry" name="id" ng-class="validate_Country"
+                    ng-options="n.Id as n.CountryName for n in Countries">
+                    <option value=""> Please Select </option>
+                    </select>
+                </div>
+            </div>            
+            
+
+            <div class="col-md-4">    
+                <br />            
+                <input type="button" class="btn btn-primary pull-left" ng-click="SearchReopenBordx()" 
+                       value="Search Yearly Bordx" />                
+            </div>
+        </div>
+        <div class="row center-block">
+            <div class="watermark" ng-hide="!policyGridloading">
+                <div class="msg">
+                    <span>
+                        Loading Data...
+                        <i class="fa fa-spinner fa-spin"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <table  ng-table="policyTable" class="table table-bordered table-striped ">
+                <thead class="ngTableheader">
+                    <tr>
+                        <th>Country</th>
+                        <th>Year</th>
+                        <th align="center">Bordx Amount</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in $data">
+                        <td>{{row.CountryId}}</td>
+                        <td>{{row.Year}}</td>
+                        <td align="right">{{row.BordxAmount}}</td>
+                    </tr>
+                    <tr ng-show="$data==null || $data.length==0">
+                        <td align="center" colspan="5"><h4>No Items found.</h4></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <input type="button" class="btn btn-primary pull-right" ng-click="ReopenBordx(currentBordxYear,currentCountry)"
+                   value="Reopen" />
+
+            <!--<input type="button" class="btn btn-primary pull-right" ng-click="viewPolicies()" style="margin-right:15px"
+                   value="view" />-->
+        </div>
+    </div>
+    <br /><br />
+    </div>

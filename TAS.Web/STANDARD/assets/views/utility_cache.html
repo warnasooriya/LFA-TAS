@@ -1,0 +1,38 @@
+<div ng-app="LFA" ng-controller="CacheUtilCtrl as dacheUtilCtrl" ng-init="loadInitailData()">
+	<style>
+        .columC {
+        width:200px;
+		}
+	</style>
+
+
+	<div class="error-full-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 page-error ">
+
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="grid" ui-grid-pagination ui-grid="gridOptionsCache">
+								<div class="grid-msg-overlay" ng-hide="gridOptionsCache.data.length >0 && cacheGridloadAttempted">
+									<div class="msg">
+										<span>{{'common.grid.noData' | translate}}</span>
+									</div>
+								</div>
+								<div class="grid-msg-overlay" ng-hide="!cacheSearchGridloading">
+									<div class="msg">
+										<span>
+											{{'common.grid.loading' | translate}}
+											<i class="fa fa-spinner fa-spin"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

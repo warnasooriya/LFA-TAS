@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="TAS.Services" namespace="TAS.Services.Entities" xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="RoleMenuMapping" table="RoleMenuMapping" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="MenuId" />
+    <property name="RoleId" />
+    <property name="LevelId" />
+    <property name="Description" />
+  </class>
+</hibernate-mapping>

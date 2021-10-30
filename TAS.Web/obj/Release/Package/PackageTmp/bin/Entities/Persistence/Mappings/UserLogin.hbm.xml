@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="TAS.Services" namespace="TAS.Services.Entities" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="UserLogin" table="UserLogin" lazy="true" >
+    <id name="ID" column="ID" />
+    <property name="UserName"/>
+    <property name="SystemUserID"/>
+    <property name="JwtToken"/>
+    <property name="IssuedDateTime"/>
+    <property name="LastRequestDateTime"/>
+    <property name="IssuedCountryRegion"/>
+    <property name="IsExpired"/>
+  </class>
+</hibernate-mapping>

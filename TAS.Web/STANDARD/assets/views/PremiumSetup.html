@@ -1,0 +1,1378 @@
+﻿
+<div style="margin-left: 30px; margin-right: 30px" ng-app="clip-two"
+     ng-controller="PremiumSetupManagementCtrl as PremiumSetupManagementControler"
+     ng-init="currencyPeriodCheck()" ng-cloak="">
+
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <!--<div class="col-sm-12">-->
+            <div class=" pull-left">
+                <h1 class="mainTitle TitleModifier">
+                    {{'pages.premiumSetupManagement.title' | translate}}
+                </h1>
+                <span class="mainDescription TitleModifier">{{'pages.premiumSetupManagement.mainDescription' | translate}}</span>
+
+
+            </div>
+            <div class="pull-right">
+                <span ng-show="!formAction" ng-click="setupNewContract();resetButton();" class="btn btn-beige pull-right">
+                    <i class="fa fa-asterisk"></i>
+                    | {{'pages.premiumSetupManagement.addNew' | translate}}
+                </span>
+                <span ng-hide="!formAction" ng-click="loadPremiumSearechPopup()" class="btn btn-twitter pull-right">
+                    <i class="fa fa-search"></i>
+                    | {{'pages.premiumSetupManagement.updateExisting' | translate}}
+                </span>
+                <span ng-show="!formAction" style="margin-right:10px" class="btn btn-twitter pull-right" ng-click="loadPremiumSearechPopup()">
+                    <i class="fa fa-search"></i>
+                    | {{'pages.premiumSetupManagement.updateExisting' | translate}}
+                </span>
+            </div>
+        </div>
+    </section>
+    <script type="text/ng-template" id="ContractSearchPopup">
+        <style>
+            .ngdialog-content {
+                width: 80% !important;
+                height: 400px !important;
+            }
+
+            .grid {
+                height: 250px !important;
+            }
+
+            .ScrollHeight {
+                max-height: 400px !important;
+                max-with: 850px !important;
+                /*border: 1px solid red;*/
+                overflow: auto !important;
+            }
+
+            table {
+                table-layout: auto;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            .ui-grid-pager-panel {
+                text-align: right;
+                box-sizing: border-box !important;
+            }
+
+            .ui-grid-header-cell .ui-grid-cell-contents {
+                text-align: center;
+            }
+
+            .columCss {
+                text-decoration: none;
+            }
+
+            .ui-grid-top-panel {
+                font-weight: 400 !important;
+            }
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .input-sm {
+                height: 25px !important;
+                font-size: 10px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+            .multiselect-parent .dropdown-menu {
+                overflow: auto;
+            }
+            .claim-error-label {
+                text-align:right;
+                color:red
+            }
+        </style>
+        <div>
+            <h3 class="">{{'pages.premiumSetupManagement.contractSearchPopup.title' | translate}}</h3>
+            <!--<form>-->
+            <div name="myForm" class="my-form">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>{{'pages.premiumSetupManagement.country' | translate}}</label>
+                            <select ng-model="contractSearchGridSearchCriterias.countryId" class="form-control input-sm">
+                                <option value="00000000-0000-0000-0000-000000000000" selected>All</option>
+                                <option ng-repeat="option in countries" value="{{option.Id}}">{{option.CountryName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group ">
+                            <label>{{'pages.premiumSetupManagement.dealer' | translate}}</label>
+                            <select ng-model="contractSearchGridSearchCriterias.dealerId" class="form-control input-sm">
+                                <option value="00000000-0000-0000-0000-000000000000" selected>All</option>
+                                <option ng-repeat="option in dealers" value="{{option.Id}}">{{option.DealerName}}</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>{{'pages.premiumSetupManagement.product' | translate}}</label>
+                            <select ng-model="contractSearchGridSearchCriterias.productId" class="form-control input-sm">
+                                <option value="00000000-0000-0000-0000-000000000000" selected>All</option>
+                                <option ng-repeat="option in products" value="{{option.Id}}">{{option.Productname}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+
+                        <div class="form-group">
+                            <label>{{'pages.premiumSetupManagement.dealName' | translate}}</label>
+                            <input ng-model="contractSearchGridSearchCriterias.dealName" type="text" class="form-control input-sm" />
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <br />
+                                <button class="btn btn-xs btn-primary" ng-click="RefreshContractSearchGridData()"><i class="fa fa-search"></i>&nbsp;{{'common.button.search' | translate}}</button>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <br />
+                                <button class="btn btn-warning " style="padding: 1px 16px;font-size: 12px;line-height: 1.5;" ng-click="ResetPremiumSearchPopup()">{{'common.button.reset' | translate}}</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="grid" ui-grid-pagination ui-grid="contractSearchGrid">
+                            <div class="grid-msg-overlay" ng-hide="contractSearchGrid.data.length>0 && contractSearchGridloadAttempted">
+                                <div class="msg">
+                                    <span>{{'common.grid.noData' | translate}}</span>
+                                </div>
+                            </div>
+                            <div class="grid-msg-overlay" ng-hide="!contractSearchGridloading">
+                                <div class="msg">
+                                    <span>
+                                        {{'common.grid.loading' | translate}}
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--</form>-->
+            </div>
+            <div class="pull-right">
+                <p style="color:red">{{SelectedContractError}}</p>
+            </div>
+        </div>
+
+    </script>
+    <script type="text/ng-template" id="NewInsuranceLimitationPopup">
+        <style>
+            .input-sm {
+                height: 20px !important;
+                font-size: 10px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+        </style>
+        <div>
+            <h3 class="">{{'pages.premiumSetupManagement.newInsuranceLimitationPopup.title' | translate}}</h3>
+            <br />
+            <!--<form>-->
+            <div name="myForm" class="my-form">
+                <div ng-show="currentChildProduct.CommodityType=='A' || currentChildProduct.CommodityType=='Y'">
+                    <div class="row" ng-show="currentChildProduct.Productcode!='RSA'">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{'pages.premiumSetupManagement.newInsuranceLimitationPopup.km' | translate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="symbol required"></span></label>
+                                <input type="number" ng-disabled="newInsuaranceLimitation.unlimitedcheck"
+                                       ng-model="newInsuaranceLimitation.km" ng-class="newInsuaranceLimitation.validatekm" allow-pattern="(\d|\.[0-9]{1,2})" />
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox" style="margin-top:2px">
+                                <label class="control-label">
+                                    <input type="checkbox" ng-model="newInsuaranceLimitation.upto" ng-init="newInsuaranceLimitation.upto=true" ng-true-value="true" ng-false-value="false" ng-change="setMilageType()">
+                                    {{'pages.premiumSetupManagement.newInsuranceLimitationPopup.upto' | translate}} &nbsp; <i class="fa fa-info-circle" title="By selecting this, Entered mileage will be the cutoff for extended warranty."></i>
+                                </label>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="checkbox" style="margin-top:2px">
+                                <label><input type="checkbox" ng-model="newInsuaranceLimitation.unlimitedcheck" ng-true-value="true" ng-false-value="false" ng-change="setMilageUnlimited()">{{'pages.premiumSetupManagement.newInsuranceLimitationPopup.unlimited' | translate}}</label>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{'pages.premiumSetupManagement.newInsuranceLimitationPopup.month' | translate}}<span class="symbol required"></span></label>
+                                <input type="number" allow-pattern="(\d|\.[0-9]{1,2})" ng-model="newInsuaranceLimitation.month" ng-class="newInsuaranceLimitation.validateMonth" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row" ng-show="currentChildProduct.Productcode=='RSA'">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>{{'pages.premiumSetupManagement.newInsuranceLimitationPopup.month' | translate}}&nbsp; <span class="symbol required"></span></label>
+                                <input type="number" allow-pattern="(\d|\.[0-9]{1,2})" ng-model="newInsuaranceLimitation.month"
+                                       ng-class="newInsuaranceLimitation.validateMonth" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" ng-hide="currentChildProduct.CommodityType=='A' || currentChildProduct.CommodityType=='Y'">
+                    <div class="col-md-6" ng-show="currentChildProduct.CommodityType=='O' || currentChildProduct.CommodityType=='E'">
+                        <div class="form-group">
+                            <label>{{'pages.premiumSetupManagement.newInsuranceLimitationPopup.month' | translate}}&nbsp; <span class="symbol required"></span></label>
+                            <input type="number" allow-pattern="(\d|\.[0-9]{1,2})"
+                                   ng-model="newInsuaranceLimitation.month" ng-class="newInsuaranceLimitation.validateMonth" />
+                        </div>
+                    </div>
+                    <div class="col-md-6" ng-show="currentChildProduct.CommodityType=='O' || currentChildProduct.CommodityType=='E'">
+                        <div class="form-group">
+                            <label>{{'pages.premiumSetupManagement.newInsuranceLimitationPopup.hours' | translate}}&nbsp; <span class="symbol required"></span> </label>
+                            <input type="number" allow-pattern="(\d|\.[0-9]{1,2})"
+                                   ng-model="newInsuaranceLimitation.hours" ng-class="newInsuaranceLimitation.validatehours" />
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row">
+                    <div class="col-md-2 pull-right" style="margin-right:35px">
+
+                        <button class="btn btn-primary btn-sm" ng-click="setNewInsuaranceLimitation()">{{'pages.premiumSetupManagement.newInsuranceLimitationPopup.setLimitation' | translate}}</button>
+                    </div>
+                    <p class="pull-right" style="color:red">{{setNewInsuaranceLimitationMsg}}</p>
+                </div>
+                <!--</form>-->
+            </div>
+        </div>
+
+    </script>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group" ng-class="validate_country">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.country' | translate}}<span class="symbol required"></span>
+                </label>
+                <select class="form-control input-sm " ng-model="currentContract.countryId" name="Country"
+                        ng-change="selectedCountryChanged()">
+                    <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                    <option ng-repeat="option in Allcountries" value="{{option.Id}}"
+                            ng-selected="currentContract.countryId==option.Id">
+                        {{option.CountryName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" ng-class="validate_dealer">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.dealer' | translate}}<span class="symbol required"></span>
+                </label>
+                <select class="form-control input-sm" ng-model="currentContract.dealerId" name="Dealer"
+                        ng-change="selectedDealerChanged()">
+                    <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                    <option ng-repeat="option in dealersByCountry" value="{{option.Id}}"
+                            ng-selected="currentContract.dealerId==option.Id">
+                        {{option.DealerName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" ng-class="validate_commodityType">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.commodityType' | translate}}<span class="symbol required"></span>
+                </label>
+                <select class="form-control input-sm" ng-model="currentContract.commodityTypeId" name="CommodityTypes"
+                        ng-change="selectedCommodityChanged()"
+                        required>
+                    <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                    <option ng-repeat="option in commodityTypes" value="{{option.CommodityTypeId}}"
+                            ng-selected="currentContract.commodityTypeId==option.CommodityTypeId">
+                        {{option.CommodityTypeDescription}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" ng-class="validate_commodityCategory">
+                <label class="control-label" for="form-field-1">
+                    {{'pages.premiumSetupManagement.commodityCategory' | translate}}<span class="symbol required"></span>
+                </label>
+                <select class="form-control input-sm" ng-model="currentContract.commodityCategoryId"
+                        ng-change="selectedCommodityCategoryChanged()"
+                        required>
+                    <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                    <option ng-repeat="option in commodityCategories" value="{{option.CommodityCategoryId}}"
+                            ng-selected="currentContract.commodityCategoryId==option.CommodityCategoryId">
+                        {{option.CommodityCategoryCode }} - {{option.CommodityCategoryDescription}}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group" ng-class="validate_product">
+                <label class="control-label" for="form-field-1">
+                    {{'pages.premiumSetupManagement.product' | translate}}<span class="symbol required"></span>
+                </label>
+                <select name="Product" class="form-control input-sm" ng-model="currentContract.productId"
+                        ng-change="selectedProductChanged()"
+                        required>
+                    <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                    <option ng-repeat="option in commodityProducts" value="{{option.Id}}"
+                            ng-selected="currentContract.productId==option.Id">
+                        {{option.Productcode }} - {{option.Productname}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label" for="form-field-1">
+                    {{'pages.premiumSetupManagement.linkDeal' | translate}}
+                </label>
+                <select name="LinkDeal" id="LinkDeal" class="form-control input-sm"
+                        ng-model="currentContract.linkDealId"
+                        ng-change="selectedLinkDealChanged()">
+                    <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                    <option ng-repeat="option in linkDeals" value="{{option.Id}}"
+                            ng-selected="currentContract.linkDealId==option.Id">
+                        {{option.DealName}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" ng-class="validate_dealName">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.dealName' | translate}} {{dealNameError}}<span class="symbol required"></span>
+                </label>
+
+                <input type="text" class="form-control input-sm" ng-model="currentContract.dealName" name="DealName" required>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" ng-class="validate_dealType">
+                <label class="control-label" for="form-field-1">
+                    {{'pages.premiumSetupManagement.dealType' | translate}}<span class="symbol required"></span>
+                </label>
+                <select name="DealType" id="DealType" class="form-control input-sm" ng-model="currentContract.dealType"
+                        required>
+                    <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                    <option ng-repeat="option in dealTypes" value="{{option.Id}}"
+                            ng-selected="currentContract.dealType==option.Id">
+                        {{option.Name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group" ng-class="validate_Insurer">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.insurer' | translate}}<span class="symbol required"></span>
+                </label>
+                <select class="form-control input-sm" ng-model="currentContract.insurerId" name="Insurer" ng-disabled="true">
+                    <option ng-repeat="option in insurers" value="{{option.Id}}"
+                            ng-selected="currentContract.insurerId==option.Id">
+                        {{option.InsurerCode}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group" ng-class="validate_ReinsurerContract">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.contractNo' | translate}}<span class="symbol required"></span>
+                </label>
+                <select class="form-control input-sm" ng-model="currentContract.reinsurerContractId" name="Reinsurer"
+                        ng-change="selectedReinsurerContractChanged()">
+                    <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                    <option ng-repeat="option in reinsurerContracts" value="{{option.Id}}"
+                            ng-selected="currentContract.reinsurerContractId==option.Id">
+                        {{option.ContractNo}}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group" ng-class="validate_startDate">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.startDate' | translate}}<span class="symbol required"></span>
+                </label>
+                <input type="text" name="StartDate" placeholder="{{'common.clickCalender' | translate}}" ng-readonly="true"
+                       class="form-control input-sm" ng-model="currentContract.contractStartDate" required
+                       datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen2 = !startOpen2" is-open="startOpen2"
+                       ng-init="startOpen2 = false" close-text="Close" min-date="reinsurerContractMinDate" max-date="reinsurerContractMaxDate" />
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group" ng-class="validate_endDate">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.endDate' | translate}}<span class="symbol required"></span>
+                </label>
+                <input type="text" name="EndDate" placeholder="{{'common.clickCalender' | translate}}" ng-readonly="true"
+                       class="form-control input-sm" ng-model="currentContract.contractEndDate" required
+                       datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen3 = !startOpen3" is-open="startOpen3"
+                       ng-init="startOpen3 = false" close-text="Close" min-date="reinsurerContractMinDate" max-date="reinsurerContractMaxDate" />
+            </div>
+            <p style="color:red">{{dateValidationError}}</p>
+        </div>
+        <div class="col-md-3" style="padding-left:0px;padding-right:0px">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <br />
+                    <input id="IsPromotional" type="checkbox" ng-model="currentContract.isPromotional">
+                    <label class="control-label">
+                        {{'pages.premiumSetupManagement.promotional' | translate}}
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <br />
+                    <input id="DiscountAvailable" type="checkbox" ng-model="currentContract.discountAvailable">
+                    <label class="control-label">
+                        {{'pages.premiumSetupManagement.discount' | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.remark' | translate}}
+                </label>
+                <input type="text" class="form-control input-sm" ng-model="currentContract.remark" name="Remark">
+            </div>
+        </div>
+
+        <div class="col-md-5" style="padding-left:0px;padding-right:0px">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <br />
+                    <input type="checkbox" ng-model="currentContract.isPremiumVisibleToDealer">
+                    <label class="control-label">
+                        {{'pages.premiumSetupManagement.showDealerPremium' | translate}}
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <br />
+                    <input id="AutoRenewal" type="checkbox" ng-model="currentContract.isAutoRenewal">
+                    <label class="control-label">
+                        {{'pages.premiumSetupManagement.autoRenewal' | translate}}
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <br />
+                    <input id="IsActive" type="checkbox" ng-model="currentContract.isActive">
+                    <label class="control-label">
+                        {{'pages.premiumSetupManagement.active' | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group" ng-class="validate_commodityUsageType">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.usageType' | translate}}<span class="symbol required"></span>
+                </label>
+                <select name="CommodityUsageType" class="form-control input-sm"
+                        ng-model="currentContract.commodityUsageTypeId">
+                    <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                    <option ng-repeat="option in commodityUsageTypes" value="{{option.Id}}"
+                            ng-selected="currentContract.commodityUsageTypeId==option.Id">
+                        {{option.Name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.claimLiability' | translate}}
+                </label>
+                <input type="number" class="form-control input-sm text-right" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" min="0" clear-on-click
+                       ng-model="currentContract.claimLimitation" name="ClaimLimitation" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.totalLiability' | translate}}
+                </label>
+                <input type="number" class="form-control input-sm text-right" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" min="0" clear-on-click
+                       ng-model="currentContract.liabilityLimitation" name="LiabilityLimitation">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <br />
+                <input type="checkbox" ng-model="currentContract.labourChargeApplicableOnPolicySold">
+                <label class="control-label">
+                    {{'pages.premiumSetupManagement.laborCharge' | translate}}
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <tabset class="tabbable">
+                <!--ng-show="IsExtendedWarranty">-->
+                <tab heading="{{'pages.premiumSetupManagement.tabPremiumDetail.title' | translate}}">
+                    <tabset class="tabbable">
+
+                        <div ng-show="allChildProducts.length==0" align="center"><h3>{{'common.grid.noData' | translate}}</h3></div>
+
+                        <tab ng-repeat="childProduct in allChildProducts" style="font-weight: bold"
+                             heading="{{allChildProducts[$index].Productcode+'-'+allChildProducts[$index].Productname}}">
+                            <div ng-show="childProduct.Productcode!='RSA'">
+                                <div class="row" style="padding-left: 0px; padding-right: 0px;">
+                                    <div class="col-md-6">
+                                        <div class="col-md-6">
+                                            <div class="col-md-10" style="padding-left: 0px">
+                                                <div class="form-group" ng-class="childProduct.validate_extentionType">
+                                                    <label class="control-label">
+                                                        {{'pages.premiumSetupManagement.tabPremiumDetail.insuranceLimitations' | translate}}<span class="symbol required"></span>
+                                                    </label>
+                                                    <select class="form-control input-sm" ng-model="childProduct.InsuaranceLimitationId"
+                                                            ng-init="getLimitationsByChildProduct(childProduct,null,true)"
+                                                            ng-change="selectedInsuaranceLimitationChanged(childProduct)">
+                                                        <option value="00000000-0000-0000-0000-000000000000" ng-selected="true">{{'common.customText.new' | translate}}</option>
+                                                        <option ng-repeat="option in childProduct.insuaranceLimitations" value="{{option.Id}}"
+                                                                ng-selected="childProduct.InsuaranceLimitationId==option.Id">
+                                                            {{option.InsuaranceLimitationName}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" style="padding-left: 0px">
+
+                                                <button type="button" style="margin-top: 25px;" class="btn btn-primary btn-xs pull-left" ng-click="showNewExtentionTypePopup(childProduct)">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                {{'pages.premiumSetupManagement.tabPremiumDetail.attributeSpecification' | translate}}
+                                            </label>
+                                            <select name="AttributeSpecification" class="form-control input-sm" ng-model="childProduct.attributeSpecificationId"
+                                                    ng-change="selectedAttributeSpecificationChanged(childProduct)">
+                                                <option value="00000000-0000-0000-0000-000000000000" ng-selected="true">{{'common.customText.pleaseSelect' | translate}}</option>
+                                                <option value="00000000-0000-0000-0000-000000000000">{{'common.customText.new' | translate}}</option>
+                                                <option ng-repeat="option in childProduct.attributeSpecifications" value="{{option.AttributeSpecificationId}}"
+                                                        ng-selected="childProduct.attributeSpecificationId==option.AttributeSpecificationId">
+                                                    {{option.AttributeSpecification}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6">
+                                            <label class="control-label">
+                                                {{'pages.premiumSetupManagement.tabPremiumDetail.aSpecificationPrefix' | translate}}
+                                            </label>
+                                            <input type="text" disabled="disabled" class="form-control input-sm"
+                                                   ng-model="childProduct.attributeSpecificationPrefix" name="AttributePrefix">
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group" ng-class="childProduct.validate_specificationName">
+                                                <label class="control-label">
+                                                    {{'pages.premiumSetupManagement.tabPremiumDetail.attributeSpecificationName' | translate}}<span class="symbol required"></span>
+                                                </label>
+                                                <input type="text" class="form-control input-sm"
+                                                       ng-model="childProduct.attributeSpecificationName" name="SpecificationName">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group" ng-class="childProduct.validate_warrentyType">
+                                                <label class="control-label">
+                                                    {{'pages.premiumSetupManagement.tabPremiumDetail.warrantyType' | translate}}<span class="symbol required"></span>
+                                                </label>
+                                                <select name="WarrantyType" class="form-control input-sm"
+                                                        ng-model="childProduct.warrantyTypeId"
+                                                        ng-change="selectedWarrentyTypeChanged(childProduct)">
+                                                    <option value="00000000-0000-0000-0000-000000000000" ng-selected="true">{{'common.customText.pleaseSelect' | translate}}</option>
+                                                    <option ng-repeat="option in warrantyTypes" value="{{option.Id}}"
+                                                            ng-selected="childProduct.warrantyTypeId==option.Id">
+                                                        {{option.WarrantyTypeDescription}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group" ng-class="childProduct.validate_itemStatus">
+                                                <label class="control-label">
+                                                    {{'pages.premiumSetupManagement.tabPremiumDetail.itemStatus' | translate}}<span class="symbol required"></span>
+                                                </label>
+                                                <select name="ItemStatus" class="form-control input-sm" ng-model="childProduct.itemStatusId"
+                                                        ng-change="selectedItemStatusChanged(childProduct)">
+                                                    <option value="00000000-0000-0000-0000-000000000000" ng-selected="true"> {{'common.customText.pleaseSelect' | translate}} </option>
+                                                    <option ng-repeat="option in itemStatuses" value="{{option.Id}}"
+                                                            ng-selected="childProduct.itemStatusId==option.Id">
+                                                        {{option.Status}}
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" ng-hide="childProduct.ProductTypeCode !='ILOE'">
+                                            <div class="form-group" ng-class="">
+                                                <label class="control-label">
+                                                    {{'pages.premiumSetupManagement.tabPremiumDetail.annualInterestRate' | translate}}
+                                                </label>
+                                                <input type="number" class="form-control input-sm text-right" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2"
+                                                       ng-model="currentContract.annualInterestRate" name="AnnualInterestRate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="panel panel-white no-radius">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group" ng-class="childProduct.validate_makes">
+                                                            <label class="control-label">
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.make' | translate}}<span class="symbol required"></span> &nbsp;<i ng-show="childProduct.isAllMakesSelected"
+                                                                                                                                                                                   class="fa fa-info-circle"
+                                                                                                                                                                                   title="Selected All "></i>
+                                                            </label>
+
+                                                            <div ng-dropdown-multiselect="" options="availableMakesDrp"
+                                                                 selected-model="childProduct.selectedMakeList"
+                                                                 extra-settings="settings">
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group" ng-class="childProduct.validate_models">
+                                                            <label class="control-label">
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.model' | translate}}<span class="symbol required"></span> &nbsp;<i ng-show="childProduct.isAllModelsSelected" class="fa fa-info-circle" title="Selected All "></i>
+                                                            </label>
+
+                                                            <div ng-dropdown-multiselect="" options="childProduct.availableModelsDrp"
+                                                                 selected-model="childProduct.selectedModelsList"
+                                                                 extra-settings="settings">
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group" ng-class="validate_variant">
+                                                            <label class="control-label">
+
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.variant' | translate}}<span class="symbol required"></span> &nbsp;<i ng-show="childProduct.isAllVariantSelected" class="fa fa-info-circle" title="Selected All "></i>
+                                                            </label>
+
+                                                            <div id="availableVariantsDrp" ng-dropdown-multiselect="" options="childProduct.availableVariantsDrp"
+                                                                 selected-model="childProduct.selectedVariantList"
+                                                                 extra-settings="settings">
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" ng-show="IsAutomobile">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group" ng-class="validate_cyllinderCount">
+                                                            <label class="control-label">
+
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.cylinderCount' | translate}}<span class="symbol required"></span> &nbsp;<i ng-show="childProduct.isAllCyllinderCountSelected" class="fa fa-info-circle" title="Selected All "></i>
+                                                            </label>
+
+                                                            <div ng-dropdown-multiselect="" options="clinderCountsDrp"
+                                                                 selected-model="childProduct.selectedClinderCounts"
+                                                                 extra-settings="settings">
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group" ng-class="validate_engineCapacities">
+                                                            <label class="control-label">
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.engineCapacity' | translate}} &nbsp;<i ng-show="childProduct.isAllEngineCapacitySelected" class="fa fa-info-circle" title="Selected All "></i>
+                                                            </label>
+
+                                                            <div ng-dropdown-multiselect="" options="engineCapacitiesDrp"
+                                                                 selected-model="childProduct.selectedEngineCapacities"
+                                                                 extra-settings="settings">
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group" ng-class="validate_GrossWeight">
+                                                            <label class="control-label">
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.gVW' | translate}} &nbsp;<i ng-show="childProduct.isAllGvwSelected" class="fa fa-info-circle" title="Selected All "></i>
+                                                            </label>
+
+                                                            <div ng-dropdown-multiselect="" options="grossWeightDrp"
+                                                                 selected-model="childProduct.selectedGrossWeights"
+                                                                 extra-settings="settings">
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row" style="padding-top: 1em">
+
+                                <div class="col-md-6">
+                                    <div class="panel panel-white no-radius">
+                                        <div class="panel-heading border-light panelHeaderModifier">
+                                            <h6 class="panel-title TitleModifier">
+                                                {{'pages.premiumSetupManagement.tabPremiumDetail.netRetainedPremium' | translate}} ({{premiumCurrency}})
+                                            </h6>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-md-12" style="padding-right: 0px; padding-left: 0px">
+                                                <div class="col-md-12">
+                                                    <div class="form-group" ng-class="childProduct.validate_premiumBasedOnNett">
+                                                        <label class="control-label">
+                                                            {{'pages.premiumSetupManagement.tabPremiumDetail.premiumBasedOn' | translate}}
+                                                        </label>
+                                                        <select class="form-control input-sm"
+                                                                ng-model="childProduct.premiumBasedOnIdNett"
+                                                                ng-change="setPremiumBasedOnValue(childProduct,'NETT')">
+                                                            <option ng-repeat="option in premiumBasedOnValues" value="{{option.Id}}"
+                                                                    ng-selected="childProduct.premiumBasedOnIdNett==option.Id">
+                                                                {{option.Description}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--premiumDetailsHideNett-->
+                                            <div ng-hide="false">
+                                                <div class="col-md-12" style="padding-right: 0px; padding-left: 0px" ng-show="childProduct.IsMinMaxVisibleNett">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" ng-class="childProduct.validate_minValueNett">
+                                                            <label class="control-label">
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.minimumValue' | translate}}
+                                                            </label>
+                                                            <input type="number" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" class="form-control text-right"
+                                                                   ng-model="childProduct.minValueNett" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" ng-class="childProduct.validate_maxValueNett">
+                                                            <label class="control-label">
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.maximumValue' | translate}}
+                                                            </label>
+
+                                                            <input type="number" ng-blur="ValidateMinMax()" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2"
+                                                                   class="form-control text-right" ng-model="childProduct.maxValueNett"
+                                                                   ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
+                                                        </div>
+                                                    </div>
+                                                    <p style="color: red">{{childProduct.minMaxNettError}}</p>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="checkbox" ng-model="childProduct.isCustAvailableNett">&nbsp;
+                                                        <label class="control-label">
+                                                            {{'pages.premiumSetupManagement.tabPremiumDetail.customerAvailable' | translate}}
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="checkbox" ng-model="childProduct.manufacturerWarrantyNett">&nbsp;
+                                                        <label class="control-label">
+                                                            {{'pages.premiumSetupManagement.tabPremiumDetail.manufacturerWarrantyApplicable' | translate}}
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div ng-repeat="y in childProduct.premiumAddonsNett | orderBy: 'IndexNo'">
+                                                        <div>
+                                                            <div class="col-md-6" style="padding-right: 0px; padding-left: 0px">
+                                                                <div class="form-group">
+                                                                    {{y.Description}}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <div class="form-group">
+                                                                    <input type="number" min="0" class="form-control text-right" ng-model="y.value"
+                                                                           allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" clear-on-click
+                                                                           ng-keyup="calculateTotalNrp(childProduct)"
+                                                                           ng-change="calculateTotalNrp(childProduct)">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-1" style="padding-left: 0px" ng-show="childProduct.percentageVisibleNett">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">
+                                                                        %
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel panel-white no-radius">
+                                        <div class="panel-heading border-light panelHeaderModifier">
+                                            <h6 class="panel-title TitleModifier">
+                                                {{'pages.premiumSetupManagement.tabPremiumDetail.grossPrimium' | translate}} ({{premiumCurrency}})
+                                            </h6>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-md-12" style="padding-right: 0px; padding-left: 0px">
+                                                <div class="col-md-12">
+                                                    <div class="form-group" ng-class="validate_premiumBasedOnGross">
+                                                        <label class="control-label">
+                                                            {{'pages.premiumSetupManagement.tabPremiumDetail.premiumBasedOn' | translate}}
+                                                        </label>
+                                                        <select class="form-control input-sm" ng-model="childProduct.premiumBasedOnIdGross"
+                                                                ng-change="setPremiumBasedOnValue(childProduct,'GROSS')">
+
+                                                            <option ng-repeat="option in premiumBasedOnValues" value="{{option.Id}}"
+                                                                    ng-selected="childProduct.premiumBasedOnIdGross==option.Id">
+                                                                {{option.Description}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--premiumDetailsHideGross-->
+                                            <div ng-hide="false">
+                                                <div class="col-md-12" style="padding-right: 0px; padding-left: 0px" ng-show="childProduct.IsMinMaxVisibleGross">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" ng-class="validate_minValueGross">
+                                                            <label class="control-label">
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.minimumValue' | translate}}
+                                                            </label>
+                                                            <input type="number" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2"
+                                                                   ng-blur="ValidateMinMax()" class="form-control text-right"
+                                                                   ng-model="childProduct.minValueGross" name="Min" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                                                                   step="0.01" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" ng-class="validate_maxValueGross">
+                                                            <label class="control-label">
+                                                                {{'pages.premiumSetupManagement.tabPremiumDetail.maximumValue' | translate}}
+                                                            </label>
+                                                            <input type="number" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2"
+                                                                   ng-blur="ValidateMinMax()" class="form-control text-right"
+                                                                   ng-model="childProduct.maxValueGross" name="Max" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                                                                   step="0.01" required>
+                                                        </div>
+                                                    </div>
+                                                    <p style="color: red">{{minMaxGrossError}}</p>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input id="IsCustAvailable" type="checkbox" ng-model="childProduct.isCustAvailableGross">&nbsp;
+                                                        <label class="control-label input-sm">
+                                                            {{'pages.premiumSetupManagement.tabPremiumDetail.customerAvailable' | translate}}
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input id="ManufacturerWarranty" type="checkbox" ng-model="childProduct.manufacturerWarrantyGross">&nbsp;
+                                                        <label class="control-label input-sm">
+                                                            {{'pages.premiumSetupManagement.tabPremiumDetail.manufacturerWarrantyApplicable' | translate}}
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div ng-repeat="x in childProduct.premiumAddonsGross | orderBy: 'IndexNo'">
+                                                        <div>
+                                                            <div class="col-md-6" style="padding-right: 0px; padding-left: 0px">
+                                                                <div class="form-group">
+                                                                    {{x.Description}}
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <div class="form-group">
+                                                                    <input type="number" allow-pattern="(\d|\.[0-9]{1,2})" min="0" allow-decimal="2"
+                                                                           value="0.00" class="form-control text-right" ng-model="x.Value" clear-on-click
+                                                                           ng-keyup="calculateTotalGross(childProduct)"
+                                                                           ng-change="calculateTotalGross(childProduct)">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-1" style="padding-left: 0px" ng-show="childProduct.percentageVisibleGross">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">
+                                                                        %
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="panel panel-white no-radius">
+                                        <div class=" panel-heading border-light panelheadermodifier">
+                                            <h2 class="pull-right">
+                                                {{'pages.premiumSetupManagement.tabPremiumDetail.tatalNRP' | translate}} &nbsp;
+                                                {{childProduct.totalNRP}} <span ng-show="childProduct.percentageVisibleNett">%</span>
+
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel panel-white no-radius">
+                                        <div class=" panel-heading border-light panelheadermodifier">
+                                            <h2 class="pull-right">
+                                                {{'pages.premiumSetupManagement.tabPremiumDetail.grossPrimium' | translate}} &nbsp;
+                                                {{childProduct.grossPremium}}<span ng-show="childProduct.percentageVisibleGross">%</span>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tab>
+
+                    </tabset>
+                </tab>
+                <tab heading="{{'pages.premiumSetupManagement.tabCommissionDetail.title' | translate}}">
+                    <div ng-repeat="x in commissionTypes">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        {{x.Name}}
+                                    </label>
+                                    <input type="number" id="Commission" min="0" ng-class="validate_CommissionValue" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" class="form-control text-right" clear-on-click
+                                           ng-model="x.Commission">
+                                </div>
+
+                            </div>
+                            <div class="col-md-1" style="padding-right: 0px">
+                                <div class="form-group">
+                                    <label class="control-label">
+                                        &nbsp;
+                                    </label>
+                                    <div ng-show="x.IsPercentage">%</div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <br />
+                                    <input type="checkbox" id="IsPercentage" ng-model="x.IsPercentage">&nbsp;
+                                    <label class="control-label">
+                                        {{'pages.premiumSetupManagement.tabCommissionDetail.percentageValue' | translate}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group ">
+                                    <br />
+                                    <input type="checkbox" ng-model="x.IsOnNRP" ng-click="setCommissionIsNRPOrGross(x.Name,true)">&nbsp;
+                                    <label class="control-label">
+                                        {{'pages.premiumSetupManagement.tabCommissionDetail.nRP' | translate}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group pull-left">
+                                    <br />
+                                    <input type="checkbox" ng-model="x.IsOnGROSS" ng-click="setCommissionIsNRPOrGross(x.Name,false)">&nbsp;
+                                    <label class="control-label">
+                                        {{'pages.premiumSetupManagement.tabCommissionDetail.gross' | translate}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="{{'pages.premiumSetupManagement.tabTaxDetails.title' | translate}}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>{{'pages.premiumSetupManagement.tabTaxDetails.taxType' | translate}}</th>
+                                        <th>{{'pages.premiumSetupManagement.tabTaxDetails.value' | translate}}</th>
+                                        <th>{{'pages.premiumSetupManagement.tabTaxDetails.isApplicable' | translate}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td ng-show="countryTaxes.length==0" align="center" colspan="3"><h3>{{'common.grid.noData' | translate}}</h3></td>
+                                    </tr>
+                                    <tr ng-repeat="x in countryTaxes">
+                                        <td>
+                                            {{x.Tax.TaxName}}
+                                        </td>
+                                        <td>
+                                            <h6> {{x.TaxValue}} <small ng-show="x.IsPercentage">%</small></h6>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" ng-model="x.IsSelected" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </tab>
+                <tab heading="{{'pages.premiumSetupManagement.tabEligibilityCriteria.title' | translate}}">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div ng-show="IsAutomobile">
+                                <div class="form-group col-md-2">
+                                    <label class="control-label">
+                                        {{'pages.premiumSetupManagement.tabEligibilityCriteria.age' | translate}}<span class="symbol required"></span>
+                                    </label>
+                                    <input type="number" placeholder="Min" min="0" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" class="form-control input-sm text-right"
+                                           ng-model="eligibility.ageMin" clear-on-click >
+
+                                    <input type="number" placeholder="Max" min="0" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" class="form-control input-sm text-right"
+                                           ng-model="eligibility.ageMax" clear-on-click>
+
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label class="control-label">
+                                        {{'pages.premiumSetupManagement.tabEligibilityCriteria.milage' | translate}}<span class="symbol required"></span>
+                                    </label>
+                                    <input type="number" placeholder="Min" min="0" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" class="form-control input-sm text-right"
+                                           ng-model="eligibility.milageMin" clear-on-click>
+
+                                    <input type="number" placeholder="Max" min="0" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" class="form-control input-sm text-right"
+                                           ng-model="eligibility.milageMax" clear-on-click>
+
+                                </div>
+                            </div>
+                            <div ng-hide="IsAutomobile">
+                                <div class="form-group col-md-2">
+                                    <label class="control-label">
+                                        {{'pages.premiumSetupManagement.tabEligibilityCriteria.months' | translate}}<span class="symbol required"></span>
+                                    </label>
+                                    <input type="number" placeholder="Min" min="0" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" class="form-control input-sm text-right"
+                                           ng-model="eligibility.monthsMin" clear-on-click>
+                                    <input type="number" placeholder="Max" min="0" allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" class="form-control input-sm text-right"
+                                           ng-model="eligibility.monthsMax" clear-on-click>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label class="control-label">
+                                    {{'pages.premiumSetupManagement.tabEligibilityCriteria.percentage' | translate}}
+                                </label>
+                                <input type="checkbox"
+                                       ng-model="eligibility.isPresentage">
+
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label class="control-label">
+                                    {{'pages.premiumSetupManagement.tabEligibilityCriteria.mandatory' | translate}}
+                                </label>
+                                <input type="checkbox"
+                                       ng-model="eligibility.isMandatory">
+
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <label class="control-label">
+                                    <span class="symbol required"></span>
+                                </label>
+                                <select class="form-control input-sm" ng-model="eligibility.plusMinus">
+                                    <option value="plus">Plus</option>
+                                    <option value="minus">Minus</option>
+
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label class="control-label">
+                                    {{'pages.premiumSetupManagement.tabEligibilityCriteria.premium' | translate}}<span class="symbol required"></span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" placeholder="Eligibility" min="0" class="form-control input-sm text-right"
+                                           ng-model="eligibility.premium" clear-on-click>
+                                    <label class="input-group-addon" ng-show="eligibility.isPresentage">%</label>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group col-md-2">
+                                <br />
+                                <button class="btn btn-xs btn-primary" ng-click="addNewEligibility()">{{'pages.premiumSetupManagement.tabEligibilityCriteria.addGrid' | translate}}</button>
+                                <br />
+                                <p style="color: red">{{eligibilityError}}</p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th ng-show="IsAutomobile">{{'pages.premiumSetupManagement.tabEligibilityCriteria.minAge' | translate}}</th>
+                                    <th ng-show="IsAutomobile">{{'pages.premiumSetupManagement.tabEligibilityCriteria.maxAge' | translate}}</th>
+                                    <th ng-show="IsAutomobile">{{'pages.premiumSetupManagement.tabEligibilityCriteria.minMilage' | translate}}</th>
+                                    <th ng-show="IsAutomobile">{{'pages.premiumSetupManagement.tabEligibilityCriteria.maxMilage' | translate}}</th>
+                                    <th ng-hide="IsAutomobile">{{'pages.premiumSetupManagement.tabEligibilityCriteria.minMonths' | translate}}</th>
+                                    <th ng-hide="IsAutomobile">{{'pages.premiumSetupManagement.tabEligibilityCriteria.maxMonths' | translate}}</th>
+                                    <th>{{'pages.premiumSetupManagement.tabEligibilityCriteria.percentage' | translate}}</th>
+                                    <th>{{'pages.premiumSetupManagement.tabEligibilityCriteria.mandatory' | translate}}</th>
+                                    <th>{{'pages.premiumSetupManagement.tabEligibilityCriteria.plus' | translate}}</th>
+                                    <th>{{'pages.premiumSetupManagement.tabEligibilityCriteria.premium' | translate}}</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in currentContract.eligibilities">
+                                    <td>
+                                        {{$index+1}}
+                                    </td>
+                                    <td ng-show="IsAutomobile">
+                                        {{x.ageMin}}
+                                    </td>
+                                    <td ng-show="IsAutomobile">
+                                        {{x.ageMax}}
+                                    </td>
+                                    <td ng-show="IsAutomobile">
+                                        {{x.milageMin}}
+                                    </td>
+                                    <td ng-show="IsAutomobile">
+                                        {{x.milageMax}}
+                                    </td>
+                                    <td ng-hide="IsAutomobile">
+                                        {{x.monthsMin}}
+                                    </td>
+                                    <td ng-hide="IsAutomobile">
+                                        {{x.monthsMax}}
+                                    </td>
+                                    <td>
+                                        {{x.isPresentage?'Yes':'No'}}
+                                    </td>
+                                    <td>
+                                        {{x.isMandatory?'Yes':'No'}}
+                                    </td>
+                                    <td>
+                                        {{x.plusMinus}}
+                                    </td>
+                                    <td>
+                                        {{x.premium}}
+                                    </td>
+                                    <td>
+                                        <input type="button" class="btn btn-xs btn-warning" ng-click="deleteEligibility($index)" value="{{'common.button.remove' | translate}}" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </tab>
+                <tab  ng-show="IsAEWTyreProduct" heading="{{'pages.premiumSetupManagement.tabClaimLimitationCriteria.title' | translate}}">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <br />
+                                <input id="claim-limitation-criteria-enable" type="checkbox" ng-click="generateClaimCriteria()" ng-model="claimLimitationCriteria.enabled">
+                                <label class="control-label" for="claim-limitation-criteria-enable">
+                                    {{'pages.premiumSetupManagement.tabClaimLimitationCriteria.enabled' | translate}}
+                                </label>
+                                <span style="color:red;margin-left:50px;  text-align:right" class="has-error" >{{claimLimitationErrors}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <table class="table table-bordered table-responsive-md table-striped text-center">
+                                <tr>
+                                    <th class="text-center">{{'pages.premiumSetupManagement.tabClaimLimitationCriteria.headingYear' | translate}}</th>
+                                    <th class="text-center">{{'pages.premiumSetupManagement.tabClaimLimitationCriteria.headingPresentage' | translate}}</th>
+                                </tr>
+                                <tr ng-repeat="limit in claimLimitationList">
+                                    <td width="50%">
+                                        <span>{{limit.label}}</span>
+                                    </td>
+                                    <td>
+                                        <input type="number" placeholder="Min" min="0"  clear-on-click allow-pattern="(\d|\.[0-9]{1,2})" allow-decimal="2" class="form-control input-sm text-right"
+                                               ng-model="limit.presentage">
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+
+</tab>
+            </tabset>
+            <div class="clearfix"></div>
+
+            <div class="row">
+                <button class="pull-right btn btn-primary" ng-disabled="saveBtnDisabled" ng-click="savePremiumSetup()">
+                    {{'pages.premiumSetupManagement.saveChanges' | translate}} <i ng-class="saveBtnClass"></i>
+                </button>
+                <p class="pull-right" style="color:red">{{GeneralError}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        .form-group {
+            margin-bottom: 5px !important;
+        }
+
+        .pagination {
+            margin-top: 0 !important;
+        }
+
+        .ngTableheader {
+            text-decoration: none;
+            font-weight: 300 !important;
+            font-size: 12px !important;
+            text-align: center;
+        }
+
+        #page-title {
+            padding: 25px 0;
+        }
+
+        .watermark {
+            /*position: absolute;*/
+            top: 50%;
+            font-size: 15px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            z-index: 1000;
+        }
+        /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+
+        .input-sm {
+            height: 25px !important;
+            font-size: 12px !important;
+        }
+
+        /*.has-error .control-label {
+            color: #fbaa2b !important;
+        }*/
+
+        .sweet-alert {
+            z-index: 9999999999 !important;
+        }
+
+        .sweet-overlay {
+            z-index: 9999999998 !important;
+        }
+
+
+        .has-error .form-control {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .has-error .ams-button {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+    </style>
+</div>

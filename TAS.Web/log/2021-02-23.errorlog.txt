@@ -1,0 +1,12 @@
+2021-02-23 11:23:35.5259 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-02-23 11:23:40.2607 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-02-23 11:23:49.5520 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-02-23 11:23:56.4850 TAS.Web.Controllers.UserController LoginAuth: exception: Value cannot be null.
+Parameter name: input, 
+2021-02-23 12:02:42.3725 TAS.Web.Controllers.ContractManagementController GetExtensionTypesByMakeModel: exception: Unrecognized Guid format., 
+2021-02-23 12:09:31.8936 TAS.Web.Controllers.ContractManagementController GetExtensionTypesByMakeModel: exception: Unrecognized Guid format., 
+2021-02-23 12:13:31.7451 TAS.Web.Controllers.ContractManagementController GetExtensionTypesByMakeModel: exception: Unrecognized Guid format., 
+2021-02-23 12:26:07.4578 TAS.Web.Controllers.ContractManagementController GetExtensionTypesByMakeModel: exception: Unrecognized Guid format., 

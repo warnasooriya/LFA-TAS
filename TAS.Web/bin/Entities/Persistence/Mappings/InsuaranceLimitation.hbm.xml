@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="InsuaranceLimitation" table="InsuaranceLimitation" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="CommodityTypeId" />
+    <property name="CommodityTypeCode" />
+    <property name="InsuaranceLimitationName" />
+    <property name="Km" />
+    <property name="Months" />
+    <property name="Hrs" />
+
+    <property name="TopOfMW" />
+    <property name="EntryDateTime" />
+    <property name="EntryBy" />
+    <property name="IsRsa" />
+
+    
+  </class>
+</hibernate-mapping>

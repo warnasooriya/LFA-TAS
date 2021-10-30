@@ -1,0 +1,4 @@
+2021-02-11 17:09:25.5534 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2021-02-11 17:09:27.5162 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTMwNDM1NjYsImp0aSI6ImMzZTcyZGViLWIxMTYtNGRmMS1iZDY0LTczMjgxNjRlZDFjZCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.SVrMipTHqdgrwrB1rbGORt0LbSKCUmBr_C6eAc5Hjw4
+2021-02-11 17:09:55.6317 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-02-11 17:09:55.8553 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache

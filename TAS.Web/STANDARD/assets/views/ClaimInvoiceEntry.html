@@ -1,0 +1,563 @@
+﻿<div ng-app="LFA" ng-controller="ClaimInvoiceCtrl as claimInvoiceController" ng-init="loadInitailData()">
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        .fixed-height {
+            height: 250px;
+        }
+
+        .ScrollHeight {
+            max-height: 75px;
+            /*border: 1px solid red;*/
+            overflow: auto;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .grid {
+            height: 250px;
+        }
+
+        .ui-grid-render-container-body {
+            position: absolute;
+            margin-left: 31px;
+        }
+
+        .ui-grid-grid-footer {
+            position: absolute;
+            bottom: 25px;
+        }
+
+        .numberclass {
+            text-align: right;
+        }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+    </style>
+
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">CLAIM INVOICE ENTRY</h1>
+                    <span class="mainDescription TitleModifier">You can enter a claim invoice here.</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- <span class="btn btn-info pull-right" style="cursor:pointer" ng-click="searchPopup()"><i class="fa fa-search"></i>&nbsp;|&nbsp;Search Invoice</span>-->
+            </div>
+        </div>
+    </section>
+
+    <div name="myForm" class="my-form">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Dealer<span class="symbol required"></span>
+                        </label>
+                        <select class="form-control  input-sm  input-sm" ng-model="ClaimInvoiceEntry.DealerId" tabindex="1"
+                                ng-change="selectedDealerChanged()" ng-class="validate_claimInvoiceEntryDealerId" ng-disabled="ClaimInvoiceEntryDisable">
+                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                            <option ng-repeat="option in Dealers" value="{{option.Id}}">
+                                <!--ng-selected="ClaimInvoiceEntry.DealerId==option.Id">-->
+                                {{option.DealerName}}
+                            </option>
+                        </select>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="sum">
+                            <h5 class="pull-right" style="margin-right: 20px">Selected Claim Amount : <strong> {{ClaimInvoiceEntry.TotalAmount | number : 2}} {{ClaimCurrencyCode}}</strong></h5>
+                            <!--{{sum()}}-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <!--<div class="col-md-2">
+                        <label class="control-label">
+                            Invoice No
+                        </label>
+                    </div>-->
+                    <!--<div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" tabindex="4" ng-model="ClaimInvoiceEntry.InvoiceNumber"
+                                   name="InvoiceNumber" ng-class="validate_claimInvoiceEntryInvoiceNumber" ng-disabled="ClaimInvoiceEntryDisable">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary  btn-info" style="width:100%" ng-disabled="ClaimInvoiceSaveBtnDisabled" ng-click="refresClaimSearchGridData()">
+                            Load
+                            <i ng-class="ClaimInvoiceSaveBtnIconClass"></i>
+                        </button>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Invoice Received Date <span class="symbol required"></span>
+                        </label>
+                        <input type="text" ng-readonly="true" placeholder="Click for Calendar" tabindex="2"
+                               class="form-control  input-sm" ng-model="ClaimInvoiceEntry.InvoiceReceivedDate"
+                               ng-class="validate_claimInvoiceEntryInvoiceReceivedDate" ng-disabled="ClaimInvoiceEntryDisable"
+                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen1 = !startOpen1" is-open="startOpen1" ng-init="startOpen1 = false" close-text="Close" />
+                    </div>
+
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Invoice Date<span class="symbol required"></span>
+                        </label>
+                        <input type="text" ng-readonly="true" placeholder="Click for Calendar" tabindex="3"
+                               class="form-control  input-sm" ng-model="ClaimInvoiceEntry.InvoiceDate"
+                               ng-class="validate_claimInvoiceEntryInvoiceReceivedDate" ng-disabled="ClaimInvoiceEntryDisable"
+                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen = !startOpen" is-open="startOpen" ng-init="startOpen = false" close-text="Close" />
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Invoice No<span class="symbol required"></span>
+                        </label>
+                        <input type="text" class="form-control" tabindex="4" ng-model="ClaimInvoiceEntry.InvoiceNumber"
+                               name="InvoiceNumber" ng-class="validate_claimInvoiceEntryInvoiceNumber" ng-disabled="ClaimInvoiceEntryDisable">
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Invoice Amount<span class="symbol required"></span>
+                        </label>
+                        <input type="number" placeholder="" tabindex="5" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                             ng-class="validate_claimInvoiceEntryInvoiceAmount"   class="form-control text-right" ng-model="ClaimInvoiceEntry.InvoiceAmount" clear-on-click
+                               id="InvoiceAmount" name="InvoiceAmount" ng-disabled="ClaimInvoiceEntryDisable" required />
+                    </div>
+                </div>
+
+                <!--<div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Confirm Invoice<span class="symbol required"></span>
+                            </label>
+                            <input id="IsActive" type="checkbox" ng-model="ClaimInvoiceEntry.IsConfirm" tabindex="6" ng-disabled="ClaimInvoiceEntryDisable">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="fixedheight">
+                                <input type="file" ng-model="Path" tabindex="6" uploader="uploader1" nv-file-select="" ng-click="beforeClick();" ng-disabled="ClaimInvoiceEntryDisable" />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>-->
+
+                <div class="col-md-12">
+                    <!--<div class="form-group">
+                        <div class="fixedheight">
+                            <input type="file" ng-model="Path" tabindex="6" uploader="uploader1" nv-file-select="" ng-click="beforeClick();" />
+                        </div>
+                    </div>-->
+                </div>
+
+            </div>
+
+            <div class="col-md-8">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Claim No
+                                </label>
+                                <input type="text" class="form-control input-sm" tabindex="4" ng-model="claimSubmittedSearchClaimNo"
+                                       name="claimNo">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Invoice No
+                                </label>
+                                <input type="text" class="form-control input-sm" ng-model="claimSubmittedSearchInvoiceNo" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+
+                            <div class="ngdialog-buttons pull-right">
+                                <input type="button" style="margin-top:23px" class="btn btn-primary  btn-info input-sm" ng-click="selectedDealerChanged()" value="Search">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" style="margin-top:5px;height:300px;">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="grid" ui-grid-selection ui-grid-pagination ui-grid="gridOptions">
+                                        <div class="grid-msg-overlay" ng-hide="gridOptions.data.length>0 && ClaimInvoiceEntryClaimSearchGridloadAttempted">
+                                            <div class="msg">
+                                                <span>No Data</span>
+                                            </div>
+                                        </div>
+                                        <div class="grid-msg-overlay" ng-hide="!ClaimInvoiceEntryClaimSearchGridloading">
+                                            <div class="msg">
+                                                <span>
+                                                    Loading Data...
+                                                    <i class="fa fa-spinner fa-spin"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+
+            </div>
+            <div class="col-md-7">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+
+
+                    <div class="form-group">
+                        <button class="btn btn-primary  btn-info input-sm" style="width:100%" tabindex="7" ng-disabled="claimInvoiceSisableConfirm" ng-click="submitConfirmInvoice()">
+                            Confirm
+                            <i ng-class=""></i>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <button class="btn btn-primary {{saveUpdateClass}} input-sm" style="width:100%" tabindex="7" ng-disabled="claimInvoiceDisableSave" ng-click="submitInvoice()">
+                            {{saveText}}
+                            <i ng-class="ClaimInvoiceSaveBtnIconClass"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h4 class="mainTitle TitleModifier">Adjustment Claim  {{currentAdjustClaimNo}}</h4>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-2">
+                <label class="control-label">
+                    Approve Amount
+                </label>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" tabindex="4" ng-model="adjustment.approvedAmmount"
+                           name="InvoiceNumber" ng-class=""  disabled>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label class="control-label">
+                    Invoice Amount
+                </label>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" tabindex="4" ng-model="adjustment.invoiceAmount"
+                           name="InvoiceNumber" ng-class=""  disabled>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-2">
+                <label class="control-label">
+                    Part
+                </label>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" tabindex="4" ng-model="adjustment.beforadjustPartAmount"
+                           name="Part" disabled>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" tabindex="4" ng-model="adjustPartAmount" clear-on-click
+                           name="partAfter" ng-class="" ng-disabled="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-2">
+                <label class="control-label">
+                    Labour
+                </label>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" tabindex="4" ng-model="adjustment.beforadjustLabourAmount"
+                           name="Labour" disabled>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" tabindex="4" ng-model="adjustLabourAmount" clear-on-click
+                           name="LabourAfter" ng-class="" ng-disabled="ClaimInvoiceEntryDisable">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-2">
+                <label class="control-label">
+                    Sundry
+                </label>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" tabindex="4" ng-model="adjustment.beforadjustSundryAmount"
+                           name="Sundry" disabled>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" tabindex="4" ng-model="adjustSundryAmount" clear-on-click
+                           name="SundryAfter" ng-class="" ng-disabled="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary  btn-info input-sm pull-right" style="width:100%" tabindex="7" ng-disabled="ClaimInvoiceEdjustDissable" ng-click="submitAdjustAmount()">
+                        Save Adjustment
+                        <i ng-class="ClaimInvoiceSaveBtnIconClass"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <br />
+
+        <script type="text/ng-template" id="popUpClaimInvoiceEntry">
+            <style>
+                .input-sm {
+                    height: 25px !important;
+                    font-size: 11px;
+                }
+
+                .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                    padding-right: 5px;
+                    padding-left: 5px;
+                }
+
+                .ngdialog-content {
+                    width: 800px !important;
+                    height: 500px !important;
+                }
+
+                .ui-grid-top-panel {
+                    font-weight: 400 !important;
+                }
+
+                .ui-grid-canvas {
+                    text-align: center;
+                    font-size: 12px;
+                }
+
+                .grid {
+                    height: 250px !important;
+                }
+
+                .ui-grid-pager-panel {
+                    text-align: right;
+                    box-sizing: border-box !important;
+                }
+
+                .ui-grid-header-cell .ui-grid-cell-contents {
+                    text-align: center;
+                }
+
+                .columCss {
+                    text-decoration: none;
+                }
+
+
+                .ui-grid-canvas {
+                    text-align: center;
+                    font-size: 12px;
+                }
+
+                /*
+                       This is the background of our overlay. We need it to be
+                       absolutely positioned within the grid, and fill from
+                       top to bottom, and the full width. It will also have
+                       a black background with 40% opacity.
+                    */
+                .grid-msg-overlay {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    width: 100%;
+                    background: rgba(0, 0, 0, 0.4);
+                }
+
+                    /*
+                      This guy will contain our message. We want it centered
+                      so it's positioned absolutely with percentage-based
+                      offsets and dimensions. It also has some basic border
+                      stuff and most important is using "display: table" so
+                      we can vertically center its contents.
+                    */
+                    .grid-msg-overlay .msg {
+                        opacity: 1;
+                        position: absolute;
+                        top: 20%;
+                        left: 20%;
+                        width: 60%;
+                        height: 50%;
+                        background-color: #eee;
+                        border-radius: 4px;
+                        border: 1px solid #555;
+                        text-align: center;
+                        font-size: 24px;
+                        display: table;
+                    }
+
+                        /*
+                      Lastly this is the actual message text. It uses
+                      display: table-cell so the vertical alignment
+                      works properly.
+                    */
+                        .grid-msg-overlay .msg span {
+                            display: table-cell;
+                            vertical-align: middle;
+                        }
+            </style>
+
+
+            <h3>Claim Invoice Entry Search</h3>
+            <div name="myForm" class="my-form">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Dealer<span class="symbol required"></span>
+                            </label>
+                            <select class="form-control  input-sm  input-sm" ng-model="ClaimInvoiceEntrySearchGridSearchCriterias.dealer"
+                                    ng-change="">
+                                <option value=""> Please Select </option>
+                                <option ng-repeat="option in Dealers" value="{{option.Id}}"
+                                        ng-selected="PartPrice.DealerId==option.Id">
+                                    {{option.DealerName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Invoice No<span class="symbol required"></span>
+                            </label>
+                            <input type="text" class="form-control  input-sm" ng-model="ClaimInvoiceEntrySearchGridSearchCriterias.invoiceNo" name="InvoiceNumber">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Invoice Date<span class="symbol required"></span>
+                            </label>
+                            <input type="text" ng-readonly="true" placeholder="Click for Calendar" class="form-control  input-sm" ng-model="ClaimInvoiceEntrySearchGridSearchCriterias.InvoiceDate"
+                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen = !startOpen" is-open="startOpen" ng-init="startOpen = false" close-text="Close" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="ngdialog-buttons pull-right" style="margin-top:5px">
+                            <input type="button" class="ngdialog-button ngdialog-button-primary btn-xs" ng-click="searchPopupReset()" value="Reset">
+                            <input type="button" class="ngdialog-button ngdialog-button-primary btn-xs" ng-click="refresUserSearchGridData()" value="Search">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="margin-top:5px">
+                        <div class="grid" ui-grid-pagination ui-grid="gridOptionsClaimInvoiceEntry">
+                            <div class="grid-msg-overlay" ng-hide="gridOptionsClaimInvoiceEntry.data.length>0 && ClaimInvoiceEntrySearchGridloadAttempted">
+                                <div class="msg">
+                                    <span>No Data</span>
+                                </div>
+                            </div>
+
+                            <div class="grid-msg-overlay" ng-hide="!ClaimInvoiceEntrySearchGridloading">
+                                <div class="msg">
+                                    <span>
+                                        Loading Data...
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </script>
+
+    </div>
+
+

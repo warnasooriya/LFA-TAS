@@ -1,0 +1,40 @@
+2021-04-01 13:14:24.7869 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-04-01 13:14:24.8974 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - continental
+2021-04-01 13:14:29.3122 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-04-01 13:14:29.3372 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - continental
+2021-04-01 13:14:38.9885 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-04-01 13:14:39.5335 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNjMwNzksImp0aSI6IjVkNjk1NjM3LWRmODEtNDgxMi1hZDU4LTA0N2QwYWFiODA0NyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.duADbcjKsS7-0NWGVtzAfVMtIDsX-lEOp5_RGmS4np0
+2021-04-01 13:14:46.1039 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNjMwNzksImp0aSI6IjVkNjk1NjM3LWRmODEtNDgxMi1hZDU4LTA0N2QwYWFiODA0NyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.duADbcjKsS7-0NWGVtzAfVMtIDsX-lEOp5_RGmS4np0
+2021-04-01 13:14:52.7703 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - continental
+2021-04-01 13:14:52.8233 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNjMwOTIsImp0aSI6ImEwNTc2ZDFlLWUwYTAtNDcwMC1iYWY0LTkzMWEzZTgxZjkzMiIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.wPmjBIHc4OaC9KvJ3mS5226uPXfrDbCh5LeVcUG94t8
+2021-04-01 14:40:58.5033 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - continental
+2021-04-01 14:40:58.6343 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNjgyNTgsImp0aSI6ImZmZDJjYTliLWQ5ZjEtNDA5MC1hYjhmLTQyY2I5ZTExYTM5YyIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.V6dDbPAsaxZZG2XqwVOvFjAvOAG9gUbmgaFa1JJVeRc
+2021-04-01 14:57:50.4202 TAS.Web.Controllers.UserController Login request recived from ip-127.0.0.1 for user - dealer for TPA - continental
+2021-04-01 14:57:50.4762 TAS.Web.Controllers.UserController Login success for ip-127.0.0.1 for user - dealer for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNjkyNzAsImp0aSI6ImZlMDBiODdkLWRiZDctNDNiZi04NWE1LTBhOWVjZjM4YmFkNiIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.bEfhsxoCx6M-BX-Ajyc7LRKs11cboP8n6zG2eL3Wo04
+2021-04-01 15:37:02.0046 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - continental
+2021-04-01 15:37:03.9571 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNzE2MjIsImp0aSI6ImZiYWVlNzI5LTViZDYtNDU3ZC05NzRjLWRlNDRkYWNmYmEyOSIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.hAvhvzHEddqEherFi2AKWO0yMIbkZHrj3BulcZc2tks
+2021-04-01 16:34:30.7654 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNzE2MjIsImp0aSI6ImZiYWVlNzI5LTViZDYtNDU3ZC05NzRjLWRlNDRkYWNmYmEyOSIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.hAvhvzHEddqEherFi2AKWO0yMIbkZHrj3BulcZc2tks
+2021-04-01 16:34:43.6269 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-04-01 16:34:44.0154 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNzUwODMsImp0aSI6ImZkZTdkYjI1LTdhYTItNDBjMC1hOTVlLWNiMGMxZTllZDM4ZiIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.lvFpn0oUhkysYZ1CMhMdUYHVmw6KSsmi65fG1FgCG6E
+2021-04-01 16:34:54.7929 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-04-01 16:34:55.2256 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-04-01 16:34:55.2256 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-04-01 16:34:55.4416 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-04-01 16:34:55.4507 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-04-01 16:34:59.3881 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNjkyNzAsImp0aSI6ImZlMDBiODdkLWRiZDctNDNiZi04NWE1LTBhOWVjZjM4YmFkNiIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.bEfhsxoCx6M-BX-Ajyc7LRKs11cboP8n6zG2eL3Wo04
+2021-04-01 16:35:28.5228 TAS.Web.Controllers.UserController Login request recived from ip-127.0.0.1 for user - admin for TPA - continental
+2021-04-01 16:35:28.5808 TAS.Web.Controllers.UserController Login success for ip-127.0.0.1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcyNzUxMjgsImp0aSI6IjBlMmVjNDRmLWJiMjgtNDdjOC1iMzNlLTZkNTZhODQ2OWRmNyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.Fn_wuP7QqdDqBs_hfTe4zoYmR9jBi9hsMwXt9x73Zu4
+2021-04-01 16:35:39.1918 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-04-01 16:35:39.2218 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-04-01 16:35:39.2308 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-04-01 16:35:39.5873 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-04-01 16:35:39.5873 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-04-01 16:35:42.7881 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-04-01 16:35:42.7881 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-04-01 16:36:23.2768 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-04-01 16:36:23.3758 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-04-01 16:36:23.3958 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-04-01 16:36:23.5448 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-04-01 16:36:23.5448 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-04-01 16:36:25.2987 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-04-01 16:36:25.3067 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache

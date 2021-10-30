@@ -1,0 +1,6 @@
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\bin\Release\TAS.Notification.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\bin\Release\TAS.Notification.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Release\TAS.Notification.csprojAssemblyReference.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Release\TAS.Notification.csproj.CoreCompileInputs.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Release\TAS.Notification.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Release\TAS.Notification.pdb

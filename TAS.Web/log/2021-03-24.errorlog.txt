@@ -1,0 +1,221 @@
+2021-03-24 09:26:35.8742 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: could not execute query
+[ select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'3/24/2021 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+INNER JOIN Country   ON Country.Id=Dealer.CountryId
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+--join claim on Policy.id=claim.policyid
+join Bordx on Policy.BordxId=Bordx.Id
+
+ where
+ Policy.DealerId='00000000-0000-0000-0000-000000000000' AND Country.Id='00000000-0000-0000-0000-000000000000'  AND ReinsurerContract.UWYear ='' and
+ VehicleDetails.MakeId=case
+	when '00000000-0000-0000-0000-000000000000'='00000000-0000-0000-0000-000000000000'
+	then VehicleDetails.MakeId
+	else '00000000-0000-0000-0000-000000000000'
+	end
+	and VehicleDetails.ModelId=case
+	when '00000000-0000-0000-0000-000000000000'='00000000-0000-0000-0000-000000000000'
+	then ModelId
+	else '00000000-0000-0000-0000-000000000000'
+	end
+	and VehicleDetails.cylinderCountId=case
+	when '00000000-0000-0000-0000-000000000000'='00000000-0000-0000-0000-000000000000'
+	then cylinderCountId
+	else '00000000-0000-0000-0000-000000000000'
+	end
+	and VehicleDetails.EngineCapacityId=case
+	when '00000000-0000-0000-0000-000000000000'='00000000-0000-0000-0000-000000000000'
+	then EngineCapacityId
+	else '00000000-0000-0000-0000-000000000000'
+	end
+	and Bordx.StartDate=case
+	when '1/1/0001 12:00:00 AM'='1/15/9999 12:00:00 AM'
+	then Bordx.StartDate
+	else '1/1/0001 12:00:00 AM'
+	end
+	and Bordx.EndDate=case
+	when '1/1/0001 12:00:00 AM'='1/15/9999 12:00:00 AM'
+	then Bordx.EndDate
+	else '1/1/0001 12:00:00 AM'
+	end
+
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription
+ ]
+[SQL: select Insurer.Id as Insurer,
+Insurer.InsurerShortName,
+Reinsurer.Id as Reinsurer,
+Reinsurer.ReinsurerName,
+ReinsurerContract.UWYear as UNRYear,
+Dealer.Id as Dealer,
+Dealer.DealerName,
+WarrantyType.WarrantyTypeDescription as WarantyType,
+AVG(dbo.GetRiskCompletedByPolicyId(Policy.PolicyStartDate,Policy.PolicyEndDate,'3/24/2021 12:00:00 AM') * 100) AS 'EarnPercenSum',
+ItemStatus.Status AS 'PolicyStatus'
+from VehicleDetails
+join VehiclePolicy on VehicleDetails.Id=VehiclePolicy.VehicleId
+join Policy on VehiclePolicy.PolicyId=Policy.Id
+join Contract on Policy.ContractId=Contract.Id
+join Insurer on Contract.InsurerId=Insurer.Id
+join ReinsurerContract on Contract.ReinsurerContractId=ReinsurerContract.Id
+join Dealer on Policy.DealerId=Dealer.Id
+INNER JOIN Country   ON Country.Id=Dealer.CountryId
+join ContractExtensionPremium on Policy.ContractExtensionPremiumId=ContractExtensionPremium.Id
+join WarrantyType on ContractExtensionPremium.WarrentyTypeId=WarrantyType.Id
+join Reinsurer on ReinsurerContract.ReinsurerId=Reinsurer.Id
+inner join ItemStatus ON VehicleDetails.ItemStatusId= ItemStatus.Id
+--join claim on Policy.id=claim.policyid
+join Bordx on Policy.BordxId=Bordx.Id
+
+ where
+ Policy.DealerId='00000000-0000-0000-0000-000000000000' AND Country.Id='00000000-0000-0000-0000-000000000000'  AND ReinsurerContract.UWYear ='' and
+ VehicleDetails.MakeId=case
+	when '00000000-0000-0000-0000-000000000000'='00000000-0000-0000-0000-000000000000'
+	then VehicleDetails.MakeId
+	else '00000000-0000-0000-0000-000000000000'
+	end
+	and VehicleDetails.ModelId=case
+	when '00000000-0000-0000-0000-000000000000'='00000000-0000-0000-0000-000000000000'
+	then ModelId
+	else '00000000-0000-0000-0000-000000000000'
+	end
+	and VehicleDetails.cylinderCountId=case
+	when '00000000-0000-0000-0000-000000000000'='00000000-0000-0000-0000-000000000000'
+	then cylinderCountId
+	else '00000000-0000-0000-0000-000000000000'
+	end
+	and VehicleDetails.EngineCapacityId=case
+	when '00000000-0000-0000-0000-000000000000'='00000000-0000-0000-0000-000000000000'
+	then EngineCapacityId
+	else '00000000-0000-0000-0000-000000000000'
+	end
+	and Bordx.StartDate=case
+	when '1/1/0001 12:00:00 AM'='1/15/9999 12:00:00 AM'
+	then Bordx.StartDate
+	else '1/1/0001 12:00:00 AM'
+	end
+	and Bordx.EndDate=case
+	when '1/1/0001 12:00:00 AM'='1/15/9999 12:00:00 AM'
+	then Bordx.EndDate
+	else '1/1/0001 12:00:00 AM'
+	end
+
+	group by
+	Insurer.Id, Insurer.InsurerShortName, Insurer.InsurerShortName,  Reinsurer.Id ,Reinsurer.ReinsurerName,
+	ReinsurerContract.UWYear,Dealer.Id, Dealer.DealerName, ItemStatus.Status, WarrantyType.WarrantyTypeDescription
+], System.Data.SqlClient.SqlException (0x80131904): The conversion of a varchar data type to a datetime data type resulted in an out-of-range value.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at System.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at System.Data.SqlClient.SqlDataReader.Read()
+   at NHibernate.Driver.NHybridDataReader.Read()
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:e74b661f-aa1e-421b-8f23-ed19e86fa761
+Error Number:242,State:3,Class:16
+2021-03-24 10:04:51.5360 TAS.Web.Controllers.ClaimController GetAllSubmittedClaimsByUserId: exception: Error converting value "" to type 'System.Guid'. Path 'claimSearch.claimDealerId'., System.ArgumentException: Could not cast or convert from System.String to System.Guid.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+2021-03-24 10:08:06.1420 TAS.Web.Controllers.ClaimController GetAllSubmittedClaimsByUserId: exception: Error converting value "" to type 'System.Guid'. Path 'claimSearch.claimDealerId'., System.ArgumentException: Could not cast or convert from System.String to System.Guid.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+2021-03-24 10:16:09.9225 TAS.Web.Controllers.ClaimController GetAllSubmittedClaimsByUserId: exception: Error converting value {null} to type 'System.Guid'. Path 'claimSearch.claimDealerId'., System.ArgumentException: Could not cast or convert from {null} to System.Guid.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+2021-03-24 10:27:16.5176 TAS.Web.Controllers.ClaimController GetAllSubmittedClaimsByUserId: exception: Error converting value "" to type 'System.Guid'. Path 'claimSearch.claimDealerId'., System.ArgumentException: Could not cast or convert from System.String to System.Guid.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+2021-03-24 10:28:05.6033 TAS.Web.Controllers.ClaimController GetAllSubmittedClaimsByUserId: exception: Error converting value "" to type 'System.Guid'. Path 'claimSearch.claimDealerId'., System.ArgumentException: Could not cast or convert from System.String to System.Guid.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+2021-03-24 10:28:16.1089 TAS.Web.Controllers.ClaimController GetAllSubmittedClaimsByUserId: exception: Error converting value "" to type 'System.Guid'. Path 'claimSearch.claimDealerId'., System.ArgumentException: Could not cast or convert from System.String to System.Guid.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+2021-03-24 10:44:37.7200 TAS.Web.Controllers.DealerManagementController GetAllDealers: exception: could not execute query
+[ select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=@p0 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:Suranji
+[SQL: select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=@p0 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The specified network name is no longer available.) ---> System.ComponentModel.Win32Exception (0x80004005): The specified network name is no longer available
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:fc9eb5b5-f7e8-4b1d-b39a-3626e7c5ba33
+Error Number:64,State:0,Class:20
+2021-03-24 10:44:37.7200 TAS.Web.Controllers.IncurredErningManagementController GetUNWYears: exception: could not execute query
+[ select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=@p0 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:Suranji
+[SQL: select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=@p0 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - The specified network name is no longer available.) ---> System.ComponentModel.Win32Exception (0x80004005): The specified network name is no longer available
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:8f4393b1-b2fd-437d-ab7a-3355c2d0a4c6
+Error Number:64,State:0,Class:20
+2021-03-24 19:46:23.7276 TAS.Services.Entities.Management.DealerEntityManager SaveTyrePolicy: exception: Object reference not set to an instance of an object., 

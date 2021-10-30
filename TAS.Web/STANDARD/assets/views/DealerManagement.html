@@ -1,0 +1,663 @@
+﻿
+
+<div style="margin-left: 30px; margin-right: 30px" ng-app="clip-two" ng-controller="DealerManagementCtrl as DealerManagementController" ng-init="loadInitailData()">
+    <style>
+        #page-title {
+            padding: 20px 0;
+        }
+        /*.ngdialog-content {
+            width: 800px !important;
+            height: 450px !important;
+        }*/
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+            width:100%
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+    </style>
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle TitleModifier">{{'pages.dealerManagement.title' | translate}}</h1>
+                <!--<span class="mainDescription TitleModifier">You can add or update dealer details here.</span>-->
+                <span class="mainDescription TitleModifier">{{'pages.dealerManagement.mainDescription' | translate}}</span>
+            </div>
+        </div>
+    </section>
+
+    <tabset class="tabbable">
+        <!-- start: TAB OVERVIEW -->
+        <tab heading="{{'pages.dealerManagement.title' | translate}}">
+            <div class="col-md-12">
+                <div class="alert alert-danger" ng-show="errorTab1!=''">
+                    {{errorTab1}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerManagement.dealer' | translate}}
+                        </label>
+                        <select class="form-control" ng-model="Dealer.Id" name="Id"
+                                ng-options="n.Id as n.DealerName for n in Dealers"
+                                ng-change="SetDealerValues()">
+                            <option value=""> &lt;&lt; {{'common.customText.new' | translate}} &gt;&gt; </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerManagement.dealerName' | translate}} <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.DealerName.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="Dealer.DealerName" ng-class="validate_DealerName" name="DealerName" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerManagement.dealerCode' | translate}} <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.DealerCode.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="Dealer.DealerCode" ng-class="validate_DealerCode" name="DealerCode" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerManagement.type' | translate}} <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.Type.$error.required">*</span>
+                        <select class="form-control" name="Type" ng-model="Dealer.Type" ng-class="validate_Type" required>
+                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            <option value="true">Dealer</option>
+                            <option value="false">Service Centre</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{ 'pages.dealerManagement.tabDealerManagement.insurer' | translate }} <span class="symbol required"></span>
+                                </label><span class="error" ng-show="myForm.InsurerId.$error.required">*</span>
+                                <select class="form-control" ng-model="Dealer.InsurerId" name="InsurerId" ng-class="validate_InsurerId"
+                                        ng-options="n.Id as n.InsurerShortName for n in Insurers" required>
+                                    <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{ 'pages.dealerManagement.tabDealerManagement.commodityType' | translate }}  <span class="symbol required"></span>
+                                </label>
+                                <!--<span class="error" ng-show="myForm.CommodityTypes.$error.required">*</span>-->
+                                <select class="form-control" ng-model="Dealer.CommodityTypeId" name="CommodityTypes" ng-class="validate_CommodityTypeId"
+                                        ng-options="n.CommodityTypeId as n.CommodityTypeDescription  for n in CommodityTypes"
+                                        required>
+                                    <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{ 'pages.dealerManagement.tabDealerManagement.country' | translate }}   <span class="symbol required"></span>
+                                </label>
+                                <!--<span class="error" ng-show="myForm.Country.$error.required">*</span>-->
+                                <select name="Country" class="form-control" ng-model="Dealer.CountryId" ng-class="validate_CountryId"
+                                        ng-options="c.Id as c.CountryName for c in Countries"
+                                        ng-change="SetCities()"
+                                        required>
+                                    <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{ 'pages.dealerManagement.tabDealerManagement.currency' | translate }}  <span class="symbol required"></span>
+                                </label>
+                                <!--<span class="error" ng-show="myForm.Currency.$error.required">*</span>-->
+                                <select name="Currency" class="form-control" ng-model="Dealer.CurrencyId" ng-class="validate_CurrencyId"
+                                        ng-options="c.Id as c.Code for c in Currencies"
+                                        required>
+                                    <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{ 'pages.dealerManagement.tabDealerManagement.manHourRate' | translate }}   <span class="symbol required"></span>
+                                </label>
+                                <input type="number" class="form-control text-right" ng-model="Dealer.ManHourRate" ng-class="validate_ManHourRate" min="0" clear-on-click>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <br />
+                                <input id="IsAutoApproval" type="checkbox" ng-model="Dealer.IsAutoApproval">
+                                <label class="control-label">
+                                    {{ 'pages.dealerManagement.tabDealerManagement.enableAproval' | translate }}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <br />
+                                <input id="IsActive" type="checkbox" ng-model="Dealer.IsActive">
+                                <label class="control-label">
+                                    {{ 'pages.dealerManagement.tabDealerManagement.active' | translate }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="padding-left:0px;padding-right:0px">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{ 'pages.dealerManagement.tabDealerManagement.make' | translate }}  <span class="symbol required"></span>
+                            </label>
+                            <div ng-dropdown-multiselect="" options="MakeList" selected-model="SelectedMakeList" extra-settings="settings"
+                                 translation-texts="CustomText" ng-class="validate_SelectedMakeList"
+                                 events="{ onItemSelect: SendMake,onItemDeselect:SendMake ,onSelectAll:SendMake,onUnselectAll:SendMake}"></div>
+                            <div class="ScrollHeight">
+                                <ul>
+                                    <li ng-repeat="x in SelectedMakeDList">
+                                        {{x}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="padding-left:0px;padding-right:0px">
+                    <div class="col-md-9">
+                    </div>
+                    <div class="col-md-3">
+
+                        <br />
+                        <!--<input type="button" class="btn btn-primary btn-block" ng-click="DealerSubmit()" />-->
+                        <button class="btn btn-primary btn-block" ng-disabled="dealerSaveBtnDisabled" ng-click="DealerSubmit()">
+                            <!--{{Dealer.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}-->
+                            {{ labelSaveDealer | translate}} <i ng-class="dealerSaveBtnIconClass"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="fixed-height"></div>
+            </div>
+        </tab>
+        <tab heading="{{'pages.dealerManagement.tabDealerBranchManagement.title' | translate}}">
+            <div class="col-md-12">
+                <div class="alert alert-danger" ng-show="errorTab2!=''">
+                    {{errorTab2}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerManagement.dealer' | translate}} <span class="symbol required"></span>
+                        </label>
+                        <select class="form-control" ng-model="DealerLocation.DealerId" name="DealerId"
+                                ng-options="n.Id as n.DealerName for n in Dealers" ng-class="validate_dealerLocationDealerId"
+                                ng-change="SetDealerLocationsValues()">
+                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.bealerBranch' | translate}}
+                        </label>
+                        <select class="form-control" ng-model="DealerLocation.Id" name="Id"
+                                ng-options="n.Id as n.Location for n in DealerLocations"
+                                ng-change="SetDealerLocationValues()">
+                            <option value=""> &lt;&lt; {{'common.customText.new' | translate}} &gt;&gt; </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.city' | translate}} <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.LCity.$error.required">*</span>
+                        <select name="LCity" class="form-control" ng-model="DealerLocation.CityId"
+                                ng-options="c.Id as c.CityName for c in DealerLocationCities" ng-class="validate_CityId"
+                                required>
+                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.branch' | translate}}  <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.Location.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="DealerLocation.Location" name="Location" ng-class="validate_Location" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.dealerAddress' | translate}}   <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.SalesContactPerson.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="DealerLocation.DealerAddress" name="SalesContactPerson" ng-class="validate_SalesContactPerson" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.salesContactPerson' | translate}}  <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.SalesContactPerson.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="DealerLocation.SalesContactPerson" name="SalesContactPerson" ng-class="validate_SalesContactPerson" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.salesTelephone' | translate}}  <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.SalesTelephone.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="DealerLocation.SalesTelephone" ng-class="validate_SalesTelephone" name="SalesTelephone" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.salesFax' | translate}}  <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.SalesFax.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="DealerLocation.SalesFax" ng-class="validate_SalesFax" name="SalesFax" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.salesEmail' | translate}}   <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.SalesEmail.$error.required">*</span>
+                        <input type="email" placeholder="peter@example.com" class="form-control" ng-model="DealerLocation.SalesEmail" ng-class="validate_SalesEmail" name="SalesEmail" required>
+                        <span class="error" ng-show="myForm.SalesEmail.$error.email">
+                            {{'pages.dealerManagement.errorMessages.notvalidemail' | translate}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.serviceContactPerson' | translate}}  <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.ServiceContactPerson.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="DealerLocation.ServiceContactPerson" ng-class="validate_ServiceContactPerson" name="ServiceContactPerson" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.serviceTelephone' | translate}}  <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.ServiceTelephone.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="DealerLocation.ServiceTelephone" ng-class="validate_ServiceTelephone" name="ServiceTelephone" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.serviceFax' | translate}}  <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.ServiceFax.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="DealerLocation.ServiceFax" ng-class="validate_ServiceFax" name="ServiceFax" required>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.serviceEmail' | translate}}   <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.ServiceEmail.$error.required">*</span>
+                        <input type="email" placeholder="peter@example.com" class="form-control" ng-model="DealerLocation.ServiceEmail" ng-class="validate_ServiceEmail" name="ServiceEmail" required>
+                        <span class="error" ng-show="myForm.email.$error.email">
+                            {{'pages.dealerManagement.errorMessages.notvalidemail' | translate}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.tPABranch' | translate}}  <span class="symbol required"></span>
+                        </label>
+                        <select class="form-control" ng-model="DealerLocation.TpaBranchId"
+                                ng-options="n.Id as n.BranchName for n in tpaBranches" ng-class="validate_TpaBranchId">
+                            <option value="00000000-0000-0000-0000-000000000000"> {{'common.customText.pleaseSelect' | translate}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.branchCode' | translate}}  <span class="symbol required"></span>
+                        </label><span class="error" ng-show="myForm.ServiceFax.$error.required">*</span>
+                        <input type="text" class="form-control" ng-model="DealerLocation.LocationCode" ng-class="validate_LocationCode" name="LocationCode" required>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <br />
+                        <input id="HeadOfficeLocation" type="checkbox" ng-model="DealerLocation.HeadOfficeBranch">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerBranchManagement.headOfficeBranch' | translate}}
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <br />
+                    <!--  <input type="button" class="btn btn-primary btn-block" ng-click="DealerLocationSubmit()" ng-value="DealerLocation.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'" />-->
+                    <button class="btn btn-primary btn-block pull-right" ng-disabled="dealerBranchSaveBtnDisabled" ng-click="DealerLocationSubmit()">
+                        <!--{{DealerLocation.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}-->
+                        {{ labelSaveDealerBranch | translate}} <i ng-class="dealerBranchSaveBtnIconClass"></i>
+                    </button>
+                </div>
+            </div>
+        </tab>
+        <tab heading="{{'pages.dealerManagement.tabDealerStaff.title' | translate}}">
+            <div class="col-md-12">
+                <div class="alert alert-danger" ng-show="errorTab3!=''">
+                    {{errorTab3}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            {{'pages.dealerManagement.tabDealerManagement.dealer' | translate}} <span class="symbol required"></span>
+                        </label>
+                        <select class="form-control" ng-model="DealerStaff.DealerId" name="Id"
+                                ng-options="n.Id as n.DealerName for n in Dealers" ng-class="validate_DSDealerId"
+                                ng-change="LoadBranchersDetails()" required>
+                            <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3" style="padding-left:0px;padding-right:0px">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.dealerManagement.tabDealerStaff.branches' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <div ng-dropdown-multiselect="" options="BranchesList" selected-model="BranchesSelectedList" extra-settings="settings" translation-texts="CustomText"
+                                 events="{ onItemSelect: SendBranches,onItemDeselect:SendBranches,onSelectAll:SendBranches,onUnselectAll:SendBranches }"
+                                 tabindex="6" ng-class="validate_BranchesSelectedList">
+                            </div>
+                            <div class="ScrollHeight">
+                                <ul>
+                                    <li ng-repeat="x in BranchesSelectedDList track by $index">
+                                        {{x}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3" style="padding-left:0px;padding-right:0px">
+                    <div class="col-md-7">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.dealerManagement.tabDealerStaff.user' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <div ng-dropdown-multiselect="" options="UserList" selected-model="SelectedUserList" extra-settings="settings" translation-texts="CustomText"
+                                 events="{ onItemSelect: SendUser,onItemDeselect:SendUser ,onSelectAll:SendUser,onUnselectAll:SendUser}" ng-class="validate_SelectedUserList"></div>
+                            <div class="ScrollHeight">
+                                <ul>
+                                    <li ng-repeat="x in SelectedUserDList track by $index">
+                                        {{x}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <br />
+                    <input type="button" class="btn btn-primary btn-block" ng-click="DealerStaffSubmit()" value="{{ labelSaveDealerStaff | translate}}" />
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="fixed-height"></div>
+            </div>
+        </tab>
+        <tab heading="{{'pages.dealerManagement.tabDealerLabour.title' | translate}}">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.dealerManagement.tabDealerManagement.dealer' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <select class="form-control" ng-model="DealerLabourCharge.DealerId" name="DealerId"
+                                    ng-options="n.Id as n.DealerName for n in Dealers" ng-class="validate_DealerLabourChargeDealerId"
+                                    ng-change="getDealerCurrency()">
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.dealerManagement.tabDealerLabour.startDate' | translate}}<span class="symbol required"></span>
+                            </label>
+                            <input type="text" ng-readonly="true" ng-disabled="false" placeholder="{{'common.clickCalender' | translate}}" class="form-control  input-sm" ng-model="DealerLabourCharge.StartDate" ng-class="validate_DealerLabourChargeStartDate"
+                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen1 = !startOpen1" is-open="startOpen1" ng-init="startOpen1 = false" close-text="Close" />
+
+                        </div>
+                    </div>
+                    <!--<div class="clearfix"></div>-->
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.dealerManagement.tabDealerLabour.endDate' | translate}}<span class="symbol required"></span>
+                            </label>
+                            <input type="text" ng-readonly="true" ng-disabled="false" placeholder="{{'common.clickCalender' | translate}}" class="form-control  input-sm" ng-model="DealerLabourCharge.EndDate" ng-class="validate_DealerLabourChargeEndDate"
+                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen2 = !startOpen2" is-open="startOpen2" ng-init="startOpen2 = false" close-text="Close" />
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.dealerManagement.tabDealerLabour.country' | translate}} <span class="symbol required"></span>
+                            </label><span class="error" ng-show="myForm.Country.$error.required">*</span>
+                            <select name="Country" class="form-control" ng-model="DealerLabourCharge.CountryId"
+                                    ng-class="validate_DealerLabourChargeCountryId"
+                                    ng-options="c.Id as c.CountryName for c in Countries"
+                                    ng-change=""
+                                    required>
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.dealerManagement.tabDealerLabour.make' | translate}} <span class="symbol required"></span>
+                            </label>
+                            <select class="form-control" ng-model="DealerLabourCharge.MakeId"
+                                    ng-change="SetModel()"
+                                    ng-options="m.Id as m.MakeName for m in DealerMakes"
+                                    ng-class="validate_DealerLabourChargeMakeId">
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    {{'pages.countryManagement.Model' | translate}} <span class="symbol required"></span>
+                                </label>
+                                <div ng-dropdown-multiselect="" options="ModelList" selected-model="SelectedModelList" extra-settings="settings" translation-texts="CustomText"
+                                     events="{ onItemSelect: SendModel,onItemDeselect:SendModel ,onSelectAll:SendModel,onUnselectAll:SendModel}"></div>
+                                <div class="ScrollHeight">
+                                    <ul>
+                                        <li ng-repeat="x in SelectedModelDList">
+                                            {{x}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!--<div class="clearfix"></div>-->
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.dealerManagement.tabDealerLabour.currency' | translate}} <span class="symbol required"></span>
+                            </label><span class="error" ng-show="myForm.Currency.$error.required">*</span>
+                            <select name="Currency" class="form-control " ng-model="DealerLabourCharge.CurrencyId" ng-class="validate_DealerLabourChargeCurrencyId"
+                                    ng-options="c.Id as c.Code for c in Currencies"
+                                    required>
+                                <option value=""> {{'common.customText.pleaseSelect' | translate}} </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                {{'pages.dealerManagement.tabDealerLabour.value' | translate}} <span class="symbol required"></span>
+                            </label><span class="error" ng-show="myForm.LabourChargeValue.$error.required">*</span>
+                            <input type="text" class="form-control input-sm" ng-model="DealerLabourCharge.LabourChargeValue"
+                                   ng-class="validate_DealerLabourChargeLabourChargeValue" name="LabourChargeValue" allow-pattern="(\d|\.[0-9]{1,2})" required clear-on-click >
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-md-12">
+                        <button class="btn btn-primary pull-right" style="margin-left: 5px" ng-click="dealerLabourChargeSubmit()">{{'common.button.save' | translate}}</button>
+                        <button class="btn btn-warning pull-right" ng-click="resetAll()">{{'common.button.reset' | translate}}</button>
+                    </div>
+                </div>
+                </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!--<p>Existing discounts as per the selection.</p>-->
+                    <div class="grid" ui-grid-pagination ui-grid="gridDealerLabourCharge" style="margin-top: 5px" ui-grid-auto-resize>
+                        <div class="grid-msg-overlay" ng-hide="gridDealerLabourCharge.data.length>0 && gridDealerLabourChargeloadAttempted">
+                            <div class="msg">
+                                <span>{{'common.grid.noData' | translate}}</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!gridDealerLabourChargeloading">
+                            <div class="msg">
+                                <span>
+                                    {{'common.grid.loading' | translate}}
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tab>
+
+            <!-- end: TAB PROJECTS -->
+</tabset>
+    <!-- end: USER TABSET -->
+
+
+</div>

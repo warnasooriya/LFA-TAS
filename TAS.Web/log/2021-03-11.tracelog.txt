@@ -1,0 +1,2 @@
+2021-03-11 09:19:30.0451 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - suranjika
+2021-03-11 09:19:32.6071 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTU0MzQ1NzEsImp0aSI6ImNiOTNjMGE5LWU4ZDMtNGI0Yy04NmM3LWY0NDRmOWRlMTRjYyIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoic3VyYW5qaWthIiwic2hhcmVka2V5IjoiYWJjZSJ9.WMnYM2AMwmdeWsnXDvn-6qd-j-hnE7cgQd7tYb6Nm-I

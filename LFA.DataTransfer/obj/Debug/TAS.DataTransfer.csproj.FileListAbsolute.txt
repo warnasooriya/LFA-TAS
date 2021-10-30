@@ -1,0 +1,39 @@
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\bin\Debug\RevDeBug.setup
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\bin\Debug\TAS.DataTransfer.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\bin\Debug\TAS.DataTransfer.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\bin\Debug\NLog.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\bin\Debug\NLog.xml
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csprojAssemblyReference.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csproj.CoreCompileInputs.cache
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csproj.CopyComplete
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.dll
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.pdb
+C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\obj\Debug\RdbLog.txt
+G:\TFS\TAS-V3\LFA.DataTransfer\bin\Debug\RevDeBug.setup
+G:\TFS\TAS-V3\LFA.DataTransfer\bin\Debug\TAS.DataTransfer.dll
+G:\TFS\TAS-V3\LFA.DataTransfer\bin\Debug\TAS.DataTransfer.pdb
+G:\TFS\TAS-V3\LFA.DataTransfer\bin\Debug\Newtonsoft.Json.dll
+G:\TFS\TAS-V3\LFA.DataTransfer\bin\Debug\NLog.dll
+G:\TFS\TAS-V3\LFA.DataTransfer\bin\Debug\Newtonsoft.Json.xml
+G:\TFS\TAS-V3\LFA.DataTransfer\bin\Debug\NLog.xml
+G:\TFS\TAS-V3\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csprojAssemblyReference.cache
+G:\TFS\TAS-V3\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csproj.CoreCompileInputs.cache
+G:\TFS\TAS-V3\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csproj.CopyComplete
+G:\TFS\TAS-V3\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.dll
+G:\TFS\TAS-V3\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.pdb
+G:\TFS\TAS-V3\LFA.DataTransfer\obj\Debug\RdbLog.txt
+G:\TFS\TAS-Commodity\LFA.DataTransfer\bin\Debug\RevDeBug.setup
+G:\TFS\TAS-Commodity\LFA.DataTransfer\bin\Debug\TAS.DataTransfer.dll
+G:\TFS\TAS-Commodity\LFA.DataTransfer\bin\Debug\TAS.DataTransfer.pdb
+G:\TFS\TAS-Commodity\LFA.DataTransfer\bin\Debug\Newtonsoft.Json.dll
+G:\TFS\TAS-Commodity\LFA.DataTransfer\bin\Debug\NLog.dll
+G:\TFS\TAS-Commodity\LFA.DataTransfer\bin\Debug\Newtonsoft.Json.xml
+G:\TFS\TAS-Commodity\LFA.DataTransfer\bin\Debug\NLog.xml
+G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csproj.CoreCompileInputs.cache
+G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csproj.CopyComplete
+G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.dll
+G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.pdb
+G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\RdbLog.txt
+G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csprojAssemblyReference.cache

@@ -1,0 +1,83 @@
+<!-- start: FORGOT -->
+<div ng-app="clip-two" ng-controller="loginForgetPasswordCtrl as forgetPasswordController" ng-init="ContinentalCheck()">
+    <div class="row">
+        <div class="{{loginBoxStyle.boxAlignClass}}">
+            <div class="box-login" style="{{loginboxBackground}} ">
+                <div class="logo" ng-show="tpaName!='continental'">
+                    <img ng-src="{{app.layout.logo}}" alt="{{app.name}}" />
+                </div>
+                <div class="logo" ng-show="tpaName='continental'">
+                    <img ng-src="/TAS.Web/STANDARD/assets/images/ContinentalNew.png" alt="Loading..." class="img-responsive" />
+                </div>
+                <!-- start: FORGOT BOX -->
+                <div class="box-forgot" style="{{loginboxBackground}}">
+                    <form class="form-forgot">
+                        <div class="alert alert-danger" ng-show="err==1">
+                            <span>{{Errormsg}}</span>
+
+                        </div>
+                        <fieldset>
+
+                            <p style="color:#fff !important;font-size:12px;">
+                                Forget Password?<br />
+                                Enter your e-mail address below to reset your password.
+                            </p>
+                            <div class="form-group">
+                                <span class="input-icon">
+                                    <input type="email" class="form-control" ng-model="email" name="email" placeholder="Email" tabindex="1">
+                                    <i class="fa fa-envelope-o"></i>
+                                </span>
+                            </div>
+                            <br />
+                            <div class="form-actions">
+                                <a class="{{loginBtnClass}}" ng-click="navigateToLogin()" tabindex="3">
+                                    <i class="fa fa-chevron-circle-left"></i> Login
+                                </a>
+                                <button type="button" class="{{submitBtnClass}}" ng-click="submitForgotPasswordRequest()" tabindex="2">
+                                    Submit <i class="fa fa-arrow-circle-right"></i>
+                                </button>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <!-- start: COPYRIGHT -->
+                    <div class="copyright" style="color:#fff !important;font-size:12px;">
+                        <!--{{app.year}} &copy; {{ app.name }} by {{ app.author }}.-->
+                        &copy; 2015-2020 <a onmouseover='this.style.color = "#dceeff"'
+                                            onmouseout='this.style.color="#fff"' href="http://www.leftfieldservices.com" target="_blank" style="text-decoration:none;color:#fff">{{'pages.login.companytitle' | translate }}{{'pages.login.allrightsreserved' | translate }}
+                    </div>
+                    <!-- end: COPYRIGHT -->
+
+
+                </div>
+                <!-- end: FORGOT BOX -->
+            </div>
+            </div>
+            <style type="text/css">
+            body {
+                /*background: url("/TAS.Web/STANDARD/assets/images/new_LoginBg.jpg") no-repeat #4e6c86;*/
+                background: url("{{image}}") no-repeat #4e6c86;
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .main-login .box-login, .main-login .box-forgot, .main-login .box-register {
+                background: rgba(228,228,228,0.28);
+                border: solid rgba(255,255,255,0.19) 1px;
+                margin:15px 0 5px; 0;
+            }
+
+                .main-login {
+                    margin-top: 6%;
+                }
+
+
+                .form-group {
+                    margin-bottom: -20px !important;
+                }
+            </style>
+        </div>
+    <!-- end: FORGOT -->
+</div>

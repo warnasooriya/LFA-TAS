@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="DealerLocation" table="DealerLocation" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="DealerId" />
+    <property name="CityId" />
+    <property name="TpaBranchId" />
+    <property name="SalesContactPerson" />
+    <property name="SalesTelephone" />
+    <property name="SalesFax" />
+    <property name="SalesEmail" />
+    <property name="Location" />
+    <property name="LocationCode" />
+    <property name="ServiceContactPerson" />
+    <property name="ServiceTelephone" />
+    <property name="ServiceFax" />
+    <property name="ServiceEmail" />
+    <property name="DealerAddress" />
+    <property name="HeadOfficeBranch" />
+    <property name="EntryDateTime" />
+    <property name="EntryUser" />
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,2 @@
+2020-12-04 18:26:56.9455 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - CycleandCarriage
+2020-12-04 18:26:58.6385 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - CycleandCarriage token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDcwODY2MTcsImp0aSI6IjkwOGI5YmY0LTk4MjAtNGI2ZC1hMTYwLTAwY2MxY2M5ZGYxMCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJDeWNsZWFuZENhcnJpYWdlIiwic2hhcmVka2V5IjoiYWJjZSJ9.4t1EbRBlBg6hlCfzpFo0SM_NxsTEvDBTw0bLE2kcbs4

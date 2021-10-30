@@ -1,0 +1,237 @@
+2020-11-10 08:47:03.0885 TAS.Web.Controllers.DealerManagementController GetAllDealers: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2020-11-10 08:47:03.0885 TAS.Web.Controllers.ContractManagementController GetAllCountries: exception: Timeout expired.  The timeout period elapsed prior to obtaining a connection from the pool.  This may have occurred because all pooled connections were in use and max pool size was reached., 
+2020-11-10 08:47:12.8669 TAS.Web.Controllers.AutomobileAttributesController GetAllCylinderCounts: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2020-11-10 08:47:12.8669 TAS.Web.Controllers.ContractManagementController GetWarrantyTypes: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2020-11-10 08:47:12.8669 TAS.Web.Controllers.ContractManagementController GetPremiumBasedOns: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2020-11-10 08:47:12.8669 TAS.Web.Controllers.AutomobileAttributesController GetAllEngineCapacities: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2020-11-10 08:47:12.8669 TAS.Web.Controllers.AutomobileAttributesController GetAllVehicleWeight: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2020-11-10 08:47:13.6002 TAS.Web.Controllers.ContractManagementController GetRSAProviders: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2020-11-10 09:29:12.5468 TAS.Web.Controllers.DealerManagementController GetAllDealerStaffLocationsByDealerId: exception: Object reference not set to an instance of an object., 
+2020-11-10 10:17:10.8585 TAS.Services.Entities.Management.ContractEntityManager GetContractDetailsByContractId: exception: Specified method is not supported., 
+2020-11-10 10:19:41.0084 TAS.Services.Entities.Management.ContractEntityManager GetContractDetailsByContractId: exception: Specified method is not supported., 
+2020-11-10 10:29:32.9241 TAS.Services.Entities.Management.ContractEntityManager GetContractDetailsByContractId: exception: Specified method is not supported., 
+2020-11-10 10:45:40.6755 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.7094 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.7373 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.7587 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.7797 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.8046 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.8256 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.8495 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.8694 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.8904 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.9113 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.9353 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.9562 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:45:40.9751 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:39.8525 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:39.8765 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:39.9024 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:39.9214 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:39.9413 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:39.9593 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:39.9772 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:39.9962 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:40.0151 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:40.0331 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:40.0530 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:40.0740 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:40.0929 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:46:40.1109 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.5526 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.5765 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.5995 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.6214 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.6424 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.6633 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.6858 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.7058 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.7256 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.7455 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.7667 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.7887 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.8092 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 10:47:35.8292 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 12:57:31.0312 TAS.Web.Controllers.ContractManagementController GetContractsForSearchGrid: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:57:43.7037 TAS.Web.Controllers.ContractManagementController ContractsUpdateValidityCheck: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:57:55.3292 TAS.Web.Controllers.ContractManagementController GetAllCountries: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:57:55.3292 TAS.Web.Controllers.DealerManagementController GetAllDealers: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:58:01.2384 TAS.Web.Controllers.AutomobileAttributesController GetAllEngineCapacities: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:58:01.2384 TAS.Web.Controllers.AutomobileAttributesController GetAllCylinderCounts: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:58:01.6695 TAS.Web.Controllers.AutomobileAttributesController GetAllVehicleWeight: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:58:02.4939 TAS.Web.Controllers.ContractManagementController GetPremiumBasedOns: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:58:04.2686 TAS.Web.Controllers.ContractManagementController GetWarrantyTypes: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:58:04.2686 TAS.Web.Controllers.ContractManagementController GetRSAProviders: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 12:58:04.2686 TAS.Web.Controllers.ContractManagementController GetRegions: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-11-10 13:00:03.2316 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.2545 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.2804 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.3004 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.3193 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.3378 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.3557 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.3747 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.3936 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.4116 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.4305 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.4505 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.4754 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:00:03.4954 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.7293 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.7622 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.7891 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.8071 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.8261 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.8430 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.8610 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.8789 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.8969 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.9148 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.9328 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.9507 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.9687 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:05:47.9866 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.5498 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.5758 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.5967 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.6206 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.6436 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.6625 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.6815 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.6994 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.7184 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.7383 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.7577 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.7772 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.7962 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:10:10.8151 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.3570 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.3769 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.3959 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.4138 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.4328 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.4517 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.4697 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.4886 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.5076 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.5265 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.5455 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.5644 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.5834 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:11:43.6023 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:58.9535 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:58.9775 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:58.9994 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.0204 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.0403 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.0593 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.0782 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.0982 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.1181 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.1410 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.1610 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.1799 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.1999 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:12:59.2197 TAS.Services.Entities.Management.CommonEntityManager getAddonTypeCodeById: exception: Specified method is not supported., 
+2020-11-10 13:53:35.4184 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 13:54:07.1280 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 13:55:34.0439 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 13:56:14.3367 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 13:57:19.0418 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 13:58:08.1577 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 13:58:52.2537 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:00:25.3820 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:01:43.0771 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:05:42.5339 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:09:10.0885 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:17:04.1096 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:17:28.7762 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:35:46.0881 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:35:46.6802 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:38:52.2229 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:38:52.8361 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:39:30.7498 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:39:31.3600 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:40:15.2934 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:40:15.9293 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:42:06.8379 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:42:07.4841 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:42:30.1098 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:42:30.7424 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: Specified dealer currency is not present in the conversions, 
+2020-11-10 14:54:01.7022 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: could not execute query
+[ select currencyco0_.Id as Id1_90_, currencyco0_.Rate as Rate2_90_, currencyco0_.CurrencyId as Curre3_90_, currencyco0_.CurrencyConversionPeriodId as Curre4_90_, currencyco0_.Comment as Comme5_90_ from CurrencyConversions currencyco0_ where currencyco0_.CurrencyConversionPeriodId=@p0 and currencyco0_.CurrencyId=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:a76eeb63-99eb-47cb-b35c-15117a3a622c  Name:p2 - Value:01f71140-d78e-4b31-a1c6-93f4c7953dbd
+[SQL: select currencyco0_.Id as Id1_90_, currencyco0_.Rate as Rate2_90_, currencyco0_.CurrencyId as Curre3_90_, currencyco0_.CurrencyConversionPeriodId as Curre4_90_, currencyco0_.Comment as Comme5_90_ from CurrencyConversions currencyco0_ where currencyco0_.CurrencyConversionPeriodId=@p0 and currencyco0_.CurrencyId=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Transaction (Process ID 108) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:178924ad-68e3-4248-a831-dc4b57b4fcbf
+Error Number:1205,State:55,Class:13
+2020-11-10 14:54:01.7281 TAS.Services.Entities.Management.CurrencyEntityManager ConvertFromBaseCurrency: exception: could not execute query
+[ select currencyco0_.Id as Id1_90_, currencyco0_.Rate as Rate2_90_, currencyco0_.CurrencyId as Curre3_90_, currencyco0_.CurrencyConversionPeriodId as Curre4_90_, currencyco0_.Comment as Comme5_90_ from CurrencyConversions currencyco0_ where currencyco0_.CurrencyConversionPeriodId=@p0 and currencyco0_.CurrencyId=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:a76eeb63-99eb-47cb-b35c-15117a3a622c  Name:p2 - Value:d2c160b7-272e-49a5-8115-75de6756f4a2
+[SQL: select currencyco0_.Id as Id1_90_, currencyco0_.Rate as Rate2_90_, currencyco0_.CurrencyId as Curre3_90_, currencyco0_.CurrencyConversionPeriodId as Curre4_90_, currencyco0_.Comment as Comme5_90_ from CurrencyConversions currencyco0_ where currencyco0_.CurrencyConversionPeriodId=@p0 and currencyco0_.CurrencyId=@p1 ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): Transaction (Process ID 103) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:031b0d83-f341-4e8d-abbe-ee136a9b22e4
+Error Number:1205,State:55,Class:13
+2020-11-10 16:45:40.4681 TAS.Web.Controllers.DealerManagementController GetAllDealersByCountryId: exception: Unrecognized Guid format., 
+2020-11-10 16:57:05.8252 TAS.Web.Controllers.DealerManagementController GetAllDealers: exception: could not execute query
+[ select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=? ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY ]
+  Name:p1 - Value:suranjika
+[SQL: select tastpa0_.Id as Id1_1_, tastpa0_.Name as Name2_1_, tastpa0_.TelNumber as TelNum3_1_, tastpa0_.Address as Addres4_1_, tastpa0_.Banner as Banner5_1_, tastpa0_.Logo as Logo6_1_, tastpa0_.DiscountDescription as Discou7_1_, tastpa0_.DBName as DBName8_1_, tastpa0_.DBConnectionString as DBConn9_1_, tastpa0_.DBConnectionStringViewOnly as DBCon10_1_, tastpa0_.OriginalTPAName as Origi11_1_ from TPA tastpa0_ where tastpa0_.DBName=? ORDER BY CURRENT_TIMESTAMP OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY], System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at NHibernate.Connection.DriverConnectionProvider.GetConnection()
+   at NHibernate.AdoNet.ConnectionManager.GetConnection()
+   at NHibernate.AdoNet.AbstractBatcher.Prepare(IDbCommand cmd)
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+2020-11-10 16:57:28.9945 TAS.Services.Entities.Management.ContractEntityManager GetAllAttributeSpecificationsByInsuranceLimitationId: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.Id), 

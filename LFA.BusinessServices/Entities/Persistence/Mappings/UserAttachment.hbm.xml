@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="UserAttachment" table="UserAttachment" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="AttachmentSectionId" />
+    <property name="AttachmentTypeId" />
+    <property name="UserDefinedName" />
+    <property name="AttachmentFileName" />
+    <property name="AttachmentSizeKB" />
+    <property name="AttachmentFileType" />
+    <property name="FileServerReference" />
+    <property name="UploadedDateTime" />
+    <property name="UserId" />
+  </class>
+</hibernate-mapping>

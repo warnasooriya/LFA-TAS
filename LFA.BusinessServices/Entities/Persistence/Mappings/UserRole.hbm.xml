@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="TAS.Services" namespace="TAS.Services.Entities" xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
+  <class name="UserRole" table="UserRole" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="RoleId" column="RoleId" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="RoleCode" />
+    <property name="RoleName" />
+    <property name="IsGoodWillAuthorized" />
+    <property name="IsClaimAuthorized" />
+  
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,6 @@
+2021-02-12 11:57:23.6188 TAS.Services.Entities.Management.PolicyEntityManager GetPolicyById2: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.ManufacturerWarrantyId), 
+2021-02-12 11:57:28.6923 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Object reference not set to an instance of an object., 
+2021-02-12 11:59:11.0304 TAS.Services.Entities.Management.PolicyEntityManager GetPolicyById2: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.ManufacturerWarrantyId), 
+2021-02-12 12:03:19.3905 TAS.Services.Entities.Management.PolicyEntityManager GetPolicyById2: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.ManufacturerWarrantyId), 
+2021-02-12 12:03:25.1482 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Object reference not set to an instance of an object., 
+2021-02-12 12:10:14.4769 TAS.Services.Entities.Management.PolicyEntityManager GetPolicyById2: exception: PartialEvalException (NullReferenceException ("Object reference not set to an instance of an object."), null.ManufacturerWarrantyId), 

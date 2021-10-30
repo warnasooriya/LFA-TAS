@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="VehicleDetails" table="VehicleDetails" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="VINNo" />
+    <property name="MakeId" />
+    <property name="ModelId" />
+    <property name="CategoryId" />
+    <property name="ItemStatusId" />
+    <property name="CylinderCountId" />
+    <property name="BodyTypeId" />
+    <property name="PlateNo" />
+    <property name="ModelYear" />
+    <property name="FuelTypeId" />
+    <property name="AspirationId" />
+    <property name="Variant" />
+    <property name="TransmissionId" />
+    <property name="ItemPurchasedDate" />
+    <property name="EngineCapacityId" />
+    <property name="DriveTypeId" />
+    <property name="VehiclePrice"  precision="18" scale="8" />
+    <property name="DealerPrice"  precision="18" scale="8" />
+    <property name="EntryDateTime" />
+    <property name="EntryUser" />
+    <property name="CommodityUsageTypeId" />
+    <property name="CountryId" />
+    <property name="DealerId" />
+    <property name="currencyPeriodId" />
+    <property name="DealerCurrencyId" />
+    <property name="ConversionRate" precision="18" scale="8" />
+     <property name="RegistrationDate" />
+    <property name="GrossWeight" />
+    <property name="EngineNumber" />
+    
+
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="Eligibility" table="Eligibility" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="ContractId" />
+    <property name="AgeFrom" />
+    <property name="AgeTo" />
+    <property name="MileageFrom" />
+    <property name="MileageTo" />
+    <property name="MonthsFrom" />
+    <property name="MonthsTo" />
+
+    <property name="Premium" precision="18" scale="8" />
+    <property name="IsPercentage" />
+    <property name="PlusMinus" />
+    <property name="EntryDateTime" />
+    <property name="EntryUser" />
+    <property name="isMandatory" />
+
+
+    
+  </class>
+</hibernate-mapping>

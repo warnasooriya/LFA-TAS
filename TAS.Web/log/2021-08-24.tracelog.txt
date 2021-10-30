@@ -1,0 +1,2 @@
+2021-08-24 15:42:01.2238 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - Gargash
+2021-08-24 15:42:03.8934 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - Gargash token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjk3OTk5MjIsImp0aSI6Ijg3MGQ4ZTk5LTQ0ZWYtNGE2MS05ZDE1LTBkMzQxODI4ZjA2NyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJHYXJnYXNoIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImNlZDkzZTAxLWRmY2EtNGYwOC05YTNiLWM2M2ZiYTZjZjMyZiJ9.pKFx2gwD9RJSBTdQB0RHg8988y0oaKm0iWdxHXmfl4M

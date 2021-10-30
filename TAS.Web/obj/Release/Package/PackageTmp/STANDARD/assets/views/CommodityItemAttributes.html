@@ -1,0 +1,199 @@
+﻿
+
+<div style="margin-left: 30px; margin-right: 30px" ng-app="clip-two" ng-controller="CommodityItemAttributesCtrl as CommodityItemAttributesController" ng-init="loadInitailData()">
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle TitleModifier">{{'pages.commodityItemAttributes.title' | translate}}</h1>
+                <span class="mainDescription TitleModifier">{{'pages.commodityItemAttributes.mainDescription' | translate}}</span>
+                <!--<span class="mainDescription TitleModifier">You can add or update Commodity Item Attributes here. Select new to add or select existing attributes to update on each section.</span>-->
+            </div>
+        </div>
+    </section>
+    <!--<form action="#" role="form" id="form" name="myForm" class="my-form">-->
+    <div name="myForm" class="my-form">
+        <div class="col-md-12">
+            <div class="alert alert-danger" ng-show="errorTab1!=''">
+                {{errorTab1}}
+            </div>
+        </div>
+        <!-- ***********  Item Status  *********** -->
+        <div class="row" style="margin-left:5px; margin-right:5px">
+            <div class="row" style="margin-left:2px">
+                <h4 class="mainTitle TitleModifier">{{'pages.commodityItemAttributes.ItemStatusDefinition' | translate}}</h4>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="form-field-1">
+                            {{'pages.commodityItemAttributes.ItemStatus' | translate}}
+                        </label>
+                        <select name="ItemStatus" id="drpItemStatus" class="form-control" ng-model="ItemStatus.Id"
+                                ng-options="n.Id as n.Status for n in ItemStatuss" tabindex="1"
+                                ng-change="SetItemStatusValues()">
+                            <option value=""> {{'pages.commodityItemAttributes.new' | translate}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" form-group col-md-3">
+                    <label class="control-label">
+                        {{'pages.commodityItemAttributes.Status' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.Status.$error.required">*</span>
+                    <input type="text" placeholder="{{'pages.commodityItemAttributes.Status' | translate}}" class="form-control" id="Status" name="Status" 
+                           ng-class="validate_Status" ng-model="ItemStatus.Status" ng-blur="IsExsistingItemStatusByStatus()" tabindex="2" required>
+                </div>
+                <div class=" form-group col-md-3">
+                    <label class="control-label">
+                        {{'pages.commodityItemAttributes.Description' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.ItemStatusDesc.$error.required">*</span>
+                    <input type="text" placeholder="{{'pages.commodityItemAttributes.Description' | translate}}" class="form-control" id="ItemStatusDescription" ng-class="validate_ItemStatusDescription" name="ItemStatusDesc" ng-model="ItemStatus.ItemStatusDescription" tabindex="3" required>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label">
+                        &nbsp;
+                    </label>
+                    <!--<input type="button" id="ItemStatusSubmit" class="btn  btn-primary  btn-block" value="SAVE" ng-click="ItemStatusSubmit()" />-->
+                    <button id="ItemStatusSubmit" class="btn  btn-primary  btn-block" ng-disabled="ItemStatusSubmitBtnDisabled" ng-click="ItemStatusSubmit()" tabindex="4">
+                        {{'pages.commodityItemAttributes.save' | translate}} <!--{{ isItemStatusExisting ? 'Update' : 'SAVE' }}-->  <i ng-class="ItemStatusSubmitBtnIconClass"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ***********  Product Category  *********** -->
+        <div class="row" style="margin-left:5px; margin-right:5px">
+            <div class="row" style="margin-left:2px">
+                <h4 class="mainTitle TitleModifier">{{'pages.commodityItemAttributes.ProductCategoryDefinition' | translate}}</h4>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="form-field-1">
+                            {{'pages.commodityItemAttributes.CommodityType' | translate}}
+                        </label> <span class="symbol required"></span>
+                        <!--<span class="error" ng-show="myForm.CommodityType.$error.required">*</span>-->
+                        <select name="CommodityType" id="drpCommodityType" class="form-control" ng-model="CommodityCategory.CommodityTypeId"
+                                ng-options="n.CommodityTypeId as n.CommodityTypeDescription for n in CommodityTypes" tabindex="5"
+                                ng-change="LoadFromComodityType()" ng-class="validate_CommodityTypeId"
+                                required>
+                            <option value=""> {{'pages.commodityItemAttributes.select' | translate}} </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label" for="form-field-1">
+                            {{'pages.commodityItemAttributes.ItemCategory' | translate}}
+                        </label>
+                        <select name="CommodityCategories" id="drpCommodityCategory" class="form-control"  ng-model="CommodityCategory.CommodityCategoryId"
+                                ng-options="n.CommodityCategoryId as n.CommodityCategoryDescription for n in CommodityCategories" tabindex="6"
+                                ng-change="SetCommodityCategoryValues()">
+                            <option value=""> &lt;&lt; {{'pages.commodityItemAttributes.new' | translate}} &gt;&gt; </option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" form-group col-md-3">
+                    <label class="control-label">
+                        {{'pages.commodityItemAttributes.Description' | translate}} <span class="symbol required"></span>
+                    </label>
+                    <!--<span class="error" ng-show="myForm.CommodityCategoryDesc.$error.required">*</span>-->
+                    <input type="text" placeholder="{{'pages.commodityItemAttributes.Description' | translate}}" class="form-control" id="CommodityCategoryDescription"
+                           name="CommodityCategoryDesc" tabindex="7" ng-model="CommodityCategory.CommodityCategoryDescription"
+                           ng-class="validate_CommodityCategoryDescription"
+                           ng-blur="IsExsistingCommodityCategoryByDescription()" required>
+                </div>
+                <div class=" form-group col-md-2">
+                    <label class="control-label">
+                        {{'pages.commodityItemAttributes.Code' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.CommodityCategoryCode.$error.required">*</span>
+                    <input type="text" placeholder="{{'pages.commodityItemAttributes.Code' | translate}}" class="form-control" id="CommodityCategoryCode"
+                           name="CommodityCategoryCode" ng-model="CommodityCategory.CommodityCategoryCode" tabindex="8"
+                           ng-class="validate_CommodityCategoryCode"
+                           ng-m required>
+                </div>
+                <div class=" form-group col-md-2">
+                    <label class="control-label">
+                        {{'pages.commodityItemAttributes.SerialLength' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.Length.$error.required">*</span>
+                    <input type="number" class="form-control" id="Length" name="Length" tabindex="9"
+                           ng-class="validate_Length" min="0"
+                           ng-model="CommodityCategory.Length" required>
+                </div>
+                <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <label class="control-label">
+                        &nbsp;
+                    </label>
+                    <!--<input type="button" id="CommodityCategorySubmit" class="btn  btn-primary  btn-block " value="SAVE" ng-click="CommodityCategorySubmit()" />-->
+                    <button id="CommodityCategorySubmit" class="btn  btn-primary  btn-block " ng-disabled="CommodityCategorySubmitBtnDisabled" ng-click="CommodityCategorySubmit()" tabindex="10">
+                        {{'pages.commodityItemAttributes.save' | translate}}<!--{{ IsCommodityCategoryExist ? 'Update' : 'SAVE' }}--> <i ng-class="CommodityCategorySubmitBtnIconClass"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ***********  Usage Type  *********** -->
+        <div class="row" style="margin-left:5px; margin-right:5px">
+            <div class="row" style="margin-left:2px">
+                <h4 class="mainTitle TitleModifier">{{'pages.commodityItemAttributes.UsageTypeDefinition' | translate}}</h4>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label" for="form-field-1">
+                            {{'pages.commodityItemAttributes.UsageType' | translate}}
+                        </label>
+                        <select name="CommodityUsageType" id="drpCommodityUsageType" class="form-control" ng-model="CommodityUsageType.Id"
+                                ng-options="n.Id as n.Name for n in CommodityUsageTypes" tabindex="11"
+                                ng-change="SetCommodityUsageTypeValues()">
+                            <option value=""> &lt;&lt; {{'pages.commodityItemAttributes.new' | translate}} &gt;&gt; </option>
+                        </select>
+                    </div>
+                </div>
+                <div class=" form-group col-md-3">
+                    <label class="control-label">
+                        {{'pages.commodityItemAttributes.Name' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.Name.$error.required">*</span>
+                    <input type="text" placeholder="{{'pages.commodityItemAttributes.Name' | translate}}" class="form-control" id="Name" name="Name" ng-model="CommodityUsageType.Name" tabindex="12"
+                           ng-blur="IsExsistingCommodityUsageTypeByName()" ng-class="validate_Name" required>
+                </div>
+                <div class=" form-group col-md-3">
+                    <label class="control-label">
+                        {{'pages.commodityItemAttributes.Description' | translate}} <span class="symbol required"></span>
+                    </label><span class="error" ng-show="myForm.Description.$error.required">*</span>
+                    <input type="text" placeholder="{{'pages.commodityItemAttributes.Description' | translate}}" class="form-control" id="Description" name="Description" ng-class="validate_Description" ng-model="CommodityUsageType.Description" tabindex="13" required>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label">
+                        &nbsp;
+                    </label>
+                    <!--<input type="button" id="CommodityUsageTypeSubmit" class="btn  btn-primary  btn-block" value="SAVE" ng-click="CommodityUsageTypeSubmit()" />-->
+                    <button id="CommodityUsageTypeSubmit" class="btn  btn-primary  btn-block" ng-disabled="CommodityUsageTypeSubmitBtnDisabled" ng-click="CommodityUsageTypeSubmit()" tabindex="14">
+                        {{'pages.commodityItemAttributes.save' | translate}} <!--{{ IsCommodityUsageexist ? 'Update' : 'SAVE' }}--> <i ng-class="CommodityUsageTypeSubmitBtnIconClass"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!--</form>-->
+    </div>
+

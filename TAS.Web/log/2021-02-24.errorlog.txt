@@ -1,0 +1,200 @@
+2021-02-24 12:42:57.9219 TAS.Services.Entities.Management.EntityCacheData GetAllProducts: exception: could not execute query
+[ select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId ]
+[SQL: select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductDisplayCode'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:ecbb4fd6-bd2f-47b8-a04e-95add00ca0f8
+Error Number:207,State:1,Class:16
+2021-02-24 12:42:57.9629 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Value cannot be null.
+Parameter name: source, 
+2021-02-24 12:44:28.5611 TAS.Services.Entities.Management.EntityCacheData GetAllProducts: exception: could not execute query
+[ select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId ]
+[SQL: select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductDisplayCode'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:b33a6aab-104e-43f0-9821-8acdab616330
+Error Number:207,State:1,Class:16
+2021-02-24 12:44:28.5961 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Value cannot be null.
+Parameter name: source, 
+2021-02-24 12:56:07.9565 TAS.Services.Entities.Management.EntityCacheData GetAllProducts: exception: could not execute query
+[ select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId ]
+[SQL: select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductDisplayCode'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:c75e0230-1c90-4542-b922-c921e0d700ed
+Error Number:207,State:1,Class:16
+2021-02-24 12:56:07.9895 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Value cannot be null.
+Parameter name: source, 
+2021-02-24 12:56:15.9578 TAS.Services.Entities.Management.EntityCacheData GetAllProducts: exception: could not execute query
+[ select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId ]
+[SQL: select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductDisplayCode'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:594f7ae6-65cc-4d27-a3f7-20c5e031e7ca
+Error Number:207,State:1,Class:16
+2021-02-24 12:56:16.0178 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Value cannot be null.
+Parameter name: source, 
+2021-02-24 13:00:12.8216 TAS.Services.Entities.Management.EntityCacheData GetAllProducts: exception: could not execute query
+[ select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId ]
+[SQL: select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductDisplayCode'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:e16e1998-32b2-45d7-b372-e8844be4638b
+Error Number:207,State:1,Class:16
+2021-02-24 13:00:12.8595 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Value cannot be null.
+Parameter name: source, 
+2021-02-24 13:00:15.3350 TAS.Services.Entities.Management.EntityCacheData GetAllProducts: exception: could not execute query
+[ select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId ]
+[SQL: select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductDisplayCode'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:c75e0230-1c90-4542-b922-c921e0d700ed
+Error Number:207,State:1,Class:16
+2021-02-24 13:00:15.3820 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Value cannot be null.
+Parameter name: source, 
+2021-02-24 13:04:48.1222 TAS.Services.Entities.Management.EntityCacheData GetAllProducts: exception: could not execute query
+[ select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId ]
+[SQL: select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductDisplayCode'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:6be9459b-07d1-497a-a0b9-a09f6f623943
+Error Number:207,State:1,Class:16
+2021-02-24 13:04:48.1562 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Value cannot be null.
+Parameter name: source, 
+2021-02-24 13:07:24.0888 TAS.Services.Entities.Management.EntityCacheData GetAllProducts: exception: could not execute query
+[ select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId ]
+[SQL: select product0_.Id as col_0_0_, product0_.CommodityTypeId as col_1_0_, commodityt1_.CommodityCode as col_2_0_, product0_.ProductName as col_3_0_, product0_.ProductCode as col_4_0_, product0_.ProductDisplayCode as col_5_0_, product0_.ProductDescription as col_6_0_, product0_.ProductShortDescription as col_7_0_, product0_.DisplayImage as col_8_0_, product0_.IsBundledProduct as col_9_0_, product0_.IsActive as col_10_0_, product0_.IsMandatoryProduct as col_11_0_, product0_.EntryDatetime as col_12_0_, product0_.EntryUser as col_13_0_, product0_.LastUpdateDatetime as col_14_0_, product0_.LastUpdateUser as col_15_0_, product0_.ProductTypeId as col_16_0_, producttyp2_.Code as col_17_0_ from Product product0_, CommodityType commodityt1_, ProductType producttyp2_ where commodityt1_.CommodityTypeId=product0_.CommodityTypeId and producttyp2_.Id=product0_.ProductTypeId], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ProductDisplayCode'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at NHibernate.AdoNet.AbstractBatcher.ExecuteReader(IDbCommand cmd)
+   at NHibernate.Loader.Loader.GetResultSet(IDbCommand st, Boolean autoDiscoverTypes, Boolean callable, RowSelection selection, ISessionImplementor session)
+   at NHibernate.Loader.Loader.DoQuery(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoQueryAndInitializeNonLazyCollections(ISessionImplementor session, QueryParameters queryParameters, Boolean returnProxies, IResultTransformer forcedResultTransformer)
+   at NHibernate.Loader.Loader.DoList(ISessionImplementor session, QueryParameters queryParameters, IResultTransformer forcedResultTransformer)
+ClientConnectionId:6be9459b-07d1-497a-a0b9-a09f6f623943
+Error Number:207,State:1,Class:16
+2021-02-24 13:09:53.0109 TAS.Web.Controllers.ProductController GetAllProductsByCommodityTypeId: exception: Value cannot be null.
+Parameter name: source, 

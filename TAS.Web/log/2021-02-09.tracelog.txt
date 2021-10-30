@@ -1,0 +1,9 @@
+2021-02-09 11:27:01.5687 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - Suranji
+2021-02-09 11:27:03.5303 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - Suranji token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTI4NTAyMjIsImp0aSI6ImY1YWQzZDc1LTI1NWYtNGJmNy04YjdhLWRjMjM2NzA0NjE5ZiIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJTdXJhbmppIiwic2hhcmVka2V5IjoiYWJjZSJ9.CIlgZ_jj8Sar49zJ_OdNnKjhY15aF7aU39DdZpTFDGA
+2021-02-09 11:48:21.2873 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-02-09 11:48:21.5057 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-02-09 11:48:27.1531 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-02-09 11:48:27.3730 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-02-09 12:43:40.1576 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTI4NTAyMjIsImp0aSI6ImY1YWQzZDc1LTI1NWYtNGJmNy04YjdhLWRjMjM2NzA0NjE5ZiIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJTdXJhbmppIiwic2hhcmVka2V5IjoiYWJjZSJ9.CIlgZ_jj8Sar49zJ_OdNnKjhY15aF7aU39DdZpTFDGA
+2021-02-09 12:43:52.1793 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - Suranji
+2021-02-09 12:43:54.1206 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - Suranji token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTI4NTQ4MzMsImp0aSI6ImI2ZmQ4ZDczLTZhNTUtNGJlMy04YTRiLTVjOTM1MDExNmYwNCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJTdXJhbmppIiwic2hhcmVka2V5IjoiYWJjZSJ9.i8TgBh0BCqUJkASbaFJbX0CsqfRRTxlQliemmLSsfhs

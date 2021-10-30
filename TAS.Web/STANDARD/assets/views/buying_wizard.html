@@ -1,0 +1,649 @@
+﻿<!-- start: PAGE TITLE -->
+<!-- end: PAGE TITLE -->
+<!-- start: YOUR CONTENT HERE -->
+<!-- start: ASIDE -->
+<style>
+    .app-navbar-fixed {
+        padding-top: 15px !important;
+    }
+
+    .img-pr {
+        height: 100px !important;
+    }
+
+    headline-h2, h2 {
+        margin: 0 !important;
+    }
+
+    .has-error {
+        border: solid 1px #e84e4e !important;
+        /*#fbaa2b*/
+    }
+    .continental-color {
+        background-color: #ffa500 !important;
+        color: black;
+    }   
+
+    .fa-file-text-o {
+        color: #ffa500 !important;
+    }
+
+    .popover {
+        /*background-color: #ffa500 !important;*/
+        font-weight: bold;
+        height:auto;
+        text-decoration-color:black;
+        width:250px;
+        text-align:center;
+    }
+
+    .sweet-alert .sa-icon.sa-success .sa-line {
+        background-color: #ffa500 !important;
+    }
+
+    .sweet-alert .sa-icon.sa-success .sa-placeholder {
+        border: 4px solid #ffa500;
+    }
+
+
+
+</style>
+<div ng-controller="BuyingWizardCtrl" ng-init="initiateScreen()">
+    <section id="page-title" style="padding: 2px; padding-left:15px">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-3 col-md-3">
+                <img ng-src="data:image/JPEG;base64,{{TpaLogoSrc}}" alt="Loading..."
+                     class="img-responsive content-center"
+                     ng-click="navigateToProductsPage()" />
+            </div>
+            <div class="col-xs-12 col-sm-9 col-md-9">
+                <div class="pull-right" style="margin-top:10px;margin-left:100px" ng-show="!customerLoggedIn">
+                    <h4 ng-hide="isMobileView" class=" inline-block">Returning Customer ? &nbsp;&nbsp;</h4>
+                    <button class=" btn continental-color inline-block " ng-class="{{isMobileView?'btn-xs btn-primary':'btn btn-primary'}}" ng-click="ReturningSearchPopup()">
+                        <i class="fa fa-key"></i> | Sign In
+                    </button>
+                </div>
+                <!--here goes logged in plane-->
+                <div ng-show="customerLoggedIn">
+                    <div class="navbar-collapse collapse" collapse="navbarCollapsed" ng-init="navbarCollapsed = true"
+                         off-click="navbarCollapsed = true" off-click-if='!navbarCollapsed' off-click-filter="#menu-toggler">
+                        <ul class="nav navbar-right" ct-fullheight="window" data-ct-fullheight-exclusion="header"
+                            data-ct-fullheight-if="isSmallDevice">
+
+                            <li class="dropdown current-user" dropdown on-toggle="toggled(open)">
+                                <a href class="dropdown-toggle" dropdown-toggle>
+                                    <img ng-src="data:image/JPEG;base64,{{loggedInCustomer.picture}}" alt="" width="50px">
+                                    <span class="username">{{loggedInCustomer.name}} <i class="ti-angle-down"></i></i></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-dark">
+                                    <li>
+                                        <a ui-sref="app.customerProfile" translate="topbar.user.PROFILE">
+                                            My Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a ui-sref="login.signin" ng-click="signOut()" translate="topbar.user.LOGOUT">
+                                            Log Out
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <!-- end: USER OPTIONS DROPDOWN -->
+                        </ul>
+                        <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+                        <div class="close-handle visible-xs-block menu-toggler" ng-click="navbarCollapsed = true">
+                            <div class="arrow-left"></div>
+                            <div class="arrow-right"></div>
+                        </div>
+                        <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row"><div class="VGap5"></div></div>
+
+    </section>
+    <div name="myForm" class="my-form">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="login-content" style="margin-top:15px">
+                    <div class="heading">
+                        <i class="fa fa-file-text-o"></i>
+                        <div class="extra-wrap">
+                            <h3>
+                                New Customer
+                            </h3>
+                            <b>I want to register</b>
+
+                        </div>
+
+                    </div>
+                    <div class="">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Customer Type<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm  input-sm" ng-class="validate_customerTypeId"
+                                                ng-model="customer.customerTypeId"
+                                                ng-change="selectedCustomerTypeIdChanged()" tabindex="5"
+                                                >
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in customerTypes" value="{{option.Id}}"
+                                                    ng-selected="customer.customerTypeId==option.Id">
+                                                {{option.CustomerTypeName}}
+                                            </option>
+
+                                            <!--<option value="1">Corporate</option>
+                                            <option value="2" ng-selected="true">Individual</option>-->
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Usage Type<span class="symbol required"></span>
+                                        </label>
+                                        <select ng-disabled="customerDisabled" class="form-control  input-sm  input-sm"
+                                                ng-class="validate_usageTypeId" ng-change="selectedUsageTypeChanged()"
+                                                tabindex="6" ng-model="customer.usageTypeId">
+                                            <option value="0"> Please Select </option>
+                                            <!--<option ng-selected="true">Private</option>
+                                            <option value="2">Commercial</option>-->
+                                            <option ng-repeat="option in usageTypes" value="{{option.Id}}"
+                                                    ng-selected="customer.usageTypeId==option.Id">
+                                                {{option.UsageTypeName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div ng-show="selectedCustomerTypeName!='Corporate'">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                First Name<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled"
+                                                   placeholder="First Name" ng-class="validate_firstName" tabindex="7"
+                                                   class="form-control  input-sm  input-sm" ng-model="customer.firstName" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Last Name
+                                            </label>
+                                            <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled"
+                                                   placeholder="Last Name" class="form-control  input-sm  input-sm"
+                                                   ng-model="customer.lastName" tabindex="8" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Nationality<span class="symbol required"></span>
+                                            </label>
+                                            <select ng-disabled="customerDisabled" class="form-control  input-sm " tabindex="15"
+                                                    ng-class="validate_nationalityId" ng-change="selectedNationaltyChanged()" ng-model="customer.nationalityId">
+                                                <option value="0"> Please Select </option>
+                                                <option ng-repeat="option in nationalities" value="{{option.Id}}"
+                                                        ng-selected="customer.nationalityId==option.Id">
+                                                    {{option.NationalityName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Country<span class="symbol required"></span>
+                                            </label>
+                                            <select ng-disabled="customerDisabled" class="form-control  input-sm "
+                                                    ng-model="customer.countryId" ng-class="validate_countryId"
+                                                    ng-change="selectedCountryChanged()" tabindex="16">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in countries" value="{{option.Id}}"
+                                                        ng-selected="customer.countryId==option.Id">
+                                                    {{option.CountryName}}
+                                                </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                City<span class="symbol required"></span>
+                                            </label>
+                                            <select ng-disabled="customerDisabled" class="form-control  input-sm"
+                                                    ng-model="customer.cityId" ng-change="selectedCityChanged()"
+                                                    ng-class="validate_cityId" tabindex="17">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in cities" value="{{option.Id}}"
+                                                        ng-selected="customer.cityId==option.Id">
+                                                    {{option.CityName}}
+                                                </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <div ng-show="selectedCustomerTypeName!='Corporate'">
+                                    <div class="col-md-3 ">
+                                        <div class="form-group ">
+                                            <label class="control-label">
+                                                Mobile Phone<span class="symbol required"></span>
+                                            </label>
+                                            <input type="tel" allow-pattern="(\d|\+|\-|\s)" ng-disabled="customerDisabled" rel="tooltip" data-original-title="Text shadow" tabindex="18"
+                                                   placeholder="Mobile Phone" ng-class="validate_mobileNo" class="form-control  input-sm"
+                                                   ng-model="customer.mobileNo">
+                                            <!--<span class="tooltiptext">Tooltip text</span>-->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Email Address<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" allow-pattern="(\w|\@)" ng-disabled="customerDisabled" tabindex="20"
+                                                   ng-class="validate_email" placeholder="peter@example.com" class="form-control  input-sm"
+                                                   ng-model="customer.email" ng-blur="getUserName()" ng-change="getUserName()"
+                                                   data-toggle="tooltip" data-trigger="hover" data-placement="bottom"
+                                                   data-content="  This is your user name  ">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Username<!--<span class="symbol required"></span>-->
+                                            </label>
+                                            <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="true"
+                                                   placeholder=" Username" class="form-control  input-sm  input-sm"
+                                                   ng-model="customer.userName" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Password<span class="symbol required"></span>
+                                            </label>
+                                            <input type="password" ng-disabled="customerDisabled"
+                                                   placeholder="Password" ng-class="validate_password" class="form-control  input-sm"
+                                                   ng-model="customer.password"
+                                                   data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                   data-content="  Use minimum six characters  ">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Confirm Password <span class="symbol required"></span>
+                                            </label>
+                                            <input type="password" placeholder="password" class="form-control  input-sm"
+                                                   id="password_again" ng-class="validate_cpassword"
+                                                   ng-model="customer.cpassword">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div ng-show="selectedCustomerTypeName=='Corporate' " style="margin-top:10px">
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Business Name<span class="symbol required"></span>
+                                            </label>
+                                            <input ng-disabled="customerDisabled" class="form-control  input-sm" type="text"
+                                                   placeholder="Business Name" ng-model="customer.businessName" ng-class="validate_businessName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Business Telephone <span class="symbol required"></span>
+                                            </label>
+                                            <input ng-disabled="customerDisabled" class="form-control  input-sm"
+                                                   type="tel" allow-pattern="(\d|\+|\-|\s)"
+                                                   ng-class="validate_businessTelNo"
+                                                   placeholder="Business Telephone Number" ng-model="customer.businessTelNo" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Email Address
+                                            </label>
+                                            <input type="text" allow-pattern="(\w|\@)" ng-disabled="customerDisabled" tabindex="20"
+                                                   ng-class="validate_email" placeholder="peter@example.com" class="form-control  input-sm"
+                                                   ng-model="customer.email" ng-blur="getUserName()" ng-change="getUserName()">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Username<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="true"
+                                                   placeholder=" Username" class="form-control  input-sm  input-sm"
+                                                   ng-model="customer.userName" disabled>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Password<span class="symbol required"></span>
+                                            </label>
+                                            <input type="password" ng-disabled="customerDisabled"
+                                                   placeholder="Password" ng-class="validate_password" class="form-control  input-sm"
+                                                   ng-model="customer.password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Confirm Password <span class="symbol required"></span>
+                                            </label>
+                                            <input type="password" placeholder="password" class="form-control  input-sm"
+                                                   id="password_again" ng-class="validate_cpassword"
+                                                   ng-model="customer.cpassword">
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Country<span class="symbol required"></span>
+                                            </label>
+                                            <select ng-disabled="customerDisabled" class="form-control  input-sm " ng-model="customer.countryId" ng-class="validate_countryId"
+                                                    ng-change="selectedCountryChanged()">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in countries" value="{{option.Id}}"
+                                                        ng-selected="customer.countryId==option.Id">
+                                                    {{option.CountryName}}
+                                                </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                City<span class="symbol required"></span>
+                                            </label>
+                                            <select ng-disabled="customerDisabled" class="form-control  input-sm" ng-model="customer.cityId" ng-change="selectedCityChanged()" ng-class="validate_cityId">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in cities" value="{{option.Id}}"
+                                                        ng-selected="customer.cityId==option.Id">
+                                                    {{option.CityName}}
+                                                </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Contact Person First Name<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled"
+                                                   placeholder="Contact Person First Name" ng-class="validate_firstName" class="form-control  input-sm  input-sm"
+                                                   ng-model="customer.firstName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Contact Person Last Name
+                                            </label>
+                                            <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled"
+                                                   placeholder=" Contact Person Last Name" class="form-control  input-sm  input-sm"
+                                                   ng-model="customer.lastName" />
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Mobile Phone<span class="symbol required"></span>
+                                            </label>
+                                            <input type="tel" allow-pattern="(\d|\+|\-|\s)" ng-disabled="customerDisabled"
+                                                   placeholder="Mobile Phone" ng-class="validate_mobileNo" class="form-control  input-sm"
+                                                   ng-model="customer.mobileNo">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="border-top:1px solid;margin-top:15px;margin-bottom:15px"></div>
+                            <div class="col-md-12">
+                                <div class="col-md-3" ng-show="selectedCustomerTypeName !='Corporate' ">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Date Of Birth
+                                        </label>
+                                        <input type="date" ng-model="customer.dateOfBirth"   
+                                               class="form-control  input-sm" ng-class="validate_dateOfBirth" />
+                                        
+                                        <!--<input type="text" ng-readonly="true" ng-disabled="customerDisabled"
+    placeholder="Click for Calendar" tabindex="9"
+    class="form-control  input-sm" ng-model="customer.dateOfBirth"
+    datepicker-popup="dd-MMM-yyyy" max-date="getMaxDate()" datepicker-localdate
+    ng-click="startOpen2 = !startOpen2" is-open="startOpen2" ng-init="startOpen2 = false"
+    close-text="Close" />-->
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-5">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Address
+                                            </label>
+                                            <input type="text" ng-disabled="customerDisabled"  placeholder="Villa No"
+                                                   class="form-control  input-sm" ng-model="customer.businessAddress1" >
+                                            <input type="text" ng-disabled="customerDisabled" style="margin-top:5px"
+                                                   placeholder="Building" class="form-control  input-sm" ng-model="customer.businessAddress3">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                &nbsp;
+                                            </label>
+                                            <input type="text" ng-disabled="customerDisabled" placeholder=" Street No" class="form-control  input-sm" ng-model="customer.businessAddress2">
+                                            <input type="text" ng-disabled="customerDisabled" style="margin-top:5px" placeholder=" City" class="form-control  input-sm" ng-model="customer.businessAddress4">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" style="margin-top:10px">
+
+
+
+
+                            <button class="btn btn-wide continental-color  pull-right" style=""
+                                    ng-click="viewEmailSentAndSuccessMsg();" tabindex="25">
+                                Next
+                            </button>
+                            <input type="button" class="btn btn-wide btn-primary pull-right"
+                                   style="margin-right:10px" ng-click="navigateToPreviousPage()" value="Back" />
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end: WIZARD FORM -->
+    <br />
+    <div class="center" style="padding-top:50px;margin-bottom:10px"> <span> © 2018-2020  <a href="http://www.leftfieldassurance.com" target="_blank" style="text-decoration: none;color:#8e8e93">Leftfield Assurance</a> | All Rights Reserved.</span> </div>
+</div>
+
+<script type="text/ng-template" id="popUpSearchReturning">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .ngdialog-content {
+            width: 500px !important;
+            height: 300px !important;
+        }
+    </style>
+
+
+    <div class="login-content">
+        <div id="login" style="margin-left:20px">
+            <div class="heading">
+                <i class="fa fa-key"></i>
+                <div class="extra-wrap">
+                    <h3>
+                        Returning Customer
+                    </h3>
+                    <b>I am a returning customer</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-danger" ng-show="err==1">
+                    <span>{{Errormsg}}</span>
+
+                </div>
+            </div>
+
+            <br />
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="form-field-2" class="col-sm-3 control-label">
+                        Username:
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="form-field-1" placeholder="User Name" ng-model="user.userName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="form-field-2" class="col-sm-3 control-label">
+                        Password:
+                    </label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="form-field-2" placeholder="Password" ng-model="user.password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class=" col-sm-2"></div>
+                    <div class=" col-sm-9">
+
+                        <!--<button type="button" class="btn btn-success" ng-click="loginAttempt()">
+                            Login <i class="fa fa-arrow-circle-right"></i>
+                        </button>-->
+
+                        <button class="btn btn-primary pull-right" ng-click="loginAttempt()">
+                            Login
+                        </button>
+                        <button class="btn btn-success pull-right" style="margin-right:10px" type="button" ng-click="ReturningForgetPasswordPopup()">
+                            Forgot Password
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</script>
+
+<script type="text/ng-template" id="popUpForgetPassword">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+
+
+        .ngdialog-content {
+            width: 400px !important;
+            height: 250px !important;
+        }
+    </style>
+
+
+    <div class="box-forgot">
+        <div>
+            <div class="row">
+                <div class="text-danger" ng-show="err==1">
+                    <span>{{Errormsg}}</span>
+
+                </div>
+            </div>
+            <div class="heading">              
+                <div class="extra-wrap">
+                    <!--<h4>
+                        Forget Password
+                    </h4>-->
+                    <b>Enter your e-mail address below to reset your password.</b>
+                </div>
+            </div>
+            <!--<p >
+                Forget Password?<br />
+                Enter your e-mail address below to reset your password.
+            </p>-->
+            <div>
+                <fieldset>
+                    <div class="row">
+                        <div class="form-group">
+                            <span class="input-icon">
+                                <input type="email" class="form-control" ng-model="email" name="email" placeholder="Email">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class=" col-sm-2"></div>
+                        <div class=" col-sm-9">
+                            <button type="button" class="btn continental-color pull-right" ng-click="submitForgotPasswordRequest(email)">
+                                Submit <i class="fa fa-arrow-circle-right"></i>
+                            </button>
+
+                            <a class="btn btn-primary pull-left" ng-click="navigateToLogin()">
+                                <i class="fa fa-chevron-circle-left"></i> Login
+                            </a>
+
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+
+
+</script>
+

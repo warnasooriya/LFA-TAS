@@ -1,0 +1,20 @@
+2020-12-02 09:19:22.9144 TAS.Web.Controllers.IncurredErningManagementController IncurredErningExcel: exception: Object reference not set to an instance of an object., 
+2020-12-02 13:38:04.8972 TAS.Web.Controllers.IncurredErningManagementController IncurredErningExcel: exception: Processing of the HTTP request resulted in an exception. Please see the HTTP response returned by the 'Response' property of this exception for details., 
+2020-12-02 13:42:46.3849 TAS.Web.Controllers.IncurredErningManagementController IncurredErningExcel: exception: Object reference not set to an instance of an object., 
+2020-12-02 14:29:01.7447 TAS.Web.Controllers.IncurredErningManagementController IncurredErningExcel: exception: Object reference not set to an instance of an object., 
+2020-12-02 14:31:34.6395 TAS.Web.Controllers.IncurredErningManagementController IncurredErningExcel: exception: Object reference not set to an instance of an object., 
+2020-12-02 14:32:28.2346 TAS.Web.Controllers.IncurredErningManagementController IncurredErningExcel: exception: Object reference not set to an instance of an object., 
+2020-12-02 14:33:56.7999 TAS.Web.Controllers.IncurredErningManagementController IncurredErningExcel: exception: Object reference not set to an instance of an object., 
+2020-12-02 15:16:17.1059 TAS.Web.Controllers.IncurredErningManagementController IncurredErningExcel: exception: Object reference not set to an instance of an object., 
+2020-12-02 15:33:56.7592 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: Parameter policyStartDate does not exist as a named parameter in [select dbo.GetRiskCompletedByPolicyId(@policyStartDate,@policyEndDate,@earnedDate], 
+2020-12-02 16:18:41.6376 TAS.Web.Controllers.IncurredErningManagementController IncurredErningExcel: exception: Object reference not set to an instance of an object., 
+2020-12-02 18:16:25.7115 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: Could not find a setter for property 'PolicyId' in class 'TAS.DataTransfer.Responses.IncurredErningResponseDto', 
+2020-12-02 18:26:52.4826 TAS.Services.Entities.Management.IncurredErningProcessEntityManager IncurredErningProcess: exception: The type System.Decimal can not be assigned to a property of type System.String setter of TAS.DataTransfer.Responses.IncurredErningResponseDto.EarnPercenSum, System.ArgumentException: Object of type 'System.Decimal' cannot be converted to type 'System.String'.
+   at System.RuntimeType.TryChangeType(Object value, Binder binder, CultureInfo culture, Boolean needsSpecialCast)
+   at System.RuntimeType.CheckValue(Object value, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at System.Reflection.MethodBase.CheckArguments(Object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
+   at System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, Object[] index)
+   at NHibernate.Properties.BasicPropertyAccessor.BasicSetter.Set(Object target, Object value)

@@ -1,0 +1,62 @@
+2021-03-30 09:28:41.8292 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - continental
+2021-03-30 09:28:43.9348 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcwNzY3MjIsImp0aSI6ImQyMDNmZjUzLTg5YzUtNGZlNS1iN2ZlLWI3NDJlOWJjZDg1MCIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.MYmTg8jOfRlVW9wQ29XXqVnXQSekPVt1RqDo1hudcms
+2021-03-30 09:36:17.5745 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcwNzY3MjIsImp0aSI6ImQyMDNmZjUzLTg5YzUtNGZlNS1iN2ZlLWI3NDJlOWJjZDg1MCIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.MYmTg8jOfRlVW9wQ29XXqVnXQSekPVt1RqDo1hudcms
+2021-03-30 09:36:36.2354 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - DIB
+2021-03-30 09:36:38.0611 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - DIB token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcwNzcxOTcsImp0aSI6IjNhNTRhN2M1LTdlZDEtNGQxZS05NTc1LWJlYWQ1MGNkYjhhYyIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiRElCIiwic2hhcmVka2V5IjoiYWJjZSJ9.PPf-yunnEGMJcfChAa5_O7_gLRBQt3eDPtloIthy9D8
+2021-03-30 09:37:13.1947 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 09:37:13.4038 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 10:20:17.8327 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-03-30 10:20:19.3555 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcwNzk4MTgsImp0aSI6IjVjMTUxMmFiLTJlMzEtNDk2ZC04YTQyLTc4MWJjMzVmYzNmMyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.BVpyGpkAyJTop6Yro0j1bp-r1rcVizZOdBvJiWbq-wA
+2021-03-30 10:23:19.6297 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 10:23:19.9085 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 10:23:33.8647 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 10:23:34.0688 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 16:55:07.2018 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-03-30 16:55:09.6929 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMDM1MDgsImp0aSI6ImIzZDBjOTM2LTIwOTUtNGVjNi04YTUzLTA2MWE0NWJiNzM3OCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.bqza1PQ-g-WKky49_F6rkTuEnwGISUIr4R_taMUvtb4
+2021-03-30 16:55:33.9965 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 16:55:34.2423 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 16:58:09.1803 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 16:58:09.4009 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 17:42:54.5641 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 17:42:54.7905 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 17:43:00.3244 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 17:43:00.5174 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 17:51:07.8113 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 17:51:08.0423 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 18:14:00.9039 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 18:14:01.1655 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 18:15:43.3167 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 18:15:43.5319 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 18:25:31.0683 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 18:25:31.2963 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 18:37:51.1956 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 18:37:51.7016 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 18:56:38.5369 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 18:56:38.7952 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 18:59:53.0643 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 18:59:53.2449 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 19:00:02.9908 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 19:00:03.2098 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 19:00:24.1925 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 19:00:24.3972 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 19:08:36.2407 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 19:08:36.4442 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 19:09:00.4147 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-03-30 19:09:00.6371 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-03-30 19:29:44.8087 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - adsales for TPA - continental
+2021-03-30 19:29:47.4971 TAS.Web.Controllers.UserController Login success for ip-::1 for user - adsales for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMTI3ODYsImp0aSI6IjhjZDZhODY5LTNjY2MtNDg5YS04NDUzLTM1MzUyYTE5N2U0MyIsIm5hbWUiOiJhZHNhbGVzIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6ImNvbnRpbmVudGFsIiwic2hhcmVka2V5IjoiYWJjZSJ9.BbCM_Q215rvp3wKy2BOy1qlz6bDdF7EN9Vd5kNoK59I
+2021-03-30 19:44:14.4064 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - adsales for TPA - continental
+2021-03-30 19:44:16.3327 TAS.Web.Controllers.UserController Login success for ip-::1 for user - adsales for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMTM2NTUsImp0aSI6ImFmZjljYzM0LWJlMzAtNDM4Ni1hNWQxLTA3YWM5YzI1YWYxMyIsIm5hbWUiOiJhZHNhbGVzIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6ImNvbnRpbmVudGFsIiwic2hhcmVka2V5IjoiYWJjZSJ9.68KZZ46P6CCTYu8VZ8zq9WLsoIKtmdvM9QWhTWFVkIY
+2021-03-30 19:44:41.2952 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMTM2NTUsImp0aSI6ImFmZjljYzM0LWJlMzAtNDM4Ni1hNWQxLTA3YWM5YzI1YWYxMyIsIm5hbWUiOiJhZHNhbGVzIiwiY2xpZW50aWQiOjEsImRiTmFtZSI6ImNvbnRpbmVudGFsIiwic2hhcmVka2V5IjoiYWJjZSJ9.68KZZ46P6CCTYu8VZ8zq9WLsoIKtmdvM9QWhTWFVkIY
+2021-03-30 19:44:48.0165 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - adclaims for TPA - continental
+2021-03-30 19:44:49.9110 TAS.Web.Controllers.UserController Login success for ip-::1 for user - adclaims for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMTM2ODksImp0aSI6ImZlM2MwNWRkLTIyZDEtNGM5Yy1hYTFjLTA2MTBmMzk5MTE1NyIsIm5hbWUiOiJhZGNsYWltcyIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.RpHP5Jdp1sKrsm50HJhDQzLGLQhJ3BFKWZsAoc2J6qo
+2021-03-30 19:45:16.9565 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - Darshi for TPA - continental
+2021-03-30 19:45:17.7836 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - Darshi for TPA - continental
+2021-03-30 19:45:33.6383 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - adclaims for TPA - continental
+2021-03-30 19:45:35.2207 TAS.Web.Controllers.UserController Login success for ip-::1 for user - adclaims for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMTM3MzQsImp0aSI6IjU4YzcwMjRkLThmZTItNDc4YS05YjNjLTRjMjdhMDk2OTA4MCIsIm5hbWUiOiJhZGNsYWltcyIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.k5kxXP75LFrhC4yGXSvFF3dkMWQ-NbKQqxVHOVb-dKw
+2021-03-30 19:46:55.8199 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMTM3MzQsImp0aSI6IjU4YzcwMjRkLThmZTItNDc4YS05YjNjLTRjMjdhMDk2OTA4MCIsIm5hbWUiOiJhZGNsYWltcyIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.k5kxXP75LFrhC4yGXSvFF3dkMWQ-NbKQqxVHOVb-dKw
+2021-03-30 19:47:15.7665 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dxbclaims for TPA - continental
+2021-03-30 19:47:17.5329 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dxbclaims for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMTM4MzYsImp0aSI6IjJkNmYyZDZiLWE0OGUtNGM2Ni1iNmM4LWVhYWU3YjFlMzc1YyIsIm5hbWUiOiJkeGJjbGFpbXMiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.-IqdFQ5rnyjcISQPWY516ZX7bjj1gswL-YVfpD-5XHE
+2021-03-30 19:47:31.3616 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMTM4MzYsImp0aSI6IjJkNmYyZDZiLWE0OGUtNGM2Ni1iNmM4LWVhYWU3YjFlMzc1YyIsIm5hbWUiOiJkeGJjbGFpbXMiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.-IqdFQ5rnyjcISQPWY516ZX7bjj1gswL-YVfpD-5XHE
+2021-03-30 19:47:41.5820 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dxbsales for TPA - continental
+2021-03-30 19:47:43.4251 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dxbsales for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTcxMTM4NjIsImp0aSI6ImM0YzdmZjM3LWY0ZDEtNGYyYi05ZGE1LTViZmU5MDUzMjUxMyIsIm5hbWUiOiJkeGJzYWxlcyIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.HaO9DiUJIoRLfi1R6PcNKjaUkakumsZx7AhERAC0Pwk

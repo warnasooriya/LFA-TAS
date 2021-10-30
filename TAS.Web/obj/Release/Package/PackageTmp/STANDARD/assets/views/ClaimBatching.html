@@ -1,0 +1,347 @@
+﻿<div ng-app="LFA" ng-controller="ClaimBatchingCtrl as claimInvoiceBatchingController" ng-init="loadInitailData()">
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+         .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .fixed-height {
+            height: 250px;
+        }
+
+        .ScrollHeight {
+            max-height: 75px;
+            /*border: 1px solid red;*/
+            overflow: auto;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .grid {
+            height: 300px;
+        }
+
+        .ui-grid-render-container-body {
+            position: absolute;
+            margin-left: 31px;
+        }
+
+        .ui-grid-grid-footer {
+            position: absolute;
+            bottom: 25px;
+        }
+    </style>
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle TitleModifier">CLAIM BATCHING</h1>
+                <span class="mainDescription TitleModifier">You can batch claim invoice here.</span>
+            </div>
+
+        </div>
+    </section>
+    <div ng-form="myForm" class="my-form">
+        <tabset class="tabbable">
+            <tab heading="BATCH" ng-attr-active="tab[0].active" ng-click="BacktoBatch()">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Country<span class="symbol required"></span>
+                            </label>
+                            <select class="form-control input-sm  input-sm" ng-model="claimBatch.CountryId"
+                                    ng-change="setupClaimBatchPrefix()" ng-class="validate_claimBatchEntryCountryId">
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in Countries" value="{{option.Id}}"
+                                        ng-selected="ClaimInvoiceEntry.CountryId==option.Id">
+                                    {{option.CountryName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">
+                                Dealer<span class="symbol required"></span>
+                            </label>
+                            <select class="form-control  input-sm  input-sm" ng-model="claimBatch.DealerId"
+                                    ng-change="setupClaimBatchPrefix()" ng-class="validate_claimBatchEntryDealerId">
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in Dealers" value="{{option.Id}}"
+                                        ng-selected="ClaimInvoiceEntry.DealerId==option.Id">
+                                    {{option.DealerName}}
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">
+                                Insurer<span class="symbol required"></span>
+                            </label>
+                            <select class="form-control input-sm  input-sm" ng-model="claimBatch.InsurerId" name="InsurerId"
+                                    ng-change="setupClaimBatchPrefix()" ng-class="validate_claimBatchEntryInsurerId">
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in Insurers" value="{{option.Id}}"
+                                        ng-selected="ClaimInvoiceEntry.InsurerId==option.Id">
+                                    {{option.InsurerShortName}}
+                                </option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">
+                                Reinsurer<span class="symbol required"></span>
+                            </label>
+                            <select class="form-control input-sm  input-sm" ng-model="claimBatch.ReinsurerId" name="ReinsurerId"
+                                    ng-change="setupClaimBatchPrefix()" ng-class="validate_claimBatchEntryReinsurerId">
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in Reinsurers" value="{{option.Id}}"
+                                        ng-selected="ClaimInvoiceEntry.ReinsurerId==option.Id">
+                                    {{option.ReinsurerName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">
+                                Batch No
+                            </label><span class="error">*</span>
+                            <div class="input-group">
+                                <span class="input-group-addon">{{batchPrefix}}</span>
+                                <input type="text" class="form-control input-sm"
+                                       ng-model="claimBatch.BatchNumber" name="BatchNumber"
+                                       ng-class="validate_claimBatchEntryBatchNumber" ng-disabled="true" />
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary  btn-info pull-right" ng-disabled="ClaimBatchingSaveBtnDisabled" ng-click="submitClaimBatch()">
+                                Save
+                                <i ng-class="ClaimBatchingSaveBtnIconClass"></i>
+                            </button>
+
+                            <!--<button class="btn btn-primary  btn-info pull-right" ng-disabled=""
+                        ng-click="TestuploadScannerDocuments()">
+                    Save
+                    <i ng-class="ClaimBatchingSaveBtnIconClass"></i>
+                </button>-->
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-8">
+                        <p>Last 10 claim batches created</p>
+                        <table id="batchingTable" class="table table-bordered table-striped ">
+                            <thead class="ngTableheader">
+                                <tr>
+                                    <th>Batch Number</th>
+                                    <th>Batch Date</th>
+                                    <th>Dealer</th>
+                                    <th>Insurer</th>
+                                    <th>Reinsurer</th>
+
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-repeat=" p in claimBatching track by $index">
+                                    <td style="display:none">{{p.Id}}</td>
+                                    <td align="center">{{p.BatchNumber}}</td>
+                                    <td align="center">{{p.EntryDate | date:'yyyy-MM-dd'}}</td>
+                                    <td align="center">{{p.DealerId}}</td>
+                                    <td align="center">{{p.InsurerId}}</td>
+                                    <td align="center">{{p.ReinsurerId}}</td>
+
+
+                                    <td align="center">
+                                        <button class="btn btn-xs btn-primary"
+                                                ng-click="showGroupTab(p)">
+                                            <i class="fa fa-edit"></i>&nbsp;Add Groups
+                                        </button>
+                                       
+                                    </td>
+
+                                </tr>
+                                <tr ng-show="claimBatching==null">
+                                    <td align="center" colspan="5"><h4>No Claim Batch found.</h4></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+              
+            </tab>
+            <tab heading="GROUP" ng-attr-active="tab[1].active" ng-click="backtoGroup()">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="col-md-6">
+
+                            <label class="control-label">
+                                Country
+                            </label>
+                            <select class="form-control input-sm"
+                                    ng-model="claimBatchGroup.CountryId"
+                                    ng-change="refreshClaimBatchDetails()">
+
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in Countries" value="{{option.Id}}"
+                                        ng-selected="claimBatchGroup.CountryId==option.Id">
+                                    {{option.CountryName}}
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label">
+                                Dealer
+                            </label>
+                            <select class="form-control  input-sm" ng-model="claimBatchGroup.DealerId"
+                                    ng-change="refreshClaimBatchDetails()">
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in Dealers" value="{{option.Id}}"
+                                        ng-selected="claimBatchGroup.DealerId==option.Id">
+                                    {{option.DealerName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label">
+                                Insurer
+                            </label>
+                            <select class="form-control input-sm  input-sm" ng-model="claimBatchGroup.InsurerId"
+                                    ng-change="refreshClaimBatchDetails()">
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in Insurers" value="{{option.Id}}"
+                                        ng-selected="claimBatchGroup.InsurerId==option.Id">
+                                    {{option.InsurerShortName}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label">
+                                Reinsurer
+                            </label>
+                            <select class="form-control input-sm  input-sm" ng-model="claimBatchGroup.ReinsurerId"
+                                    ng-change="refreshClaimBatchDetails()">
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in Reinsurers" value="{{option.Id}}"
+                                        ng-selected="claimBatchGroup.ReinsurerId==option.Id">
+                                    {{option.ReinsurerName}}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="control-label">
+                                Claim Batch<span class="symbol required"></span>
+                            </label>
+                            <select class="form-control input-sm"
+                                    ng-model="claimBatchGroup.ClaimBatchId"
+                                    ng-change="selectedClaimBatchChanged()"
+                                    ng-class="validate_claimBatchGroupClaimBatchId">
+
+                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                <option ng-repeat="option in ClaimBatchesInGroup" value="{{option.Id}}"
+                                        ng-selected="claimBatchGroup.ClaimBatchId==option.Id">
+                                    {{option.BatchNumber}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+
+
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Group
+                                </label><span class="error">*</span>
+                                <select class="form-control" 
+                                        ng-model="claimBatchGroup.GroupId"
+                                        ng-class="validate_claimBatchGroupName"
+                                        ng-change="getNextClaimGroupNumber()">
+                                    <option value="00000000-0000-0000-0000-000000000000"> &lt;&lt; New &gt;&gt; </option>
+                                    <option ng-repeat="option in claimGroupsInBatch" value="{{option.Id}}"
+                                            ng-selected="claimBatchGroup.GroupId==option.Id">
+                                        {{option.GroupName}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Group No
+                                </label><span class="error">*</span>
+                                <input type="text" class="form-control "
+                                       ng-model="claimBatchGroup.GroupName" readonly="readonly">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Comment
+                                </label>
+                                <input type="text" class="form-control " ng-model="claimBatchGroup.Comment">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label">
+                                    IsGoodwill<span class="symbol required"></span>
+                                </label>
+                                <input id="IsActive" type="checkbox" ng-model="claimBatchGroup.IsGoodwill" tabindex="6" ng-change="IsGoodwillGroupClaim()" ng-disabled="ClaimInvoiceEntryDisable">
+                            </div>
+
+
+
+
+
+                            <div>
+                                <button class="btn btn-primary  btn-info pull-right"
+                                        ng-disabled="ClaimBatchingSaveBtnDisabled" ng-click="submitClaimBatchGroup()">
+
+
+
+
+
+
+
+                                    <!--{{Part.Id=='00000000-0000-00                                <!--{{Part.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}--> Save
+                                    <i ng-class="ClaimBatchingSaveBtnIconClass"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <p>Selected Claim List </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-md-offset-6">
+                                <div class="form-group" style="font-size: 1.28em;">
+                                    <span class="TitleModifier">
+                                        Total
+                                    </span>
+                                    <span class="TitleModifier" style="float: right; padding-right: 0.4em;">{{claimBatchGroup.TotalAmount | number : 2}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="grid" ui-grid-selection ui-grid-edit ui-grid="gridOptions"> </div>
+                        </div>
+
+
+                    </div>
+                </div>
+              
+            </tab>
+        </tabset>
+    </div>
+</div>
+
+

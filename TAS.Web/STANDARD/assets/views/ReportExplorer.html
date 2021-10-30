@@ -1,0 +1,140 @@
+﻿
+
+<div ng-app="LFA" ng-controller="ReportExplorerCtrl as reportExplorerController" ng-init="loadInitailData()">
+    <style>
+        #page-title {
+            padding: 20px 0;
+        }
+
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        #claimItemsTbl > tbody > tr > td {
+            height: 35px;
+            padding: 0px;
+            border-top: 0px;
+        }
+
+
+        #loading {
+            width: 100%;
+            height: 100%;
+            top: 120px;
+            left: 0px;
+            position: fixed;
+            display: block;
+            opacity: 0.7;
+            background-color: black;
+            z-index: 99;
+            text-align: center;
+        }
+
+        .watermark {
+            /*position: absolute;*/
+            top: 50%;
+            font-size: 15px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            z-index: 1000;
+        }
+        /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .table-condensed {
+            font-size: 11px;
+        }
+
+        .ui-select-search {
+            height: 25px;
+        }
+
+        .ui-select-toggle {
+            height: 25px;
+        }
+
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .hiddenInputText::selection {
+            background: #5F8295; /* WebKit/Blink Browsers */
+            color: #5F8295;
+        }
+
+        .hiddenInputText::-moz-selection {
+            background: #5F8295; /* Gecko Browsers */
+            color: #5F8295;
+        }
+    </style>
+
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-7">
+                <h1 class="mainTitle TitleModifier">Report Explorer</h1>
+                <span class="mainDescription TitleModifier">You can view/download reports here.</span>
+            </div>
+
+        </div>
+    </section>
+    <div class="row" style="margin-top: 10px">
+        <div class="col-md-12">
+            <iframe frameborder="0" width="100%" height="500" src="assets/views/partials/reportExplorer.iframe.html"></iframe>
+       
+        </div>
+
+    </div>
+
+</div>

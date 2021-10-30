@@ -1,0 +1,4 @@
+2021-10-01 10:38:34.5291 TAS.Web.Controllers.BordxController SaveBordxReportTemplate: exception: Error converting value {null} to type 'System.Guid'. Path 'ProductType'., System.ArgumentException: Could not cast or convert from {null} to System.Guid.
+   at Newtonsoft.Json.Utilities.ConvertUtils.EnsureTypeAssignable(Object value, Type initialType, Type targetType)
+   at Newtonsoft.Json.Utilities.ConvertUtils.ConvertOrCast(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)

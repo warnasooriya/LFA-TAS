@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="TPABranch" table="TpaBranch" dynamic-update="true" >
+    <cache usage="read-write"/>
+  
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="BranchName" />
+    <property name="BranchCode" />
+    <property name="ContryId" />
+    <property name="CityId" />
+    <property name="State" />
+    <property name="TimeZone" />
+    <property name="Address" />
+    <property name="IsHeadOffice" />
+    <property name="TpaId" />
+  
+  </class>
+</hibernate-mapping>

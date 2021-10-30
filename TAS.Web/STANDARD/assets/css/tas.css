@@ -1,0 +1,755 @@
+﻿.PGLanding_Advertisment {
+    margin-top: 15px;
+}
+
+.PGLanding_btnRegister {
+    float: right;
+    margin: 8px 0 0 0;
+}
+
+.PGLanding_Header {
+    font-family: Arial;
+    color: #6f6f6f;
+    margin-top: 35px;
+}
+
+    .PGLanding_Header p {
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .PGLanding_Header span {
+        font-size: 12px;
+        font-weight: bold;
+        float: left;
+        margin-right: 25px;
+    }
+
+    .PGLanding_Header ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        .PGLanding_Header ul li {
+            display: inline;
+            list-style: none;
+            font-size: 12px;
+            font-weight: bold;
+            list-style-position: inside;
+        }
+
+            .PGLanding_Header ul li a {
+                color: #6f6f6f;
+            }
+
+                .PGLanding_Header ul li a:hover {
+                    color: #0e4aab;
+                    text-decoration: none;
+                }
+
+.PGLanding_HeaderCommadity {
+    border-bottom: 1px solid #e7e7e7;
+    font-family: Arial;
+    color: #6f6f6f;
+    margin: 35px 0 15px 0;
+}
+
+    .PGLanding_HeaderCommadity p {
+        font-size: 1.6em;
+        margin: 20px 0 20px 0 !important;
+        padding: 0;
+    }
+
+        .PGLanding_HeaderCommadity p span {
+            font-size: 12px;
+            margin-left: 25px;
+        }
+
+.panel-body p {
+    margin-top: 10px;
+}
+
+.modal-header .close {
+    display: block !important;
+}
+
+.tasTitle {
+    margin-top: 0 !important;
+}
+
+.VGap30 {
+    height: 100px;
+}
+
+.VGap50 {
+    height: 50px;
+}
+
+.VGap5 {
+    height: 5px;
+}
+
+
+/*------------------------------------*\
+    $CAROUSEL
+\*------------------------------------*/
+.carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.panes {
+    list-style: none;
+    position: relative;
+    width: 500%; /* Number of panes * 100% */
+    overflow: hidden; /* This is used solely to clear floats, it does not add functionality. */
+    -webkit-animation: carousel 30s infinite;
+    -moz-animation: carousel 30s infinite;
+    animation: carousel 30s infinite;
+}
+
+    .panes > li {
+        position: relative;
+        float: left;
+        width: 20%; /* 100 / number of panes */
+    }
+
+        .panes > li > a {
+            display: block;
+        }
+
+.carousel img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+.carousel h2 {
+    font-size: 1em;
+    padding: 0.5em;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    text-align: right;
+    color: #fff;
+    background-color: rgba(0,0,0,0.75);
+}
+
+.iconset {
+    color: #062643;
+    /*color:black;*/
+    text-align: center;
+    cursor: pointer;
+}
+
+    .iconset:hover {
+        color: #006dcc;
+    }
+
+/*.form-control{
+  -webkit-border-radius: 4px !important;
+     -moz-border-radius: 4px !important;
+          border-radius: 4px !important; 
+}*/
+
+.TitleModifier {
+    color: #041a2e !important;
+    font-weight: 500 !important;
+}
+
+.lableModifier {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.controlModifier {
+    padding-left: 0 !important;
+}
+
+.pageTitleModifier {
+    padding: 1em !important;
+}
+
+.panelHeaderModifier {
+    background-color: #e5f2fb !important;
+}
+
+/*.control-label{
+    color:#062643 !important;
+}*/
+
+@-moz-keyframes carousel {
+    0% {
+        left: 0;
+    }
+
+    11% {
+        left: 0;
+    }
+
+    12.5% {
+        left: -100%;
+    }
+
+    23.5% {
+        left: -100%;
+    }
+
+    25% {
+        left: -200%;
+    }
+
+    36% {
+        left: -200%;
+    }
+
+    37.5% {
+        left: -300%;
+    }
+
+    48.5% {
+        left: -300%;
+    }
+
+    50% {
+        left: -400%;
+    }
+
+    61% {
+        left: -400%;
+    }
+
+    62.5% {
+        left: -300%;
+    }
+
+    73.5% {
+        left: -300%;
+    }
+
+    75% {
+        left: -200%;
+    }
+
+    86% {
+        left: -200%;
+    }
+
+    87.5% {
+        left: -100%;
+    }
+
+    98.5% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@-webkit-keyframes carousel {
+    0% {
+        left: 0;
+    }
+
+    11% {
+        left: 0;
+    }
+
+    12.5% {
+        left: -100%;
+    }
+
+    23.5% {
+        left: -100%;
+    }
+
+    25% {
+        left: -200%;
+    }
+
+    36% {
+        left: -200%;
+    }
+
+    37.5% {
+        left: -300%;
+    }
+
+    48.5% {
+        left: -300%;
+    }
+
+    50% {
+        left: -400%;
+    }
+
+    61% {
+        left: -400%;
+    }
+
+    62.5% {
+        left: -300%;
+    }
+
+    73.5% {
+        left: -300%;
+    }
+
+    75% {
+        left: -200%;
+    }
+
+    86% {
+        left: -200%;
+    }
+
+    87.5% {
+        left: -100%;
+    }
+
+    98.5% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes carousel {
+    0% {
+        left: 0;
+    }
+
+    11% {
+        left: 0;
+    }
+
+    12.5% {
+        left: -100%;
+    }
+
+    23.5% {
+        left: -100%;
+    }
+
+    25% {
+        left: -200%;
+    }
+
+    36% {
+        left: -200%;
+    }
+
+    37.5% {
+        left: -300%;
+    }
+
+    48.5% {
+        left: -300%;
+    }
+
+    50% {
+        left: -400%;
+    }
+
+    61% {
+        left: -400%;
+    }
+
+    62.5% {
+        left: -300%;
+    }
+
+    73.5% {
+        left: -300%;
+    }
+
+    75% {
+        left: -200%;
+    }
+
+    86% {
+        left: -200%;
+    }
+
+    87.5% {
+        left: -100%;
+    }
+
+    98.5% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+/* login acc -----------*/
+
+.login-content .heading {
+    overflow: hidden;
+    border-bottom: 1px solid #C5C5C5;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+    .login-content .heading i {
+        font-size: 56px;
+        color: #ffe402;
+        float: left;
+        margin-right: 14px;
+    }
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .PGLanding_btnRegister {
+        margin: 5px 9px 5px 0;
+    }
+
+    .PGLanding_Header span {
+        float: none;
+    }
+}
+
+@media only screen and (max-width : 767px) {
+    .content-center {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+    /* Styles */
+}
+
+@media(max-width:500px) {
+    .content-center {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+    /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+}
+
+
+.btn-twitter {
+    background-color: #2daddc;
+    border-color: #0271bf;
+    color: #ffffff;
+}
+
+    .btn-twitter:hover, .btn-twitter:focus, .btn-twitter:active, .btn-twitter.active {
+        background-color: #2095c0;
+        border-color: #014d82;
+        color: #ffffff;
+    }
+
+body.login.example2 {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url("../images/bg_2.png");
+}
+
+.control-panel {
+    min-height: 420px;
+}
+
+.control-panel-Small {
+    min-height: 250px;
+}
+
+.btnmodifier {
+    width: 12em;
+}
+/*.form-control {padding:6px 4px !important}*/
+
+.carousel-control.right, .carousel-control.left {
+    background-image: none !important;
+}
+
+.product-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media screen and (min-width: 1000px) {
+    .product-container {
+        width: 1170px;
+    }
+
+    .tpa-desc {
+        font-size: 16px !important;
+    }
+
+    tbl-tire {
+        font-size: large !important;
+    }
+    /* ---------------------------------------------------------------------- */
+    /*	Feature Box
+/* ---------------------------------------------------------------------- */
+    .feature-box .feature-icon {
+        color: #969696;
+        display: inline-block;
+        float: left;
+        height: 35px;
+        line-height: 35px;
+        margin-right: 10px;
+        position: relative;
+        text-align: center;
+        width: 35px;
+        top: 5px;
+        font-weight: lighter;
+    }
+
+        .feature-box .feature-icon > i {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+    .feature-box .feature-info {
+        padding-left: 50px;
+    }
+
+    .vgap30 {
+        height: 30px;
+    }
+
+    /* ---------------------------------------------------------------------- */
+    /*	Accordion
+ /* ---------------------------------------------------------------------- */
+    .accordion-custom .panel {
+        background-color: #FFFFFF;
+        border: none;
+        border-radius: 0 0 0 0;
+        box-shadow: none;
+    }
+
+    .accordion-custom .panel-heading {
+        padding: 0;
+        background-image: none;
+        height: auto;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    .accordion-custom .panel-body {
+        border: none !important;
+    }
+
+    .accordion-custom .panel-heading .accordion-toggle {
+        background-color: #cccccc;
+        color: #606060;
+        display: block;
+        font-size: 15px;
+        text-transform: uppercase;
+        line-height: 1;
+        padding: 10px;
+        position: relative;
+    }
+
+        .accordion-custom .panel-heading .accordion-toggle:hover, .accordion-custom .panel-heading .accordion-toggle:focus {
+            text-decoration: none;
+        }
+
+        .accordion-custom .panel-heading .accordion-toggle.collapsed {
+            background-color: #F3F3F3;
+            border-color: #D9D9D9;
+            border-width: 0 0 0 1px;
+            color: #606060;
+            font-weight: normal;
+        }
+
+        .accordion-custom .panel-heading .accordion-toggle > .icon-arrow:before {
+            content: "\f078";
+        }
+
+        .accordion-custom .panel-heading .accordion-toggle.collapsed > .icon-arrow:before {
+            content: "\f054" !important;
+        }
+
+    .accordion-custom.panel-group .panel-heading .accordion-toggle > .icon-arrow {
+        font-size: 11px;
+        padding: 0 5px;
+    }
+
+    .accordion-custom.panel-group .panel-heading .accordion-toggle.collapsed > .icon-arrow {
+        opacity: 0.75;
+    }
+
+    .accordion-teal .panel-heading .accordion-toggle {
+        background: #F3F7F8;
+        border-left: 2px solid #569099;
+        color: #437278;
+    }
+
+        .accordion-teal .panel-heading .accordion-toggle.collapsed {
+            background: #F3F7F8;
+            border-left: none;
+        }
+
+
+    a [class^="icon-"], a [class*=" icon-"] {
+        display: inline;
+    }
+
+    [class^="icon-"], [class*=" icon-"] {
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        text-decoration: inherit;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .panel-default > .panel-heading {
+        color: #333;
+        background-color: inherit;
+        border-color: #ddd;
+    }
+
+    /*.panel-heading {
+   
+ min-height:0 !important; }*/
+
+
+
+    /*loading by ranga*/
+
+    @keyframes blink {
+        /**
+     * At the start of the animation the dot
+     * has an opacity of .2
+     */
+        0% {
+            opacity: .2;
+        }
+        /**
+     * At 20% the dot is fully visible and
+     * then fades out slowly
+     */
+        20% {
+            opacity: 1;
+        }
+        /**
+     * Until it reaches an opacity of .2 and
+     * the animation can start again
+     */
+        100% {
+            opacity: .2;
+        }
+    }
+
+    .saving span {
+        /**
+     * Use the blink animation, which is defined above
+     */
+        animation-name: blink;
+        /**
+     * The animation should take 1.4 seconds
+     */
+        animation-duration: 1.4s;
+        /**
+     * It will repeat itself forever
+     */
+        animation-iteration-count: infinite;
+        /**
+     * This makes sure that the starting style (opacity: .2)
+     * of the animation is applied before the animation starts.
+     * Otherwise we would see a short flash or would have
+     * to set the default styling of the dots to the same
+     * as the animation. Same applies for the ending styles.
+     */
+        animation-fill-mode: both;
+    }
+
+        .saving span:nth-child(2) {
+            /**
+     * Starts the animation of the third dot
+     * with a delay of .2s, otherwise all dots
+     * would animate at the same time
+     */
+            animation-delay: .2s;
+        }
+
+        .saving span:nth-child(3) {
+            /**
+     * Starts the animation of the third dot
+     * with a delay of .4s, otherwise all dots
+     * would animate at the same time
+     */
+            animation-delay: .4s;
+        }
+
+
+    .tasloading:after {
+        content: ' .';
+        animation: dots 1s steps(5, end) infinite;
+    }
+
+    .tasloading {
+        color: black;
+        font-size: large;
+    }
+
+    @keyframes dots {
+        0%, 20% {
+            color: rgba(0,0,0,0);
+            text-shadow: .25em 0 0 rgba(0,0,0,0), .5em 0 0 rgba(0,0,0,0);
+        }
+
+        40% {
+            color: black;
+            text-shadow: .25em 0 0 rgba(0,0,0,0), .5em 0 0 rgba(0,0,0,0);
+        }
+
+        60% {
+            text-shadow: .25em 0 0 black, .5em 0 0 rgba(0,0,0,0);
+        }
+
+        80%, 100% {
+            text-shadow: .25em 0 0 black, .5em 0 0 black;
+        }
+    }

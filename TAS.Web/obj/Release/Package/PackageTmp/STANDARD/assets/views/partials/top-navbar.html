@@ -1,0 +1,585 @@
+<!-- start: TOP NAVBAR -->
+<!-- start: NAVBAR HEADER -->
+<div class="navbar-header">
+    <a href="#" class="sidebar-mobile-toggler pull-left hidden-md hidden-lg" ng-click="toggle('sidebar')" class="btn btn-navbar sidebar-toggle">
+        <i class="ti-align-justify"></i>
+    </a>
+    <a class="navbar-brand navbar-brand-max-width" ui-sref="app.dashboard">
+        <!--<img ng-src="{{app.layout.headerLogo}}" alt="{{app.name}}" />-->
+        <!--<img ng-src="{{app.layout.logo}}" alt="{{app.name}}" />-->
+        <img ng-src="data:image/JPEG;base64,{{app.tpaLogoSrc}}" alt="{{app.name}}" />
+
+    </a>
+
+    <a href="#" class="sidebar-toggler pull-right visible-md visible-lg" ng-click="app.layout.isSidebarClosed = !app.layout.isSidebarClosed">
+        <i class="ti-align-justify"></i>
+    </a>
+    <a class="pull-right menu-toggler visible-xs-block" id="menu-toggler" ng-click="navbarCollapsed = !navbarCollapsed">
+        <span class="sr-only">{{'top-navbar.toggleNavigation' | translate }}</span>
+        <i class="ti-view-grid"></i>
+    </a>
+
+</div>
+
+
+
+
+<!-- end: NAVBAR HEADER -->
+<!-- start: NAVBAR COLLAPSE -->
+<div class="navbar-collapse collapse" collapse="navbarCollapsed" ng-init="navbarCollapsed = true" off-click="navbarCollapsed = true" off-click-if='!navbarCollapsed' off-click-filter="#menu-toggler">
+    <div ng-show="tpaName == 'continental'">
+        <div class="col-md-12">
+            <ul class="nav navbar-right pull-right" ct-fullheight="window" data-ct-fullheight-exclusion="header" data-ct-fullheight-if="isSmallDevice">
+                <!-- start: MESSAGES DROPDOWN -->
+                <li class="dropdown" style="margin-top:10px">
+                    <img ng-src="/TAS.Web/STANDARD/assets/images/ContinentalNew.png"  />
+                </li>
+                <li class="dropdown" dropdown on-toggle="toggled(open)">
+                    <a href class="dropdown-toggle" dropdown-toggle ng-click="checkNotifications()">
+                        <span class="dot-badge partition-red" ng-show="notifications.IsDataAvailable"></span>
+                        <span class="dot-badge partition-green" ng-show="!notifications.IsDataAvailable"></span>
+
+                        <i class="ti-comment"></i> <span>{{'top-navbar.notifications' | translate }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
+                        <li>
+                            <span class="dropdown-header">{{'top-navbar.unreadNotifications' | translate }}</span>
+                        </li>
+                        <li>
+                            <div ng-show="isNoNotifications">
+                                <h5 class="center">{{'top-navbar.noNotificationsAvailable' | translate }}</h5>
+                            </div>
+                            <div class="drop-down-wrapper ps-container">
+
+                                <ul ng-repeat="msg in notifications.messages">
+                                    <li class="unread" ng-click="navigateToNotification(notification.Link)">
+                                        <a href="javascript:;" class="unread">
+                                            <div class="clearfix">
+                                                <div class="thread-image">
+                                                    <img ng-src="data:image/JPEG;base64,{{msg.Picture}}" style="width:45px" />
+                                                </div>
+                                                <div class="thread-content">
+                                                    <span class="author">{{msg.UserName}}</span>
+                                                    <span class="preview">{{msg.Message | cut:true:70:' ...'}}</span>
+                                                    <!--<span class="time"> {{msg.DateGenerated}}</span>-->
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="view-all" ng-click="viewAllNotifications()">
+                            <a href="#">
+                                {{'top-navbar.seeAll' | translate }}
+                            </a>
+                            <!--data-toggle="modal" ng-click="viewAllNotifications()"-->
+                            <!--<button class="btn btn-default" ng-click="viewAllNotifications()">Open me!</button>-->
+                        </li>
+                    </ul>
+                </li>
+                <!-- end: MESSAGES DROPDOWN -->
+                <!-- start: ACTIVITIES DROPDOWN -->
+                <!--<li class="dropdown" dropdown on-toggle="toggled(open)">
+                <a href class="dropdown-toggle" dropdown-toggle>
+                    <i class="ti-check-box"></i> <span translate="topbar.activities.MAIN">NOTIFICATIONS</span>
+                </a>
+                <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
+                    <li>
+                        <span class="dropdown-header" translate="topbar.activities.HEADER"> You have new notifications</span>
+                    </li>
+                    <li>
+                        <div class="drop-down-wrapper ps-container">
+                            <div class="list-group no-margin">
+                                <a class="media list-group-item" href="">
+                                    <img class="img-circle" alt="..." src="assets/images/avatar-1.jpg">
+                                    <span class="media-body block no-margin"> Use awesome animate.css <small class="block text-grey">10 minutes ago</small> </span>
+                                </a>
+                                <a class="media list-group-item" href="">
+                                    <span class="media-body block no-margin"> 1.0 initial released <small class="block text-grey">1 hour ago</small> </span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="view-all">
+                        <a href="#" translate="topbar.activities.SEEALL">
+                            See All
+                        </a>
+                    </li>
+                </ul>
+            </li>-->
+                <!-- end: ACTIVITIES DROPDOWN -->
+                <!-- start: LANGUAGE SWITCHER -->
+                <!--<li class="dropdown" dropdown on-toggle="toggled(open)">
+                <a href class="dropdown-toggle" dropdown-toggle>
+                    <i class="ti-world"></i> {{language.selected}}
+                </a>
+                <ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+                    <li ng-repeat="(localeId, langName) in language.available">
+                        <a ng-click="language.set(localeId, $event)" href="#" class="menu-toggler">
+                            {{langName}}
+                        </a>
+                    </li>
+                </ul>
+            </li>-->
+                <!-- start: LANGUAGE SWITCHER -->
+                <!-- start: USER OPTIONS DROPDOWN -->
+                <li class="dropdown current-user" dropdown on-toggle="toggled(open)">
+                    <a href class="dropdown-toggle" dropdown-toggle>
+                        <img ng-src="data:image/JPEG;base64,{{user.picture}}" alt=""> <span class="username">{{user.name}} <i class="ti-angle-down"></i></i></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-dark">
+                        <li>
+                            <a ui-sref="app.customerProfile" translate="topbar.user.PROFILE" ng-show="UserType=='CU'">
+                                My Profile
+                            </a>
+                            <a ui-sref="app.userProfile" translate="topbar.user.PROFILE" ng-show="UserType=='IU' || UserType=='RI'  ">
+                                My Profile
+                            </a>
+                        </li>
+
+                        <!--<li>
+                        <a ui-sref="app.pages.calendar" translate="topbar.user.CALENDAR">
+                            My Calendar
+                        </a>
+                    </li>-->
+                        <!--<li>
+                        <a ui-sref="app.pages.messages">
+                            My Messages (3)
+                        </a>
+                    </li>-->
+                        <!--<li>
+                        <a ui-sref="login.lockscreen" translate="topbar.user.LOCKSCREEN">
+                            Lock Screen
+                        </a>
+                    </li>-->
+                        <li ng-show="UserType!=''">
+                            <a ui-sref="login.signin" ng-click="signOut()" translate="topbar.user.LOGOUT">
+                                Log Out
+                            </a>
+                        </li>
+                        <li ng-show="UserType==''">
+                            <a ui-sref="login.tas" ng-click="signOut()" translate="topbar.user.LOGOUT">
+                                Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- end: USER OPTIONS DROPDOWN -->
+            </ul>
+        </div>
+    </div>
+    <div ng-show="tpaName != 'continental'">
+        <ul class="nav navbar-right pull-right" ct-fullheight="window" data-ct-fullheight-exclusion="header" data-ct-fullheight-if="isSmallDevice">
+            <!-- start: MESSAGES DROPDOWN -->
+            <li class="dropdown" dropdown on-toggle="toggled(open)">
+                <a href class="dropdown-toggle" dropdown-toggle ng-click="checkNotifications()">
+                    <span class="dot-badge partition-red" ng-show="notifications.IsDataAvailable"></span>
+                    <span class="dot-badge partition-green" ng-show="!notifications.IsDataAvailable"></span>
+
+                    <i class="ti-comment"></i> <span>{{'top-navbar.notifications' | translate }}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
+                    <li>
+                        <span class="dropdown-header">{{'top-navbar.unreadNotifications' | translate }}</span>
+                    </li>
+                    <li>
+                        <div ng-show="isNoNotifications">
+                            <h5 class="center">{{'top-navbar.noNotificationsAvailable' | translate }}</h5>
+                        </div>
+                        <div class="drop-down-wrapper ps-container">
+
+                            <ul ng-repeat="msg in notifications.messages">
+                                <li class="unread" ng-click="navigateToNotification(notification.Link)">
+                                    <a href="javascript:;" class="unread">
+                                        <div class="clearfix">
+                                            <div class="thread-image">
+                                                <img ng-src="data:image/JPEG;base64,{{msg.Picture}}" style="width:45px" />
+                                            </div>
+                                            <div class="thread-content">
+                                                <span class="author">{{msg.UserName}}</span>
+                                                <span class="preview">{{msg.Message | cut:true:70:' ...'}}</span>
+                                                <!--<span class="time"> {{msg.DateGenerated}}</span>-->
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="view-all" ng-click="viewAllNotifications()">
+                        <a href="#">
+                            {{'top-navbar.seeAll' | translate }}
+                        </a>
+                        <!--data-toggle="modal" ng-click="viewAllNotifications()"-->
+                        <!--<button class="btn btn-default" ng-click="viewAllNotifications()">Open me!</button>-->
+                    </li>
+                </ul>
+            </li>
+            <!-- end: MESSAGES DROPDOWN -->
+            <!-- start: ACTIVITIES DROPDOWN -->
+            <!--<li class="dropdown" dropdown on-toggle="toggled(open)">
+            <a href class="dropdown-toggle" dropdown-toggle>
+                <i class="ti-check-box"></i> <span translate="topbar.activities.MAIN">NOTIFICATIONS</span>
+            </a>
+            <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
+                <li>
+                    <span class="dropdown-header" translate="topbar.activities.HEADER"> You have new notifications</span>
+                </li>
+                <li>
+                    <div class="drop-down-wrapper ps-container">
+                        <div class="list-group no-margin">
+                            <a class="media list-group-item" href="">
+                                <img class="img-circle" alt="..." src="assets/images/avatar-1.jpg">
+                                <span class="media-body block no-margin"> Use awesome animate.css <small class="block text-grey">10 minutes ago</small> </span>
+                            </a>
+                            <a class="media list-group-item" href="">
+                                <span class="media-body block no-margin"> 1.0 initial released <small class="block text-grey">1 hour ago</small> </span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="view-all">
+                    <a href="#" translate="topbar.activities.SEEALL">
+                        See All
+                    </a>
+                </li>
+            </ul>
+        </li>-->
+            <!-- end: ACTIVITIES DROPDOWN -->
+            <!-- start: LANGUAGE SWITCHER -->
+            <!--<li class="dropdown" dropdown on-toggle="toggled(open)">
+            <a href class="dropdown-toggle" dropdown-toggle>
+                <i class="ti-world"></i> {{language.selected}}
+            </a>
+            <ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort">
+                <li ng-repeat="(localeId, langName) in language.available">
+                    <a ng-click="language.set(localeId, $event)" href="#" class="menu-toggler">
+                        {{langName}}
+                    </a>
+                </li>
+            </ul>
+        </li>-->
+            <!-- start: LANGUAGE SWITCHER -->
+            <!-- start: USER OPTIONS DROPDOWN -->
+            <li class="dropdown current-user" dropdown on-toggle="toggled(open)">
+                <a href class="dropdown-toggle" dropdown-toggle>
+                    <img ng-src="data:image/JPEG;base64,{{user.picture}}" alt=""> <span class="username">{{user.name}} <i class="ti-angle-down"></i></i></span>
+                </a>
+                <ul class="dropdown-menu dropdown-dark">
+                    <li>
+                        <a ui-sref="app.customerProfile" translate="topbar.user.PROFILE" ng-show="UserType=='CU'">
+                            My Profile
+                        </a>
+                        <a ui-sref="app.userProfile" translate="topbar.user.PROFILE" ng-show="UserType=='IU' || UserType=='RI'  ">
+                            My Profile
+                        </a>
+                    </li>
+
+                    <!--<li>
+                    <a ui-sref="app.pages.calendar" translate="topbar.user.CALENDAR">
+                        My Calendar
+                    </a>
+                </li>-->
+                    <!--<li>
+                    <a ui-sref="app.pages.messages">
+                        My Messages (3)
+                    </a>
+                </li>-->
+                    <!--<li>
+                    <a ui-sref="login.lockscreen" translate="topbar.user.LOCKSCREEN">
+                        Lock Screen
+                    </a>
+                </li>-->
+                    <li ng-show="UserType!=''">
+                        <a ui-sref="login.signin" ng-click="signOut()" translate="topbar.user.LOGOUT">
+                            Log Out
+                        </a>
+                    </li>
+                    <li ng-show="UserType==''">
+                        <a ui-sref="login.tas" ng-click="signOut()" translate="topbar.user.LOGOUT">
+                            Log Out
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- end: USER OPTIONS DROPDOWN -->
+        </ul>
+    </div>
+
+
+
+
+
+
+    <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+    <div class="close-handle visible-xs-block menu-toggler" ng-click="navbarCollapsed = true">
+        <div class="arrow-left"></div>
+        <div class="arrow-right"></div>
+    </div>
+    <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+</div>
+<!--<a class="dropdown-off-sidebar" ng-click="toggle('off-sidebar')">
+    &nbsp;
+</a>-->
+<!-- end: NAVBAR COLLAPSE -->
+<!-- start: TOP NAVBAR -->
+
+<script type="text/ng-template" id="msgViewPopup.html">
+    <style>
+        .app-modal-window .modal-dialog {
+            width: 700px;
+        }
+
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 800px !important;
+            height: 500px !important;
+        }
+
+        .content h1 {
+            text-align: center;
+        }
+
+        .content .content-footer p {
+            color: #6d6d6d;
+            font-size: 12px;
+            text-align: center;
+        }
+
+            .content .content-footer p a {
+                color: inherit;
+                font-weight: bold;
+            }
+    </style>
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-title">{{'top-navbar.allNotifications' | translate }}</h4>
+
+    </div>
+    <div class="modal-body" id="modal-body">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul class="pager pull-right">
+                            <li><a style="cursor:pointer" ng-click="getPrevNotificationPage()" ng-show="isPrevPageAvailable">{{'common.button.previous' | translate }}</a></li>
+
+                            <li><label class="form-control inline">{{currentNotificationPage}}</label></li>
+
+                            <li><a style="cursor:pointer" ng-click="getNextNotificationPage()" ng-show="isNextPageAvailable">{{'common.button.next' | translate }}</a></li>
+                        </ul>
+                        <div class="table-container">
+                            <p translate="top-navbar.notificationParagraph" translate-values="{ startPage: startPage , endPage: endPage , totalNotifications: totalNotifications }">
+                            </p>
+                            <table class="table ">
+                                <tbody>
+                                    <tr ng-show="isNotificationLoading">
+                                        <td><p class="tasloading">{{'common.loading' | translate }}</p></td>
+                                    </tr>
+                                    <tr ng-repeat="notification in notificationsInAllView">
+
+                                        <td style="cursor:pointer" ng-click="navigateToNotification(notification.Link)">
+                                            <div class="media">
+                                                <a href="#" class="pull-left">
+                                                    <img ng-src="data:image/jpg;base64,{{notification.Picture}} "
+                                                         style="height:40px" class="media-photo">
+                                                </a>
+                                                <div class="media-body">
+                                                    <span class="media-meta pull-right">{{notification.DateGenerated}}</span>
+                                                    <h5 class="title">
+                                                        {{notification.UserName}}
+
+                                                    </h5>
+                                                    <p class="summary">
+                                                        {{notification.Message}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</script>
+
+<style>
+
+    /*	--------------------------------------------------
+        :: Table Filter
+        -------------------------------------------------- */
+    .panel {
+        border: 1px solid #ddd;
+        background-color: #fcfcfc;
+    }
+
+        .panel .btn-group {
+            margin: 15px 0 30px;
+        }
+
+            .panel .btn-group .btn {
+                transition: background-color .3s ease;
+            }
+
+    .table-filter {
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+    }
+
+        .table-filter tbody tr:hover {
+            cursor: pointer;
+            background-color: #eee;
+        }
+
+        .table-filter tbody tr td {
+            padding: 10px;
+            vertical-align: middle;
+            border-top-color: #eee;
+        }
+
+        .table-filter tbody tr.selected td {
+            background-color: #eee;
+        }
+
+        .table-filter tr td:first-child {
+            width: 38px;
+        }
+
+        .table-filter tr td:nth-child(2) {
+            width: 35px;
+        }
+
+    .ckbox {
+        position: relative;
+    }
+
+        .ckbox input[type="checkbox"] {
+            opacity: 0;
+        }
+
+        .ckbox label {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+            .ckbox label:before {
+                content: '';
+                top: 1px;
+                left: 0;
+                width: 18px;
+                height: 18px;
+                display: block;
+                position: absolute;
+                border-radius: 2px;
+                border: 1px solid #bbb;
+                background-color: #fff;
+            }
+
+        .ckbox input[type="checkbox"]:checked + label:before {
+            border-color: #2BBCDE;
+            background-color: #2BBCDE;
+        }
+
+        .ckbox input[type="checkbox"]:checked + label:after {
+            top: 3px;
+            left: 3.5px;
+            content: '\e013';
+            color: #fff;
+            font-size: 11px;
+            font-family: 'Glyphicons Halflings';
+            position: absolute;
+        }
+
+    .table-filter .star {
+        color: #ccc;
+        text-align: center;
+        display: block;
+    }
+
+        .table-filter .star.star-checked {
+            color: #F0AD4E;
+        }
+
+        .table-filter .star:hover {
+            color: #ccc;
+        }
+
+        .table-filter .star.star-checked:hover {
+            color: #F0AD4E;
+        }
+
+    .table-filter .media-photo {
+        width: 35px;
+    }
+
+    .table-filter .media-body {
+        display: block;
+        /* Had to use this style to force the div to expand (wasn't necessary with my bootstrap version 3.3.6) */
+    }
+
+    .table-filter .media-meta {
+        font-size: 11px;
+        color: #999;
+    }
+
+    .table-filter .media .title {
+        color: #2BBCDE;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: normal;
+        margin: 0;
+    }
+
+        .table-filter .media .title span {
+            font-size: .8em;
+            margin-right: 20px;
+        }
+
+            .table-filter .media .title span.pagado {
+                color: #5cb85c;
+            }
+
+            .table-filter .media .title span.pendiente {
+                color: #f0ad4e;
+            }
+
+            .table-filter .media .title span.cancelado {
+                color: #d9534f;
+            }
+
+    .table-filter .media .summary {
+        font-size: 14px;
+    }
+
+
+    /*ranga*/
+
+    .modal-content {
+        height: 600px !important;
+        overflow-y: scroll;
+        width: 800px !important;
+    }
+</style>

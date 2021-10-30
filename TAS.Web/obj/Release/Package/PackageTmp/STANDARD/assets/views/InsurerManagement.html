@@ -1,0 +1,330 @@
+﻿
+
+<div style="margin-left: 30px; margin-right: 30px" ng-app="clip-two" ng-controller="InsurerManagementCtrl as InsurerManagementController" ng-init="loadInitailData()">
+    <style>
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .fixed-height {
+            height: 250px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .fixedHeight {
+            height: 24px;
+        }
+
+        .ScrollHeight {
+            max-height: 250px;
+            /*border: 1px solid red;*/
+            overflow: auto;
+            overflow-x: hidden;
+        }
+    </style>
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle TitleModifier">INSURER MANAGEMENT</h1>
+                <!--<span class="mainDescription TitleModifier">You can add or update Insurer Details here.</span>-->
+                <span class="mainDescription TitleModifier">You can manage Insurer details and Insurer consortium details here.</span>
+                
+            </div>
+        </div>
+    </section>
+
+        <tabset class="tabbable">
+            <tab heading="INSURER DETAILS">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" ng-show="errorTab1!=''">
+                        {{errorTab1}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Insurer
+                            </label>
+                            <select class="form-control" ng-model="Insurer.Id" name="Id"
+                                    ng-options="n.Id as n.InsurerFullName for n in Insurers" tabindex="1"
+                                    ng-change="SetInsurerValues()">
+                                <option value=""> &lt;&lt; New &gt;&gt; </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Insurer Code <span class="symbol required"></span>
+                            </label><span class="error" ng-show="myForm.InsurerCode.$error.required">*</span>
+                            <input type="text" class="form-control" ng-model="Insurer.InsurerCode" ng-class="validate_InsurerCode" name="InsurerCode" tabindex="2" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Insurer Full Name <span class="symbol required"></span>
+                            </label><span class="error" ng-show="myForm.InsurerFullName.$error.required">*</span>
+                            <input type="text" class="form-control" ng-model="Insurer.InsurerFullName" ng-class="validate_InsurerFullName" name="InsurerFullName" tabindex="3" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Insurer Short Name <span class="symbol required"></span>
+                            </label><span class="error" ng-show="myForm.InsurerShortName.$error.required">*</span>
+                            <input type="text" class="form-control" ng-model="Insurer.InsurerShortName" name="InsurerShortName" ng-class="validate_InsurerShortName" tabindex="4" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Comments
+                            </label>
+                            <input type="text" class="form-control" ng-model="Insurer.Comments" name="Comments" tabindex="5" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Countries
+                            </label>
+                            <div ng-dropdown-multiselect="" options="CountryList" selected-model="SelectedCountryList" extra-settings="settings" tabindex="6"
+                                 translation-texts="CustomText" events="{ onItemSelect: SendCountry,onItemDeselect:SendCountry,onSelectAll:SendCountry,onUnselectAll:SendCountry }">
+                            </div>
+                            <div class="ScrollHeight">
+                                <ul>
+                                    <li ng-repeat="x in SelectedCountryDList">
+                                        {{x}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="control-label">
+                                CommodityTypes
+                            </label>
+                            <div ng-dropdown-multiselect="" options="CommodityTypeList" selected-model="SelectedCommodityTypeList" extra-settings="settings" tabindex="7"
+                                 translation-texts="CustomText" events="{ onItemSelect: SendCommodityType,onItemDeselect:SendCommodityType,onSelectAll:SendCommodityType,onUnselectAll:SendCommodityType }">
+                            </div>
+                            <div class="ScrollHeight">
+                                <ul>
+                                    <li ng-repeat="x in SelectedCommodityTypeDList">
+                                        {{x}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group" >
+                            <label class="control-label">
+                                Products
+                            </label>
+                            <div ng-dropdown-multiselect="" options="ProductList" selected-model="SelectedProductList" tabindex="8" extra-settings="settings"
+                                 translation-texts="CustomText" events="{ onItemSelect: SendProduct,onItemDeselect:SendProduct,onSelectAll:SendProduct,onUnselectAll:SendProduct }">
+                            </div>
+                            <div class="ScrollHeight">
+                                <ul>
+                                    <li ng-repeat="x in SelectedProductDList">
+                                        {{x}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <br />
+                            <label class="control-label">
+                                Active
+                            </label>
+                            <input id="checkSlave" type="checkbox" ng-model="Insurer.IsActive" tabindex="9">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="fixedHeight"></div>
+                        <!--<input type="button" class="btn btn-primary  btn-block" ng-click="InsurerSubmit()" ng-value="Insurer.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'" />-->
+                        <button class="btn btn-primary  btn-block" ng-disabled="InsurerSubmitBtnDisabled" ng-click="InsurerSubmit()" tabindex="10">
+                            {{Insurer.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}} <i ng-class="InsurerSubmitBtnIconClass"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="fixed-height"></div>
+                </div>
+            </tab>
+            <tab heading="INSURER CONSORTIUM DETAILS">
+                <div class="col-md-12">
+                    <div class="alert alert-danger" ng-show="errorTab2!=''">
+                        {{errorTab2}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Parent Insurer <span class="symbol required"></span>
+                            </label>
+                            <select class="form-control" ng-model="C.ParentInsurerId" ng-class="validate_InsurerParentInsurerId"
+                                    ng-options="n.Id as n.InsurerFullName for n in Insurers" tabindex="11"
+                                    ng-change="LoadConsortiums()">
+                                <option value=""> Please Select </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Insurer <span class="symbol required"></span>
+                            </label>
+                            <select class="form-control" ng-model="C.InsurerId" ng-class="validate_InsurerInsurerId"
+                                    ng-options="n.Id as n.InsurerFullName for n in Consortium" tabindex="12" >
+                                <option value=""> Please Select </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                &nbsp;
+                            </label>
+                            <!--<input type="button" class="btn btn-primary  btn-block" ng-click="AddInsurer()" value="Add" />-->
+                            <button class="btn btn-primary  btn-block" ng-disabled="AddInsurerBtnDisabled" ng-click="AddInsurer()" tabindex="13">
+                                Add <i ng-class="AddInsurerBtnIconClass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-white no-radius">
+                            <div class="panel-heading border-light panelHeaderModifier">
+                                <b>Insurer Consortium</b>
+                            </div>
+                            <div class="panel-body">
+                                <div class="ScrollHeight">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    Insurer
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!--<div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    NRP Share %
+                                                </label>
+                                            </div>
+                                        </div>-->
+                                        
+                                        <div class="col-md-3" style="text-align:right">
+                                            <div class="form-group">
+                                                <label class="control-label" >
+                                                    Risk Share %
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 "  style="text-align:right">
+                                            <div class="form-group">
+                                                <label class="control-label ">
+                                                    Profit Share %
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-repeat="x in InsurerConsortiums">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    {{x.Insurer}}
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="number" class="form-control text-right" name="Name" ng-model="x.NRPPercentage" ng-blur="TotalCalc()">
+                                                </div>
+                                            </div>-->
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="number" class="form-control text-right" name="Name" tabindex="14" ng-model="x.RiskSharePercentage" ng-blur="TotalCalc()">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <input type="number" class="form-control text-right" name="Name" tabindex="15" ng-model="x.ProfitSharePercentage" ng-blur="TotalCalc()">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="button" class="btn btn-primary" tabindex="16"
+                                                       ng-click="Remove(x)"
+                                                       value="Remove" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    Total Percentage
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!--<div class="col-md-3 text-right">
+                                            <div class="form-group">
+                                                <label class="control-label ">
+                                                    {{NRPTotal}} %
+                                                </label>
+                                            </div>
+                                        </div>-->
+                                        <div class="col-md-3 text-right">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    {{RiskTotal}} %
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 text-right">
+                                            <div class="form-group">
+                                                <label class="control-label">
+                                                    {{PercentageTotal}} %
+                                                </label>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                    </div>
+                    <div class="col-md-4">
+                       <!-- <input type="button" class="btn btn-primary  btn-block" ng-click="ConsortiumSubmit()" ng-value="Insurer.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'" />-->
+                        <button class="btn btn-primary  btn-block" ng-disabled="ConsortiumSubmitBtnDisabled" ng-click="ConsortiumSubmit()" tabindex="17">
+                            {{Insurer.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}} <i ng-class="ConsortiumSubmitBtnIconClass"></i>
+                        </button>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+ 
+</div>
+

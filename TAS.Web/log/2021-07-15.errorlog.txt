@@ -1,0 +1,102 @@
+2021-07-15 10:02:53.9811 TAS.Services.Common.Notification.EmailService Email Service : A recipient must be specified.
+2021-07-15 10:26:51.8847 TAS.Services.Common.Notification.EmailService Email Service : A recipient must be specified.
+2021-07-15 13:01:29.9792 TAS.Services.Entities.Management.TempBulkUploadEntityManager AddTempBulkUpload: exception: could not execute batch command.[SQL: SQL not available], System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'NumberOfTyreCover'.
+Invalid column name 'TyreBrand'.
+Invalid column name 'FrontWidth'.
+Invalid column name 'FrontTyreProfile'.
+Invalid column name 'FrontRadius'.
+Invalid column name 'FrontSpeedRating'.
+Invalid column name 'FrontDot'.
+Invalid column name 'RearWidth'.
+Invalid column name 'RearTyreProfile'.
+Invalid column name 'RearRadius'.
+Invalid column name 'RearSpeedRating'.
+Invalid column name 'RearDot'.
+Invalid column name 'NumberOfTyreCover'.
+Invalid column name 'TyreBrand'.
+Invalid column name 'FrontWidth'.
+Invalid column name 'FrontTyreProfile'.
+Invalid column name 'FrontRadius'.
+Invalid column name 'FrontSpeedRating'.
+Invalid column name 'FrontDot'.
+Invalid column name 'RearWidth'.
+Invalid column name 'RearTyreProfile'.
+Invalid column name 'RearRadius'.
+Invalid column name 'RearSpeedRating'.
+Invalid column name 'RearDot'.
+Invalid column name 'NumberOfTyreCover'.
+Invalid column name 'TyreBrand'.
+Invalid column name 'FrontWidth'.
+Invalid column name 'FrontTyreProfile'.
+Invalid column name 'FrontRadius'.
+Invalid column name 'FrontSpeedRating'.
+Invalid column name 'FrontDot'.
+Invalid column name 'RearWidth'.
+Invalid column name 'RearTyreProfile'.
+Invalid column name 'RearRadius'.
+Invalid column name 'RearSpeedRating'.
+Invalid column name 'RearDot'.
+Invalid column name 'NumberOfTyreCover'.
+Invalid column name 'TyreBrand'.
+Invalid column name 'FrontWidth'.
+Invalid column name 'FrontTyreProfile'.
+Invalid column name 'FrontRadius'.
+Invalid column name 'FrontSpeedRating'.
+Invalid column name 'FrontDot'.
+Invalid column name 'RearWidth'.
+Invalid column name 'RearTyreProfile'.
+Invalid column name 'RearRadius'.
+Invalid column name 'RearSpeedRating'.
+Invalid column name 'RearDot'.
+Invalid column name 'NumberOfTyreCover'.
+Invalid column name 'TyreBrand'.
+Invalid column name 'FrontWidth'.
+Invalid column name 'FrontTyreProfile'.
+Invalid column name 'FrontRadius'.
+Invalid column name 'FrontSpeedRating'.
+Invalid column name 'FrontDot'.
+Invalid column name 'RearWidth'.
+Invalid column name 'RearTyreProfile'.
+Invalid column name 'RearRadius'.
+Invalid column name 'RearSpeedRating'.
+Invalid column name 'RearDot'.
+Invalid column name 'NumberOfTyreCover'.
+Invalid column name 'TyreBrand'.
+Invalid column name 'FrontWidth'.
+Invalid column name 'FrontTyreProfile'.
+Invalid column name 'FrontRadius'.
+Invalid column name 'FrontSpeedRating'.
+Invalid column name 'FrontDot'.
+Invalid column name 'RearWidth'.
+Invalid column name 'RearTyreProfile'.
+Invalid column name 'RearRadius'.
+Invalid column name 'RearSpeedRating'.
+Invalid column name 'RearDot'.
+Invalid column name 'NumberOfTyreCover'.
+Invalid column name 'TyreBrand'.
+Invalid column name 'FrontWidth'.
+Invalid column name 'FrontTyreProfile'.
+Invalid column name 'FrontRadius'.
+Invalid column name 'FrontSpeedRating'.
+Invalid column name 'FrontDot'.
+Invalid column name 'RearWidth'.
+Invalid column name 'RearTyreProfile'.
+Invalid column name 'RearRadius'.
+Invalid column name 'RearSpeedRating'.
+Invalid column name 'RearDot'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.SqlClient.SqlCommand.ExecuteBatchRPCCommand()
+   at System.Data.SqlClient.SqlCommandSet.ExecuteNonQuery()
+   at lambda_method(Closure , Object )
+   at NHibernate.AdoNet.SqlClientSqlCommandSet.ExecuteNonQuery()
+   at NHibernate.AdoNet.SqlClientBatchingBatcher.DoExecuteBatch(IDbCommand ps)
+ClientConnectionId:50c20fb8-de6b-4552-a05f-4b52ee796f87
+Error Number:207,State:1,Class:16

@@ -1,0 +1,2 @@
+2020-11-09 09:45:35.3567 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - suranjika
+2020-11-09 09:45:37.4214 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - suranjika token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDQ4OTUzMzYsImp0aSI6ImIyOGQyZmNjLTU2YTMtNGRjZS1iN2YwLTFkNmZiNTUyNDYzMCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJzdXJhbmppa2EiLCJzaGFyZWRrZXkiOiJhYmNlIn0.JkLK0AIbrbnjo0mUHBGUiJ82uHGH0Fu7P-7LN1cWXT8

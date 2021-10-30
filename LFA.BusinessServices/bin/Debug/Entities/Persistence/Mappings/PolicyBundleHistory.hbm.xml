@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="PolicyBundleHistory" table="PolicyBundleHistory" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="CommodityTypeId" />
+    <property name="PolicyId" />
+    <property name="ProductId" />
+    <property name="DealerId" />
+    <property name="DealerLocationId" />
+    <property name="ContractId" />
+    <property name="ExtensionTypeId" />
+    <property name="Premium" precision="18" scale="8"  />
+    <property name="PremiumCurrencyTypeId" />
+    <property name="CoverTypeId" />
+    <property name="HrsUsedAtPolicySale" />
+    <property name="IsPreWarrantyCheck" />
+    <property name="PolicySoldDate" />
+    <property name="SalesPersonId" />
+    <property name="PolicyNo" />
+    <property name="IsSpecialDeal" />
+    <property name="IsPartialPayment" />
+    <property name="DealerPayment" precision="18" scale="8"  />
+    <property name="DealerPaymentCurrencyTypeId" />
+    <property name="CustomerPayment" precision="18" scale="8"  />
+    <property name="CustomerPaymentCurrencyTypeId" />
+    <property name="PaymentModeId" />
+    <property name="RefNo" />
+    <property name="Comment" />
+    <property name="CustomerId" />
+    <property name="EntryDateTime" />
+    <property name="EntryUser" />
+    <property name="IsApproved" />
+    <property name="IsPolicyCanceled" />
+    <property name="TransactionTypeId" />
+    <property name="Discount" precision="18" scale="8"  />
+    <property name="DealerPolicy" />
+  </class>
+</hibernate-mapping>

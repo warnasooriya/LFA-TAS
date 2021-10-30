@@ -1,0 +1,2968 @@
+﻿
+<div ng-app="LFA" ng-controller="PolicyRenewalCtrl as PoliyRenewalController" ng-init="currencyPeriodCheck()">
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">POLICY RENEWAL </h1>
+                    <!--<span class="mainDescription TitleModifier">{{formActionText}}</span>-->
+                    <span class="mainDescription TitleModifier">You can renew policies and it will create a new policy for same customer and the product. You can't modify customer or product details here.</span>
+
+                    <!--<span ng-show="!formAction" ng-click="resetAll()" class="btn btn-xs btn-beige">Add new</span>
+                    <span ng-hide="!formAction" ng-click="PolicySearchPopup()" class="btn btn-xs btn-beige">Update existing Policy</span>
+                    <span ng-show="!formAction" class="btn btn-xs btn-beige" ng-click="PolicySearchPopup()">Search Policy</span>
+                    -->
+                 </div>
+            </div>
+
+            <div class="col-md-4">
+
+
+                <span ng-show="!formAction" class="btn btn-twitter pull-right" ng-click="PolicySearchPopup()" tabindex="1">
+
+                    <i class="fa fa-search"></i>
+                    | Search Policy</span>
+
+               <!-- <span ng-show="!formAction" ng-click="resetAll()" style="margin-right:10px" class="btn btn btn-beige pull-right">Add new</span>-->
+               <!-- <span ng-hide="!formAction" ng-click="PolicySearchPopup()" class="btn btn btn-info pull-right">Update existing Policy</span>-->
+            </div>
+            <div class="clearfix"></div>
+            <!--<div class="col-md-2">
+        <div class="form-group">
+            <label class="control-label">
+                TPA Branch<span class="symbol required"></span>
+            </label>
+
+            <select class="form-control  input-sm  input-sm " ng-disabled="isOneBranchAvailable" ng-class="validate_tpaBranchId" ng-model="policy.tpaBranchId">
+                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                <option ng-repeat="option in allowedTpaBranches" value="{{option.Id}}"
+                        ng-selected="policy.tpaBranchId==option.Id">
+                    {{option.BranchCode + '- '+option.BranchName}}
+                </option>
+            </select>
+        </div>
+    </div>-->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Commodity Type<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control input-sm" ng-model="product.commodityTypeId" ng-disabled="true" ng-class="validate_commodityTypeId"
+                            ng-change="selectedCommodityTypeChanged()">
+                        <option ng-repeat="option in commodityTypes" value="{{option.CommodityTypeId}}"
+                                ng-selected="product.commodityTypeId==option.CommodityTypeId">
+                            {{option.CommodityTypeDescription}}
+                        </option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Product<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control  input-sm" ng-model="product.productId" ng-disabled="true" ng-class="validate_productId"
+                            ng-change="selectedProdctChanged()">
+                        <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                        <option ng-repeat="option in products" value="{{option.Id}}"
+                                ng-selected="product.productId==option.Id">
+                            {{option.Productcode +'-'+ option.Productname}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Dealer<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control  input-sm" ng-model="product.dealerId" ng-disabled="true" ng-class="validate_dealerId"
+                            ng-change="selectedDealerChanged()">
+                        <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                        <option ng-repeat="option in dealers" value="{{option.Id}}"
+                                ng-selected="product.dealerId==option.Id">
+                            {{option.DealerName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="control-label">
+                        Dealer Branch<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control  input-sm" ng-model="product.dealerLocationId" ng-disabled="true" ng-change="selectedDealerBrancheChanged()" ng-class="validate_dealerLocationId">
+                        <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                        <option ng-repeat="option in dealerLocations" value="{{option.Id}}"
+                                ng-selected="product.dealerLocationId==option.Id">
+                            {{option.Location}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--<form name="Form" id="form" novalidate>-->
+    <div name="myForm" class="my-form">
+        <div id="wizard" class="swMain">
+            <!-- start: WIZARD SEPS -->
+            <ul>
+                <li ng-click="form.goTo(Form, 1)">
+                    <a href ng-class="{'selected' : currentStep >= 1, 'done' : currentStep > 1}">
+                        <div class="stepNumber">
+                            1
+                        </div>
+                        <span class="stepDesc text-small"> Customer Information </span>
+                    </a>
+                </li>
+                <li ng-click="form.goTo(Form, 2)">
+                    <a href ng-class="{'selected' : currentStep >= 2, 'done' : currentStep > 2}">
+                        <div class="stepNumber">
+                            2
+                        </div>
+                        <span class="stepDesc text-small"> Product Information </span>
+                    </a>
+                </li>
+                <li ng-click="form.goTo(Form, 3)">
+                    <a href ng-class="{'selected' : currentStep >= 3, 'done' : currentStep > 3}">
+                        <div class="stepNumber">
+                            3
+                        </div>
+                        <span class="stepDesc text-small"> Policy Information </span>
+                    </a>
+                </li>
+                <li ng-click="form.goTo(Form, 4)">
+                    <a href ng-class="{'selected' : currentStep >= 4, 'done' : currentStep > 4}">
+                        <div class="stepNumber">
+                            4
+                        </div>
+                        <span class="stepDesc text-small"> Payment Information </span>
+                    </a>
+                </li>
+            </ul>
+            <!-- end: WIZARD SEPS -->
+            <!-- start: WIZARD STEP 1 -->
+            <div id="step-1" ng-show="currentStep == 1">
+                <div class="row">
+                    <div class="col-md-12" style="margin:10px">
+
+                        <!--<span class="label label-sm label-warning" style="cursor:pointer" ng-click="customerSearchPopup()"><i class="glyphicon glyphicon-search"></i>&nbsp;Search Customer</span>-->
+                        <!--<span class="label label-sm label-info" style="cursor:pointer" ng-click="customerFormReset()"><i class="glyphicon glyphicon-refresh"></i>&nbsp;Reset Form</span>-->
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--<fieldset>
+                            <!--<legend>
+                                Basic Information
+                            </legend>-->
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Customer Type<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm  input-sm" ng-class="validate_customerTypeId" ng-model="customer.customerTypeId"
+                                                ng-change="selectedCustomerTypeIdChanged()" ng-disabled="customerDisabled">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in customerTypes" value="{{option.Id}}"
+                                                    ng-selected="customer.customerTypeId==option.Id">
+                                                {{option.CustomerTypeName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Usage Type<span class="symbol required"></span>
+                                        </label>
+                                        <select ng-disabled="customerDisabled" class="form-control  input-sm  input-sm" ng-class="validate_usageTypeId" ng-change="selectedUsageTypeChanged()" ng-model="customer.usageTypeId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in usageTypes" value="{{option.Id}}"
+                                                    ng-selected="customer.usageTypeId==option.Id">
+                                                {{option.UsageTypeName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div ng-show="selectedCustomerTypeName!='Corporate'">
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                First Name<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled" placeholder="First Name" ng-class="validate_firstName" class="form-control  input-sm  input-sm" ng-model="customer.firstName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Last Name
+                                            </label>
+                                            <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled" placeholder="Last Name" class="form-control  input-sm  input-sm" ng-model="customer.lastName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Date Of Birth
+                                            </label>
+                                            <input type="text" ng-readonly="true" ng-disabled="customerDisabled" placeholder="Click for Calendar" class="form-control  input-sm" ng-model="customer.dateOfBirth"
+                                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen2 = !startOpen2" is-open="startOpen2" ng-init="startOpen2 = false" close-text="Close" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Gender
+                                            </label>
+                                            <div>
+                                                <label class="radio-inline">
+                                                    <input type="radio" ng-disabled="customerDisabled" class="grey" value="F" ng-model="customer.gender">
+                                                    Female
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" ng-disabled="customerDisabled" class="grey" value="M" ng-model="customer.gender">
+                                                    Male
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                ID Type<!--<span class="symbol required"></span>-->
+                                            </label>
+                                            <select ng-disabled="customerDisabled" class="form-control  input-sm" ng-model="customer.idTypeId" ng-change="selectedIdTypeChanged()" ng-class="validate_idTypeId">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in idTypes" value="{{option.Id}}"
+                                                        ng-selected="customer.idTypeId==option.Id">
+                                                    {{option.IdTypeName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2" >
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                ID No<!--.<span class="symbol required"></span>-->
+                                            </label>
+                                            <input type="text" allow-pattern="(\d|[a-z])" ng-disabled="customerDisabled" placeholder="ID No" ng-class="validate_idNo" class="form-control  input-sm" ng-model="customer.idNo">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                DL Issue Date
+                                            </label>
+                                            <input type="text" ng-readonly="true" ng-disabled="customerDisabled" placeholder="Click for Calendar" class="form-control  input-sm" ng-model="customer.idIssueDate"
+                                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen1 = !startOpen1" is-open="startOpen1" ng-init="startOpen1 = false" close-text="Close" />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Nationality<span class="symbol required"></span>
+                                            </label>
+                                            <select ng-disabled="customerDisabled" class="form-control  input-sm " ng-class="validate_nationalityId" ng-change="selectedNationaltyChanged()" ng-model="customer.nationalityId">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in nationalities" value="{{option.Id}}"
+                                                        ng-selected="customer.nationalityId==option.Id">
+                                                    {{option.NationalityName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Country<span class="symbol required"></span>
+                                            </label>
+                                            <select ng-disabled="customerDisabled" class="form-control  input-sm " ng-model="customer.countryId" ng-class="validate_countryId"
+                                                    ng-change="selectedCountryChanged()">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in countries" value="{{option.Id}}"
+                                                        ng-selected="customer.countryId==option.Id">
+                                                    {{option.CountryName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                City<span class="symbol required"></span>
+                                            </label>
+                                            <select ng-disabled="customerDisabled" class="form-control  input-sm" ng-model="customer.cityId" ng-change="selectedCityChanged()" ng-class="validate_cityId">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in cities" value="{{option.Id}}"
+                                                        ng-selected="customer.cityId==option.Id">
+                                                    {{option.CityName}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="clearfix"></div>-->
+                            </div>
+                        <!--</fieldset>-->
+                    </div>
+                    <div class="col-md-12" >
+                        <!--<fieldset>
+                            <!--<legend>
+                                Contact Information
+                            </legend>-->
+                            <div class="row" ng-show="selectedCustomerTypeName!='Corporate'">
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Mobile Phone<span class="symbol required"></span>
+                                        </label>
+                                        <input type="tel" allow-pattern="(\d|\+|\-|\s)" ng-disabled="customerDisabled" placeholder="Mobile Phone" ng-class="validate_mobileNo" class="form-control  input-sm"
+                                               ng-model="customer.mobileNo">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Other Phone
+                                        </label>
+                                        <input type="tel" allow-pattern="(\d|\+|\-|\s)" ng-disabled="customerDisabled" placeholder="Other Phone" class="form-control  input-sm" ng-model="customer.otherTelNo">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Email Address<!--<span class="symbol required"></span>-->
+                                        </label>
+                                        <input type="email" allow-pattern="(\w|\@)" ng-disabled="customerDisabled" ng-class="validate_email" placeholder="peter@example.com" class="form-control  input-sm" ng-model="customer.email">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Address
+                                        </label>
+                                        <input type="text" ng-disabled="customerDisabled" placeholder="Address1" class="form-control  input-sm  input-sm" ng-model="customer.address1">
+                                        <input type="text" ng-disabled="customerDisabled" style="margin-top:5px" placeholder="Address3" class="form-control  input-sm" ng-model="customer.address3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            &nbsp;
+                                        </label>
+                                        <input type="text" ng-disabled="customerDisabled" placeholder="Address2" class="form-control  input-sm  input-sm" ng-model="customer.address2">
+                                        <input type="text" ng-disabled="customerDisabled" style="margin-top:5px" placeholder="Address4" class="form-control  input-sm" ng-model="customer.address4">
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        <!--</fieldset>-->
+                        <fieldset ng-show="selectedCustomerTypeName=='Corporate'">
+                            <div class="row">
+                                <!--<div class="row" ng-show="businessInfoDisplay" style="padding-left:20px; padding-right:20px">-->
+                                <!--  <div class="row">-->
+                                <div class="col-md-6">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Business Name
+                                            </label>
+                                            <input ng-disabled="customerDisabled" class="form-control  input-sm" type="text" placeholder="Business Name" ng-model="customer.businessName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Business Telephone No.
+                                            </label>
+                                            <input ng-disabled="customerDisabled" class="form-control  input-sm" type="text" placeholder="Business Telephone Number" ng-model="customer.businessTelNo" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- </div> -->
+                                <!--   <div class="row">-->
+                                <div class="col-md-6">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Busines Add.
+                                            </label>
+                                            <input type="text" ng-disabled="customerDisabled" placeholder="Business Address1" class="form-control  input-sm" ng-model="customer.businessAddress1">
+                                            <input type="text" ng-disabled="customerDisabled" style="margin-top:5px" placeholder="Business Address3" class="form-control  input-sm" ng-model="customer.businessAddress3">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                &nbsp;
+                                            </label>
+                                            <input type="text" ng-disabled="customerDisabled" placeholder="Business Address2" class="form-control  input-sm" ng-model="customer.businessAddress2">
+                                            <input type="text" ng-disabled="customerDisabled" style="margin-top:5px" placeholder="Business Address4" class="form-control  input-sm" ng-model="customer.businessAddress4">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Country<span class="symbol required"></span>
+                                        </label>
+                                        <select ng-disabled="customerDisabled" class="form-control  input-sm " ng-model="customer.countryId" ng-class="validate_countryId"
+                                                ng-change="selectedCountryChanged()">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in countries" value="{{option.Id}}"
+                                                    ng-selected="customer.countryId==option.Id">
+                                                {{option.CountryName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            City<span class="symbol required"></span>
+                                        </label>
+                                        <select ng-disabled="customerDisabled" class="form-control  input-sm" ng-model="customer.cityId" ng-change="selectedCityChanged()" ng-class="validate_cityId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in cities" value="{{option.Id}}"
+                                                    ng-selected="customer.cityId==option.Id">
+                                                {{option.CityName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Contact Person First Name<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled" placeholder="First Name" ng-class="validate_firstName" class="form-control  input-sm  input-sm" ng-model="customer.firstName" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Contact Person Last Name
+                                        </label>
+                                        <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled" placeholder="Last Name" class="form-control  input-sm  input-sm" ng-model="customer.lastName" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Mobile Phone<span class="symbol required"></span>
+                                        </label>
+                                        <input type="tel" allow-pattern="(\d|\+|\-|\s)" ng-disabled="customerDisabled" placeholder="Mobile Phone" ng-class="validate_mobileNo" class="form-control  input-sm"
+                                               ng-model="customer.mobileNo">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-md-2 pull-left">
+                                    <div class="form-group" ng-disabled="customerDisabled">
+                                        <label class="control-label" for="form-field-1">
+                                            Attachment Type
+                                        </label>
+                                        <select class="form-control input-sm" ng-model="customerAttachmentType" ng-disabled="customerDisabled">
+                                            <option value=""> Please Select </option>
+                                            <option ng-repeat="option in customerAttachmentTypes" value="{{option.AttachmentTypeCode}}"
+                                                    ng-selected="customerAttachmentType==option.Id">
+                                                {{option.AttachmentTypeDescription}}
+                                            </option>
+                                        </select>
+                                        <span class="btn btn-primary btn-o btn-file btn-xs" style="margin-top:5px" ng-disabled="customerDisabled">
+                                            Select file
+                                            <input type="file" nv-file-select="" options="{ documentType: customerAttachmentType }" uploader="customerDocUploader" />
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3 pull-left">
+                                    <table class="table" style="margin-top: 18px">
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    Type
+                                                </td>
+                                                <td>
+                                                    File Name
+                                                </td>
+                                                <td>
+                                                    Size
+                                                </td>
+                                                <td></td>
+                                                <td ng-show="!formAction"></td>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in customerDocUploader.queue">
+                                                <td>
+                                                    <span ng-bind="item.documentType"></span>
+                                                </td>
+                                                <td>
+                                                    <span ng-bind="item.file.name"></span>
+                                                </td>
+                                                <td>
+                                                    <span>{{item.file.size|byteToKB}}</span>
+                                                </td>
+                                                <td ng-hide="customerDisabled">
+                                                    <button class="btn btn-xs btn-danger" ng-show="{{item.ref===undefined}}" ng-click="item.remove()">Remove</button>
+                                                    <button class="btn btn-xs btn-danger" ng-hide="{{item.ref===undefined}}" ng-click="RemoveExistingAttachment('Customer',item.id)">Remove</button>
+
+                                                </td>
+                                                <td ng-show="!formAction">
+                                                    <button class="btn btn-xs btn-warning" ng-disabled="{{item.ref===undefined}}" ng-click="downloadAttachment(item.ref)">Download</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-2 pull-right">
+                                    <button class="btn  btn-primary " style="width:100%;margin-top: 18px" ng-click="form.goTo(Form, 2)">Next</button>
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- end: WIZARD STEP 1 -->
+            <!-- start: WIZARD STEP 2 -->
+            <div id="step-2" ng-show="currentStep == 2">
+                <div class="row">
+                    <div class="col-md-12" style="margin:10px">
+
+                        <!--    <span class="label label-sm label-warning" style="cursor:pointer" ng-click="ProductSearchPopup()"><i class="glyphicon glyphicon-search"></i>&nbsp;Search {{currentCommodityTypeName}}</span>-->
+                        <span class="btn btn-dark-grey" style="cursor:pointer" ng-click="viewPolicySummary()"> <i class="fa fa-list"></i>&nbsp;|&nbsp;View Summary</span>
+
+                        <!--    <span class="label label-sm label-info" style="cursor:pointer" ng-click="productFormReset()"><i class="glyphicon glyphicon-refresh"></i>&nbsp;Reset Form</span>-->
+                    </div>
+
+                    <div class="col-md-12">
+                        <fieldset>
+                            <!--<legend> Item Information</legend>-->
+                            <div ng-show="currentCommodityTypeCode=='O'">
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Item Category<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm" ng-model="product.categoryId" ng-disabled="isProductDetailsReadonly" ng-class="validate_categoryId" ng-change="selectedCommodityCategoryChanged()">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in commodityCategories" value="{{option.CommodityCategoryId}}"
+                                                    ng-selected="product.categoryId==option.CommodityCategoryId">
+                                                {{option.CommodityCategoryDescription}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Serial No<span class="symbol required"></span>
+
+
+                                        </label>
+                                        <!--<span class="pull-right text-muted" ng-show="serialNumberLength!=''">Length must be {{serialNumberLength}} characters</span>-->
+                                        <input type="text" ng-class="validate_serialNumber" ng-disabled="isProductDetailsReadonly" placeholder="{{'Serial No'}}" class="form-control  input-sm" ng-blur="serialNumberCheck()"
+                                               ng-model="product.serialNumber" ng-maxlength="{{serialNumberLength}}">
+                                        <span class="error text-extra-small block text-muted" ng-show="serialNumberLength!=product.serialNumber.length ">Length must be {{serialNumberLength}} characters</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Purchase Date<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-readonly="true" placeholder="Click for Calendar" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm" ng-class="validate_itemPurchasedDate" ng-model="product.itemPurchasedDate" name="PurchaseDateB"
+                                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen = !startOpenf" is-open="startOpen"
+                                               ng-init="startOpen = false" close-text="Close" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Make<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm" ng-disabled="isProductDetailsReadonly" ng-class="validate_makeId" ng-model="product.makeId" ng-change="selectedMakeChanged()">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in makes" value="{{option.Id}}"
+                                                    ng-selected="product.makeId==option.Id">
+                                                {{option.MakeName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Model<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm" ng-disabled="isProductDetailsReadonly" ng-model="product.modelId" ng-change="selectedModelChanged()" ng-class="validate_modelId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in models" value="{{option.Id}}"
+                                                    ng-selected="product.modelId==option.Id">
+                                                {{option.ModelName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Model Year<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" allow-pattern="(\d)" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm" ng-class="validate_modelYear" ng-model=" product.modelYear">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Invoice No<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-disabled="isProductDetailsReadonly" placeholder="Invoice No" class="form-control  input-sm" ng-model="product.invoiceNo" ng-class="validate_invoiceNo">
+                                    </div>
+                                </div>
+                                <div class="col-md-2"ng-hide="isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Item Ref No<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-disabled="isProductDetailsReadonly" placeholder="Additional Serial No" class="form-control  input-sm" ng-model="product.additionalSerial" ng-class="validate_additionalSerial">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Item Status<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm" ng-disabled="isProductDetailsReadonly" ng-model="product.itemStatusId" ng-class="validate_itemStatusId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in itemStatuses" value="{{option.Id}}"
+                                                    ng-selected="product.itemStatusId==option.Id">
+                                                {{option.Status}}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Usage Type<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly" ng-change="selectedCommodityUsageTypeChanged()" ng-model="product.commodityUsageTypeId" ng-class="validate_commodityUsageTypeId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in commodityUsageTypes" value="{{option.Id}}"
+                                                    ng-selected="product.commodityUsageTypeId==option.Id">
+                                                {{option.Name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Purchase Price<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" allow-pattern="(\d)" placeholder="Purchase Price" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm text-right"
+                                               ng-model="product.dealerPrice" ng-class="validate_dealerPrice">
+                                    </div>
+                                </div>
+                                <div class="col-md-2"ng-hide="isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Market Price<span class="symbol required"></span>
+                                        </label>
+                                        <input type="number" allow-pattern="(\d)" placeholder="Market Price" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm text-right"
+                                               ng-model="product.itemPrice" ng-class="validate_itemPrice">
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div ng-show="currentCommodityTypeCode=='A'">
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Vehicle Category<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm" ng-class="validate_categoryId" ng-disabled="isProductDetailsReadonly" ng-model="product.categoryId" ng-change="selectedCommodityCategoryChanged()">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in commodityCategories" value="{{option.CommodityCategoryId}}"
+                                                    ng-selected="product.categoryId==option.CommodityCategoryId">
+                                                {{option.CommodityCategoryDescription}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            VIN No<span class="symbol required"></span>
+                                        </label>
+
+                                        <input type="text" placeholder="{{'Serial No'}}" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm" style="font-size:11px" ng-blur="serialNumberCheck()"
+                                               ng-class="validate_serialNumber" ng-model="product.serialNumber" ng-maxlength="{{serialNumberLength}}">
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Purchase Date<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-readonly="true" placeholder="Click for Calendar" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm" ng-model="product.itemPurchasedDate" name="PurchaseDateB"
+                                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpenf = !startOpenf" is-open="startOpenf"
+                                               ng-init="startOpenf = false" close-text="Close" ng-class="validate_itemPurchasedDate" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Make<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm" ng-disabled="isProductDetailsReadonly" ng-class="validate_makeId" ng-model="product.makeId" ng-change="selectedMakeChanged()">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in makes" value="{{option.Id}}"
+                                                    ng-selected="product.makeId==option.Id">
+                                                {{option.MakeName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Model<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm" ng-disabled="isProductDetailsReadonly" ng-model="product.modelId" ng-class="validate_modelId" ng-change="selectedModelChange()">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in models" value="{{option.Id}}"
+                                                    ng-selected="product.modelId==option.Id">
+                                                {{option.ModelName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Model Year<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" allow-pattern="(\d)" class="form-control  input-sm" ng-disabled="isProductDetailsReadonly" ng-class="validate_modelYear" ng-model="product.modelYear">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Vehicle Status<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control  input-sm" ng-disabled="isProductDetailsReadonly" ng-model="product.itemStatusId" ng-change="selectedVehicleStatusChanged()" ng-class="validate_itemStatusId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in itemStatuses" value="{{option.Id}}"
+                                                    ng-selected="product.itemStatusId==option.Id">
+                                                {{option.Status}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2"ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Engine Capacity<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly" ng-model="product.engineCapacityId" ng-change="selectedEngineCapacityChanged()" ng-class="validate_engineCapacityId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in engineCapacities" value="{{option.Id}}"
+                                                    ng-selected="product.engineCapacityId==option.Id">
+                                                {{option.EngineCapacityNumber +' '+ option.MesureType}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2"ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Cylinder Count<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly" ng-model="product.cylinderCountId" ng-change="selectedCylinderCountChanged()" ng-class="validate_cylinderCountId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in cylinderCounts" value="{{option.Id}}"
+                                                    ng-selected="product.cylinderCountId==option.Id">
+                                                {{option.Count}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2" ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Variant<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly" ng-change="selectedVariantChanged()" ng-model="product.variantId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in variants" value="{{option.Id}}"
+                                                    ng-selected="product.variantId==option.Id">
+                                                {{option.VariantName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2"ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Fuel Type
+                                        </label>
+                                        <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly" ng-change="selectedFuelTypeChanged()" ng-model="product.fuelTypeId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in fuelTypes" value="{{option.FuelTypeId}}"
+                                                    ng-selected="product.fuelTypeId==option.FuelTypeId">
+                                                {{option.FuelTypeDescription}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2"ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Transmision Type
+                                        </label>
+                                        <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly" ng-changed="selectedTransmissionTypeChanged()" ng-model="product.transmissionTypeId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in transmissionTypes" value="{{option.Id}}"
+                                                    ng-selected="product.transmissionTypeId==option.Id">
+                                                {{option.TransmissionTypeCode}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <div class="col-md-2"ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Body Type
+                                        </label>
+                                        <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly" ng-change="selectedBodyTypeChanged()" ng-model="product.bodyTypeId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in bodyTypes" value="{{option.Id}}"
+                                                    ng-selected="product.bodyTypeId==option.Id">
+                                                {{option.VehicleBodyTypeDescription}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2"ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Aspiration Type
+                                        </label>
+                                        <select class="form-control input-sm" ng-model="product.aspirationTypeId" ng-change="selectedAspirationTypeChanged()" ng-disabled="isProductDetailsReadonly">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in aspirationTypes" value="{{option.Id}}"
+                                                    ng-selected="product.aspirationTypeId==option.Id">
+                                                {{option.AspirationTypeCode}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="form-field-1">
+                                            Plate No<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-disabled="isProductDetailsReadonly" class="form-control  input-sm" ng-class="validate_additionalSerial" ng-model="product.additionalSerial">
+                                    </div>
+                                </div>
+                                <div class="col-md-2"ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Usage Type<span class="symbol required"></span>
+                                        </label>
+                                        <select class="form-control input-sm" ng-disabled="isProductDetailsReadonly" ng-model="product.commodityUsageTypeId" ng-class="validate_commodityUsageTypeId">
+                                            <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            <option ng-repeat="option in commodityUsageTypes" value="{{option.Id}}"
+                                                    ng-selected="product.commodityUsageTypeId==option.Id">
+                                                {{option.Name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Purchase Price<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-disabled="isProductDetailsReadonly" placeholder="Purchase Price" class="form-control  input-sm text-right"
+                                               ng-class="validate_dealerPrice" ng-model="product.dealerPrice">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Market Price<span class="symbol required"></span>
+                                        </label>
+                                        <input type="number" allow-pattern="(\d)" ng-disabled="isProductDetailsReadonly" placeholder="Market Price" class="form-control  input-sm text-right"
+                                               ng-class="validate_itemPrice" ng-model="product.itemPrice">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Registration Date<span class="symbol required"></span>
+                                        </label><span class="error" ng-show="myForm.RegistrationDate.$error.required">*</span>
+                                        <input type="text" name="RegistrationDate" placeholder="Click for Calendar" class="form-control input-sm " ng-class="validate_RegistrationDate"
+                                               ng-model="product.registrationDate" datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-disabled="isProductDetailsReadonly"
+                                               ng-click="startOpen6 = !startOpen6" is-open="startOpen6" ng-init="startOpen6 = false" close-text="Close" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-2"ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            Gross Weight
+                                        </label><span class="error" ng-show="myForm.RegistrationDate.$error.required">*</span>
+                                        <div class="input-group">
+                                            <input type="number" ng-disabled="isProductDetailsReadonly || freezVariant" class="form-control input-sm " ng-class="validate_GrossWeight"
+                                                   ng-model="product.grossWeight" allow-pattern="(\d)" />
+                                            <label class="input-group-addon">&nbsp;Tonne&nbsp;</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-md-2"ng-show="!isProductILOE">
+                                    <div class="form-group">
+                                        <label class="control-label">
+                                            MW Start Date<span class="symbol required"></span>
+                                        </label>
+                                        <input type="text" ng-readonly="true" placeholder="Click for Calendar" ng-disabled="isProductDetailsReadonly"
+                                               class="form-control  input-sm" tabindex="61" ng-model="product.MWStartDate" name="PurchaseDateB"
+                                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpenf7 = !startOpenf7" is-open="startOpenf7"
+                                               ng-init="startOpenf7 = false" close-text="Close" ng-class="validate_MWStartDate" />
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group" ng-hide="!isUsedItem">
+                                        <br />
+                                        <label>
+                                            <input type="checkbox" ng-model="product.MWIsAvailable" /> &nbsp;&nbsp;&nbsp; <span>MW Is Available</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+
+                            <div class="col-md-2 pull-left">
+                                <div class="form-group" ng-hide="customerDisabled">
+                                    <label class="control-label" for="form-field-1">
+                                        Attachment Type
+                                    </label>
+                                    <select class="form-control input-sm" ng-model="itemAttachmentType">
+                                        <option value=""> Please Select </option>
+                                        <option ng-repeat="option in itemAttachmentTypes" value="{{option.AttachmentTypeCode}}"
+                                                ng-selected="itemAttachmentType==option.Id">
+                                            {{option.AttachmentTypeDescription}}
+                                        </option>
+                                    </select>
+                                    <span class="btn btn-primary btn-o btn-file btn-xs" style="margin-top:5px">
+                                        Select file
+                                        <input type="file" nv-file-select="" options="{ documentType: itemAttachmentType }" uploader="itemDocUploader" />
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 pull-left">
+                                <table class="table" style="margin-top: 18px">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                Type
+                                            </td>
+                                            <td>
+                                                File Name
+                                            </td>
+                                            <td>
+                                                Size
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in itemDocUploader.queue">
+                                            <td>
+                                                <span ng-bind="item.documentType"></span>
+                                            </td>
+                                            <td>
+                                                <span ng-bind="item.file.name"></span>
+                                            </td>
+                                            <td>
+                                                <span>{{item.file.size|byteToKB}}</span>
+                                            </td>
+                                            <td ng-hide="isProductDetailsReadonly">
+                                                <button class="btn btn-xs btn-danger" ng-show="{{item.ref===undefined}}" ng-click="item.remove()">Remove</button>
+                                                <button class="btn btn-xs btn-danger" ng-hide="{{item.ref===undefined}}" ng-click="RemoveExistingAttachment('Item',item.id)">Remove</button>
+
+                                            </td>
+                                            <td ng-show="!formAction">
+                                                <button class="btn btn-xs btn-warning" ng-disabled="{{item.ref===undefined}}" ng-click="downloadAttachment(item.ref)">Download</button>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-2 pull-right">
+                                <button class="btn  btn-primary " style="width:100%;margin-top: 18px" ng-click="form.goTo(Form, 3)">Next</button>
+                            </div>
+                            <div class="col-md-2 pull-right">
+                                <button id="btn-nextStep" class="btn  btn-primary " style="width:100% ;margin-top: 18px" ng-click="form.goTo(Form, 1)">Prev</button>
+                            </div>
+
+
+
+                        </fieldset>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- end: WIZARD STEP 2 -->
+            <!-- start: WIZARD STEP 3 -->
+            <div id="step-3" ng-show="currentStep == 3">
+
+                <div class="col-md-12" style="margin:10px">
+                    <span class="btn btn-dark-grey" style="cursor:pointer" ng-click="viewPolicySummary()"> <i class="fa fa-list"></i>&nbsp;|&nbsp;View Summary</span>
+
+                    <span class="btn btn-warning" style="cursor:pointer" ng-click="policyFormReset()"><i class="fa fa-refresh"></i>&nbsp;|&nbsp;Reset Form</span>
+                    <!--<span class="label label-sm label-warning" style="cursor:pointer" ng-click="ProductSearchPopup()"><i class="glyphicon glyphicon-search"></i>&nbsp;Search {{currentCommodityTypeName}}</span>-->
+                    <!--<span class="label label-sm label-inverse" style="cursor:pointer" ng-click="viewPolicySummary()"><i class="glyphicon glyphicon-list"></i>&nbsp;View Summary</span>
+                    <span class="label label-sm label-info" style="cursor:pointer" ng-click="policyFormReset()"><i class="glyphicon glyphicon-refresh"></i>&nbsp;Reset Form</span>-->
+                </div>
+
+                <div class="col-md-12">
+                    <fieldset>
+                        <!--<legend>
+                            Sale Information
+                        </legend>-->
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label" style="text-align :right">
+                                    Policy Sold Date<span class="symbol required"></span>
+                                </label>
+                                <span>{{PolicySoldDateError}}</span>
+                                <input type="text" placeholder="Click for Calendar" class="form-control  input-sm" ng-model="policy.policySoldDate" ng-class="validate_policySoldDate"
+                                       datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen5 = !startOpen5" is-open="startOpen5" ng-init="startOpen5 = false"
+                                       close-text="Close" ng-readonly="true"
+                                       ng-change="policySoldDateChanged()" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group" ng-show="currentCommodityTypeCode=='O'">
+                                <label class="control-label">
+                                    Hrs at Policy Sale<span class="symbol required"></span>
+                                </label>
+                                <input type="text" placeholder="Hrs Used" allow-pattern="(\d)" class="form-control  input-sm" ng-class="validate_hrsUsedAtPolicySale"
+                                       ng-model="policy.hrsUsedAtPolicySale" ng-blur="eligibilityCheck('00000000-0000-0000-0000-000000000000')">
+                            </div>
+                            <div class="form-group" ng-show="currentCommodityTypeCode=='A'">
+                                <label class="control-label">
+                                    km at Policy Sale<span class="symbol required"></span>
+                                </label>
+                                <input type="text" placeholder="kms Used" allow-pattern="(\d)" class="form-control  input-sm" ng-blur="eligibilityCheck('00000000-0000-0000-0000-000000000000')" ng-class="validate_hrsUsedAtPolicySale" ng-model="policy.hrsUsedAtPolicySale">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Sales Person<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control  input-sm" ng-model="policy.salesPersonId" ng-change="selectedSalesPersonChanged()" ng-class="validate_salesPersonId">
+                                    <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                    <option ng-repeat="option in salesPersons" value="{{option.Id}}"
+                                            ng-selected="policy.salesPersonId==option.Id">
+                                        {{option.FirstName +' ' +option.LastName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>
+                                    Dealer Entered Policy
+                                </label>
+                                <select class="form-control  input-sm" ng-model="policy.dealerPolicy" ng-selected="policy.dealerPolicy" ng-disabled="true">
+                                    <option value="false"> No </option>
+                                    <option value="true"> Yes </option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+                <div class="col-md-12">
+                    <fieldset>
+
+                        <tabset class="tabbable" style="margin:5px">
+                            <tab heading="{{x.Name}}" ng-repeat="x in productContracts">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Policy No<span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="Policy No" class="form-control input-sm" ng-class="x.validatePolicyNo" ng-model="x.PolicyNo" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Booklet No
+                                            </label>
+                                            <input type="text" placeholder="Booklet No"
+                                                   class="form-control input-sm"
+                                                   ng-model="x.BookletNumber" ng-disabled="isPolicyDetailsReadonly" tabindex="91">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Contract<span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control  input-sm" ng-model="x.ContractId"
+                                                    ng-options="c.Id as c.DealName for c in x.Contracts"
+                                                    ng-change="SetContractValue(x)" ng-class="x.validateContract"
+                                                    ng-disabled="isPolicyDetailsReadonly" ng-selected="x.ContractId==c.Id">
+                                                <option value=""> Please Select </option>
+                                            </select>
+                                            <!--<select class="form-control  input-sm" ng-model="x.ContractId"
+                                                    tabindex="92"
+                                                    ng-change="SetContractValue(x)" ng-class="x.validateContract">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in  x.Contracts"
+                                                        ng-selected="x.ContractId==c.Id"
+                                                        value="{{option.Id}}">
+                                                    {{option.DealName}}
+                                                </option>
+                                            </select>-->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Extension Type<span class="symbol required"></span>
+                                            </label>
+                                            <select name="ExtensionTypeId" id="ExtensionTypeId" class="form-control  input-sm"
+                                                    ng-model="x.ExtensionTypeId"
+                                                    ng-change="SetExtensionTypeValue(x)"
+                                                    ng-options="c.Id as c.ExtensionName for c in x.ExtensionTypes"
+                                                    required>
+                                                <option value=""> Please Select </option>
+                                            </select>
+                                            <!--<select class="form-control  input-sm" ng-model="x.ExtensionTypeId" tabindex="93"
+                                                    ng-change="SetExtensionTypeValue(x)" ng-class="x.validateExtentionType">
+
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in  x.ExtensionTypes"
+                                                        ng-selected="x.ExtensionTypeId==c.Id"
+                                                        value="{{option.Id}}">
+                                                    {{option.ExtensionName}}
+                                                </option>
+                                            </select>-->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Attribute Specification<span class="symbol required"></span>
+                                            </label>
+                                            <select name="AttributeSpecification" id="AttributeSpecification" class="form-control  input-sm" ng-model="x.AttributeSpecificationId"
+                                                    ng-change="SetAttributeSpecificationValue(x)"
+                                                    ng-options="c.Id as c.AttributeSpecification for c in x.AttributeSpecifications"
+                                                    required>
+                                                <option value=""> Please Select </option>
+                                            </select>
+                                            <!--<select class="form-control  input-sm" ng-model="x.AttributeSpecificationId"
+                                                    ng-class="x.validateAttributeSpecification"
+                                                    tabindex="94"
+                                                    ng-change="SetAttributeSpecificationValue(x)">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in  x.AttributeSpecifications"
+                                                        ng-selected="x.AttributeSpecificationId==c.Id"
+                                                        value="{{option.Id}}">
+                                                    {{option.AttributeSpecification}}
+                                                </option>
+                                            </select>-->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3" ng-show="!x.RSA">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                Cover Type<span class="symbol required"></span>
+                                            </label>
+                                            <select name="coverType" id="coverType" class="form-control  input-sm" ng-model="x.CoverTypeId"
+                                                    ng-options="c.Id as c.WarrantyTypeDescription for c in x.CoverTypes"
+                                                    ng-change="SetCoverTypeValue(x)"
+                                                    required>
+                                                <option value=""> Please Select </option>
+                                            </select>
+                                            <!--<select class="form-control  input-sm" ng-model="x.CoverTypeId"
+                                                    ng-class="x.validateCoverType"
+                                                    tabindex="94"
+                                                    ng-change="SetCoverTypeValue(x)">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                <option ng-repeat="option in  x.CoverTypes"
+                                                        ng-selected="x.CoverTypeId==c.Id"
+                                                        value="{{option.Id}}">
+                                                    {{option.WarrantyTypeDescription}}
+                                                </option>
+                                            </select>-->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3" ng-show="x.RSA">
+                                        <div class="form-group">
+                                            <label class="control-label" for="form-field-1">
+                                                RSA Provider<span class="symbol required"></span>
+                                            </label>
+                                            <select class="form-control  input-sm" ng-model="x.CoverTypeId" ng-class="x.validateCoverType"
+                                                    ng-options="c.Id as c.ProviderName for c in x.CoverTypes"
+                                                    ng-change="SetCoverTypeValue(x.Name)">
+                                                <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label">
+                                            Premium<span class="symbol required"></span>
+                                        </label>
+                                        <div class="input-group">
+                                            <input ng-readonly="x.DiscountAvailable" allow-pattern="(\d)" type="number" placeholder="Premium" tabindex="96" class="form-control  input-sm text-right"
+                                                   ng-model="x.Premium " ng-class="x.validatePremium" disabled>
+                                            <span class="input-group-addon">{{x.Currency}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tab>
+                        </tabset>
+
+
+                        <div class="col-md-2 pull-left">
+                            <div class="form-group">
+                                <label class="control-label" for="form-field-1">
+                                    Attachment Type
+                                </label>
+                                <select class="form-control input-sm" ng-model="policyAttachmentType">
+                                    <option value=""> Please Select </option>
+                                    <option ng-repeat="option in policyAttachmentTypes" value="{{option.AttachmentTypeCode}}"
+                                            ng-selected="itemAttachmentType==option.Id">
+                                        {{option.AttachmentTypeDescription}}
+                                    </option>
+                                </select>
+                                <span class="btn btn-primary btn-o btn-file btn-xs" style="margin-top:5px">
+                                    Select file
+                                    <input type="file" nv-file-select="" options="{ documentType: policyAttachmentType }" uploader="policyDocUploader" />
+                                </span>
+                                <button class="btn btn-primary btn-o btn-file btn-xs" style="margin-top:5px" ng-click="scannerPopUp('2')">
+                                    Scan Document {{ImageArray.length == 0 ? "":" | ("+ImageArray.length+")"}}
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 pull-left">
+                            <table class="table" style="margin-top: 18px">
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            Type
+                                        </td>
+                                        <td>
+                                            File Name
+                                        </td>
+                                        <td>
+                                            Size
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in policyDocUploader.queue">
+                                        <td>
+                                            <span ng-bind="item.documentType"></span>
+                                        </td>
+                                        <td>
+                                            <span ng-bind="item.file.name"></span>
+                                        </td>
+                                        <td>
+                                            <span>{{item.file.size|byteToKB}}</span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-xs btn-danger" ng-show="{{item.ref===undefined}}" ng-click="item.remove()">Remove</button>
+                                            <button class="btn btn-xs btn-danger" ng-hide="{{item.ref===undefined}}" ng-click="RemoveExistingAttachment('Policy',item.id)">Remove</button>
+
+                                        </td>
+                                        <td ng-show="!formAction">
+                                            <button class="btn btn-xs btn-warning" ng-disabled="{{item.ref===undefined}}" ng-click="downloadAttachment(item.ref)">Download</button>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    <!--<h4>    <b> TOTAL GROSS PREMIUM {{GrossTotal}}</b> </h4>-->
+                                </label>
+                            </div>
+                        </div>
+
+
+
+                    </fieldset>
+                    <fieldset>
+                        <div class="col-md-2 pull-right">
+                            <button class="btn  btn-primary " style="width:100%;margin-top: 18px" ng-click="form.goTo(Form, 4)">Next</button>
+                        </div>
+                        <div class="col-md-2 pull-right">
+                            <button class="btn  btn-primary " style="width:100%;margin-top: 18px" ng-click="form.goTo(Form, 2)">Prev</button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <!-- end: WIZARD STEP 3 -->
+            <!-- start: WIZARD STEP 4 -->
+            <div id="step-4" ng-show="currentStep == 4">
+                <div class="row">
+                    <div class="col-md-12" style="margin:10px">
+                        <span class="btn btn-dark-grey" style="cursor:pointer" ng-click="viewPolicySummary()"> <i class="fa fa-list"></i>&nbsp;|&nbsp;View Summary</span>
+
+                        <span class="btn btn-warning" style="cursor:pointer" ng-click="paymentFormReset()"><i class="fa fa-refresh"></i>&nbsp;|&nbsp;Reset Form</span>
+
+                    </div>
+
+                </div>
+
+                <dv class="col-md-11 col-md-offset-1">
+                    <fieldset>
+                        <!--<legend>Payment Information</legend>-->
+                        <div class="col-md-4">
+                            <div class=" form-group">
+                                <label class="control-label" for="form-field-1">
+                                    Payment Mode<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control  input-sm" ng-model="payment.paymentModeId"
+                                        ng-options="c.Id as c.PaymentMode for c in paymentModes" ng-change="selectedPaymentModeChanged()" ng-class="validate_paymentModeId">
+                                    <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class=" form-group" ng-show="isPaymentTypesAvailable">
+                                <label class="control-label" for="form-field-1">
+                                    Payment Type<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control  input-sm" ng-model="payment.paymentTypeId"
+                                        ng-options="c.Id as c.PaymentType for c in paymentTypes" ng-change="selectedPaymentTypeChanged()" ng-class="validate_paymentTypeId">
+                                    <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+
+                                <label class="control-label">
+                                    Ref No<span class="symbol required"></span>
+                                </label>
+                                <input type="text" placeholder="Ref No" class="form-control  input-sm" ng-class="validate_refNo" ng-model="payment.refNo">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group" ng-show="discountAvailable">
+                                <label class="control-label">
+                                    Discount (%)
+                                </label>
+                                <input type="text" allow-pattern="(\d)" placeholder="Discount" class="form-control  input-sm text-right" ng-class="validate_discount" ng-model="payment.discount" max="100" ng-keyup="discountPercentageChanged()" ng-change="discountPercentageChanged()">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-4">
+                            <label class="control-label">
+                                &nbsp;
+                            </label>
+                            <div class="form-group">
+                                <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" value="Special Offer" ng-model="payment.isSpecialDeal" /> &nbsp;&nbsp;&nbsp; <span>Special Deal</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="control-label">
+                                Dealer Payment (Invoice)<span class="symbol required" ng-show="payment.isSpecialDeal"></span>
+                            </label>
+                            <div>
+                                <div class="input-group">
+                                    <input type="text" placeholder="Dealer Payment" allow-pattern="(\d)" class="form-control  input-sm text-right"
+                                           ng-model="payment.dealerPayment" ng-class="validate_dealerPayment" />
+                                    <span class="input-group-addon">{{DealerCurrencyName}}</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-4">
+                            <label class="control-label">
+                                &nbsp;
+                            </label>
+                            <div class="form-group">
+                                <div>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" ng-model="payment.isPartialPayment" /> &nbsp;&nbsp;&nbsp; <span>Customer Payment</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="control-label">
+                                Customer Payment<span class="symbol required" ng-show="payment.isPartialPayment"></span>
+                            </label>
+                            <div>
+                                <div class="input-group">
+                                    <input type="text" allow-pattern="(\d)" placeholder="Customer Payment" class="form-control  input-sm text-right"
+                                           ng-model="payment.customerPayment" ng-disabled="!payment.isPartialPayment" ng-class="validate_customerPayment">
+                                    <span class="input-group-addon">{{DealerCurrencyName}}</span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Comment<span class="symbol required" ng-show="payment.isSpecialDeal"></span>
+                                </label>
+                                <textarea placeholder="payment Comment" style="height:50px" class="form-control" ng-model="payment.comment" ng-class="validate_comment" required rows="3" cols="4" />
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <!-- <div class="fixedHeight2"></div>-->
+                                    <label class="control-label">
+                                        <h4>  <br />  <b> TOTAL GROSS PREMIUM &nbsp; {{PremiumAfterPaymentFeesAndDiscounts}} &nbsp; {{DealerCurrencyName}}</b> </h4>
+                                    </label>
+                                    <br />
+                                    <button class="btn btn-xs btn-info" ng-click="viewPremiumBreakdown()">premium breakdown</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row">
+                        <fieldset>
+                            <div class="col-md-2 pull-left">
+                                <div class="form-group">
+                                    <label class="control-label" for="form-field-1">
+                                        Attachment Type
+                                    </label>
+                                    <select class="form-control input-sm" ng-model="paymentAttachmentType">
+                                        <option value=""> Please Select </option>
+                                        <option ng-repeat="option in paymentAttachmentTypes" value="{{option.AttachmentTypeCode}}"
+                                                ng-selected="itemAttachmentType==option.Id">
+                                            {{option.AttachmentTypeDescription}}
+                                        </option>
+                                    </select>
+                                    <span class="btn btn-primary btn-o btn-file btn-xs" style="margin-top:5px">
+                                        Select file
+                                        <input type="file" nv-file-select="" options="{ documentType: paymentAttachmentType }" uploader="paymentDocUploader" />
+                                    </span>
+                                    <button class="btn btn-primary btn-o btn-file btn-xs" style="margin-top:5px" ng-click="scannerPopUp('3')">
+                                        Scan Document {{ImageArray.length == 0 ? "":" | ("+ImageArray.length+")"}}
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 pull-left">
+                                <table class="table" style="margin-top: 18px">
+                                    <thead>
+                                        <tr>
+                                            <td>
+                                                Type
+                                            </td>
+                                            <td>
+                                                File Name
+                                            </td>
+                                            <td>
+                                                Size
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in paymentDocUploader.queue">
+                                            <td>
+                                                <span ng-bind="item.documentType"></span>
+                                            </td>
+                                            <td>
+                                                <span ng-bind="item.file.name"></span>
+                                            </td>
+                                            <td>
+                                                <span>{{item.file.size|byteToKB}}</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-xs btn-danger" ng-show="{{item.ref===undefined}}" ng-click="item.remove()">Remove</button>
+                                                <button class="btn btn-xs btn-danger" ng-hide="{{item.ref===undefined}}" ng-click="RemoveExistingAttachment('Payment',item.id)">Remove</button>
+
+                                            </td>
+                                            <td ng-show="!formAction">
+                                                <button class="btn btn-xs btn-warning" ng-disabled="{{item.ref===undefined}}" ng-click="downloadAttachment(item.ref)">Download</button>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-2 pull-right">
+                                <button class="btn  btn-primary " style="width:100%;margin-top: 18px" ng-click="form.goTo(Form, 5)">Renew</button>
+                            </div>
+                            <div class="col-md-2 pull-right">
+                                <button class="btn  btn-primary " style="width:100%;margin-top: 18px" ng-click="form.goTo(Form, 3)">Prev</button>
+                            </div>
+                        </fieldset>
+                    </div>
+            </div>
+
+        </div>
+
+        <!-- end: WIZARD STEP 4 -->
+        <!-- start: WIZARD STEP 5 -->
+        <!-- end: WIZARD STEP 5 -->
+        <!--</form>-->
+        </div>
+
+        <style>
+                .swMain > ul {
+                    margin: 0 !important;
+                }
+
+                .input-sm {
+                    height: 30px !important;
+                    font-size: 12px !important;
+                }
+
+                fieldset {
+                    padding: 15px !important;
+                }
+
+                .dropdown-menu {
+                    z-index: 10000;
+                }
+
+                .my-form {
+                    -webkit-transition: all linear 0.5s;
+                    transition: all linear 0.5s;
+                    background: transparent;
+                }
+
+                .error {
+                    color: red;
+                }
+
+                .ngdialog-content {
+                    width: 900px !important;
+                    height: 550px !important;
+                }
+
+                .grid {
+                    height: 200px;
+                }
+
+                .form-group {
+                    margin-bottom: 0 !important;
+                }
+
+
+                #loading {
+                    width: 100%;
+                    height: 100%;
+                    top: 120px;
+                    left: 0px;
+                    position: fixed;
+                    display: block;
+                    opacity: 0.7;
+                    background-color: black;
+                    z-index: 99;
+                    text-align: center;
+                }
+
+                .watermark {
+                    /*position: absolute;*/
+                    top: 50%;
+                    font-size: 15px;
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 20px;
+                    z-index: 1000;
+                }
+                /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+                .grid-msg-overlay {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    width: 100%;
+                    background: rgba(0, 0, 0, 0.4);
+                }
+
+                    /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+                    .grid-msg-overlay .msg {
+                        opacity: 1;
+                        position: absolute;
+                        top: 20%;
+                        left: 20%;
+                        width: 60%;
+                        height: 50%;
+                        background-color: #eee;
+                        border-radius: 4px;
+                        border: 1px solid #555;
+                        text-align: center;
+                        font-size: 24px;
+                        display: table;
+                    }
+
+                        /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                        .grid-msg-overlay .msg span {
+                            display: table-cell;
+                            vertical-align: middle;
+                        }
+
+                .has-error {
+                    border: solid 1px #e84e4e !important;
+                    /*#fbaa2b*/
+                }
+        </style>
+    </div>
+
+
+<script type="text/ng-template" id="popUpSearchPolicy">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 1000px !important;
+            height: 450px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+    <div>
+        <h3 class="">Search Policy</h3>
+        <!--<form>-->
+        <div name="myForm" class="my-form">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Commodity Type</label>
+                        <select name="PolicyCommodityType" id="drpPolicyCommodityType" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.commodityTypeId"
+                                ng-options="n.CommodityTypeId as n.CommodityTypeDescription for n in commodityTypes"
+                                ng-change="SetPolicyCommodityTypeValue()" tabindex="2">
+                            <option value=""> Please Select </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Policy No</label>
+                        <input type="text" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.PolicyNo" tabindex="3">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">VIN/Serial</label>
+                        <input type="text" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.serialNo" tabindex="4">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Customer Mobile No</label>
+                        <input type="text" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.mobileNo" tabindex="5">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Policy Start Date
+                        </label>
+                        <input type="text" placeholder="Click for Calendar" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.policyStartDate"
+                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpenf = !startOpenf" is-open="startOpenf" ng-init="startOpenf = false" close-text="Close" tabindex="6" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Policy End Date
+                        </label>
+                        <input type="text" placeholder="Click for Calendar" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.policyEndDate"
+                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="endOpen = !endOpen" is-open="endOpen" ng-init="endOpen = false" close-text="Close" tabindex="7" />
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="ngdialog-buttons pull-right">
+                        <input type="button" style="margin-top:20px" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="PolicySearchPopupReset()" tabindex="8" value="Reset">
+                        <input type="button" style="margin-top:20px" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="refresSearchGridData()" tabindex="8" value="Search">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid" ui-grid-pagination ui-grid="gridOptionsPolicy" style="margin-top:5px">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsPolicy.data.length>0 && policySearchGridloadAttempted">
+                            <div class="msg">
+                                <span>No Data</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!policySearchGridloading">
+                            <div class="msg">
+                                <span>
+                                    Loading Data...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    <!--<div class="ngdialog-buttons" style="margin-top:20px">
+        <input type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('Closed')" value="Load" />
+    </div>-->
+</script>
+
+<script type="text/ng-template" id="popUpSearchCustomer">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 900px !important;
+            height: 450px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+    <div>
+        <h3 class="">Search Customer</h3>
+        <!--<form>-->
+        <div name="myForm" class="my-form">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">First Name:</label>
+                        <input type="text" class="form-control input-sm" ng-model="customerSearchGridSearchCriterias.firstName">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Last Name:</label>
+                        <input type="text" class="form-control input-sm" ng-model="customerSearchGridSearchCriterias.lastName">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">E-mail:</label>
+                        <input type="text" class="form-control input-sm" ng-model="customerSearchGridSearchCriterias.email">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Mobile No:</label>
+                        <input type="text" class="form-control input-sm" ng-model="customerSearchGridSearchCriterias.mobileNo">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="margin-top:5px">
+                    <div class="ngdialog-buttons">
+                        <input type="button" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="refresCustomerSearchGridData()" value="Search">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="margin-top:5px">
+                    <div class="grid" ui-grid-pagination ui-grid="gridOptionsCustomer">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsCustomer.data.length>0 && customerGridloadAttempted">
+                            <div class="msg">
+                                <span>No Data</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!customerSearchGridloading">
+                            <div class="msg">
+                                <span>
+                                    Loading Data...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--</form>-->
+            </div>
+        </div>
+</script>
+<script type="text/ng-template" id="popUpSearchVehicle">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 800px !important;
+            height: 450px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+
+    <div class="ngdialog-message">
+        <h3>Search Vehicle</h3>
+        <!--<form>-->
+        <div name="myForm" class="my-form">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="control-label">VIN No</label>
+                        <input type="text" class="form-control input-sm" ng-model="vehicalSearchGridSearchCriterias.vinNo">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="control-label">Plate No</label>
+                        <input type="text" class="form-control input-sm" ng-model="vehicalSearchGridSearchCriterias.plateNo">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="ngdialog-buttons" style="margin-top:20px">
+                        <input type="button" class="ngdialog-button ngdialog-button-primary btn-xs" ng-click="refresVehicleSearchGridData()" value="Search">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid" ui-grid-pagination ui-grid="gridOptionsVehicle">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsVehicle.data.length>0 && vehicleGridloadAttempted">
+                            <div class="msg">
+                                <span>No Data</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!vehicleSearchGridloading">
+                            <div class="msg">
+                                <span>
+                                    Loading Data...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--</form>-->
+            </div>
+        </div>
+</script>
+<script type="text/ng-template" id="popUpSearchElectronic">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 800px !important;
+            height: 450px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+
+    <div class="ngdialog-message">
+        <h3>Search Electronic</h3>
+        <!--<form>-->
+        <div name="myForm" class="my-form">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Serial No</label>
+                        <input type="text" class="form-control input-sm" ng-model="bnWSearchGridSearchCriterias.serialNo">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Make</label>
+                        <select name="make" class="form-control input-sm" ng-change="selectedMaleChangedOnSearch()" ng-model="bnWSearchGridSearchCriterias.make"
+                                ng-options="c.Id as c.MakeName for c in SMakes">
+                            <option value=""> Please Select </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Model</label>
+                        <select name="model" class="form-control input-sm" ng-model="bnWSearchGridSearchCriterias.model"
+                                ng-options="c.Id as c.ModelName for c in SModels">
+                            <option value=""> Please Select </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ngdialog-buttons pull-right" style="margin-top:5px">
+                        <input type="button" class="ngdialog-button ngdialog-button-primary btn-xs" ng-click="refresBnWGridData()" value="Search">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid" ui-grid-pagination ui-grid="gridOptionsBAndW">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsBAndW.data.length>0 && bnWSearchGridloadAttempted">
+                            <div class="msg">
+                                <span>No Data</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!bnWSearchGridloading">
+                            <div class="msg">
+                                <span>
+                                    Loading Data...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--</form>-->
+            </div>
+        </div>
+</script>
+<script type="text/ng-template" id="popUpSummaryView">
+    <style>
+        .ngdialog-content {
+            width: 1000px !important;
+            height: 800px !important;
+        }
+    </style>
+    <div class="ngdialog-message">
+        <h3>Policy Summary</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Customer Information</legend>
+
+                    <table class="table table-bordered table-striped text-small">
+                        <tbody>
+                            <tr>
+                                <td><b>Customer Type</b></b></td>
+                                <td>{{selectedCustomerTypeName}}</td>
+                                <td><b>Usage Type</b></td>
+                                <td>{{selectedUsageTypeName}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>First Name</b></td>
+                                <td>{{customer.firstName}}</td>
+                                <td><b>Last Name</b></td>
+                                <td>{{customer.lastName}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Birthday</b></td>
+                                <td><span ng-show="birthDayShowable">{{ToGB(customer.dateOfBirth);}}</span></td>
+                                <td><b>Gender</b></td>
+                                <td>{{(customer.gender=='M')?'Male':'Female'}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>ID Type</b></td>
+                                <td>{{selectedIdTypeNameName}}</td>
+                                <td><b>Id No</b></td>
+                                <td>{{customer.idNo}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>ID Issue Date</b></td>
+                                <td><span ng-show="idIssueDateShowable">{{ToGB(customer.idIssueDate);}}</span> </td>
+                                <td><b>Nationality</b></td>
+                                <td>{{selectedNationaltyName}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Country</b></td>
+                                <td>{{selectedCountry}}</td>
+                                <td><b>City</b></td>
+                                <td>{{selectedCity}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Mobile Phone</b></td>
+                                <td>{{customer.mobileNo}}</td>
+                                <td><b>Other Phone</b></td>
+                                <td>{{customer.otherTelNo}}</td>
+                            </tr>
+                            <tr colspan="4">
+                                <td><b>Email Address</b></td>
+                                <td>{{customer.email}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Address</b></td>
+                                <td>{{customer.address1}}</td>
+                                <td>{{customer.address2}}</td>
+                                <td>{{customer.address4}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Business Name</b> </td>
+                                <td>{{customer.businessName}}</td>
+                                <td><b>Business Telephone No.</b> </td>
+                                <td>{{customer.businessTelNo}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Business Address</b></td>
+                                <td>{{customer.businessAddress1}}</td>
+                                <td>{{customer.businessAddress2}}</td>
+                                <td>{{customer.businessAddress3}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>Policy Information</legend>
+                    <table class="table table-bordered table-striped text-small">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <b>Policy Sold Date</b>
+                                </td>
+                                <td>
+                                    {{ToGB(policy.policySoldDate);}}
+                                </td>
+                                <td>
+                                    <b>  {{currentCommodityTypeCode=='A'?'km at Policy Sale':' hrs used'}}</b>
+                                </td>
+                                <td>
+                                    {{policy.hrsUsedAtPolicySale}}
+                                </td>
+
+
+                            </tr>
+                            <tr>
+                                <td><b>Sales Person</b></td>
+                                <td>{{selectedSalesPersonName}}</td>
+                                <td><b>Dealer Policy</b></td>
+                                <td>{{(policy.dealerPolicy=='true')?'Yes':'No'}}</td>
+                            </tr>
+                            <tr>
+
+
+                                <td><b>Gross Premium</b></td>
+                                <td>{{GrossTotal | number : 2}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Item Information</legend>
+                    <table class="table table-bordered table-striped text-small">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <b>Commodity Type</b>
+                                </td>
+                                <td style="min-width:110px">
+                                    {{currentCommodityTypeName}}
+                                </td>
+                                <td>
+                                    <b>Product</b>
+                                </td>
+                                <td>
+                                    {{selectedProductName}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b> Dealer</b>
+                                </td>
+                                <td>
+                                    {{selectedDealer}}
+                                </td>
+                                <td>
+                                    <b> Dealer Branch</b>
+                                </td>
+                                <td>
+                                    {{selectedDealerBranch}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>Item Category</b>
+                                </td>
+                                <td>
+                                    {{selectedItemCategory}}
+                                </td>
+                                <td>
+                                    <b>VIN/Serial</b>
+                                </td>
+                                <td>
+                                    {{product.serialNumber}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b> Purchase Date</b>
+                                </td>
+                                <td>
+                                    {{ToGB(product.itemPurchasedDate);}}
+                                </td>
+                                <td>
+                                    <b> Make</b>
+                                </td>
+                                <td>
+                                    {{selectedMake}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b> Model</b>
+                                </td>
+                                <td>
+                                    {{selectedModel}}
+                                </td>
+                                <td>
+                                    <b> Model Year</b>
+                                </td>
+                                <td>
+                                    {{product.modelYear}}
+                                </td>
+                            </tr>
+                            <tr ng-show="currentCommodityTypeCode=='A'">
+                                <td>
+                                    <b>Vehicle Status</b>
+                                </td>
+                                <td>
+                                    {{selectedVehicleStatus}}
+                                </td>
+                                <td>
+                                    <b> Engine Capacity</b>
+                                </td>
+                                <td>
+                                    {{selectedEngineCapacity}}
+                                </td>
+                            </tr>
+                            <tr ng-show="currentCommodityTypeCode=='A'">
+                                <td>
+                                    <b> Cylinder Count</b>
+                                </td>
+                                <td>
+                                    {{selectedCylinderCount}}
+                                </td>
+                                <td>
+                                    <b> Variant</b>
+                                </td>
+                                <td>
+                                    {{selectedVariant }}
+                                </td>
+                            </tr>
+                            <tr ng-show="currentCommodityTypeCode=='A'">
+                                <td>
+                                    <b> Fuel Type</b>
+                                </td>
+                                <td>
+                                    {{fuelTypeForPopup}}
+                                </td>
+                                <td>
+                                    <b> Transmision Type</b>
+                                </td>
+                                <td>
+                                    {{selectedTransmissionType}}
+                                </td>
+                            </tr>
+                            <tr ng-show="currentCommodityTypeCode=='A'">
+                                <td>
+                                    <b>Body Type</b>
+                                </td>
+                                <td>
+                                    {{BodyTypeForPopup}}
+                                </td>
+                                <td>
+                                    <b> Aspiration Type</b>
+                                </td>
+                                <td>
+                                    {{selectedAspirationType}}
+                                </td>
+                            </tr>
+                            <tr ng-show="currentCommodityTypeCode=='A'">
+                                <td>
+                                    <b>Registration Date</b>
+                                </td>
+                                <td>
+                                    {{ToGB(product.registrationDate);}}
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b> PlateNo/Additional Serial</b>
+                                </td>
+                                <td>
+                                    {{product.additionalSerial}}
+                                </td>
+                                <td>
+                                    <b> Commodity UsageType</b>
+                                </td>
+                                <td>
+                                    {{selectedCommodityUsageType}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b>  Purchase Price</b>
+                                </td>
+                                <td>
+                                    {{product.dealerPrice | number : 2}}
+                                </td>
+                                <td>
+                                    <b> Market Price</b>
+                                </td>
+                                <td>
+                                    {{product.itemPrice | number : 2}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend>Payment Information</legend>
+                    <table class="table table-bordered table-striped text-small">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <b> Ref No</b>
+                                </td>
+                                <td>
+                                    {{payment.refNo}}
+                                </td>
+                                <td>
+                                    <b> Discount</b>
+                                </td>
+                                <td>
+                                    {{payment.discount | number : 2}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <b> Dealer Payment (Invoice)</b>
+                                </td>
+                                <td>
+                                    {{payment.dealerPayment | number : 2}}
+                                </td>
+                                <td>
+                                    <b> Customer Payment </b>
+                                </td>
+                                <td>
+                                    {{payment.customerPayment | number : 2}}
+                                </td>
+                            </tr>
+                        </tbody>
+
+
+                    </table>
+                </fieldset>
+            </div>
+            <!-- <div class="col-md-6">-->
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 alert alert-info">
+                <h4><center>Prices Are In {{DealerCurrencyName}}</center></h4>
+            </div>
+        </div>
+
+        <!--  -->
+    </div>
+
+</script>
+<script type="text/ng-template" id="popUpSearchOther">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 800px !important;
+            height: 450px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+
+    <div class="ngdialog-message">
+        <h3>Search Other Item</h3>
+        <!--<form>-->
+        <div name="myForm" class="my-form">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Serial No</label>
+                        <input type="text" class="form-control input-sm" ng-model="OtherSearchGridSearchCriterias.serialNo">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Make</label>
+                        <select name="make" class="form-control input-sm" ng-change="selectedMaleChangedOnSearch()" ng-model="OtherSearchGridSearchCriterias.make"
+                                ng-options="c.Id as c.MakeName for c in SMakes">
+                            <option value=""> Please Select </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Model</label>
+                        <select name="model" class="form-control input-sm" ng-model="OtherSearchGridSearchCriterias.model"
+                                ng-options="c.Id as c.ModelName for c in SModels">
+                            <option value=""> Please Select </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ngdialog-buttons pull-right" style="margin-top:5px">
+                        <input type="button" class="ngdialog-button ngdialog-button-primary btn-xs" ng-click="refresOtherGridData()" value="Search">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid" ui-grid-pagination ui-grid="gridOptionsOther">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsOther.data.length>0 && OtherSearchGridloadAttempted">
+                            <div class="msg">
+                                <span>No Data</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!OtherSearchGridloading">
+                            <div class="msg">
+                                <span>
+                                    Loading Data...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--</form>-->
+            </div>
+        </div>
+</script>
+<script type="text/ng-template" id="popUpSearchYellowGood">
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 800px !important;
+            height: 450px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+
+    <div class="ngdialog-message">
+        <h3>Search Yellow Goods</h3>
+        <!--<form>-->
+        <div name="myForm" class="my-form">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Serial No</label>
+                        <input type="text" class="form-control input-sm" ng-model="YellowGoodSearchGridSearchCriterias.serialNo">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Make</label>
+                        <select name="make" class="form-control input-sm" ng-change="selectedMaleChangedOnSearch()" ng-model="YellowGoodSearchGridSearchCriterias.make"
+                                ng-options="c.Id as c.MakeName for c in SMakes">
+                            <option value=""> Please Select </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Model</label>
+                        <select name="model" class="form-control input-sm" ng-model="YellowGoodSearchGridSearchCriterias.model"
+                                ng-options="c.Id as c.ModelName for c in SModels">
+                            <option value=""> Please Select </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ngdialog-buttons pull-right" style="margin-top:5px">
+                        <input type="button" class="ngdialog-button ngdialog-button-primary btn-xs" ng-click="refresYellowGoodGridData()" value="Search">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="grid" ui-grid-pagination ui-grid="gridOptionsYellowGood">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsYellowGood.data.length>0 && YellowGoodSearchGridloadAttempted">
+                            <div class="msg">
+                                <span>No Data</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!YellowGoodSearchGridloading">
+                            <div class="msg">
+                                <span>
+                                    Loading Data...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--</form>-->
+            </div>
+        </div>
+</script>
+<script type="text/ng-template" id="popUpPremiumBreakdownView">
+    <style>
+        .ngdialog-content {
+            width: 400px !important;
+            height: 300px !important;
+        }
+
+        table {
+            width: 90%;
+        }
+    </style>
+    <div class="ngdialog-message">
+        <div class="row">
+            <table border='0' align='center' cellpadding='0' cellspacing='0'>
+                <tbody>
+                    <tr>
+                        <td width='60%' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>
+                            <strong>Premium</strong>
+                        </td>
+                        <td align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px'>
+                            {{PolicyBreakdown.Premium}} &nbsp; {{DealerCurrencyName}}
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody ng-repeat="item in PolicyBreakdown.BreakdownDetails">
+                    <tr>
+                        <td align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;'>
+                            <strong>{{item.Name}}</strong>
+                        </td>
+
+                    </tr>
+                    <tr ng-repeat="breakdown in item.Breakdowns">
+                        <td align='left' width='60%' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px; border-bottom: thin solid  #808080  '>
+                            <strong style="padding-left:4em">{{breakdown.ItemName}}:</strong>
+                        </td>
+                        <td align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom: thin solid  #808080   '>
+                            {{breakdown.isBasedonRP==true?breakdown.isPercentageValue==true?(breakdown.Value*PolicyBreakdown.Premium/100):breakdown.Value:breakdown.Value| number : 2}}&nbsp; {{DealerCurrencyName}}
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td align='left' width='60%' valign='bottom' style='font-size:13px;line-height:16px;padding:5px 0px 3px 0px'>
+                            <strong>Gross Premium:</strong>
+                        </td>
+                        <td align='right' valign='bottom' style='color:#339933;font-size:13px;line-height:16px;padding:5px 5px 3px 5px'>
+                            <strong>{{PremiumAfterPaymentFeesAndDiscounts}} </strong>&nbsp; {{DealerCurrencyName}}
+                        </td>
+                    </tr>
+                </tbody>
+
+
+            </table>
+
+        </div>
+
+    </div>
+
+</script>
+
+<script type="text/ng-template" id="imageScannerPopUp">
+    <style>
+        .margin10 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 800px !important;
+            height: 500px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /*
+                   This is the background of our overlay. We need it to be
+                   absolutely positioned within the grid, and fill from
+                   top to bottom, and the full width. It will also have
+                   a black background with 40% opacity.
+                */
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+                  This guy will contain our message. We want it centered
+                  so it's positioned absolutely with percentage-based
+                  offsets and dimensions. It also has some basic border
+                  stuff and most important is using "display: table" so
+                  we can vertically center its contents.
+                */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+                  Lastly this is the actual message text. It uses
+                  display: table-cell so the vertical alignment
+                  works properly.
+                */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+    </style>
+    <div class="ngdialog-message">
+        <h3>Scan Documents </h3>
+
+        <div class="container-fluid">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-5" style="margin-top:20px;">
+                <div id="dwtcontrolContainer" style="width: 270px; height: 350px; border: 1px solid rgb(204, 204, 204); display: block; position: relative; background-color: rgb(255, 255, 255);"></div>
+                <input type="button" class="btn btn-primary btn-o btn-file btn-sm" style="margin-top:15px;" value="Scan" ng-click="AcquireImage()" />
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-10">
+                        Document Name
+                        <input type="text" class="form-control input-sm margin10" ng-model="attachmentData.name">
+                        <input type="button" class="btn btn-primary btn-o btn-file btn-sm" value="Select Scanned PDF" ng-click="getSelectedImageFromScanner()" />
+                        <input type="button" class="btn btn-danger btn-o btn-file btn-sm" value="Cancel" ng-click="closedialog()" />
+
+
+                        <table class="table" style="margin-top: 18px">
+                            <thead>
+                                <tr>
+                                    <td>
+                                        #
+                                    </td>
+                                    <td>
+                                        Type
+                                    </td>
+                                    <td>
+                                        File Name
+                                    </td>
+                                    <td>
+                                        Pages
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in ImageArray">
+                                    <td>
+                                        {{$index + 1}}
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.attachmentType"></span>
+                                    </td>
+                                    <td>
+                                        <span ng-bind="item.documentName"></span>
+                                    </td>
+                                    <td>
+                                        <span>{{item.encodedImage.length}}</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-xs btn-danger" ng-click="removeAttachmentFromImageArray($index)" tabindex="118">Remove</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="col-md-6"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</script>

@@ -1,0 +1,428 @@
+﻿<div ng-app="LFA" ng-controller="FaultManagementCtrl as FaultManagementController" ng-init="loadInitailData()">
+
+    <style>
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        #partsTable > tbody > tr > td {
+            height: 30px;
+            padding: 0px;
+            border-top: 0px;
+        }
+
+        /*Forynami Text*/
+
+        .remove {
+            background: #C76868;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 21px;
+            border: 0;
+            cursor: pointer;
+            display: inline-block;
+            padding: 4px 9px;
+            vertical-align: top;
+            line-height: 100%;
+        }
+
+        input[type="text"],
+        select {
+            padding: 5px;
+        }
+
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 250px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+/*            width: 100%;*/
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+/*                width: 60%;*/
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+    </style>
+
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">{{ModalName}}</h1>
+                    <span class="mainDescription TitleModifier">{{ModalDescription}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div ng-form="myForm" class="my-form">
+        <tabset class="tabbable">
+            <tab heading="Fault Category" active="true">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" ng-show="errorTab1!=''">
+                            {{errorTab1}}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Fault Category<span class="symbol required"></span>
+                            </label>
+                            <select class="form-control  input-sm  input-sm" ng-model="FaultCategory.Id" ng-class="validate_FaultCategoryId" name="Id"
+                                    ng-change="SetFaultCatValues()"
+                                    ng-options="n.Id as n.FaultCategoryName for n in FaultCategorys" tabindex="1">
+                                <option value=""> &lt;&lt; New &gt;&gt; </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Fault Category Code <span class="symbol required"></span>
+                            </label>
+                            <input type="text" class="form-control" ng-model="FaultCategory.FaultCategoryCode" name="FaultCategoryCode" ng-class="validate_FaultCategoryCode" tabindex="2">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Fault Category Name <span class="symbol required"></span>
+                            </label>
+                            <input type="text" class="form-control" ng-model="FaultCategory.FaultCategoryName" name="Name" ng-class="validate_FaultCategoryName" tabindex="3">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <br />
+                        <button class="btn btn-primary  btn-block" ng-disabled="FaultCategorySaveBtnDisabled" ng-click="FaultCategorySubmit()" tabindex="4">
+                            {{FaultCategory.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}
+                            <i ng-class="FaultCategorySaveBtnIconClass"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </tab>
+            <tab heading="Fault Area">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" ng-show="errorTab1!=''">
+                            {{errorTab1}}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Fault Area<span class="symbol required"></span>
+                            </label>
+                            <select class="form-control  input-sm  input-sm" ng-model="FaultArea.Id" ng-class="validate_FaultAreaId"
+                                    ng-change="SetFaultAreaValues()"
+                                    ng-options="n.Id as n.FaultAreaName for n in FaultAreas">
+                                <option value=""> &lt;&lt; New &gt;&gt; </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Fault Area Code <span class="symbol required"></span>
+                            </label>
+                            <input type="text" class="form-control" ng-model="FaultArea.FaultAreaCode" name="FaultAreaCode" ng-class="validate_FaultAreaCode">
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Fault Area Name <span class="symbol required"></span>
+                            </label>
+                            <input type="text" class="form-control" ng-model="FaultArea.FaultAreaName" name="FaultAreaName" ng-class="validate_FaultAreaName">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9"></div>
+                    <div class="col-md-3">
+                        <br />
+                        <button class="btn btn-primary  btn-block" ng-disabled="FaultAreaSaveBtnDisabled" ng-click="FaultAreaSubmit()">
+                            {{FaultArea.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}
+                            <i ng-class="FaultAreaSaveBtnIconClass"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </tab>
+            <tab heading="Fault" ng-click="loadFaultGrid()">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger" ng-show="errorTab1!=''">
+                            {{errorTab1}}
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Fault Category<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control  input-sm  input-sm" ng-model="Fault.FaultCategoryId" ng-class="validate_FaultFaultCategoryId"
+                                        ng-change=""
+                                        ng-options="n.Id as n.FaultCategoryName for n in FaultCategorys">
+                                    <option value=""> Please Select </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Fault Area<span class="symbol required"></span>
+                                </label>
+                                <select class="form-control  input-sm  input-sm" ng-model="Fault.FaultAreaId" ng-class="validate_FaultFaultAreaId"
+                                        ng-change=""
+                                        ng-options="n.Id as n.FaultAreaName for n in FaultAreas">
+                                    <option value=""> Please Select </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Fault Code <span class="symbol required"></span>
+                                </label>
+                                <input type="text" class="form-control" ng-model="Fault.FaultCode" name="FaultCode" ng-class="validate_FaultCode">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+                                    Fault Name <span class="symbol required"></span>
+                                </label>
+                                <input type="text" class="form-control" ng-model="Fault.FaultName" name="FaultName" ng-class="validate_FaultName">
+                            </div>
+                        </div>
+
+                        <!--<div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">
+
+                                    Failure <span class="symbol required"></span>
+                                </label>
+                                <input type="text" class="form-control" ng-model="Fault.Code" name="Failure" ng-class="">
+                            </div>
+                        </div>-->
+                        <div class="col-md-6" style="margin-top:10px">
+                            <div data-ng-repeat="Failure in Failures" class="form-group">
+                                <label class="control-label">
+                                    Failure <span class="symbol required"></span>
+                                </label>
+                                <input type="text" ng-model="Failure.CauseOfFailure" name="Failure" placeholder="Enter Cause Of Failure">
+                                <button class="remove" ng-show="$last" ng-click="removeFailure()">-</button>
+
+                            </div>
+                            <button class="tn btn-primary  btn-info" ng-click="addNewFailure()">Add Failure</button>
+
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-9">
+                            <br />
+                            <button class="btn btn-primary  btn-info" style="width:100%" ng-disabled="FaultSaveBtnDisabled" ng-click="FaultSubmit()">
+                                {{Fault.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}
+                                <i ng-class="FaultSaveBtnIconClass"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-7">
+                        <p>Existing Fault</p>
+                        <div class="grid" ui-grid-pagination ui-grid="gridFaults"    ui-grid-resize-columns="true" ui-grid-pagination
+            ui-grid-auto-resize ui-grid-pinning>
+                            <div class="grid-msg-overlay" ng-hide="gridFaults.data.length>0 && faultsGridloadAttempted">
+                                <div class="msg">
+                                    <span>No Data</span>
+                                </div>
+                            </div>
+                            <div class="grid-msg-overlay" ng-hide="!faultsGridloading">
+                                <div class="msg">
+                                    <span>
+                                        Loading Data...
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+
+    </div>
+
+</div>
+
+<style>
+    .pagination {
+        margin-top: 0 !important;
+    }
+
+    .ngTableheader {
+        text-decoration: none;
+        font-weight: 300 !important;
+        font-size: 12px !important;
+        text-align: center;
+    }
+
+    #page-title {
+        padding: 25px 0;
+    }
+
+    .grid {
+        height: 200px;
+    }
+
+    .form-group {
+        margin-bottom: 0 !important;
+    }
+
+
+    #loading {
+        width: 100%;
+        height: 100%;
+        top: 120px;
+        left: 0px;
+        position: fixed;
+        display: block;
+        opacity: 0.7;
+        background-color: black;
+        z-index: 99;
+        text-align: center;
+    }
+
+    .watermark {
+        /*position: absolute;*/
+        top: 50%;
+        font-size: 15px;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        z-index: 1000;
+    }
+    /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+    .grid-msg-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+        /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+        .grid-msg-overlay .msg {
+            opacity: 1;
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 50%;
+            background-color: #eee;
+            border-radius: 4px;
+            border: 1px solid #555;
+            text-align: center;
+            font-size: 24px;
+            display: table;
+        }
+
+            /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+            .grid-msg-overlay .msg span {
+                display: table-cell;
+                vertical-align: middle;
+            }
+</style>

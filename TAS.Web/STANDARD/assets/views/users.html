@@ -1,0 +1,73 @@
+﻿<div ng-app="LFA" ng-controller="UsersCtrl as userController" data-ng-init="initGrid()">
+    <script type="text/ng-template" id="popUpUserMgmt">
+        <div class="ngdialog-message">
+            <h3>{{ModalName}}</h3>
+           
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">First Name:</label>
+                            <input type="text" class="form-control" ng-model="systemUser.firstName">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Last Name:</label>
+                            <input type="text" class="form-control" ng-model="systemUser.lastName">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Date of Birth:</label>
+                            <input type="text" class="form-control" ng-model="systemUser.dateOfBirth" data-date-format="dd-MMM-yyyy" data-min-date="02/10/86" data-max-date="today" data-autoclose="1" name="date2" bs-datepicker />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">User Name:</label>
+                            <input type="text" class="form-control" ng-model="systemUser.userName" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Password:</label>
+                            <input type="password" class="form-control" ng-model="systemUser.password" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Confirm Password:</label>
+                            <input type="password" class="form-control" ng-model="systemUser.confirmPassword">
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        <!--<div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" ng-click="add()">Save changes</button>
+        </div>
+        </div>-->
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('Cancel')">Cancel</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm()">{{action}}</button>
+        </div>
+    </script>
+
+
+    <button type="button" class="btn btn-primary" ng-click="showPopup()">
+
+        Add New User
+    </button>
+
+    <table datatable="" dt-options="userController.dtOptions" dt-columns="userController.dtColumns" class="row-border hover"></table>
+
+
+
+
+
+</div>

@@ -1,0 +1,2 @@
+2021-06-21 11:03:31.3079 TAS.Services.Entities.Management.ClaimBordxEntityManager ClaimBordxYearlyProcessConfirm: exception: Object reference not set to an instance of an object., 
+2021-06-21 11:03:48.0672 TAS.Services.Entities.Management.ClaimBordxEntityManager ClaimBordxYearlyProcessConfirm: exception: Object reference not set to an instance of an object., 

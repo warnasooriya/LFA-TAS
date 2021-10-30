@@ -1,0 +1,1624 @@
+﻿
+<div ng-app="LFA" ng-controller="PolicyEndorsementApprovalCtrl as PoliyEndorsementApprovalController" ng-init="PolicySearchPopup()">
+
+    <style>
+        .swMain > ul {
+            margin: 0 !important;
+        }
+
+        .input-sm {
+            height: 30px !important;
+            font-size: 12px !important;
+        }
+
+        fieldset {
+            padding: 15px !important;
+        }
+
+        .dropdown-menu {
+            z-index: 10000;
+        }
+
+        .my-form {
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+            background: transparent;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .ngdialog-content {
+            width: 900px !important;
+            height: 550px !important;
+        }
+
+        .grid {
+            height: 200px;
+        }
+
+        .form-group {
+            margin-bottom: 0 !important;
+        }
+
+
+        #loading {
+            width: 100%;
+            height: 100%;
+            top: 120px;
+            left: 0px;
+            position: fixed;
+            display: block;
+            opacity: 0.7;
+            background-color: black;
+            z-index: 99;
+            text-align: center;
+        }
+
+        .watermark {
+            /*position: absolute;*/
+            top: 50%;
+            font-size: 15px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            z-index: 1000;
+        }
+        /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+
+        .highlightO {
+            background-color: #FFE4E1;
+        }
+
+        .highlightE {
+            background-color: #72C2D3;
+        }
+    </style>
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-sm-8 ">
+                <h1 class="mainTitle TitleModifier"> {{ModalName}} </h1>
+                <!--<span class="mainDescription TitleModifier">You can approve policy endorsements here.</span>-->
+                <span class="mainDescription TitleModifier">You can approved endorsed policies here. Please search endorsed policy requests to approve.</span>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-twitter pull-right" ng-click="PolicySearchPopup()">
+                    <i class="fa fa-search"></i>
+                    | Search Endorsement Requests
+                </button>
+
+            </div>
+        </div>
+    </section>
+    <!--<div id="loading">
+        <div class="form-group" style="padding-top:15%; align-self:center">
+            <label class="control-label" style="font-size:250%">
+                Please Search Policy to Approve Endorse ...
+            </label>
+        </div>
+    </div>-->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-white no-radius">
+                <div class="panel-heading border-light panelHeaderModifier">
+                    <h6 class="panel-title TitleModifier">
+                        ORIGINAL POLICY
+                    </h6>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-heading border-light panelHeaderModifier">
+                        <b>Customer Information</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Customer Type
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:( Endorsement.CustomerType != Policy.CustomerType)}"><b> {{Policy.CustomerType}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4"><label class="control-label">Usage Type</label> </div>
+                                    <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.UsageType != Policy.UsageType)}"><b> {{Policy.UsageType}} </b></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="selectedCustomerTypeName!='Corporate'">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Customer Name
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.FirstName+Endorsement.LastName != Policy.FirstName+Policy.LastName)}"><b> {{Policy.FirstName}} {{Policy.LastName}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Gender
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Gender != Policy.Gender)}"><b> {{Policy.Gender}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Date Of Birth
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.DateOfBirth != Policy.DateOfBirth)}"><b> {{Policy.DateOfBirth | date:'dd MMM yyyy'}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Mobile No
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.MobileNo != Policy.MobileNo)}"><b> {{Policy.MobileNo}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4"><label class="control-label">Other Tel No</label> </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.OtherTelNo != Policy.OtherTelNo)}"><b> {{Policy.OtherTelNo}} </b></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Email
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Email != Policy.Email)}"><b> {{Policy.Email}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            ID Type
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.IdType != Policy.IdType)}"><b> {{Policy.IdType}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            ID No
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.IDNo != Policy.IDNo)}"><b> {{Policy.IDNo}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Issue Date
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.DLIssueDate != Policy.DLIssueDate)}"><b> {{Policy.DLIssueDate | date:'dd MMM yyyy'}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4"><label class="control-label">Nationality</label> </div> <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Nationality != Policy.Nationality)}"><b> {{Policy.Nationality}} </b></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Country
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Country != Policy.Country)}"><b> {{Policy.Country}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            City
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.City != Policy.City)}"><b> {{Policy.City}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Address
+                                        </label>
+                                    </div> <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Address1+Endorsement.Address2+Endorsement.Address3+Endorsement.Address4 != Policy.Address1+Policy.Address2+Policy.Address3+Policy.Address4)}">
+                                            <b> {{Policy.Address1}} {{Policy.Address2}}  {{Policy.Address3}} {{Policy.Address4}} </b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" ng-show="selectedCustomerTypeName=='Corporate'">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Business Name
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.BusinessName != Policy.BusinessName)}"><b> {{Policy.BusinessName}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Business Tel No
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.BusinessTelNo != Policy.BusinessTelNo)}"><b> {{Policy.BusinessTelNo}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Business Address
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.BusinessAddress1+Endorsement.BusinessAddress2+Endorsement.BusinessAddress3+Endorsement.BusinessAddress4 != Policy.BusinessAddress1+Policy.BusinessAddress2+Policy.BusinessAddress3+Policy.BusinessAddress4)}"><b> {{Policy.BusinessAddress1}}  {{Policy.BusinessAddress2}}  {{Policy.BusinessAddress3}}  {{Policy.BusinessAddress4}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Country
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Country != Policy.Country)}"><b> {{Policy.Country}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            City
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.City != Policy.City)}"><b> {{Policy.City}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Contact Person Name
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.FirstName+Endorsement.LastName != Policy.FirstName+Policy.LastName)}"><b> {{Policy.FirstName}} {{Policy.LastName}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Mobile No
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.MobileNo != Policy.MobileNo)}"><b> {{Policy.MobileNo}} </b></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-heading border-light panelHeaderModifier">
+                        <b>Policy Information</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Commodity Type
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.CommodityType != Policy.CommodityType)}"><b> {{Policy.CommodityType}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Product
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Product != Policy.Product)}"><b> {{Policy.Product}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Dealer
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{(Endorsement.Dealer != Policy.Dealer)}"><b> {{Policy.Dealer}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Dealer Location
+                                    </label>
+                                </div>
+                                <div class="col-md-8">
+                                    :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.DealerLocation != Policy.DealerLocation)}">
+                                        <b> {{Policy.DealerLocation}} </b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-repeat="x in ProductContracts" style="font-size:small !important">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Policy No 
+
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.PolicyNo != Policy.PolicyNo)}"><b> {{x.PolicyNo}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Start Date
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.PolicyStartDate != Policy.PolicyStartDate)}"><b> {{x.PolicyStartDate| date:'dd MMM yyyy'}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">                                    
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            End Date
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.PolicyEndDate != Policy.PolicyEndDate)}"><b> {{x.PolicyEndDate| date:'dd MMM yyyy'}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Contract
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Contract != Policy.Contract)}"><b> {{x.Contract}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">                                   
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Extension Type
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.ExtensionType != Policy.ExtensionType)}"><b> {{x.ExtensionType[0].ExtensionName}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div ng-show="!x.RSA">
+                                        <div class="col-md-4">
+                                            <label class="control-label">
+                                                Cover Type
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.CoverType != Policy.CoverType)}"><b> {{x.CoverType[0].WarrantyTypeDescription}} </b></div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="x.RSA">
+                                        <div class="col-md-4">
+                                            <label class="control-label">
+                                                RSA Provider
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.RSAProvider != Policy.RSAProvider)}"><b> {{x.RSAProvider}} </b></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">                                    
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Premium
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Premium != Policy.Premium) || (Endorsement.PremiumCurrencyName != Policy.PremiumCurrencyName)}"><b>{{x.PremiumCurrencyName}} {{x.Premium}}</b></div>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Policy Sold Date
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.PolicySoldDate != Policy.PolicySoldDate)}"><b> {{Policy.PolicySoldDate | date:'dd MMM yyyy'}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Sales Person
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.SalesPerson != Policy.SalesPerson)}"><b> {{Policy.SalesPerson}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" ng-show="!AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Hrs Used At Policy Sale
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.HrsUsedAtPolicySale != Policy.HrsUsedAtPolicySale)}"><b> {{Policy.HrsUsedAtPolicySale}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Km At Policy Sale
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.HrsUsedAtPolicySale != Policy.HrsUsedAtPolicySale)}"><b> {{Policy.HrsUsedAtPolicySale}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Payment Mode
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.PaymentMode != Policy.PaymentMode)}"><b> {{Policy.PaymentMode}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        RefNo
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.RefNo != Policy.RefNo)}"><b> {{Policy.RefNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Special Deal
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.SpecialDeal != Policy.SpecialDeal)}"><b> {{Policy.SpecialDeal}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Customer Payment
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.CustomerPayment != Policy.CustomerPayment)}"><b>{{Policy.PremiumCurrencyType}} {{Policy.CustomerPayment | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Dealer Payment
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.DealerPayment != Policy.DealerPayment)}"><b>{{Policy.PremiumCurrencyType}} {{Policy.DealerPayment | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Comment
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Comment != Policy.Comment)}"><b> {{Policy.Comment}} </b></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-heading border-light panelHeaderModifier">
+                        <b> Item Information</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row" ng-show="!AutomobileE">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Serial No
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.SerialNo != Policy.SerialNo)}"><b> {{Policy.SerialNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="!AutomobileE">
+                            <div class="form-group" ng-show="!AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Item No
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.AddnSerialNo != Policy.AddnSerialNo)}"><b> {{Policy.AddnSerialNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        VIN No
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{(Endorsement.VINNo != Policy.VINNo)}"><b> {{Policy.VINNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Category
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:Endorsement.Category != Policy.Category}"><b> {{Policy.Category}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Item Status
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.ItemStatus != Policy.ItemStatus)}"><b> {{Policy.ItemStatus}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Make
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Make != Policy.Make)}"><b> {{Policy.Make}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Model
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Model != Policy.Model)}"><b> {{Policy.Model}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Model Year
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.ModelYear != Policy.ModelYear)}"><b> {{Policy.ModelYear}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="!AutomobileE">
+                            <div class="form-group" ng-show="!AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Model Code
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.ModelCode != Policy.ModelCode)}"><b> {{Policy.ModelCode}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Variant
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.VariantName != Policy.VariantName)}"><b> {{Policy.VariantName}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Cylinder Count
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.CylinderCount != Policy.CylinderCount)}"><b> {{Policy.CylinderCount}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+
+                                    <label class="control-label" ng-show="AutomobileE">
+                                        Aspiration
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Aspiration != Policy.Aspiration)}"><b> {{Policy.Aspiration}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label" ng-show="AutomobileE">
+                                        Body Type
+                                    </label>
+                                </div>
+                                <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.BodyType != Policy.BodyType)}"><b> {{Policy.BodyType}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label" ng-show="AutomobileE">
+                                        Engine Capacity
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.EngineCapacity != Policy.EngineCapacity)}"><b> {{Policy.EngineCapacity}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label" ng-show="AutomobileE">
+                                        Fuel Type
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.FuelType != Policy.FuelType)}"><b> {{Policy.FuelType}} </b></div></div>
+                            </div>
+                        </div>
+                        <!--<div class="row" ng-show="AutomobileP">
+                            <div class="form-group" ng-show="AutomobileP">
+                                <div class="col-md-4">
+                                    <label class="control-label" ng-show="AutomobileP">
+                                        Drive Type
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline"  ng-class="{highlightO:PolicyH.DriveTypeH}"><b> {{Policy.DriveType}} </b></div></div>
+                            </div>
+                        </div>-->
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Transmission
+                                    </label>
+                                    </label>:
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.Transmission != Policy.Transmission)}"><b> {{Policy.Transmission}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="!AutomobileE">
+                            <div class="form-group" ng-show="!AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Invoice No
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.InvoiceNo != Policy.InvoiceNo)}"><b> {{Policy.InvoiceNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Plate No
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.PlateNo != Policy.PlateNo)}"><b> {{Policy.PlateNo}} </b></div></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Item Purchased Date
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.ItemPurchasedDate !=  Policy.ItemPurchasedDate)}"><b> {{Policy.ItemPurchasedDate | date:'dd MMM yyyy'}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="!AutomobileP && !isProductILOE">
+                            <div class="form-group" >
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Market Price
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:(Endorsement.ItemPrice != Policy.ItemPrice)}"><b>{{Policy.PremiumCurrencyType}} {{Policy.ItemPrice | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileP">
+                            <div class="form-group" ng-show="AutomobileP">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Market Price
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:Endorsement.VehiclePrice != Policy.VehiclePrice}"><b>{{Policy.PremiumCurrencyType}} {{Policy.VehiclePrice | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Purchase Price
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightE:Endorsement.DealerPrice != Policy.DealerPrice}"><b>{{Policy.PremiumCurrencyType}} {{Policy.DealerPrice | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-white no-radius">
+                <div class="panel-heading border-light panelHeaderModifier">
+                    <h6 class="panel-title TitleModifier">
+                        POLICY ENDORSEMENT
+                    </h6>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-heading border-light panelHeaderModifier">
+                        <b>Customer Information</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Customer Type
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.CustomerType != Policy.CustomerType)}"><b> {{Endorsement.CustomerType}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4"><label class="control-label">Usage Type</label> </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.UsageType != Policy.UsageType)}"><b> {{Endorsement.UsageType}} </b></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="selectedCustomerTypeName!='Corporate'">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Customer Name
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.FirstName+Endorsement.FirstName != Policy.FirstName+Policy.FirstName)}"><b> {{Endorsement.FirstName}} {{Endorsement.LastName}} </b></div></div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Gender
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Gender != Policy.Gender)}"><b> {{Endorsement.Gender}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Date Of Birth
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.DateOfBirth != Policy.DateOfBirth)}"><b> {{Endorsement.DateOfBirth| date:'dd MMM yyyy'}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Mobile No
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.MobileNo != Policy.MobileNo)}"><b> {{Endorsement.MobileNo}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4"><label class="control-label">Other Tel No</label> </div>
+                                    <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.OtherTelNo != Policy.OtherTelNo)}"><b> {{Endorsement.OtherTelNo}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Email
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Email!=Policy.Email)}"><b> {{Endorsement.Email}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            ID Type
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.IdType != Policy.IdType)}"><b> {{Endorsement.IdType}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            ID No
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.IDNo !=Policy.IDNo)}"><b> {{Endorsement.IDNo}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Issue Date
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.DLIssueDate!=Policy.DLIssueDate)}"><b> {{Endorsement.DLIssueDate| date:'dd MMM yyyy'}} </b></div></div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4"><label class="control-label">Nationality</label> </div>
+                                    <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Nationality!=Policy.Nationality)}"><b> {{Endorsement.Nationality}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Country
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Country!=Policy.Country)}"><b> {{Endorsement.Country}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            City
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.City!=Policy.City)}"><b> {{Endorsement.City}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Address
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Address1+Endorsement.Address2+Endorsement.Address3+Endorsement.Address4 != Policy.Address1+Policy.Address2+Policy.Address3+Policy.Address4)}"><b> {{Endorsement.Address1}} {{Endorsement.Address2}}  {{Endorsement.Address3}} {{Endorsement.Address4}} </b></div></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" ng-show="selectedCustomerTypeName=='Corporate'">
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Business Name
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.BusinessName!=Policy.BusinessName)}"><b> {{Endorsement.BusinessName}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Business Tel No
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.BusinessTelNo!=Policy.BusinessTelNo)}"><b> {{Endorsement.BusinessTelNo}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Business Address
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.BusinessAddress1+Endorsement.BusinessAddress2+Endorsement.BusinessAddress3+Endorsement.BusinessAddress4 != Policy.BusinessAddress1+Policy.BusinessAddress2+Policy.BusinessAddress3+Policy.BusinessAddress4)}"><b> {{Endorsement.BusinessAddress1}}  {{Endorsement.BusinessAddress2}}  {{Endorsement.BusinessAddress3}}  {{Endorsement.BusinessAddress4}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Country
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Country!=Policy.Country)}"><b> {{Endorsement.Country}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            City
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.City!=Policy.City)}"><b> {{Endorsement.City}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Contact Person Name
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.FirstName+Endorsement.FirstName != Policy.FirstName+Policy.FirstName)}"><b> {{Endorsement.FirstName}} {{Endorsement.LastName}} </b></div></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Mobile No
+                                        </label>
+                                    </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.MobileNo != Policy.MobileNo)}"><b> {{Endorsement.MobileNo}} </b></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-heading border-light panelHeaderModifier">
+                        <b>Policy Information</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Commodity Type
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.CommodityType != Policy.CommodityType)}"><b> {{Endorsement.CommodityType}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Product
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Product != Policy.Product)}"><b> {{Endorsement.Product}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Dealer
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Dealer != Policy.Dealer)}"><b> {{Endorsement.Dealer}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Dealer Location
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.DealerLocation != Policy.DealerLocation)}"><b> {{Endorsement.DealerLocation}} </b></div></div>
+                            </div>
+                        </div>
+                        <div ng-repeat="x in ProductContractsE" style="font-size:small !important">
+                            <div class="form-group">
+                                <!--<div class="row">
+                                    <div class="col-md-12">
+                                        <label class="control-label">
+                                            <div ng-class="{highlightE:xxx}"><b>{{x.Name}}</b></div>
+                                        </label>
+                                    </div>
+                                </div>-->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Policy No
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.PolicyNo != Policy.PolicyNo)}"><b> {{x.PolicyNo}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Start Date 
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.PolicyStartDate != Policy.PolicyStartDate)}"><b> {{x.PolicyStartDate| date:'dd MMM yyyy'}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">                                    
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            End Date
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.PolicyEndDate != Policy.PolicyEndDate)}"><b> {{x.PolicyEndDate| date:'dd MMM yyyy'}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Contract
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Contract != Policy.Contract)}"><b> {{x.Contract}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">                                   
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Extension Type
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.ExtensionType != Policy.ExtensionType)}"><b> {{x.ExtensionType[0].ExtensionName}} </b></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div ng-show="!x.RSA">
+                                        <div class="col-md-4">
+                                            <label class="control-label">
+                                                Cover Type
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.CoverType != Policy.CoverType)}"><b> {{x.CoverType[0].WarrantyTypeDescription}} </b></div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="x.RSA">
+                                        <div class="col-md-4">
+                                            <label class="control-label">
+                                                RSA Provider
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8">
+                                            :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.RSAProvider != Policy.RSAProvider)}"><b> {{x.RSAProvider}} </b></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">                                   
+                                    <div class="col-md-4">
+                                        <label class="control-label">
+                                            Premium
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4" style="padding-right:0px">
+                                        :&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Premium != Policy.Premium) || (Endorsement.PremiumCurrencyName != Policy.PremiumCurrencyName)}"><b>{{x.PremiumCurrencyName}} {{x.Premium}}</b></div>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Policy Sold Date
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.PolicySoldDate != Policy.PolicySoldDate)}"><b> {{Endorsement.PolicySoldDate| date:'dd MMM yyyy'}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Sales Person
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.SalesPerson != Policy.SalesPerson)}"><b> {{Endorsement.SalesPerson}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" ng-show="!AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Hrs Used At Policy Sale
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.HrsUsedAtPolicySale != Policy.HrsUsedAtPolicySale)}"><b> {{Endorsement.HrsUsedAtPolicySale}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Km At Policy Sale
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.HrsUsedAtPolicySale !=  Policy.HrsUsedAtPolicySale)}"><b> {{Endorsement.HrsUsedAtPolicySale}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Payment Mode
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:Endorsement.PaymentMode != Policy.PaymentMode}"><b> {{Endorsement.PaymentMode}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        RefNo
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.RefNo != Policy.RefNo)}"><b> {{Endorsement.RefNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Special Deal
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.SpecialDeal != Policy.SpecialDeal)}"><b> {{Endorsement.SpecialDeal}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Customer Payment
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.CustomerPayment != Policy.CustomerPayment)}"><b>{{Endorsement.PremiumCurrencyType}} {{Endorsement.CustomerPayment | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Dealer Payment
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.DealerPayment != Policy.DealerPayment)}"><b>{{Endorsement.PremiumCurrencyType}} {{Endorsement.DealerPayment | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Comment
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Comment != Policy.Comment)}"><b> {{Endorsement.Comment}} </b></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-heading border-light panelHeaderModifier">
+                        <b> Item Information</b>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row" ng-show="!AutomobileE">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Serial No
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.SerialNo != Policy.SerialNo)}"><b> {{Endorsement.SerialNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="!AutomobileE">
+                            <div class="form-group" ng-show="!AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        AddnSerialNo
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.AddnSerialNo != Policy.AddnSerialNo)}"><b> {{Endorsement.AddnSerialNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        VIN No
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.VINNo != Policy.VINNo)}"><b> {{Endorsement.VINNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Category
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Category != Policy.Category)}"><b> {{Endorsement.Category}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Item Status
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.ItemStatus != Policy.ItemStatus)}"><b> {{Endorsement.ItemStatus}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Make
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Make != Policy.Make)}"><b> {{Endorsement.Make}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Model
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Model != Policy.Model)}"><b> {{Endorsement.Model}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Model Year
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.ModelYear != Policy.ModelYear)}"><b> {{Endorsement.ModelYear}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="!AutomobileE">
+                            <div class="form-group" ng-show="!AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Model Code
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.ModelCode != Policy.ModelCode)}"><b> {{Endorsement.ModelCode}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Variant
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.VariantName != Policy.VariantName)}"><b> {{Endorsement.VariantName}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Cylinder Count
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.CylinderCount != Policy.Aspiration)}"><b> {{Endorsement.CylinderCount}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label" ng-show="AutomobileE">
+                                        Aspiration
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Aspiration != Policy.Aspiration)}"><b> {{Endorsement.Aspiration}} </b></div></div>
+                            </div>
+                        </div>
+
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+
+                                    <label class="control-label" ng-show="AutomobileE">
+                                        Body Type
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.BodyType != Policy.BodyType)}"><b> {{Endorsement.BodyType}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label" ng-show="AutomobileE">
+                                        Engine Capacity
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.EngineCapacity != Policy.EngineCapacity)}"><b> {{Endorsement.EngineCapacity}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+
+                                    <label class="control-label" ng-show="AutomobileE">
+                                        Fuel Type
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.FuelType != Policy.FuelType)}"><b> {{Endorsement.FuelType}} </b></div></div>
+                            </div>
+                        </div>
+                        <!--<div class="row" ng-show="AutomobileE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+
+                                    <label class="control-label" ng-show="AutomobileE">
+                                        Drive Type
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline"  ng-class="{highlightE:EndorsementH.DriveTypeH}"><b> {{Endorsement.DriveType}} </b></div></div>
+                            </div>
+                        </div>-->
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Transmission
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.Transmission != Policy.Transmission)}"><b> {{Endorsement.Transmission}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="!AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="!AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Invoice No
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.InvoiceNo != Policy.InvoiceNo)}"><b> {{Endorsement.InvoiceNo}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Plate No
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.PlateNo != Policy.PlateNo)}"><b> {{Endorsement.PlateNo}} </b></div></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Item Purchased Date
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.ItemPurchasedDate != Policy.ItemPurchasedDate)}"><b> {{Endorsement.ItemPurchasedDate| date:'dd MMM yyyy'}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="!AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="!AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Market Price
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.ItemPrice != Policy.ItemPrice)}"><b>{{Endorsement.PremiumCurrencyType}} {{Endorsement.ItemPrice | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="AutomobileE && !isProductILOE">
+                            <div class="form-group" ng-show="AutomobileE">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Market Price
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.VehiclePrice != Policy.VehiclePrice)}"><b>{{Endorsement.PremiumCurrencyType}} {{Endorsement.VehiclePrice | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="control-label">
+                                        Purchase Price
+                                    </label>
+                                </div> <div class="col-md-8">:&nbsp;<div style="display:inline" ng-class="{highlightO:(Endorsement.DealerPrice != Policy.DealerPrice)}"><b>{{Endorsement.PremiumCurrencyType}} {{Endorsement.DealerPrice | number:2}} </b></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <input type="button" id="submit" class="btn btn-primary btn-block" value="Approve Endorsement"
+                   ng-click="approveEndorsementRequest()" />
+        </div>
+        <div class="col-md-3">
+            <input type="button" id="submit" class="btn btn-primary btn-block" value="Reject Endorsement"
+                   ng-click="rejectEndorsementRequest()" />
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="popUpSearchPolicy">
+        <style>
+            .input-sm {
+                height: 25px !important;
+                font-size: 11px;
+            }
+
+            .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            .ngdialog-content {
+                width: 1000px !important;
+                height: 450px !important;
+            }
+
+            .ui-grid-top-panel {
+                font-weight: 400 !important;
+            }
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .grid {
+                height: 250px !important;
+            }
+
+            .ui-grid-pager-panel {
+                text-align: right;
+                box-sizing: border-box !important;
+            }
+
+            .ui-grid-header-cell .ui-grid-cell-contents {
+                text-align: center;
+            }
+
+            .columCss {
+                text-decoration: none;
+            }
+
+
+            .ui-grid-canvas {
+                text-align: center;
+                font-size: 12px;
+            }
+        </style>
+        <div>
+            <h3 class="">Search Policy Endorsements</h3>
+            <form>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Commodity Type</label>
+                            <select name="PolicyCommodityType" id="drpPolicyCommodityType" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.commodityTypeId"
+                                    ng-options="n.CommodityTypeId as n.CommodityTypeDescription for n in commodityTypes"
+                                    ng-change="SetPolicyCommodityTypeValue()" tabindex="1">
+                                <option value=""> Please Select </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Policy No</label>
+                            <input type="text" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.PolicyNo" tabindex="2">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">VIN/Serial</label>
+                            <input type="text" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.serialNo" tabindex="3">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Customer Mobile No</label>
+                            <input type="text" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.mobileNo" tabindex="4">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Policy Start Date
+                            </label>
+                            <input type="text" placeholder="Click for Calendar" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.policyStartDate"
+                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpenf = !startOpenf" is-open="startOpenf" ng-init="startOpenf = false" close-text="Close" tabindex="5" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">
+                                Policy End Date
+                            </label>
+                            <input type="text" placeholder="Click for Calendar" class="form-control input-sm" ng-model="policySearchGridSearchCriterias.policyEndDate"
+                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="endOpen = !endOpen" is-open="endOpen" ng-init="endOpen = false" close-text="Close" tabindex="6" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="ngdialog-buttons pull-right">
+                            <input type="button" style="margin-top:20px" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="PolicySearchPopupReset()" value="Reset">
+                            <input type="button" style="margin-top:20px" class="ngdialog-button btn-xs ngdialog-button-primary" ng-click="refresSearchGridData()" tabindex="7" value="Search">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="grid" ui-grid-pagination ui-grid="gridOptionsPolicy" style="margin-top:5px">
+                            <div class="grid-msg-overlay" ng-hide="gridOptionsPolicy.data.length>0 && policySearchGridloadAttempted">
+                                <div class="msg">
+                                    <span>No Data</span>
+                                </div>
+                            </div>
+                            <div class="grid-msg-overlay" ng-hide="!policySearchGridloading">
+                                <div class="msg">
+                                    <span>
+                                        Loading Data...
+                                        <i class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--<div class="ngdialog-buttons" style="margin-top:20px">
+            <input type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('Closed')" value="Load" />
+        </div>-->
+    </script>
+</div>

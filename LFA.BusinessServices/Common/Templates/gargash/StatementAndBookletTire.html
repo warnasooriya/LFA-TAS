@@ -1,0 +1,115 @@
+﻿<style>
+    body {
+        font-family: Tahoma;
+    }
+</style>
+<body style="background-color:#ffffff">
+    <table style="width:590px;background-color:#ffffff;" align="center">
+        <!--<tr>
+        <td colspan="2"></td>
+    </tr>-->
+        <tr>
+            <td><img style="float:left;margin-left:15px;width:150px" title="" alt="" src="cid:TpaLogo">
+            <td><!--<img title="" style="float:right;margin-right:10px" alt="" src="cid:LeftFieldLogo">-->
+        <tr>
+            <td colspan="2">
+                <table style="margin-left:20px; font-family:Tahoma;font-style:italic;  font-size:13px;line-height:23px;width:550px">
+                    <tr>
+                        <td style="height:10px"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-style:italic;font-weight:bold">Dear Customer,</td>
+                    </tr>
+                    <tr>
+                        <td style="height:5px"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="margin-top: 0px;margin-bottom: 10px;">
+                                Congratulations on the purchase of your <span style="font-weight:bold"> Gargash Tyre Service Contract </span>and welcome to the <span> Mercedes- Benz family. </span>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height:5px"></td>
+                    </tr>
+                    <tr>
+                        <td  style="font-weight:bold">
+                                {ContractNo}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="margin-top: 0px;margin-bottom: 10px;">
+                                Please be assured that your Vehicle tyres have been manufactured to the highest possible standards and engineered specifically for the prevailing conditions in the Middle East.
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="margin-top: 0px;margin-bottom: 10px;">
+                                We are delighted you have chosen to further protect your tyres with our accidental damage service contract, to guard against irreparable damage caused by road hazards.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p style="margin-top: 0px;margin-bottom: 10px;">
+                                Please read the attached document which clearly defines the terms, conditions and benefits of your <span style="font-weight:bold">Gargash Tyre Service Contract.</span>
+                            </p>
+                        </td>
+                    </tr>
+                    <td>
+                        <p style="margin-top: 0px;margin-bottom: 10px;">
+                            We thank you for choosing <span style="font-weight:bold"></span> Mercedes- Benz and wish you safe motoring.
+                        </p>
+                    </td>
+
+
+                    <tr>
+                        <td style="height:5px"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Respectfully,
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold">Your dedicated “Mercedes- Benz” partner</td>
+                    </tr>
+
+                    <tr>
+                        <td style="height:10px"></td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+
+
+    </table>
+</body>
+
+<!--</div>-->
+<script>
+    function downloadStatement(id) {
+        var Id = id;
+        //console.log(id);
+        //document.getElementById("demo").innerHTML = "Hello World";
+        if (Id !== "undefined" && Id !== "") {
+            var url = 'https://www.leftfield.xyz/TAS.Web/ReportExplorer.aspx?key=' + Id + "&jwt=" + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NTYxNjM4MTUsImp0aSI6IjAwNTRjNWFmLTgwOWUtNDcyNy04Y2I3LTJlNGJkNDBjNzYwYSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.HwtG9x4Ezo3okUnlurIxeHpWUOhgPRtL4FixYK6lpoM';
+            // alert(url);
+            window.open(url, '_blank')
+            //var publicurl = $location.protocol() + '://' + $location.host() + '/TAS.Web/contisurewarranty.pdf';
+            //window.open(publicurl, '_blank')
+            swal.close();
+        } else {
+            customErrorMessage("Someting went wrong. Pelase contract administrator.");
+            swal.close();
+        }
+    }
+</script>
+
+<!-- </html>-->

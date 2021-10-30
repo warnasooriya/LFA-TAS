@@ -1,0 +1,4 @@
+2021-08-23 08:58:44.1352 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - Gargash
+2021-08-23 08:58:47.2181 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - Gargash token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjk2ODkzMjUsImp0aSI6IjQzMTY3NWU3LTdkN2ItNGEyNS04N2NiLWE3OThlMmU5ZDQxMCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJHYXJnYXNoIiwic2hhcmVka2V5IjoiYWJjZSIsInVzZXJpZCI6ImNlZDkzZTAxLWRmY2EtNGYwOC05YTNiLWM2M2ZiYTZjZjMyZiJ9.E42xYQ83qt4h2O1vzcBcHq_2mfYYN3eC5k3GK4ONx50
+2021-08-23 09:27:45.7434 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-08-23 09:27:46.2410 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache

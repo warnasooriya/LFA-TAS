@@ -1,0 +1,4 @@
+2021-06-10 09:52:10.7475 TAS.Web.Controllers.UserController Login request recived from ip-127.0.0.1 for user - admin for TPA - continental
+2021-06-10 09:52:12.3426 TAS.Web.Controllers.UserController Login failed for ip-127.0.0.1 for user - admin for TPA - continental
+2021-06-10 09:52:18.3228 TAS.Web.Controllers.UserController Login request recived from ip-127.0.0.1 for user - admin for TPA - continental
+2021-06-10 09:52:21.5578 TAS.Web.Controllers.UserController Login success for ip-127.0.0.1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjMyOTg5MzksImp0aSI6IjhmZmZiYjAxLTI0OWQtNDRlMC05NTg5LTFiYTFiZDhjODRjNCIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjZWQ5M2UwMS1kZmNhLTRmMDgtOWEzYi1jNjNmYmE2Y2YzMmYifQ.cnEnMg6Ry3V1o5px5SNiQoMZu0r8UvGxp1biwtPqP4I

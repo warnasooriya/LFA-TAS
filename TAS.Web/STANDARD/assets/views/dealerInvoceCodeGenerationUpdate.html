@@ -1,0 +1,2180 @@
+﻿
+<style>
+    .invisible-tire-sales-page {
+        display:none;
+    }
+    .font-bold {
+        font-weight: bold;
+    }
+</style>
+<div style="margin-left: 30px; margin-right: 30px"
+     ng-app="clip-two"
+     ng-controller="DealerInvoiceCodeGenerationUpdateCtrl as DealerInvoiceCodeGenerationUpdateController"
+     ng-init="initializeDealerInvoiceCodePage()">
+
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1 class="mainTitle TitleModifier">Tyre Sales Details</h1>
+                <span class="mainDescription TitleModifier"></span>
+
+            </div>
+            <div class="col-md-6">
+                <!--<span class="btn continental-color pull-right" ng-click="searchPopup()">
+                    <i class="fa fa-files-o"></i>
+                    | Search
+                </span>-->
+                <span ng-show="dataLoadMode" ng-click="resetForNewItemEntry()" style="margin-right:10px" class="btn btn btn-primary pull-right">
+                    <i class=" fa fa-asterisk">
+                    </i>
+                    | Add new
+                </span>
+
+
+            </div>
+        </div>
+    </section>
+    <div name="myForm" class="my-form">
+        <div name="myForm" class="my-form">
+            <div id="wizard" class="swMain">
+                <!-- start: WIZARD SEPS -->
+                <ul style="background-color:white">
+
+                    <li ng-click="form.goTo(Form, 1)">
+                        <a href ng-class="{'selected' : currentStep >= 1, 'done' : currentStep > 1}">
+                            <div class="stepNumber">
+                                1
+                            </div>
+                            <span class="stepDesc text-small"> Tyre Information </span>
+                        </a>
+                    </li>
+                    <li ng-click="form.goTo(Form, 2)">
+                        <a href ng-class="{'selected' : currentStep >= 2, 'done' : currentStep > 2}">
+                            <div class="stepNumber">
+                                2
+                            </div>
+                            <span class="stepDesc text-small"> Customer Information </span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- end: WIZARD SEPS -->
+                <!-- start: WIZARD STEP 1 -->
+                <div id="step-1" ng-show="currentStep == 1">
+                    <div class="row">
+                        <div style="margin-top:15px">
+                            <div class="col-md-4">
+                                <div ng-show="dataLoadMode">
+                                    <h4>Tyre Quantity - <strong>{{dealerInvoiceDetails.quantity}}</strong></h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div ng-show="dataLoadMode">
+                                    <h4>Plate Number - <strong>{{dealerInvoiceDetails.plateNumber}}</strong></h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <h4>&nbsp;&nbsp;&nbsp; Positions and Tyres</h4>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <select class="form-control " name="cars" id="cars" ng-model="selectedvalue" ng-change="selectAlltyre()" ng-options="ntypes.color  as ntypes.model for ntypes in namesofTypes">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6 " style="margin-top:20px;">
+
+                            <div class="col-md-12">
+                                <table border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td rowspan="25">
+                                                <img src="../STANDARD/assets/images/car-tyre.png"
+                                                     height="300px" />
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr style="height:15px">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="dealerInvoiceTireDetails.front.leftcheckbox" ng-click="tyreDisplayView('FL','dealerInvoiceTireDetails.front.leftcheckbox');" id="FrontLeft" name="FrontLeft" value="1">
+
+                                            </td>
+                                            <td style="padding-left:10px;padding-right:50px">
+                                                <label for="FrontLeft" class='btn btn-sm continental-color font-bold ' ng-disabled="">
+                                                    Front Left
+                                                </label>
+                                            </td>
+                                            <td style="padding-left:50px;padding-right:10px">
+
+                                                <label for="FrontRight" class='btn btn-sm continental-color font-bold ' ng-disabled="">
+                                                    Front Right
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="dealerInvoiceTireDetails.front.rightcheckbox" ng-click="tyreDisplayView('FR','dealerInvoiceTireDetails.front.rightcheckbox')" id="FrontRight" name="FrontRight" value="1">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="dealerInvoiceTireDetails.back.leftcheckbox" ng-click="tyreDisplayView('BL','dealerInvoiceTireDetails.back.leftcheckbox')" id="BackLeft" name="BackLeft" value="1">
+
+
+                                            </td>
+                                            <td style="padding-left:10px;padding-right:50px">
+                                                <label for="BackLeft" class='btn btn-sm continental-color font-bold ' ng-disabled="">
+                                                    Rear Left
+                                                </label>
+
+                                            </td>
+                                            <td style="padding-left:50px;padding-right:10px">
+
+                                                <label for="BackRight" class='btn btn-sm continental-color font-bold  ' ng-disabled="">
+                                                    Rear Right
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="dealerInvoiceTireDetails.back.rightcheckbox" ng-click="tyreDisplayView('BR','dealerInvoiceTireDetails.back.rightcheckbox')" id="BackRight" name="BackRight" value="1">
+                                            </td>
+                                        </tr>
+                                        <tr style="height:20px">
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="text-align:center"><label for="SpareWheel" class='btn btn-sm continental-color font-bold '> Spare Wheel </label></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="text-align:center">
+                                                <input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="spareWheelcheckbox" id="SpareWheel" name="SpareWheel" value="1" ng-click="tyreDisplayView('D','spareWheelcheckbox')">
+                                            </td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+
+                            <div class="row"></div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">
+                                                Contract Purchase Date <span class="symbol required"></span>
+                                            </label>
+                                            <input type="text" placeholder="Click for Calendar" ng-readonly="true"
+                                                   class="form-control  input-sm" ng-model="purchaseDate" max-date="maxdate"
+                                                   ng-class="validate_purchaseDate" tabindex="15"
+                                                   datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen2f = !startOpen2f"
+                                                   is-open="startOpen2f" ng-init="startOpen2f = false" close-text="Close" datepicker-append-to-body="true" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="div-img-fr div-img-fr-position" ng-show="isFrontTireDetailsVisibleR || dataLoadMode" style="width:320px;height:180px;z-index:50;border:solid 1px;padding:5px 5px 5px 5px">
+                                    <div style="width:99% ; display:inline-block">
+                                        <div style="width:49% ; display:inline-block">
+                                            <h5>Article Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+                                            <input type="text" data-inputmask="'mask': 'CXXXXXXX0000'" class="form-control" ng-model="dealerInvoiceTireDetails.front.serialRight" ng-change="frontTireEntry()"
+                                                   ui-mask="C99999990000 ?" placeholder="CXXXXXXX0000" allow-pattern="(\d|\.[0-9]{1,2})"
+                                                   style="display:inline-block" ng-class="frontTyreRightSerialValidation" ng-keypress="findArticleNoFrontRight($event)" />
+                                        </div>
+                                        <div style="width:49% ; display:inline-block">
+                                            <!--<h6>E.g.: xxxx xxxxxx</h6>-->
+                                            <!--<h6 style="font-size:x-small">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(top&nbsp;&nbsp;&nbsp;&nbsp;bottom)</h6>-->
+                                            <h5>DOT Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+                                            <input type="text" data-inputmask="'mask': '9999'" class="form-control" ng-model="dealerInvoiceTireDetails.front.dotRight"
+                                                   ui-mask="9999" placeholder="XXXX"
+                                                   allow-pattern="(\d|\.[0-9]{1,2})" style="display:inline-block" ng-class="frontTyreRightSerialValidation" />
+                                        </div>
+                                    </div>
+                                    <h5>Tyre Size :</h5>
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.width" theme="selectize" on-select="frontTireEntryfrontwidth($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:21%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreWidthValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="wd in availableWidthList | filter: $select.search">
+                                            <span ng-bind-html="wd | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.cross" theme="selectize" on-select="frontTireEntryfrontcross($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreCrossValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="cl in availableCrossList | filter: $select.search">
+                                            <span ng-bind-html="cl | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <label class="inline-block text-right" style="width:4%;display:inline-block;font-size: x-large;vertical-align: bottom;">
+                                        <strong>R</strong>
+                                    </label>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.diameter" theme="selectize" on-select="frontTireEntryfrontdiameter($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreDiameterValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="dm in availableDiameteList | filter: $select.search">
+                                            <span ng-bind-html="dm | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.loadSpeed" theme="selectize" on-select="frontTireEntryfrontloadSpeed($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:32%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreLoadSpeedValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ls in availableLoadSpeedList | filter: $select.search">
+                                            <span ng-bind-html="ls | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.pattern" theme="selectize" on-select="frontTireEntry($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:99%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreRightpatternValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ap in availablePatternList | filter: $select.search">
+                                            <span ng-bind-html="ap | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+
+                                </div>
+
+                                <div class="div-img-br div-img-br-position" ng-show="isBackTireDetailsVisibleR || dataLoadMode" style="width:320px;height:180px;z-index:50;border:solid 1px;padding:5px 5px 5px 5px">
+                                    <div style="width:99% ; display:inline-block">
+                                        <div style="width:49% ; display:inline-block">
+                                            <h5>Article Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+                                            <input class="form-control" data-inputmask="'mask': '9999 999999'" ng-model="dealerInvoiceTireDetails.back.serialRight" ng-change="rearTireEntry()"
+                                                   ui-mask="C99999990000 ?" placeholder="CXXXXXXX0000" type="text" allow-pattern="(\d|\.[0-9]{1,2})" style="display:inline-block" ng-class="backTyreSerialRightValidation" ng-keypress="findArticleNoBackRight($event)" />
+                                            <!--<h6>E.g.: xxxx xxxxxx</h6>-->
+                                            <!--<h6 style="font-size:x-small">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(top&nbsp;&nbsp;&nbsp;&nbsp;bottom)</h6>-->
+                                        </div>
+                                        <div style="width:49% ; display:inline-block">
+                                            <h5>DOT Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+
+                                            <input class="form-control" data-inputmask="'mask': '9999'" ng-model="dealerInvoiceTireDetails.back.dotRight"
+                                                   ui-mask="9999" placeholder="XXXX" type="text" allow-pattern="(\d|\.[0-9]{1,2})" style="display:inline-block" ng-class="backTyreSerialRightValidation" />
+                                        </div>
+                                    </div>
+                                    <h5>Tyre Size :</h5>
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.width" theme="selectize" on-select="rearTireEntryBackwidth($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:21%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreWidthValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="wd in availableWidthListBack | filter: $select.search">
+                                            <span ng-bind-html="wd | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.cross" theme="selectize" on-select="rearTireEntryBackcross($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreCrossValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="cl in availableCrossListBack | filter: $select.search">
+                                            <span ng-bind-html="cl | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <label class="inline-block text-right" style="width:4%;display:inline-block;font-size: x-large;vertical-align: bottom;">
+                                        <strong>R</strong>
+                                    </label>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.diameter" theme="selectize" on-select="rearTireEntryBackdiameter($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreDiameterValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="dm in availableDiameteListBack | filter: $select.search">
+                                            <span ng-bind-html="dm | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.loadSpeed" theme="selectize" on-select="rearTireEntryBackloadSpeed($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:32%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreLoadSpeedValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ls in availableLoadSpeedListBack | filter: $select.search">
+                                            <span ng-bind-html="ls | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.pattern" theme="selectize" on-select="rearTireEntry($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:99%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyrepatternValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ap in availablePatternListBack | filter: $select.search">
+                                            <span ng-bind-html="ap | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+
+                                </div>
+
+
+
+                                <div class="div-img-down div-img-down-position" ng-show="isDownTireDetailsVisible || dataLoadMode" style="width:370px;height:180px;z-index:50;border:solid 1px;padding:5px 5px 5px 5px">
+                                    <div style="width:99% ; display:inline-block">
+                                        <div style="width:49% ; display:inline-block">
+                                            <h5>Article Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+                                            <input class="form-control" data-inputmask="'mask': '9999 999999'" ng-model="dealerInvoiceTireDetails.down.serialLeft" ng-change="downTireEntry()"
+                                                   ui-mask="C99999990000 ?" placeholder="CXXXXXXX0000" type="text" allow-pattern="(\d|\.[0-9]{1,2})" style="display:inline-block"
+                                                   ng-class="backTyreSerialLeftValidation" ng-keypress="findArticleNoDownLeft($event)" />
+                                            <!--<h6>E.g.: xxxx xxxxxx</h6>-->
+                                            <!--<h6 style="font-size:x-small">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(top&nbsp;&nbsp;&nbsp;&nbsp;bottom)</h6>-->
+                                        </div>
+                                        <div style="width:49% ; display:inline-block">
+                                            <h5>DOT Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+                                            <input class="form-control" data-inputmask="'mask': '9999'" ng-model="dealerInvoiceTireDetails.down.serialLeft"
+                                                   ui-mask="9999" placeholder="XXXX" type="text" allow-pattern="(\d|\.[0-9]{1,2})" style="display:inline-block"
+                                                   ng-class="backTyreSerialLeftValidation" />
+                                        </div>
+                                    </div>
+                                    <h5>Tyre Size :</h5>
+                                    <ui-select ng-model="dealerInvoiceTireDetails.down.width" theme="selectize" on-select="downTireEntryBackwidth($item)"
+                                               ng-disabled="false" style="width:21%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreWidthValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="wd in availableWidthListBack | filter: $select.search">
+                                            <span ng-bind-html="wd | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.down.cross" theme="selectize" on-select="downTireEntryBackcross($item)"
+                                               ng-disabled="false" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreCrossValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="cl in availableCrossListBack | filter: $select.search">
+                                            <span ng-bind-html="cl | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <label class="inline-block text-right" style="width:4%;display:inline-block;font-size: x-large;vertical-align: bottom;">
+                                        <strong>R</strong>
+                                    </label>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.down.diameter" theme="selectize" on-select="downTireEntryBackdiameter($item)"
+                                               ng-disabled="false" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreDiameterValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="dm in availableDiameteListBack | filter: $select.search">
+                                            <span ng-bind-html="dm | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.down.loadSpeed" theme="selectize" on-select="downTireEntryBackloadSpeed($item)"
+                                               ng-disabled="false" style="width:32%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreLoadSpeedValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ls in availableLoadSpeedListBack | filter: $select.search">
+                                            <span ng-bind-html="ls | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.down.pattern" theme="selectize" on-select="downTireEntry($item)"
+                                               ng-disabled="false" style="width:99%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyrepatternValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ap in availablePatternListBack | filter: $select.search">
+                                            <span ng-bind-html="ap | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 " style="margin-top:20px;">
+
+
+                                <div class="div-img-fl-position" ng-show="isFrontTireDetailsVisibleL || dataLoadMode" style="width:320px;z-index:50;border:solid 1px;padding:5px 5px 5px 5px;background-color: #f0f3f4;">
+                                    <div style="width:99% ; display:inline-block">
+                                        <div style="width:49% ; display:inline-block">
+                                            <h5>Article Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+                                            <input class="form-control" ng-model="dealerInvoiceTireDetails.front.serialLeft" ng-change="frontTireEntry()"
+                                                   ui-mask="C99999990000 ?" ui-mask-placeholder placeholder="CXXXXXXX0000" type="text"
+                                                   style="display:inline-block" ng-class="frontTyreLeftSerialValidation" ng-keypress="findArticleNoFrontLeft($event)" />
+                                        </div>
+                                        <!--<h6>E.g.: xxxx xxxxxx</h6>-->
+                                        <!--<h6 style="font-size:x-small">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(top&nbsp;&nbsp;&nbsp;&nbsp;bottom)</h6>-->
+                                        <div style="width:49% ; display:inline-block">
+                                            <h5>DOT Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+
+                                            <input class="form-control" ng-model="dealerInvoiceTireDetails.front.dotLeft"
+                                                   ui-mask="9999" ui-mask-placeholder placeholder="XXXX" type="text" allow-pattern="(\d|\.[0-9]{1,2})"
+                                                   style="display:inline-block" ng-class="frontTyreLeftSerialValidation" />
+                                        </div>
+
+                                    </div>
+                                    <h5>Tyre Size : </h5>
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.width" theme="selectize" on-select="frontTireEntryfrontwidth($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:21%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreWidthValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="wd in availableWidthList | filter: $select.search">
+                                            <span ng-bind-html="wd | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.cross" theme="selectize" on-select="frontTireEntryfrontcross($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreCrossValidation?'has-error':''}}">
+
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="cr in availableCrossList | filter: $select.search">
+                                            <span ng-bind-html="cr | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <label class="inline-block text-right" style="width:4%;display:inline-block;font-size: x-large;vertical-align: bottom;">
+                                        <strong>R</strong>
+                                    </label>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.diameter" theme="selectize" on-select="frontTireEntryfrontdiameter($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreDiameterValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="d in availableDiameteList | filter: $select.search">
+                                            <span ng-bind-html="d | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.loadSpeed" theme="selectize" on-select="frontTireEntryfrontloadSpeed($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:32%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreLoadSpeedValidation?'has-error':''}} ">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ls in availableLoadSpeedList | filter: $select.search">
+                                            <span ng-bind-html="ls | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.front.pattern" theme="selectize" on-select="frontTyreEnterdPttern($item)"
+                                               ng-disabled="frontLeftTyreSizeReadOnly" style="width:99%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{frontTyreRightpatternValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ap in availablePatternList | filter: $select.search">
+                                            <span ng-bind-html="ap | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <h5 style="margin-top:2px;margin-left:2px">Selling Cost Per Tyre : </h5>
+                                    <div class="input-group">
+                                        <input type="number" min="0" step="0.01" class="form-control text-right" ng-model="dealerInvoiceTireDetails.front.price" allow-pattern="^\d*(\.\d{0,2})?$"
+                                               style="" ng-class="frontTyrePriceValidation" ng-focus="selectAllContent($event)" />
+                                        <span class="input-group-addon ng-binding ;display:inline-block">AED</span>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row">&nbsp;</div>
+                                <div class="row">&nbsp;</div>
+
+                                <div class="div-img-bl-position" ng-show="isBackTireDetailsVisibleL || dataLoadMode" style="width:320px;z-index:50;border:solid 1px;padding:5px 5px 5px 5px;background-color: #f0f3f4;">
+
+                                    <div style="width:99% ; display:inline-block">
+                                        <div style="width:49% ; display:inline-block">
+                                            <h5>Article Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+                                            <input class="form-control" data-inputmask="'mask': '9999 999999'" ng-model="dealerInvoiceTireDetails.back.serialLeft" ng-change="rearTireEntry()"
+                                                   ui-mask="C99999990000 ?" placeholder="CXXXXXXX0000" type="text" allow-pattern="(\d|\.[0-9]{1,2})" style="display:inline-block"
+                                                   ng-class="backTyreSerialLeftValidation" ng-keypress="findArticleNoBackLeft($event)" />
+                                            <!--<h6>E.g.: xxxx xxxxxx</h6>-->
+                                            <!--<h6 style="font-size:x-small">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(top&nbsp;&nbsp;&nbsp;&nbsp;bottom)</h6>-->
+                                        </div>
+                                        <div style="width:49% ; display:inline-block">
+                                            <h5>DOT Number <!--: <a ng-click="showImagePopup()">How to find?</a>--></h5>
+                                            <input class="form-control" data-inputmask="'mask': '9999 999999'" ng-model="dealerInvoiceTireDetails.back.dotLeft"
+                                                   ui-mask="9999" placeholder="XXXX" type="text" allow-pattern="(\d|\.[0-9]{1,2})" style="display:inline-block"
+                                                   ng-class="backTyreSerialLeftValidation" />
+                                        </div>
+                                    </div>
+                                    <h5>Tyre Size :</h5>
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.width" theme="selectize" on-select="rearTireEntryBackwidth($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:21%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreWidthValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="wd in availableWidthListBack | filter: $select.search">
+                                            <span ng-bind-html="wd | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.cross" theme="selectize" on-select="rearTireEntryBackcross($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreCrossValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="cl in availableCrossListBack | filter: $select.search">
+                                            <span ng-bind-html="cl | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <label class="inline-block text-right" style="width:4%;display:inline-block;font-size: x-large;vertical-align: bottom;">
+                                        <strong>R</strong>
+                                    </label>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.diameter" theme="selectize" on-select="rearTireEntryBackdiameter($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:19%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreDiameterValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="dm in availableDiameteListBack | filter: $select.search">
+                                            <span ng-bind-html="dm | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.loadSpeed" theme="selectize" on-select="rearTireEntryBackloadSpeed($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:32%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyreLoadSpeedValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ls in availableLoadSpeedListBack | filter: $select.search">
+                                            <span ng-bind-html="ls | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+
+                                    <ui-select ng-model="dealerInvoiceTireDetails.back.pattern" theme="selectize" on-select="backTyreEnterdPttern($item)"
+                                               ng-disabled="rearLeftTyreSizeReadOnly" style="width:99%;display:inline-block"
+                                               append-to-body="appendToBody" class="{{backTyrepatternValidation?'has-error':''}}">
+                                        <ui-select-match placeholder="">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="ap in availablePatternListBack | filter: $select.search">
+                                            <span ng-bind-html="ap | highlight: $select.search"></span>
+                                        </ui-select-choices>
+                                    </ui-select>
+                                    <h5 style="margin-top:2px;margin-left:2px">Selling Cost Per Tyre : </h5>
+                                    <div class="input-group">
+                                        <input type="number" min="0" step="0.01" class="form-control text-right" ng-model="dealerInvoiceTireDetails.back.price" allow-pattern="^\d*(\.\d{0,2})?$"
+                                               style="" ng-class="backTyrePriceValidation" ng-focus="selectAllContent($event)" />
+                                        <span class="input-group-addon ng-binding ;display:inline-block">AED</span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    <div class="row">&nbsp;</div>
+                    <div class="row">&nbsp;</div>
+
+                    <div class="row">&nbsp;</div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row">&nbsp;</div>
+                    <div class="row">&nbsp;</div>
+
+                    <div class="row"></div>
+                    <div class="row" style="margin-top:15px">
+
+                        <div class="col-md-2 col-md-offset-8">
+                            <!--<button class="btn btn-dark-azure btn-block  pull-right"  ng-click="generateTyreDetails()">
+                TEST CONTRACT
+            </button>-->
+                            <br />
+                            <button class="btn btn-dark-azure btn-block  pull-right" ng-disabled="dataLoadMode" ng-click="resetInvoiceTireDetails(true);resetButtons();">
+                                Reset
+                            </button>
+
+                        </div>
+                        <div class="col-md-2">
+                            <br />
+                            <button class="btn continental-color btn-block pull-right" ng-disabled="dataLoadMode" ng-click="form.goTo(Form, 2)">
+                                Next <i ng-class="TaxSaveBtnIconClass"></i>
+                            </button>
+                        </div>
+                        <!--<div class="col-md-2">
+            <br />
+            <button class="btn continental-color btn-block pull-right" ng-disabled="dataLoadMode" ng-click="generateInvoiceCode()">
+                Generate <i ng-class="TaxSaveBtnIconClass"></i>
+            </button>
+        </div>-->
+                    </div>
+                    <div class="row">&nbsp;</div>
+                </div>
+                <div id="step-2" ng-show="currentStep == 2">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="login-content" style="margin-top:15px">
+                                <div class="heading">
+                                    <!--<i class="fa fa-file-text-o"></i>-->
+                                    <div class="extra-wrap">
+                                        <h3>Customer Information</h3>
+                                    </div>
+
+                                </div>
+                                <div>
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="form-field-1">
+                                                        Customer Type<span class="symbol required"></span>
+                                                    </label>
+                                                    <select class="form-control  input-sm  input-sm" ng-class="validate_customerTypeId"
+                                                            ng-model="customer.customerTypeId"
+                                                            ng-change="selectedCustomerTypeIdChanged()" tabindex="1">
+                                                        <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                                                        <option ng-repeat="option in customerTypes" value="{{option.Id}}"
+                                                                ng-selected="customer.customerTypeId==option.Id">
+                                                            {{option.CustomerTypeName}}
+                                                        </option>
+
+                                                        <!--<option value="1">Corporate</option>
+                    <option value="2" ng-selected="true">Individual</option>-->
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="form-field-1">
+                                                        Usage Type<span class="symbol required"></span>
+                                                    </label>
+
+
+                                                    <select ng-disabled="customerDisabled" class="form-control input-sm input-sm" ng-model="customer.usageTypeId" ng-class="validate_usageTypeId" ng-change="selectedUsageTypeChanged();loadContractDetails()"
+                                                            ng-options="usageT.Id as usageT.UsageTypeName for usageT in usageTypes" tabindex="2">
+                                                        <option value=""> Please select </option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div ng-show="selectedCustomerTypeName!='Corporate'">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            First Name<span class="symbol required"></span>
+                                                        </label>
+                                                        <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled"
+                                                               placeholder="First Name" ng-class="validate_firstName" tabindex="3"
+                                                               class="form-control  input-sm  input-sm" ng-model="customer.firstName" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            Last Name <span class="symbol required"></span>
+                                                        </label>
+                                                        <input type="text" allow-pattern="(\s|[a-z])" ng-disabled="customerDisabled"
+                                                               placeholder="Last Name" ng-class="validate_lastName" class="form-control  input-sm  input-sm"
+                                                               ng-model="customer.lastName" tabindex="3" />
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <div ng-show="selectedCustomerTypeName!='Corporate'">
+                                                <div class="col-md-3 ">
+                                                    <div class="form-group ">
+                                                        <label class="control-label">
+                                                            Mobile Phone<span class="symbol required"></span>
+                                                        </label>
+                                                        <input type="tel" maxlength="13" allow-pattern="(\d|\+|\-|\s)" ng-disabled="customerDisabled" rel="tooltip" data-original-title="Text shadow" tabindex="5"
+                                                               placeholder="Mobile Phone" ng-class="validate_mobileNo" class="form-control  input-sm"
+                                                               ng-model="customer.mobileNo">
+                                                        <!--<span class="tooltiptext">Tooltip text</span>-->
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            Email Address<span class="symbol required"></span>
+                                                        </label>
+                                                        <input type="text" allow-pattern="(\w|$)" ng-disabled="customerDisabled" tabindex="5"
+                                                               ng-class="validate_email" placeholder="peter@example.com" class="form-control  input-sm"
+                                                               ng-model="customer.email" ng-blur="getUserName()" ng-change="validateCustomerEmailEmail()"
+                                                               data-toggle="tooltip" data-trigger="hover" data-placement="bottom"
+                                                               data-content="  This is your user name  ">
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <div ng-show="selectedCustomerTypeName=='Corporate' " style="margin-top:10px">
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            Business Name<span class="symbol required"></span>
+                                                        </label>
+                                                        <input ng-disabled="customerDisabled" class="form-control  input-sm" type="text" tabindex="3"
+                                                               placeholder="Business Name" ng-model="customer.businessName" ng-class="validate_businessName" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            Business Telephone <span class="symbol required"></span>
+                                                        </label>
+                                                        <input ng-disabled="customerDisabled" class="form-control  input-sm" maxlength="13"
+                                                               type="tel" allow-pattern="(\d|\+|\-|\s)"
+                                                               ng-class="validate_businessTelNo" tabindex="4"
+                                                               placeholder="Business Telephone Number" ng-model="customer.businessTelNo" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            Email Address <span class="symbol required"></span>
+                                                        </label>
+                                                        <input type="text" allow-pattern="(\w|\@)" ng-disabled="customerDisabled" tabindex="5"
+                                                               ng-class="validate_email" placeholder="peter@example.com" class="form-control  input-sm"
+                                                               ng-model="customer.email" ng-blur="getUserName()" ng-change="getUserName()">
+                                                    </div>
+                                                </div>
+
+                                                <!--<div class="clearfix"></div>-->
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            Mobile Phone<span class="symbol required"></span>
+                                                        </label>
+                                                        <input type="tel" maxlength="13" allow-pattern="(\d|\+|\-|\s)" ng-disabled="customerDisabled"
+                                                               placeholder="Mobile Phone" ng-class="validate_mobileNo" tabindex="5" class="form-control  input-sm"
+                                                               ng-model="customer.mobileNo">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12" style="border-top:1px solid;margin-top:15px;margin-bottom:15px"></div>
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        City<span class="symbol required"></span>
+                                                    </label>
+                                                    <select class="form-control input-sm" ng-model="customer.PlateRelatedCityId" name="city" ng-class="validate_city_model"
+                                                            ng-options="city.Id  as city.CityName for city in Cities" tabindex="6"
+                                                            ng-change="">
+                                                        <option value=""> Please select </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Plate Number With Code <span class="symbol required"></span>
+                                                    </label>
+                                                    <input type="text" ng-disabled="customerDisabled"
+                                                           placeholder="Plate Number" ng-class="validate_Plate" tabindex="7"
+                                                           class="form-control  input-sm  input-sm" ng-model="customer.plateNumber" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+
+                                                    <div class="form-group">
+                                                        <label class="control-label">
+                                                            Current Mileage <span class="symbol required"></span>
+                                                        </label>
+
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control input-sm text-left" placeholder="Mileage" tabindex="8"
+                                                                   allow-pattern="(\d)" ng-model="customer.addMileage" ng-class="validate_additional_mileage" />
+                                                            <label class="input-group-addon">&nbsp;km&nbsp;</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Make<span class="symbol required"></span>
+                                                    </label>
+                                                    <select class="form-control input-sm" ng-model="MakeId" name="Id" ng-class="validate_additional_make"
+                                                            ng-options="n.id as n.label for n in additionalPolicyDetailsMake" tabindex="9"
+                                                            ng-change="selectedAditionalMakeChange()">
+                                                        <option value=""> Please select </option>
+                                                    </select>
+                                                    <!--<div ng-dropdown-multiselect="" options="additionalPolicyDetailsMake" selected-model="additionalSelectedMakeList"
+                     extra-settings="settings" ng-class="validate_additional_make"
+                     events="{ onItemSelect: selectedAditionalMakeChange ,onItemDeselect:selectedAditionalMakeChange}"
+                     tabindex="6">
+                </div>-->
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+
+
+
+                                        </div>
+
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Model<span class="symbol required"></span>
+                                                    </label>
+                                                    <select class="form-control input-sm" ng-model="ModelId" name="Id" ng-class="validate_additional_model"
+                                                            ng-options="n.id as n.label for n in filterdSelectedModelList" tabindex="10"
+                                                            ng-change="">
+                                                        <option value=""> Please select </option>
+                                                    </select>
+                                                    <!--<div ng-dropdown-multiselect="" options="filterdSelectedModelList" selected-model="additionalSelectedModelList"
+                extra-settings="settings" ng-class="validate_additional_model"
+                tabindex="7"></div>-->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Year<span class="symbol required"></span>
+                                                    </label>
+                                                    <select class="form-control input-sm" ng-model="YearId" name="Id" ng-class="validate_additional_modelYear"
+                                                            ng-options="n.id as n.label for n in additionalPolicyDetailsModelYearList" tabindex="11"
+                                                            ng-change="">
+                                                        <option value=""> Please select </option>
+                                                    </select>
+                                                    <!--<div ng-dropdown-multiselect="" options="additionalPolicyDetailsModelYearList" ng-class="validate_additional_modelYear"
+                selected-model="additionalSelectedModelYearList" extra-settings="settings" translation-texts="CustomText"></div>-->
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Invoice No<span class="symbol required"></span>
+                                                    </label>
+                                                    <input type="text"
+                                                           id="txt_invoiceNumber"
+                                                           placeholder="Invoice No"
+                                                           class="form-control  input-sm" ng-model="customer.invoiceNo"
+                                                           ng-class="validate_invoiceNo" tabindex="12">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <div class="input-group-btn">
+                                                    <span class="btn  btn-o btn-file btn-sm btn-primary" style="margin-top:23px">
+                                                        Upload Invoice &nbsp; <i class="fa fa-check"
+                                                                                 ng-hide="customerInvoiceUploader.queue.length === 0 && !customer.invoiceAttachmentId"></i>
+                                                        <input type="file" nv-file-select=""
+                                                               options="{ documentType: extPolicyRegAttachmentType}"
+                                                               uploader="customerInvoiceUploader" tabindex="13" />
+                                                    </span>
+                                                    <!--<span class="btn  btn-o btn-file btn-sm btn-beige" ng-show="customer.invoiceAttachmentId" style="margin-top:24px">
+                    <i class="fa fa-download"></i>&nbsp; Download
+
+                </span>-->
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12" style="border-top:1px solid;margin-top:15px;margin-bottom:15px"></div>
+
+                                        </div>
+
+
+
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Dealer Branch<span class="symbol required"></span>
+                                                    </label>
+                                                    <select class="form-control input-sm" ng-model="dealerInvoiceDetails.dealerBranchId" name="Id" ng-class="validate_dealer_branch_model"
+                                                            ng-options="dBranch.Id as dBranch.Location for dBranch in dealerBranches" tabindex="14"
+                                                            ng-change="">
+                                                        <option value=""> Please select </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Contract Purchase Date<span class="symbol required"></span>
+                                                    </label>
+                                                    <input type="text" placeholder="Click for Calendar" ng-readonly="true" ng-change="loadContractDetails()"
+                                                           class="form-control  input-sm" ng-model="purchaseDate" max-date="maxdate"
+                                                           ng-class="validate_purchaseDate" tabindex="15"
+                                                           datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpen2 = !startOpen2"
+                                                           is-open="startOpen2" ng-init="startOpen2 = false" close-text="Close" datepicker-append-to-body="true" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        {{contractOne}} <span class="symbol required"></span>
+                                                    </label>
+                                                    <select class="form-control input-sm" ng-model="premiumOneModal" name="Id" ng-class="validate_contractOne"
+                                                            ng-options="cOne.ContractExtensionPremiumId as cOne.DealName for cOne in contractOneData" tabindex="17"
+                                                            ng-change="selectContractOtherDetails()">
+                                                        <option value=""> Please select </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Contract Expiry Date
+                                                    </label>
+                                                    <input type="text" ng-readonly="true" placeholder="Contract Expiry Date" tabindex="16"
+                                                           class="form-control  input-sm" ng-model="expiryDateOne" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" ng-hide="true">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Gross
+                                                    </label>
+                                                    <input type="text" ng-readonly="true" placeholder="Gross" tabindex="16"
+                                                           class="form-control  input-sm" ng-model="grossOne" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" ng-hide="true">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        NRP
+                                                    </label>
+                                                    <input type="text" ng-readonly="true" placeholder="NRP" tabindex="16"
+                                                           class="form-control  input-sm" ng-model="nrpOne" />
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="col-md-12" ng-show="isTowContract">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        {{contractTow}} <span class="symbol required"></span>
+                                                    </label>
+                                                    <select class="form-control input-sm" ng-model="premiumTwoModal" name="Id" ng-class="validate_contractTow"
+                                                            ng-options="cTwo.ContractExtensionPremiumId as cTwo.DealName for cTwo in contractTwoData" tabindex="18"
+                                                            ng-change="selectContractOtherDetails()">
+                                                        <option value=""> Please select </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Contract Expiry Date
+                                                    </label>
+                                                    <input type="text" ng-readonly="true" placeholder="Contract Expiry Date" tabindex="16"
+                                                           class="form-control  input-sm" ng-model="expiryDateTwo" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" ng-hide="true">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        Gross
+                                                    </label>
+                                                    <input type="text" ng-readonly="true" placeholder="Gross" tabindex="16"
+                                                           class="form-control  input-sm" ng-model="grossTwo" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2" ng-hide="true">
+                                                <div class="form-group">
+                                                    <label class="control-label">
+                                                        NRP
+                                                    </label>
+                                                    <input type="text" ng-readonly="true" placeholder="NRP" tabindex="16"
+                                                           class="form-control  input-sm" ng-model="nrpTow" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-12" style="border-top:1px solid;margin-top:15px;margin-bottom:15px"></div>
+
+
+
+                                        <div class="col-md-12" style="margin-top:10px">
+
+
+                                            <!--<button class="btn btn-wide continental-color  pull-right" style=""
+                                                    ng-click="loadContractDetails();" tabindex="15">
+                                                TEST
+                                            </button>-->
+
+                                            <button class="btn btn-wide continental-color  pull-right" style=""
+                                                    ng-click="submitTyreSales();" tabindex="15">
+                                                Submit
+                                            </button>
+                                            <button class="btn btn-dark-azure btn-wide  pull-right" style="margin-right:10px" tabindex="16" ng-disabled="dataLoadMode" ng-click="resetCustomerInformation();">
+                                                Reset
+                                            </button>
+                                            <input type="button" class="btn btn-wide btn-primary pull-right" style="margin-right:10px" tabindex="17" ng-click="form.goTo(Form, 1)" value="Back" />
+
+                                        </div>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/ng-template" id="popUpSearchCode">
+
+    <style>
+        .input-sm {
+            height: 25px !important;
+            font-size: 11px;
+        }
+
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        .ngdialog-content {
+            width: 800px !important;
+            height: 420px !important;
+        }
+
+        .ui-grid-top-panel {
+            font-weight: 400 !important;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .grid {
+            height: 275px !important;
+        }
+
+        .ui-grid-pager-panel {
+            text-align: right;
+            box-sizing: border-box !important;
+        }
+
+        .ui-grid-header-cell .ui-grid-cell-contents {
+            text-align: center;
+        }
+
+        .columCss {
+            text-decoration: none;
+        }
+
+        .columCssBold {
+            font-weight: bold;
+        }
+
+        .ui-grid-canvas {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /*
+               This is the background of our overlay. We need it to be
+               absolutely positioned within the grid, and fill from
+               top to bottom, and the full width. It will also have
+               a black background with 40% opacity.
+            */
+        .grid-msg-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+            /*
+              This guy will contain our message. We want it centered
+              so it's positioned absolutely with percentage-based
+              offsets and dimensions. It also has some basic border
+              stuff and most important is using "display: table" so
+              we can vertically center its contents.
+            */
+            .grid-msg-overlay .msg {
+                opacity: 1;
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                width: 60%;
+                height: 50%;
+                background-color: #eee;
+                border-radius: 4px;
+                border: 1px solid #555;
+                text-align: center;
+                font-size: 24px;
+                display: table;
+            }
+
+                /*
+              Lastly this is the actual message text. It uses
+              display: table-cell so the vertical alignment
+              works properly.
+            */
+                .grid-msg-overlay .msg span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+    </style>
+
+
+    <div>
+        <h3 class="">Search Invoice Codes</h3>
+        <div name="myForm" class="my-form">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">
+                            Date
+                        </label>
+                        <input type="text" placeholder="Click for Calendar" class="form-control input-sm" ng-model="dealerInvoiceCodeSearchParam.date"
+                               datepicker-popup="dd-MMM-yyyy" datepicker-localdate ng-click="startOpenf = !startOpenf" is-open="startOpenf" ng-init="startOpenf = false" close-text="Close" tabindex="8" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Plate Number</label>
+                        <input type="text" class="form-control input-sm" ng-model="dealerInvoiceCodeSearchParam.plateNo">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Invoice Code</label>
+                        <input type="text" class="form-control input-sm" ng-model="dealerInvoiceCodeSearchParam.code">
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+
+                    <input type="button" style="margin-top:24px" class=" pull-left ngdialog-button btn-xs ngdialog-button-primary" ng-click="refresInvoiceCodeSearchGridData()"
+                           value="Search">
+                    <input type="button" style="margin-top:24px" class=" pull-left ngdialog-button btn-xs btn-warning" ng-click="resetSearchCriterias()"
+                           value="Reset">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="margin-top:5px">
+
+                    <div ui-grid="gridOptionsInvoiceCode" ui-grid-pagination class="grid">
+                        <div class="grid-msg-overlay" ng-hide="gridOptionsInvoiceCode.data.length>0 && gridDealerInvoiceCodeloadAttempted">
+                            <div class="msg">
+                                <span>No Data</span>
+                            </div>
+                        </div>
+                        <div class="grid-msg-overlay" ng-hide="!gridDealerInvoiceCodeLoading">
+                            <div class="msg">
+                                <span>
+                                    Loading Data...
+                                    <i class="fa fa-spinner fa-spin"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</script>
+
+<style>
+    /*.ng-valid .selectize-control {
+           display: none !important;
+       }*/
+    .has-error {
+        border: solid 1px #e84e4e !important;
+        /*#fbaa2b*/
+    }
+
+    .drop-btn {
+        width: 100% !important
+    }
+
+    .dropdown-multiselect {
+        width: 100% !important
+    }
+
+    #wrap .popover {
+        width: 300px;
+    }
+
+    .group2label {
+        font-size: 20px;
+    }
+
+    .popover-content {
+        width: 350px;
+    }
+
+    .well {
+        max-width: 600px;
+        margin: 0 auto;
+        position: fixed;
+        top: 10px;
+    }
+
+    .popover {
+        max-width: 350px !important;
+    }
+
+    .popover-content {
+        padding: 10px 10px !important;
+    }
+
+    #page-title {
+        padding: 20px 0;
+    }
+
+    .swMain > ul {
+        margin: 0 !important;
+    }
+
+    .img-responsive {
+        margin: 0px;
+        margin-right: auto;
+        margin-bottom: 0px;
+        margin-left: -120px;
+        height: 300px;
+    }
+
+    .container-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-img-fl {
+        position: absolute;
+        top: 20%;
+        left: -70%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    .checkbox-img-fl {
+        position: absolute;
+        top: 20%;
+        left: -90%;
+        transform: translate(-40%, -40%);
+        -ms-transform: translate(-70%, -70%);
+    }
+
+    .checkbox-img-fr {
+        position: absolute;
+        top: 20%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    .checkbox-img-rl {
+        position: absolute;
+        top: 80%;
+        left: -90%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    .checkbox-img-rr {
+        position: absolute;
+        top: 80%;
+        left: 60%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    .checkbox-img-down {
+        position: absolute;
+        top: 120%;
+        left: -16%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+
+    .btn-img-down {
+        position: absolute;
+        top: 110%;
+        left: -18%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    @media (max-width: 768px) {
+
+        .div-img-fl-position {
+            top: 60% !important;
+            left: 23% !important;
+            height: 200px !important;
+        }
+
+        .div-img-fr-position {
+            top: 60% !important;
+            left: 77% !important;
+            height: 200px !important;
+        }
+
+        .div-img-bl-position {
+            top: 40% !important;
+            left: 23% !important;
+            height: 200px !important;
+        }
+
+        .div-img-br-position {
+            top: 40% !important;
+            left: 77% !important;
+            height: 200px !important;
+        }
+
+        .div-img-down-position {
+            top: 70% !important;
+            top: 60% !important;
+            left: 50% !important;
+            height: 200px !important;
+        }
+
+        .btn-img-down-position {
+            top: 105% !important;
+        }
+    }
+
+    .div-img-fl {
+        position: absolute;
+        top: 30%;
+        left: 130%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        box-shadow: 2px 2px;
+        overflow-y: scroll;
+        background-color: #f0f3f4;
+    }
+
+    .div-img-fr {
+        position: absolute;
+        top: 30%;
+        left: 260%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        box-shadow: 2px 2px;
+        overflow-y: scroll;
+        background-color: #f0f3f4;
+    }
+
+    .div-img-br {
+        position: absolute;
+        top: 90%;
+        left: 260%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        box-shadow: 2px 2px;
+        overflow-y: scroll;
+        background-color: #f0f3f4;
+    }
+
+    .div-img-bl {
+        position: absolute;
+        top: 90%;
+        left: 130%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        box-shadow: 2px 2px;
+        overflow-y: scroll;
+        background-color: #f0f3f4;
+    }
+
+    .div-img-down {
+        position: absolute;
+        top: 150%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        box-shadow: 2px 2px;
+        overflow-y: scroll;
+        background-color: #f0f3f4;
+    }
+
+    .btn-img-rl {
+        position: absolute;
+        top: 80%;
+        left: -70%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+
+    .btn-img-fr {
+        position: absolute;
+        top: 20%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    .btn-img-rr {
+        position: absolute;
+        top: 80%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+    .btn-img-down {
+        position: absolute;
+        top: 110%;
+        left: -16%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+    }
+
+
+
+    .box {
+        border-top: #ffa500 3px solid;
+        border-right: #ffa500 3px solid;
+        border-bottom: #ffa500 3px solid;
+        border-left: #ffa500 3px solid;
+        padding: 2px;
+    }
+
+    .search-container button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+    }
+
+    path {
+        fill: transparent;
+    }
+
+    text {
+        fill: #FF9800;
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 35px;
+    }
+    /*radio*/
+    .checkbox {
+        padding-left: 20px;
+    }
+
+        .checkbox label {
+            display: inline-block;
+            position: relative;
+            padding-left: 5px;
+        }
+
+            .checkbox label::before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                width: 17px;
+                height: 17px;
+                left: 0;
+                margin-left: -20px;
+                border: 1px solid #cccccc;
+                border-radius: 3px;
+                background-color: #fff;
+                -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+                -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+                transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+            }
+
+            .checkbox label::after {
+                display: inline-block;
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                left: 0;
+                top: 0;
+                margin-left: -20px;
+                padding-left: 3px;
+                padding-top: 1px;
+                font-size: 11px;
+                color: #555555;
+            }
+
+        .checkbox input[type="checkbox"] {
+            opacity: 0;
+        }
+
+            .checkbox input[type="checkbox"]:focus + label::before {
+                outline: thin dotted;
+                outline: 5px auto -webkit-focus-ring-color;
+                outline-offset: -2px;
+            }
+
+            .checkbox input[type="checkbox"]:checked + label::after {
+                font-family: 'FontAwesome';
+                content: "\f00c";
+            }
+
+            .checkbox input[type="checkbox"]:disabled + label {
+                opacity: 0.65;
+            }
+
+                .checkbox input[type="checkbox"]:disabled + label::before {
+                    background-color: #eeeeee;
+                    cursor: not-allowed;
+                }
+
+        .checkbox.checkbox-circle label::before {
+            border-radius: 50%;
+        }
+
+        .checkbox.checkbox-inline {
+            margin-top: 0;
+        }
+
+    .checkbox-primary input[type="checkbox"]:checked + label::before {
+        background-color: #428bca;
+        border-color: #428bca;
+    }
+
+    .checkbox-primary input[type="checkbox"]:checked + label::after {
+        color: #fff;
+    }
+
+    .checkbox-danger input[type="checkbox"]:checked + label::before {
+        background-color: #d9534f;
+        border-color: #d9534f;
+    }
+
+    .checkbox-danger input[type="checkbox"]:checked + label::after {
+        color: #fff;
+    }
+
+    .checkbox-info input[type="checkbox"]:checked + label::before {
+        background-color: #5bc0de;
+        border-color: #5bc0de;
+    }
+
+    .checkbox-info input[type="checkbox"]:checked + label::after {
+        color: #fff;
+    }
+
+    .checkbox-warning input[type="checkbox"]:checked + label::before {
+        background-color: #f0ad4e;
+        border-color: #f0ad4e;
+    }
+
+    .checkbox-warning input[type="checkbox"]:checked + label::after {
+        color: #fff;
+    }
+
+    .checkbox-success input[type="checkbox"]:checked + label::before {
+        background-color: #5cb85c;
+        border-color: #5cb85c;
+    }
+
+    .checkbox-success input[type="checkbox"]:checked + label::after {
+        color: #fff;
+    }
+
+    .radio {
+        padding-left: 20px;
+    }
+
+        .radio label {
+            display: inline-block;
+            position: relative;
+            padding-left: 5px;
+        }
+
+            .radio label::before {
+                content: "";
+                display: inline-block;
+                position: absolute;
+                width: 17px;
+                height: 17px;
+                left: 0;
+                margin-left: -20px;
+                border: 1px solid #cccccc;
+                border-radius: 50%;
+                background-color: #fff;
+                -webkit-transition: border 0.15s ease-in-out;
+                -o-transition: border 0.15s ease-in-out;
+                transition: border 0.15s ease-in-out;
+            }
+
+            .radio label::after {
+                display: inline-block;
+                position: absolute;
+                content: " ";
+                width: 11px;
+                height: 11px;
+                left: 3px;
+                top: 3px;
+                margin-left: -20px;
+                border-radius: 50%;
+                background-color: #555555;
+                -webkit-transform: scale(0, 0);
+                -ms-transform: scale(0, 0);
+                -o-transform: scale(0, 0);
+                transform: scale(0, 0);
+                -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+                transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+            }
+
+        .radio input[type="radio"] {
+            opacity: 0;
+        }
+
+            .radio input[type="radio"]:focus + label::before {
+                outline: thin dotted;
+                outline: 5px auto -webkit-focus-ring-color;
+                outline-offset: -2px;
+            }
+
+            .radio input[type="radio"]:checked + label::after {
+                -webkit-transform: scale(1, 1);
+                -ms-transform: scale(1, 1);
+                -o-transform: scale(1, 1);
+                transform: scale(1, 1);
+            }
+
+            .radio input[type="radio"]:disabled + label {
+                opacity: 0.65;
+            }
+
+                .radio input[type="radio"]:disabled + label::before {
+                    cursor: not-allowed;
+                }
+
+        .radio.radio-inline {
+            margin-top: 0;
+        }
+
+    .radio-primary input[type="radio"] + label::after {
+        background-color: #428bca;
+    }
+
+    .radio-primary input[type="radio"]:checked + label::before {
+        border-color: #428bca;
+    }
+
+    .radio-primary input[type="radio"]:checked + label::after {
+        background-color: #428bca;
+    }
+
+    .radio-danger input[type="radio"] + label::after {
+        background-color: #d9534f;
+    }
+
+    .radio-danger input[type="radio"]:checked + label::before {
+        border-color: #d9534f;
+    }
+
+    .radio-danger input[type="radio"]:checked + label::after {
+        background-color: #d9534f;
+    }
+
+    .radio-info input[type="radio"] + label::after {
+        background-color: #5bc0de;
+    }
+
+    .radio-info input[type="radio"]:checked + label::before {
+        border-color: #5bc0de;
+    }
+
+    .radio-info input[type="radio"]:checked + label::after {
+        background-color: #5bc0de;
+    }
+
+    .radio-warning input[type="radio"] + label::after {
+        background-color: #f0ad4e;
+    }
+
+    .radio-warning input[type="radio"]:checked + label::before {
+        border-color: #f0ad4e;
+    }
+
+    .radio-warning input[type="radio"]:checked + label::after {
+        background-color: #f0ad4e;
+    }
+
+    .radio-success input[type="radio"] + label::after {
+        background-color: #5cb85c;
+    }
+
+    .radio-success input[type="radio"]:checked + label::before {
+        border-color: #5cb85c;
+    }
+
+    .radio-success input[type="radio"]:checked + label::after {
+        background-color: #5cb85c;
+    }
+
+
+    .continental-color {
+        background-color: #ffa500 !important;
+        color: black;
+    }
+
+    .continental-color-abs {
+        color: #ffa500 !important;
+    }
+
+    .swMain > ul li > a.selected .stepNumber {
+        border-color: #ffa500 !important;
+    }
+
+    .swMain > ul li > a.selected::before, .swMain li > a.done::before {
+        border-color: #ffa500 !important;
+    }
+
+    .swMain ul li > a.done .stepNumber, .swMain > ul li:last-child > a.selected .stepNumber {
+        background-color: #ffa500 !important;
+        color: black;
+    }
+
+    .sweet-alert .sa-icon.sa-success .sa-line {
+        background-color: #ffa500 !important;
+    }
+
+    .sweet-alert .sa-icon.sa-success .sa-placeholder {
+        border: 4px solid #ffa500;
+    }
+
+
+    /* Styles go here */
+
+    /*!
+    * ui-select
+    * http://github.com/angular-ui/ui-select
+    * Version: 0.11.2 - 2015-03-17T04:08:46.478Z
+    * License: MIT
+    */
+
+
+    /* Style when highlighting a search. */
+    .ui-select-highlight {
+        font-weight: bold;
+    }
+
+    .ui-select-offscreen {
+        clip: rect(0 0 0 0) !important;
+        width: 1px !important;
+        height: 1px !important;
+        border: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        outline: 0 !important;
+        left: 0px !important;
+        top: 0px !important;
+    }
+
+    /* Select2 theme */
+
+    /* Mark invalid Select2 */
+    .ng-dirty.ng-invalid > a.select2-choice {
+        border-color: #D44950;
+    }
+
+    .select2-result-single {
+        padding-left: 0;
+    }
+
+    .select2-locked > .select2-search-choice-close {
+        display: none;
+    }
+
+    .select-locked > .ui-select-match-close {
+        display: none;
+    }
+
+    body > .select2-container.open {
+        z-index: 9999; /* The z-index Select2 applies to the select2-drop */
+    }
+
+    /* Selectize theme */
+
+    /* Helper class to show styles when focus */
+    .selectize-input.selectize-focus {
+        border-color: #007FBB !important;
+    }
+
+    /* Fix input width for Selectize theme */
+    .selectize-control > .selectize-input > input {
+        width: 100%;
+    }
+
+    /* Fix dropdown width for Selectize theme */
+    .selectize-control > .selectize-dropdown {
+        width: 100%;
+    }
+
+    /* Mark invalid Selectize */
+    .ng-dirty.ng-invalid > div.selectize-input {
+        border-color: #D44950;
+    }
+
+
+    /* Bootstrap theme */
+
+    /* Helper class to show styles when focus */
+    .btn-default-focus {
+        color: #333;
+        background-color: #EBEBEB;
+        border-color: #ADADAD;
+        text-decoration: none;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+
+    .ui-select-bootstrap .ui-select-toggle {
+        position: relative;
+    }
+
+        .ui-select-bootstrap .ui-select-toggle > .caret {
+            position: absolute;
+            height: 10px;
+            top: 50%;
+            right: 10px;
+            margin-top: -2px;
+        }
+
+    /* Fix Bootstrap dropdown position when inside a input-group */
+    .input-group > .ui-select-bootstrap.dropdown {
+        /* Instead of relative */
+        position: static;
+    }
+
+    .input-group > .ui-select-bootstrap > input.ui-select-search.form-control {
+        border-radius: 4px; /* FIXME hardcoded value :-/ */
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .ui-select-bootstrap > .ui-select-match > .btn {
+        /* Instead of center because of .btn */
+        text-align: left !important;
+    }
+
+    .ui-select-bootstrap > .ui-select-match > .caret {
+        position: absolute;
+        top: 45%;
+        right: 15px;
+    }
+
+    /* See Scrollable Menu with Bootstrap 3 http://stackoverflow.com/questions/19227496 */
+    .ui-select-bootstrap > .ui-select-choices {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        overflow-x: hidden;
+        margin-top: -1px;
+    }
+
+    body > .ui-select-bootstrap.open {
+        z-index: 1000; /* Standard Bootstrap dropdown z-index */
+    }
+
+    .ui-select-multiple.ui-select-bootstrap {
+        height: auto;
+        padding: 3px 3px 0 3px;
+    }
+
+        .ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+            background-color: transparent !important; /* To prevent double background when disabled */
+            border: none;
+            outline: none;
+            height: 1.666666em;
+            margin-bottom: 3px;
+        }
+
+        .ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
+            font-size: 1.6em;
+            line-height: 0.75;
+        }
+
+        .ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+            outline: 0;
+            margin: 0 3px 3px 0;
+        }
+
+    .ui-select-multiple .ui-select-match-item {
+        position: relative;
+    }
+
+        .ui-select-multiple .ui-select-match-item.dropping-before:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 100%;
+            height: 100%;
+            margin-right: 2px;
+            border-left: 1px solid #428bca;
+        }
+
+        .ui-select-multiple .ui-select-match-item.dropping-after:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 100%;
+            height: 100%;
+            margin-left: 2px;
+            border-right: 1px solid #428bca;
+        }
+
+    .ui-select-bootstrap .ui-select-choices-row > a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.42857143;
+        color: #333;
+        white-space: nowrap;
+    }
+
+        .ui-select-bootstrap .ui-select-choices-row > a:hover, .ui-select-bootstrap .ui-select-choices-row > a:focus {
+            text-decoration: none;
+            color: #262626;
+            background-color: #f5f5f5;
+        }
+
+    .ui-select-bootstrap .ui-select-choices-row.active > a {
+        color: #fff;
+        text-decoration: none;
+        outline: 0;
+        background-color: #428bca;
+    }
+
+    .ui-select-bootstrap .ui-select-choices-row.disabled > a,
+    .ui-select-bootstrap .ui-select-choices-row.active.disabled > a {
+        color: #777;
+        cursor: not-allowed;
+        background-color: #fff;
+    }
+
+    /* fix hide/show angular animation */
+    .ui-select-match.ng-hide-add,
+    .ui-select-search.ng-hide-add {
+        display: none !important;
+    }
+
+    /* Mark invalid Bootstrap */
+    .ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
+        border-color: #D44950;
+    }
+
+    .ui-select-placeholder {
+        display: inline-block;
+    }
+
+    .multiselect-parent {
+        width: 100%;
+    }
+
+        .multiselect-parent .dropdown-toggle {
+            width: 100%;
+            text-align: left;
+        }
+
+        .multiselect-parent .dropdown-menu {
+            width: 100%;
+        }
+</style>
+
+<script type="text/ng-template" id="popUpImage">
+    <style>
+        .ngdialog-content {
+            width: 130px !important;
+            height: 130px !important;
+            background: transparent !important;
+        }
+    </style>
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="box" style="height: 340px; width: 200px; margin-top: 30px; cursor: pointer; align-content:center; background-image: url(../STANDARD/assets/images/tyerserialno.jpeg) ">
+
+            </div>
+
+        </div>
+    </div>
+
+</script>
+

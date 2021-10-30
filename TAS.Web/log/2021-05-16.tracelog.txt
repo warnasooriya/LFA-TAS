@@ -1,0 +1,10 @@
+2021-05-16 09:32:41.2139 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-05-16 09:32:43.1357 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjExMzc3NjIsImp0aSI6Ijc2YjkyOTQxLWQ2NzQtNGI3Ny1iNTg0LWE3NzU1ZmFkOTVkNiIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjZWQ5M2UwMS1kZmNhLTRmMDgtOWEzYi1jNjNmYmE2Y2YzMmYifQ.DQBHiGLlCBWHoWgtdBHkzP8cmLlVJYzUuszItOoqqjk
+2021-05-16 15:33:53.0036 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-05-16 15:33:54.6172 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - continental
+2021-05-16 15:34:06.1498 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-05-16 15:34:07.0304 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - continental
+2021-05-16 15:34:22.8150 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-05-16 15:34:23.7794 TAS.Web.Controllers.UserController Login failed for ip-::1 for user - admin for TPA - continental
+2021-05-16 15:34:30.7303 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-05-16 15:34:33.0936 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MjExNTk0NzEsImp0aSI6IjFhMzg3YTIwLTcyOTktNDNkNi1hOGUzLTkyMjA3N2I4MTkxZSIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UiLCJ1c2VyaWQiOiJjZWQ5M2UwMS1kZmNhLTRmMDgtOWEzYi1jNjNmYmE2Y2YzMmYifQ.TnHpVZqeWR6nVk13ufEy7lMVsa8LoPlFMKAXlxaKgmk

@@ -1,0 +1,95 @@
+﻿<div ng-app="LFA"
+     ng-controller="DealerPortalCtrl as dealerPortalController" ng-init="loadInitailData()">
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle TitleModifier">DEALER INVOICE</h1>
+                <span class="mainDescription TitleModifier">Dealer invoices can be generated here.</span>
+            </div>
+        </div>
+    </section>
+
+    <div ng-form="myForm" class="my-form">
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Dealer<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control input-sm" ng-model="dealerInvoiceRequest.dealerId">
+                        <option value="00000000-0000-0000-0000-000000000000"> Please Select </option>
+                        <option ng-repeat="option in dealers" value="{{option.Id}}"
+                                ng-selected="product.dealerId==option.Id">
+                            {{option.DealerName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Year<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control input-sm" ng-model="dealerInvoiceRequest.year" ng-change="loadBordxNumber()">
+                        <option value="">Please Select</option>
+                        <option ng-repeat="option in Years track by $index" value="{{option}}"
+                                ng-selected="option==dealerInvoiceRequest.year">
+                            {{option}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Month<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control input-sm" ng-model="dealerInvoiceRequest.month"
+                            ng-change="loadBordxNumbers()">
+                        <option value="">Please Select</option>
+                        <option ng-repeat="option in Months" value="{{option.monthsSeq}}"
+                                ng-selected="option.monthsSeq==dealerInvoiceRequest.month">
+                            {{option.monthsName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="control-label">
+                        Bordereaux Number<span class="symbol required"></span>
+                    </label>
+                    <select class="form-control input-sm" ng-model="dealerInvoiceRequest.bordxId">
+                        <option value="00000000-0000-0000-0000-000000000000">Please Select</option>
+                        <option ng-repeat="option in bordxList" value="{{option.Id}}"
+                                ng-selected="option.monthsSeq==dealerInvoiceRequest.bordxId">
+                            {{option.Number}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <label class="control-label">
+                    &nbsp;
+                </label>
+                <button class="btn btn-primary btn-block" ng-click="GenerateInvoices()">
+                    Generate Invoices
+                </button>
+            </div>
+            <div class="col-md-2">
+                <label class="control-label">
+                    &nbsp;
+                </label>
+                <button class="btn btn-primary btn-block" ng-click="GenerateInvoiceSummary()">
+                    Invoice Summary
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

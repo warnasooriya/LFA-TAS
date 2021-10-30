@@ -1,0 +1,12 @@
+2021-04-09 07:26:28.1086 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - admin for TPA - continental
+2021-04-09 07:26:28.2916 TAS.Web.Controllers.UserController Login success for ip-::1 for user - admin for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTc5MzMzODgsImp0aSI6IjJiMzc3ZWI3LTU5ZjQtNDdhMS1iMWVlLTE5NTViNWFkZTEwNyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.3wwGgHtuG1nTUiUYtvW8rXbQp8eldssr4s7D6oPQT2c
+2021-04-09 07:27:01.7374 TAS.Web.Controllers.PolicyRegController Policy Approval Grid Data Load Request came to controller
+2021-04-09 07:27:01.8054 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Load Request came to Entity Manager
+2021-04-09 07:27:01.8244 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Execute Query
+2021-04-09 07:27:01.9424 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Complete Execute Query 
+2021-04-09 07:27:01.9424 TAS.Services.Entities.Management.PolicyEntityManager Policy Approval Grid Data Returning
+2021-04-09 07:27:05.9140 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Cache Retrieval Fail then access to database GetAllCurrencies
+2021-04-09 07:27:05.9140 TAS.Services.Entities.Management.EntityCacheData GetAllCurrencies: information: Saved Currency to Cache
+2021-04-09 07:27:41.1920 TAS.Web.Controllers.UserController Logout Success!  jwt :eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTc5MzMzODgsImp0aSI6IjJiMzc3ZWI3LTU5ZjQtNDdhMS1iMWVlLTE5NTViNWFkZTEwNyIsIm5hbWUiOiJhZG1pbiIsImNsaWVudGlkIjoxLCJkYk5hbWUiOiJjb250aW5lbnRhbCIsInNoYXJlZGtleSI6ImFiY2UifQ.3wwGgHtuG1nTUiUYtvW8rXbQp8eldssr4s7D6oPQT2c
+2021-04-09 07:27:50.4470 TAS.Web.Controllers.UserController Login request recived from ip-::1 for user - dealer for TPA - continental
+2021-04-09 07:27:50.4980 TAS.Web.Controllers.UserController Login success for ip-::1 for user - dealer for TPA - continental token - eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTc5MzM0NzAsImp0aSI6IjQwNDMxNGIzLWMxNTctNDI1Mi1iNTYxLThiOGQ1NTY2ODk4NiIsIm5hbWUiOiJkZWFsZXIiLCJjbGllbnRpZCI6MSwiZGJOYW1lIjoiY29udGluZW50YWwiLCJzaGFyZWRrZXkiOiJhYmNlIn0.4gpozihJNByZtUIk2798Ofg2B-Nj99y_Zsi25XfzMZI

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="ClaimChequePayment" table="ClaimChequePayment" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="ChequeNo" />
+    <property name="ChequeAmount" />
+    <property name="ChequeDate" />
+    <property name="EntryDate" />
+    <property name="EntryBy" />
+    <property name="CountryId" />
+    <property name="DealerId" />
+    <property name="IssuedDate" />
+    <property name="Comment" />
+  </class>
+</hibernate-mapping>

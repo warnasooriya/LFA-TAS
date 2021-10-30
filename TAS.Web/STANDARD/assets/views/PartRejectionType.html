@@ -1,0 +1,74 @@
+﻿<div ng-app="LFA" ng-controller="PartRejectionTypeCtrl as PartRejectionTypeController" ng-init="loadInitailData()">
+
+    <style>
+        .has-error {
+            border: solid 1px #e84e4e !important;
+            /*#fbaa2b*/
+        }
+    </style>
+
+    <section id="page-title" class="pageTitleModifier">
+        <div class="row">
+            <div class="col-md-8">
+                <div class=" pull-left">
+                    <h1 class="mainTitle TitleModifier">{{'pages.partRejectionType.title' | translate}}</h1>
+                    <span class="mainDescription TitleModifier">{{'pages.partRejectionType.mainDescription' | translate}}</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+    <div ng-form="myForm" class="my-form">
+        <!--<div class="col-md-12">
+            <div class="alert alert-danger" ng-show="errorTab1!=''">
+                {{errorTab1}}
+            </div>
+        </div>-->
+        
+      <div class="row">
+          <div class="col-md-4">
+              <div class="form-group">
+                  <label class="control-label">
+                      {{'pages.partRejectionType.description' | translate}}<span class="symbol required"></span>
+                  </label>
+                  <select class="form-control  input-sm  input-sm" ng-model="PartRejectionType.Id" tabindex="1"
+                          ng-change="PartRejectionTypeValues()" ng-options="n.Id as n.Description for n in Description">
+                      <option value=""> &lt;&lt; {{'common.customText.new' | translate}} &gt;&gt; </option>
+
+                  </select>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class="form-group">
+                  <label class="control-label">
+                      {{'pages.partRejectionType.description' | translate}} <span class="symbol required"></span>
+                  </label>
+                  <input type="text" class="form-control" ng-model="PartRejectionType.Description" name="Description" ng-class="validate_partRejectionDescription" tabindex="2">
+              </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class="form-group">
+                  <label class="control-label">
+                      {{'pages.partRejectionType.code' | translate}} <span class="symbol required"></span>
+                  </label>
+                  <input type="text" class="form-control" ng-model="PartRejectionType.Code" name="Code" ng-class="validate_partRejectionCode" tabindex="3">
+              </div>
+          </div>
+
+
+
+          <div class="col-md-2 pull-right">
+              <br />
+              <button class="btn btn-primary  btn-block pull-right" ng-disabled="PartRejectionBtnDisabled" ng-click="PartRejectionSubmit()" tabindex="4">
+                  <!--{{PartRejectionType.Id=='00000000-0000-0000-0000-000000000000' ? 'Save':'Update'}}-->
+                  {{ labelSave | translate}} <i ng-class="PartRejectionBtnIconClass"></i>
+              </button>
+          </div>
+      </div>
+    </div>
+</div>
+
+

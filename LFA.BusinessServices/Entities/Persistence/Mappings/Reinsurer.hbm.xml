@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="TAS.Services" namespace="TAS.Services.Entities">
+  <class name="Reinsurer" table="Reinsurer" dynamic-update="true" >
+    <cache usage="read-write"/>
+    <id name="Id" column="Id" type="Guid">
+      <generator class="guid" />
+    </id>
+    <property name="ReinsurerName" />
+    <property name="ReinsurerCode" />   
+    <property name="IsActive" />
+    <property name="EntryDateTime" />
+    <property name="EntryUser" />
+    <property name="CurrencyId" />
+  
+  </class>
+</hibernate-mapping>

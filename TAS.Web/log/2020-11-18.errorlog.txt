@@ -1,0 +1,17 @@
+2020-11-18 10:23:26.8761 TAS.Web.Controllers.UserController LoginAuth: exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server), System.ComponentModel.Win32Exception (0x80004005): The network path was not found
+2020-11-18 11:46:44.5928 TAS.Web.Controllers.ClaimBordxProcessController ExportToExcelClaimBordxById: exception: Can't set color when patterntype is not set., 
+2020-11-18 11:47:12.0693 TAS.Web.Controllers.ClaimBordxProcessController ExportToExcelClaimBordxById: exception: Can't set color when patterntype is not set., 
+2020-11-18 11:51:23.7653 TAS.Web.Controllers.ClaimBordxProcessController ExportToExcelClaimBordxById: exception: Can't set color when patterntype is not set., 
+2020-11-18 11:52:09.9413 TAS.Web.Controllers.ClaimBordxProcessController ExportToExcelClaimBordxById: exception: Can't set color when patterntype is not set., 
+2020-11-18 11:57:42.2562 TAS.Web.Controllers.ClaimBordxProcessController ExportToExcelClaimBordxById: exception: Can't set color when patterntype is not set., 
+2020-11-18 11:57:57.3956 TAS.Web.Controllers.ClaimBordxProcessController ExportToExcelClaimBordxById: exception: Can't set color when patterntype is not set., 
+2020-11-18 12:05:20.7634 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-11-18 12:05:27.6801 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-11-18 12:05:28.7267 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-11-18 12:05:29.3793 TAS.Services.Entities.Management.CommonEntityManager getUnusedTyreDepthByClaimItemId: exception: Object reference not set to an instance of an object., 
+2020-11-18 12:06:30.5876 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-11-18 12:06:57.8353 TAS.Services.Entities.Management.ClaimEntityManager GoodwillAuthorizationByUserId: exception: Object reference not set to an instance of an object., 
+2020-11-18 12:28:11.0388 TAS.Web.Controllers.ClaimBordxProcessController ExportToExcelClaimBordxById: exception: Value cannot be null.
+Parameter name: source, 
+2020-11-18 12:28:44.3719 TAS.Web.Controllers.ClaimBordxProcessController ExportToExcelClaimBordxById: exception: Value cannot be null.
+Parameter name: source, 
