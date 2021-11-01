@@ -20,4 +20,4 @@ phases:
       - '& C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe ./TAS.sln /p:DeployOnBuild=true /p:Configuration=Release'
 artifacts:
   files:
-    - .\TAS.Web\bin\*
+    - .\TAS.Web\
