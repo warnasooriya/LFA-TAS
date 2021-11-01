@@ -15,19 +15,50 @@ cast(cast(vd.dealerprice * p.LocalCurrencyConversionRate as decimal(18,2)) as va
 its.Status as status,
 rc.uwyear as uwYear,
 vd.vinno as vin,
- vd.ItemPurchasedDate  as manfWarrentyStartDate,
- CASE 
-      WHEN Isnull(mw.warrantymonths, 0) = 0 THEN  Cast('1753-1-1' AS DATETIME) 
-      ELSE 
-    Dateadd(day, -1, 
+ --vd.ItemPurchasedDate
+ CASE WHEN p.MWIsAvailable=1 THEN
+	p.MWStartDate
+ELSE
+	CASE WHEN (mw.warrantymonths IS NULL OR mw.warrantymonths=0) THEN
+		CAST(-53690 AS DATETIME)
+	ELSE
+		p.MWStartDate
+	END
+END    as manfWarrentyStartDate,
+ --CASE 
+ --     WHEN Isnull(mw.warrantymonths, 0) = 0 THEN  Cast('1753-1-1' AS DATETIME) 
+ --     ELSE 
+ --   Dateadd(day, -1, 
          
-		   Dateadd(month, Isnull(mw.warrantymonths, 0), vd.ItemPurchasedDate))
-    END  
+	--	   Dateadd(month, Isnull(mw.warrantymonths, 0), vd.ItemPurchasedDate))
+ --   END  
+ CASE WHEN p.MWIsAvailable=1 THEN
+	DATEADD(DAY, -1,
+    DATEADD(MONTH, ISNULL(mw.warrantymonths, 0), p.MWStartDate))
+ELSE
+	CASE WHEN (mw.warrantymonths IS NULL OR mw.warrantymonths=0) THEN
+		CAST(-53690 AS DATETIME)
+	ELSE
+		DATEADD(DAY, -1,
+		DATEADD(MONTH, ISNULL(mw.warrantymonths, 0), p.MWStartDate))
+	END
+END				
 as manfWarrentyEndDate,
 
-  Dateadd(day,1,P.PolicyStartDate )
+  --Dateadd(day,1,P.PolicyStartDate )
+  CASE WHEN p.MWIsAvailable=1 THEN
+	DATEADD(MONTH, ISNULL(mw.warrantymonths, 0), p.MWStartDate)
+ELSE
+	p.PolicySoldDate
+END	
 as extensionStartDate,
- Dateadd(day,1,P.PolicyEndDate)
+ --Dateadd(day,1,P.PolicyEndDate)
+ CASE WHEN p.MWIsAvailable=1 THEN
+	DATEADD(DAY, -1,DATEADD(MONTH,ISNULL(il.Months, 0),
+	DATEADD(MONTH, ISNULL(mw.warrantymonths, 0), p.MWStartDate)))
+	ELSE
+	DATEADD(DAY, -1,DATEADD(MONTH,ISNULL(il.Months, 0),p.PolicySoldDate))
+END	
 
 as extensionEndDate,
   

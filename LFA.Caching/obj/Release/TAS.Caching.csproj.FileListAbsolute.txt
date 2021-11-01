@@ -14,3 +14,19 @@ C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\obj\
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\obj\Release\TAS.Caching.csproj.CopyComplete
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\obj\Release\TAS.Caching.dll
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Caching\obj\Release\TAS.Caching.pdb
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\RevDeBug.setup
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\TAS.Caching.dll.config
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\TAS.Caching.dll
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\TAS.Caching.pdb
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\Amazon.ElastiCacheCluster.dll
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\Enyim.Caching.dll
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\Newtonsoft.Json.dll
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\StackExchange.Redis.dll
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\Amazon.ElastiCacheCluster.xml
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\Enyim.Caching.xml
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\Newtonsoft.Json.xml
+G:\Git\C#\LFA-TAS\LFA.Caching\bin\Release\StackExchange.Redis.xml
+G:\Git\C#\LFA-TAS\LFA.Caching\obj\Release\TAS.Caching.dll
+G:\Git\C#\LFA-TAS\LFA.Caching\obj\Release\TAS.Caching.pdb
+G:\Git\C#\LFA-TAS\LFA.Caching\obj\Release\RdbLog.txt
+G:\Git\C#\LFA-TAS\LFA.Caching\obj\Release\TAS.Caching.csprojResolveAssemblyReference.cache

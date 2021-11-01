@@ -33,6 +33,7 @@
     <property name="ConversionRate" precision="18" scale="8" />
      <property name="RegistrationDate" />
     <property name="GrossWeight" />
+    <property name="EngineNumber" />
     
 
   </class>

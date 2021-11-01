@@ -20,5 +20,6 @@
     <property name="SequenceNo" />
     <property name="Insurer" />
     <property name="Reinsurer" />
+    <property name="ProductId" />
   </class>
 </hibernate-mapping>

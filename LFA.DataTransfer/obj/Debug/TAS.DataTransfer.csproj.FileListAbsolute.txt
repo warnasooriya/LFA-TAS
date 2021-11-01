@@ -37,3 +37,13 @@ G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.dll
 G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.pdb
 G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\RdbLog.txt
 G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csprojAssemblyReference.cache
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Debug\RevDeBug.setup
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Debug\TAS.DataTransfer.dll
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Debug\TAS.DataTransfer.pdb
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Debug\Newtonsoft.Json.dll
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Debug\NLog.dll
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Debug\Newtonsoft.Json.xml
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Debug\NLog.xml
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.dll
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.pdb
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Debug\RdbLog.txt

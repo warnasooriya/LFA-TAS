@@ -19,7 +19,8 @@ CONVERT(VARCHAR(11), B.StartDate, 106) +' to '+ CONVERT(VARCHAR(11), B.[EndDate]
 DATENAME(month, DATEADD(month, B.[Month]-1, CAST('2008-01-01' AS datetime))) +' ' +CONVERT(VARCHAR(11),B.[Year]) +' (Bordereau Number '+ 
 RIGHT('00000' + CONVERT(VARCHAR(11),B.SequenceNo),6) + ')' as BordxName,
 C.Code as CurrencyCode,
-SUM(P.GrossPremiumBeforeTax) * P.LocalCurrencyConversionRate  as NetAmount       
+SUM(P.GrossPremiumBeforeTax) * P.LocalCurrencyConversionRate  as NetAmount,
+YEAR(B.StartDate) AS bordxYear
 
 FROM Bordx B    
 INNER JOIN [dbo].[Policy] P ON P.BordxId = B.Id  

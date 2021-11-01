@@ -20,5 +20,8 @@ namespace TAS.Services.Reports.InvoiceSummary.Default
 
     partial class DebitNote
     {
+        partial class DataTable1DataTable
+        {
+        }
     }
 }

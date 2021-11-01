@@ -25,5 +25,7 @@
     <property name="IDTypeId"/>
     <property name="DLIssueDate"/>
     <property name="ProfilePicture" length="2147483647"/>
+	<property name="IsDealerAccount"/>
+
   </class>
 </hibernate-mapping>

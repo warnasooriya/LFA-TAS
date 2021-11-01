@@ -13,6 +13,6 @@
     <property name="AttachmentFileType" />
     <property name="FileServerReference" />
     <property name="UploadedDateTime" />
-
+    <property name="UserId" />
   </class>
 </hibernate-mapping>

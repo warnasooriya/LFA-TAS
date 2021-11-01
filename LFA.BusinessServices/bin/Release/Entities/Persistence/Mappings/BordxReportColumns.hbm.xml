@@ -10,7 +10,9 @@
     <property name="KeyName" />
     <property name="IsActive" />
     <property name="Sequance" />
+    <property name="ColumnWidth" />
+    <property name="Alignment" />
+    <property name="ProductType" />
 
-    
   </class>
 </hibernate-mapping>

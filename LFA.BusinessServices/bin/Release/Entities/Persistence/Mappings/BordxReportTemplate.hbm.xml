@@ -11,5 +11,7 @@
     <property name="EntryUser" />
     <property name="UpdateDateTime" />
     <property name="UpdateUser" />
+    <property name="ProductType" />
   </class>
+
 </hibernate-mapping>

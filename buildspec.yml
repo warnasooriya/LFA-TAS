@@ -1,6 +1,11 @@
 version: 0.2
 
-# Assumes the image is microsoft/dotnet-framework:4.7.2-sdk or similar
+env:
+  variables:
+    SOLUTION: .\TAS.sln
+    PACKAGE_DIRECTORY: .\packages
+    DOTNET_FRAMEWORK: 4.5
+
 phases:
   install:
     commands:
@@ -9,9 +14,10 @@ phases:
       - msiexec /i WebDeploy_amd64_en-US.msi /quiet
       # MSIExec will return before it is actually done - 30s seems to work...
       - Start-Sleep 30
-  pre_build:
-    commands:
-      - nuget restore
   build:
     commands:
-      - msbuild /P:Configuration=Release /T:Build,Package
+      - '& nuget restore $env:SOLUTION -PackagesDirectory $env:PACKAGE_DIRECTORY'
+      - '& C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe ./TAS.sln /p:DeployOnBuild=true /p:Configuration=Release'
+artifacts:
+  files:
+    - .\TAS.Web\bin\*

@@ -46,9 +46,9 @@ LEFT JOIN Policy AS P ON P.Id = C.PolicyId
 LEFT JOIN Contract AS CON ON CON.Id = P.ContractId
 LEFT JOIN ReinsurerContract AS RC ON RC.Id = CON.ReinsurerContractId
 LEFT JOIN Reinsurer AS R ON R.Id = RC.ReinsurerId
-LEFT JOIN ClaimItemType AS CTY  ON CTY.Id = CI.ClaimItemTypeId AND CTY.[ItemCode] = 'P'
+LEFT JOIN ClaimItemType AS CTY  ON CTY.Id = CI.ClaimItemTypeId 
 WHERE CB.Id = '{bordexId}'
-
+AND CTY.[ItemCode] = 'P'
 
 INSERT INTO #TempData
 SELECT DISTINCT	 CB.[Bordxmonth]
@@ -99,8 +99,9 @@ LEFT JOIN Policy AS P ON P.Id = C.PolicyId
 LEFT JOIN Contract AS CON ON CON.Id = P.ContractId
 LEFT JOIN ReinsurerContract AS RC ON RC.Id = CON.ReinsurerContractId
 LEFT JOIN Reinsurer AS R ON R.Id = RC.ReinsurerId
-LEFT JOIN ClaimItemType AS CTY  ON CTY.Id = CI.ClaimItemTypeId AND CTY.[ItemCode] = 'P'
+LEFT JOIN ClaimItemType AS CTY  ON CTY.Id = CI.ClaimItemTypeId 
 WHERE CB.Id = '{bordexId}' AND C.IsEndorsed=1
+AND CTY.[ItemCode] = 'P'
 
 SELECT  DISTINCT '' as 'SerialNo'
 		, DL.[DealerName] as 'Dealer'

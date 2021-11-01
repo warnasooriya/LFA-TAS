@@ -309,6 +309,8 @@ namespace TAS.Services.Reports.InvoiceSummary.Default {
             
             private global::System.Data.DataColumn columnBDXExtractDate;
             
+            private global::System.Data.DataColumn columnbordxYear;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DataTable1DataTable() {
@@ -464,6 +466,14 @@ namespace TAS.Services.Reports.InvoiceSummary.Default {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn bordxYearColumn {
+                get {
+                    return this.columnbordxYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +509,23 @@ namespace TAS.Services.Reports.InvoiceSummary.Default {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row AddDataTable1Row(string PolicyReference, string DealerName, string DealerAddress1, string DealerAddress2, string DealerAddress3, string InvoiceNumber, string Insured, string Period, string BordxName, string CurrencyCode, string NetAmount, string test, string ProductionMonth, string SequenceNo, string BDXExtractDate) {
+            public DataTable1Row AddDataTable1Row(
+                        string PolicyReference, 
+                        string DealerName, 
+                        string DealerAddress1, 
+                        string DealerAddress2, 
+                        string DealerAddress3, 
+                        string InvoiceNumber, 
+                        string Insured, 
+                        string Period, 
+                        string BordxName, 
+                        string CurrencyCode, 
+                        string NetAmount, 
+                        string test, 
+                        string ProductionMonth, 
+                        string SequenceNo, 
+                        string BDXExtractDate, 
+                        string bordxYear) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PolicyReference,
@@ -516,7 +542,8 @@ namespace TAS.Services.Reports.InvoiceSummary.Default {
                         test,
                         ProductionMonth,
                         SequenceNo,
-                        BDXExtractDate};
+                        BDXExtractDate,
+                        bordxYear};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -554,6 +581,7 @@ namespace TAS.Services.Reports.InvoiceSummary.Default {
                 this.columnProductionMonth = base.Columns["ProductionMonth"];
                 this.columnSequenceNo = base.Columns["SequenceNo"];
                 this.columnBDXExtractDate = base.Columns["BDXExtractDate"];
+                this.columnbordxYear = base.Columns["bordxYear"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -589,6 +617,8 @@ namespace TAS.Services.Reports.InvoiceSummary.Default {
                 base.Columns.Add(this.columnSequenceNo);
                 this.columnBDXExtractDate = new global::System.Data.DataColumn("BDXExtractDate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBDXExtractDate);
+                this.columnbordxYear = new global::System.Data.DataColumn("bordxYear", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnbordxYear);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -971,6 +1001,22 @@ namespace TAS.Services.Reports.InvoiceSummary.Default {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string bordxYear {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.bordxYearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'bordxYear\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.bordxYearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPolicyReferenceNull() {
                 return this.IsNull(this.tableDataTable1.PolicyReferenceColumn);
             }
@@ -1147,6 +1193,18 @@ namespace TAS.Services.Reports.InvoiceSummary.Default {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetBDXExtractDateNull() {
                 this[this.tableDataTable1.BDXExtractDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsbordxYearNull() {
+                return this.IsNull(this.tableDataTable1.bordxYearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetbordxYearNull() {
+                this[this.tableDataTable1.bordxYearColumn] = global::System.Convert.DBNull;
             }
         }
         

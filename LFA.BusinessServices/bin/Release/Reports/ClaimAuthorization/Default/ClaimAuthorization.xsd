@@ -54,6 +54,9 @@
               <xs:element name="newPart" msprop:Generator_ColumnVarNameInTable="columnnewPart" msprop:Generator_ColumnPropNameInRow="newPart" msprop:Generator_ColumnPropNameInTable="newPartColumn" msprop:Generator_UserColumnName="newPart" type="xs:string" minOccurs="0" />
               <xs:element name="Sundrytot" msprop:Generator_ColumnVarNameInTable="columnSundrytot" msprop:Generator_ColumnPropNameInRow="Sundrytot" msprop:Generator_ColumnPropNameInTable="SundrytotColumn" msprop:Generator_UserColumnName="Sundrytot" type="xs:string" minOccurs="0" />
               <xs:element name="DealerAddress" msprop:Generator_ColumnVarNameInTable="columnDealerAddress" msprop:Generator_ColumnPropNameInRow="DealerAddress" msprop:Generator_ColumnPropNameInTable="DealerAddressColumn" msprop:Generator_UserColumnName="DealerAddress" type="xs:string" minOccurs="0" />
+              <xs:element name="FailureMileage" msprop:Generator_ColumnVarNameInTable="columnFailureMileage" msprop:Generator_ColumnPropNameInRow="FailureMileage" msprop:Generator_ColumnPropNameInTable="FailureMileageColumn" msprop:Generator_UserColumnName="FailureMileage" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalTax" msprop:Generator_ColumnVarNameInTable="columnTotalTax" msprop:Generator_ColumnPropNameInRow="TotalTax" msprop:Generator_ColumnPropNameInTable="TotalTaxColumn" msprop:Generator_UserColumnName="TotalTax" type="xs:string" minOccurs="0" />
+              <xs:element name="AuthorizedAmountWithTax" msprop:Generator_ColumnVarNameInTable="columnAuthorizedAmountWithTax" msprop:Generator_ColumnPropNameInRow="AuthorizedAmountWithTax" msprop:Generator_ColumnPropNameInTable="AuthorizedAmountWithTaxColumn" msprop:Generator_UserColumnName="AuthorizedAmountWithTax" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

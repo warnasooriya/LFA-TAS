@@ -107,6 +107,7 @@
     <property name="ContractExtensionPremiumId" />
     <property name="MWStartDate" />
     <property name="MWIsAvailable" />
+    <property name="EngineNumber" />
     
   </class>
 </hibernate-mapping>

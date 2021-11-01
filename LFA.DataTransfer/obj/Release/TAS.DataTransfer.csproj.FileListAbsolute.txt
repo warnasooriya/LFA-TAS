@@ -9,3 +9,13 @@ C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\obj\Release\TAS.DataTransfer.csproj.CopyComplete
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\obj\Release\TAS.DataTransfer.dll
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.DataTransfer\obj\Release\TAS.DataTransfer.pdb
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Release\RevDeBug.setup
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Release\TAS.DataTransfer.dll
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Release\TAS.DataTransfer.pdb
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Release\Newtonsoft.Json.dll
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Release\NLog.dll
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Release\Newtonsoft.Json.xml
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Release\NLog.xml
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Release\TAS.DataTransfer.dll
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Release\TAS.DataTransfer.pdb
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Release\RdbLog.txt

@@ -4,3 +4,9 @@ C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Release\TAS.Notification.csproj.CoreCompileInputs.cache
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Release\TAS.Notification.dll
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\TAS.Notification\obj\Release\TAS.Notification.pdb
+G:\Git\C#\LFA-TAS\TAS.Notification\bin\Release\RevDeBug.setup
+G:\Git\C#\LFA-TAS\TAS.Notification\bin\Release\TAS.Notification.dll
+G:\Git\C#\LFA-TAS\TAS.Notification\bin\Release\TAS.Notification.pdb
+G:\Git\C#\LFA-TAS\TAS.Notification\obj\Release\TAS.Notification.dll
+G:\Git\C#\LFA-TAS\TAS.Notification\obj\Release\TAS.Notification.pdb
+G:\Git\C#\LFA-TAS\TAS.Notification\obj\Release\RdbLog.txt

@@ -31,3 +31,12 @@ G:\TFS\TAS-Commodity\LFA.Core\obj\Debug\TAS.Core.csproj.CopyComplete
 G:\TFS\TAS-Commodity\LFA.Core\obj\Debug\TAS.Core.dll
 G:\TFS\TAS-Commodity\LFA.Core\obj\Debug\TAS.Core.pdb
 G:\TFS\TAS-Commodity\LFA.Core\obj\Debug\RdbLog.txt
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Debug\RevDeBug.setup
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Debug\TAS.Core.dll
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Debug\TAS.Core.pdb
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Debug\NLog.dll
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Debug\NLog.xml
+G:\Git\C#\LFA-TAS\LFA.Core\obj\Debug\TAS.Core.csprojResolveAssemblyReference.cache
+G:\Git\C#\LFA-TAS\LFA.Core\obj\Debug\TAS.Core.dll
+G:\Git\C#\LFA-TAS\LFA.Core\obj\Debug\TAS.Core.pdb
+G:\Git\C#\LFA-TAS\LFA.Core\obj\Debug\RdbLog.txt

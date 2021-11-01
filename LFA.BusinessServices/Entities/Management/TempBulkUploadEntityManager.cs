@@ -105,8 +105,7 @@ namespace TAS.Services.Entities.Management
                             td.HrsAtPolicySale = tempData.HrsAtPolicySale;
                             td.Comment = tempData.Comment;
 
-                            decimal.TryParse(tempData.Premium, out decimal Premium);
-                            td.Premium = Premium;
+                            td.Premium =Decimal.Parse(tempData.Premium);
 
                             //DateTime policySoldDate;
                             //DateTime.TryParse(tempData.PolicySoldDate, out policySoldDate);
@@ -127,8 +126,8 @@ namespace TAS.Services.Entities.Management
                             if (tempData.PolicyEndDate != null)
                                 td.PolicyEndDate = DateTime.FromOADate(double.Parse(tempData.PolicyEndDate));
 
-                            decimal.TryParse(tempData.Discount, out decimal discount);
-                            td.Discount = discount;
+                            td.Discount = Decimal.Parse(tempData.Discount);
+							
 
                             td.ProviderCode = tempData.ProviderCode;
                             td.SerialNo = tempData.SerialNo;
@@ -156,8 +155,9 @@ namespace TAS.Services.Entities.Management
                             td.PlateNo = tempData.PlateNo;
                             td.ModelYear = tempData.ModelYear;
 
-                            decimal.TryParse(tempData.VehiclePrice, out decimal vehiclePrice);
-                            td.VehiclePrice = vehiclePrice;
+                            
+                            td.VehiclePrice = Decimal.Parse(tempData.VehiclePrice);
+							 
 
                             td.EntryDateTime = tempData.EntryDateTime;
                             td.EntryUserId = tempData.EntryUserId;
@@ -182,18 +182,21 @@ namespace TAS.Services.Entities.Management
                             td.PolicyNo = tempData.PolicyNo;
 
 
-                            decimal.TryParse(tempData.GrossWeight, out decimal grossWeight);
-                            td.GrossWeight = grossWeight;
+                            
+							
+							td.GrossWeight = Decimal.Parse(tempData.GrossWeight);
 
 
-                            int.TryParse(tempData.ManufacturerWarrantyMonths, out int MWWarrantyMonths);
-                            td.ManufacturerWarrantyMonths = MWWarrantyMonths;
+                             
+                            td.ManufacturerWarrantyMonths = int.Parse(tempData.ManufacturerWarrantyMonths);
+							
+							td.ManufacturerWarrantyMonths = int.Parse(tempData.ManufacturerWarrantyMonths);
+							
 
                             td.ManufacturerWarrantyKm = tempData.ManufacturerWarrantyKm;
 
-
-                            int.TryParse(tempData.ExtensionPeriod, out int ExPeriod);
-                            td.ExtensionPeriod = ExPeriod;
+ 
+                            td.ExtensionPeriod = int.Parse(tempData.ExtensionPeriod);
 
                             //DateTime mwApplicableFrom;
                             //DateTime.TryParse(tempData.ManufacturerWarrantyApplicableFrom, out mwApplicableFrom);
@@ -208,26 +211,13 @@ namespace TAS.Services.Entities.Management
                             td.ContactPersonMobileNo = tempData.ContactPersonMobileNo;
                             td.Dealer = tempData.Dealer;
 
-                            decimal.TryParse(tempData.Deposit, out decimal deposit);
-                            td.Deposit = deposit;
-
-                            decimal.TryParse(tempData.FinanceAmount, out decimal financeAmount);
-                            td.FinanceAmount = financeAmount;
-
-                            int.TryParse(tempData.LoanPeriod, out int LoanPeriod);
-                            td.LoanPeriod = LoanPeriod;
-
-                            decimal.TryParse(tempData.PeriodOfCover, out decimal PeriodOfCover);
-                            td.PeriodOfCover = PeriodOfCover;
-
-                            decimal.TryParse(tempData.MonthlyEMI, out decimal MonthlyEMI);
-                            td.MonthlyEMI = MonthlyEMI;
-
-                            decimal.TryParse(tempData.InterestRate, out decimal InterestRate);
-                            td.InterestRate = InterestRate;
-
-                            decimal.TryParse(tempData.InterestRate, out decimal GrossPremiumExcludingTAX);
-                            td.GrossPremiumExcludingTAX = GrossPremiumExcludingTAX;
+                            td.Deposit = Decimal.Parse(tempData.Deposit);
+                            td.FinanceAmount = Decimal.Parse(tempData.FinanceAmount);
+							td.LoanPeriod = int.Parse(tempData.LoanPeriod);
+                            td.PeriodOfCover = Decimal.Parse(tempData.PeriodOfCover);
+                            td.MonthlyEMI = Decimal.Parse(tempData.MonthlyEMI);
+                            td.InterestRate = Decimal.Parse(tempData.InterestRate);
+                            td.GrossPremiumExcludingTAX = Decimal.Parse(tempData.InterestRate); ;
 
                             td.Make = tempData.Make;
                             td.Model = tempData.Model;

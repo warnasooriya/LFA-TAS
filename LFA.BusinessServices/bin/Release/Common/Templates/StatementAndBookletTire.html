@@ -1,131 +1,203 @@
-﻿<!--<div ng-app="LFA" ng-controller="PolicyStatementCtrl as policyStatementController" ng-init="loadInitailData()">-->
-    <body style="background-color:#f5f8fa">
-        <table style="width:100%;background-color:white" align="center">
-            <tr>
-                <td colspan="2">
-                    <table width="100%">
-                        <tr>
-                            <td><img title="" alt="" src="cid:LeftFieldLogo"></td>
-                            <td> <img title="" alt="" src="cid:ContinentalLogo"></td>
-                        </tr>
-                    </table>
-                </td>
+﻿<style>
+    body {
+        font-family: Lucida Sans Unicode;
+    }
+</style>
+<body style="background-color:#f5f8fa">
+    <table style="width:590px;background-color:#e1e1e1;" align="center">
+        <!--<tr>
+        <td colspan="2"></td>
+    </tr>-->
+        <tr>
+            <td><img style="float:left;margin-left:10px;" title="" alt="" src="cid:ContinentalLogo">
+            <td><img title="" style="float:right;margin-right:10px" alt="" src="cid:LeftFieldLogo">
+        <tr>
+            <td colspan="2">
+                <hr style="border: 0;height:6px; background-color:#ffa500;margin-left:10px;margin-right:10px ">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table style="margin-left:20px; font-family:Lucida Sans Unicode;font-size:13px;line-height:23px;width:550px">
+                    <tr>
+                        <td style="height:10px"></td>
+                    </tr>
+                    <tr><td align="center" style="font-family:Lucida Sans Unicode;font-weight:bold">CONTI PROTECT CONTRACT</td></tr>
+                    <tr>
+                        <td style="font-family:Lucida Sans Unicode">Dear Customer,</td>
+                    </tr>
+                    <tr>
+                        <td style="height:5px"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:Lucida Sans Unicode">
+                            <p style="margin-top: 0px;margin-bottom: 10px;">
+                                Congratulations on the purchase of your Conti Protect Contract and welcome to the Continental family.
+                                We are delighted that your Conti Protect Contract will from now on protect your Tyres against
+                                irreparable damages caused by road hazards.
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:Lucida Sans Unicode">
+                            <p style="margin-top: 0px;margin-bottom: 10px;">
+                                Congratulations on the purchase of your Conti Protect Contract and welcome to the Continental family.
+                                We are delighted that your Conti Protect Contract will from now on protect your Tyres against
+                                irreparable damages caused by road hazards.
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:Lucida Sans Unicode">
+                            <p style="margin-top: 0px;margin-bottom: 10px;">
+                                Please be assured that your Continental Tyres have been manufactured to the highest possible
+                                standards and engineered specifically for the prevailing conditions in the UAE.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-family:Lucida Sans Unicode">
+                            <p style="margin-top: 0px;margin-bottom: 10px;">
+                                Continental’s mission is to provide you with a unique automotive experience by offering innovative
+                                products and services that deliver value and ensure your faith in Continental is well-founded.
+                            </p>
+                        </td>
+                    </tr>
+                    <td style="font-family:Lucida Sans Unicode">
+                        <p style="margin-top: 0px;margin-bottom: 10px;">
+                            We thank you for choosing Continental and wish you safe motoring.
+                        </p>
+                    </td>
+
+                    <tr>
+                        <td style="height:5px"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:Lucida Sans Unicode">
+
+                            <table style="font-weight:bold">
+                                {ContractNo}
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height:5px"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:Lucida Sans Unicode">
+                            Respectfully,
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-family:Lucida Sans Unicode">Your dedicated “Continental” partner </td>
+                    </tr>
+
+                    <tr>
+                        <td style="height:10px"></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight:bold; direction:rtl;"><center>عقد كونتي بروتكت</center> </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; direction:rtl;"> عزيزي العميل،  </td>
+                    </tr>
+                    <tr>
+                        <td style="direction:rtl;"> نهنئك على شراء عقد كونتي بروتكت الخاص بك، ومرحبًا بكم في عائلة كونتيننتال. يسعدنا أن عقد كونتي بروتكت الخاص بكم سيحمي اطارات سيارتك من الآن فصاعدًا ضد الأضرار التي لا يمكن تفاديها أو إصلاحها والتي تسببها المخاطر على الطريق.  </td>
+                    </tr>
+                     <tr>
+                         <td style="direction:rtl;">يرجى قراءة الوثيقة المرفقة والتي تحدد بوضوح مزايا وشروط وأحكام  عقد كونتي بروتكت الخاص بكم. </td>
+                    </tr>
+                     <tr>
+                         <td style="direction:rtl;">يرجى التأكد ان إطارات كونتيننتال قد تم تصنيعها وفقًا لأعلى المعايير الممكنة وقد تم هندستها وتصميمها خصيصًا لتناسب الظروف السائدة في دولة الإمارات العربية المتحدة.</td>
+                    </tr>
+                     <tr>
+                         <td style="direction:rtl;">تتمثل مهمة كونتيننتال في تزويدك بتجربة سيارات مفيدة وفريدة من نوعها من خلال تقديم منتجات وخدمات مبتكرة تحقق قيمة وتضمن إيمانك الراسخ بشركة كونتيننتال. </td>
+                    </tr>
+                     <tr>
+                         <td style="direction:rtl;"> نشكركم على اختيار كونتيننتال ونتمنى لكم قيادة آمنة.</td>
+                    </tr>
+                     <tr>
+                         <td style="direction:rtl;"> وتفضلوا بقبول فائق الاحترام والتقدير، </td>
+                    </tr>
+                     <tr>
+                         <td style="direction:rtl;">شريكك " كونتيننتال " المخلص </td>
+                    </tr>
 
 
-            <tr>
-                <td colspan="2">
-                    <hr style="border: 0;height: 0;border-top: 1px solid rgba(0, 0, 0, 0.1);
-                        border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <table style="margin-left:20px;width:100%">
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" height="20px"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr style="border: 0;height:6px; background-color:#ffa500;margin-left:10px;margin-right:10px ">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" height="10px"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table style="margin-left:10px;margin-right:10px;font-size:8px;font-family:Calibri;width:100%">
+                    <tr>
+                        <td>
 
-                        <tr>
-                            <td colspan="2">
-                                <p style="font-family:Tahoma;font-size:10px;line-height:23px">
-                                    <i>
+                            <table>
+                                <tr><td>Service Showrooms:</td></tr>
+                                <tr><td>Emirates for Universal Tyres </td></tr>
+                                <tr><td>Dubai, Al Ghurair Complex,  </td></tr>
+                                <tr><td>Al Quoz 3 </td></tr>
+                                <tr><td><a href="https://eu-central-1.protection.sophos.com/?d=goo.gl&u=aHR0cHM6Ly9tYXBzLmFwcC5nb28uZ2wvUmhNRTdDOWdQM1ZkYnBnYkE=&e=c21AbGVmdGZpZWxkLm5ldA==&t=eGhXS285RC9kRTgyR1BmZDlNWTZtZ1BzTkt2VmNHZ0FSTWNFVFFJczVMYz0=&h=c0228075167a4dd2b7063e82b5ff14ee">Location Link</a> </td></tr>
+                                <tr><td>   </td></tr>
 
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr><td>Call us at 800 CONTI (26684)</td></tr>
+                                <tr><td>Email:  <a href="mailto:customercare@amsconti.ae">customercare@amsconti.ae</a> </td></tr>
+                                <tr><td>Emirates for Universal Tyres</td></tr>
+                                <tr><td>Abu Dhabi, Al Masaood Building,</td></tr>
+                                <tr><td> Musaffah Industrial Area M12</td></tr>
+                                <tr><td><a href="https://eu-central-1.protection.sophos.com/?d=goo.gl&u=aHR0cHM6Ly9tYXBzLmFwcC5nb28uZ2wvTXFWUVBHa0x4dDlEYVZWbjc=&e=c21AbGVmdGZpZWxkLm5ldA==&t=UmVzV2lPVEh3RURiQ1ZlMzFXejQ2T1EwS0M2OWUydnNucE1ROXJwVjlhVT0=&h=c0228075167a4dd2b7063e82b5ff14ee">Location Link</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <table>
+                                <tr><td style="direction:rtl;"> اتصل بنا على رقم: 800 (كونتي) (26684) </td></tr>
+                                <tr><td style="direction:rtl;"><a href="mailto:customercare@amsconti.ae"></a>البريد الإلكتروني: customercare@amsconti.ae </td></tr>
+                                <tr><td td style="direction:rtl;">الإمارات للإطارات العالمية,  </td></tr>
+                                <tr><td td style="direction:rtl;">  أبوظبي, مبنى المسعود ،  </td></tr>
+                                <tr><td td style="direction:rtl;">  منطقة المصفح الصناعية، إم 12   </td> </tr>
+                                <tr><td td style="direction:rtl;">رابط الموقع </td></tr>
+                            </table>
+                        </td>
 
-                                <p style="font-family: Tahoma; font-size: 10px;"><b>Dear {FirstName} , </b></p>
-
-                                <p>
-                                    Congratulations on the purchase of your <span style="color:#ff9900">ContiSure</span> Service Contract and welcome to the <span style="color:#ff9900">ContiSure</span> family.
-                                </p>
-
-                                </i>
-                                <p>
-                                    <i>Service contract No : </i><span style="font-family:Calibri;font-size:13px"><strong>{ContractNo}</strong></span>
-                                </p>
-                                <i>
-                                <p>
-                                    Please be assured that your Continental tyres have been manufactured to the highest possible standards and engineered specifically for the prevailing conditions in the UAE.
-                                </p>
-
-                                <p>
-                                    We are delighted you have chosen to further protect your tyres with our accidental damage service contract, to guard against irreparable damage caused by road hazards.
-                                </p>
-
-                                <p>
-                                    Please read the attached document which clearly defines the terms, conditions and benefits of your <span style="color:#ff9900">ContiSure</span> contract.
-                                </p>
-
-                                <p>
-                                    It is our mission to provide you with a unique automotive experience by offering innovative products and services that deliver value and ensure your faith in <span style="color:#ff9900">ContiSure</span> is well-founded.
-                                </p>
-
-                                <p>
-                                    We thank you for choosing <span style="color:#ff9900">ContiSure</span> and wish you safe motoring.
-                                </p>
-
-                                <p>
-                                    Respectfully,
-                                </p>
-
-                                <br />
-                                <p>
-                                    <b>Your dedicated “ <span style="color:#ff9900">ContiSure</span>” partner</b>
-                                </p>
-
-
-                                </i>
-                                </p>
-                                <table style="font-family:Calibri; font-size: 11px" width="100%">
-                                    <tr>
-                                        <td>
-                                            <b> Call us at 800 <span style="color:#ff9900">CONTI</span> (26684)  <span style="margin-left:30px"></span>    Email: <a href="mailto:customercare@amsconti.ae" target="_top">customercare@amsconti.ae</a></b>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <br />
-                                            <b>Service Showrooms:</b>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                        <br />
-                                        <b>Emirates for Universal Tyres Dubai</b> </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Al Ghurair Complex , Al Quoz 3   </td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="https://eu-central-1.protection.sophos.com/?d=goo.gl&u=aHR0cHM6Ly9tYXBzLmFwcC5nb28uZ2wvUmhNRTdDOWdQM1ZkYnBnYkE=&e=c21AbGVmdGZpZWxkLm5ldA==&t=eGhXS285RC9kRTgyR1BmZDlNWTZtZ1BzTkt2VmNHZ0FSTWNFVFFJczVMYz0=&h=c0228075167a4dd2b7063e82b5ff14ee">Location Link</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td><br /><b>Emirates for Universal Tyres Abu Dhabi </b></td>
-
-                                    </tr>
-                                    <tr>
-                                        <td> Al Masaood Building, Musaffah Industrial Area M12 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> <a href="https://eu-central-1.protection.sophos.com/?d=goo.gl&u=aHR0cHM6Ly9tYXBzLmFwcC5nb28uZ2wvTXFWUVBHa0x4dDlEYVZWbjc=&e=c21AbGVmdGZpZWxkLm5ldA==&t=UmVzV2lPVEh3RURiQ1ZlMzFXejQ2T1EwS0M2OWUydnNucE1ROXJwVjlhVT0=&h=c0228075167a4dd2b7063e82b5ff14ee">Location Link</a></td>
-                                    </tr>
-                                </table>
-
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <br />
-                <br />
-            </tr>
+                        <td>
+                            <table>
+                                <tr><td td style="direction:rtl;">صالات عرض الخدمات:</td></tr>
+                                 <tr><td td style="direction:rtl;">الإمارات للإطارات العالمية، </td></tr>
+                                <tr><td td style="direction:rtl;">دبي مجمع الغرير ،</td></tr>
+                                <tr><td td style="direction:rtl;">القوز 3 </td></tr>
+                                <tr><td td style="direction:rtl;">رابط الموقع</td></tr>
+                                <tr><td>    </td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
 
 
-
-
-
-        </table>
-
-
-    </body>
+    </table>
+</body>
 
 <!--</div>-->
 <script>
@@ -147,4 +219,4 @@
     }
 </script>
 
-   <!-- </html>-->
+<!-- </html>-->

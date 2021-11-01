@@ -12,7 +12,7 @@
   <xs:element name="DebitNote" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DebitNote" msprop:Generator_UserDSName="DebitNote">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PolicyReference" msprop:Generator_ColumnVarNameInTable="columnPolicyReference" msprop:Generator_ColumnPropNameInRow="PolicyReference" msprop:Generator_ColumnPropNameInTable="PolicyReferenceColumn" msprop:Generator_UserColumnName="PolicyReference" type="xs:string" minOccurs="0" />
@@ -30,6 +30,7 @@
               <xs:element name="ProductionMonth" msprop:Generator_ColumnVarNameInTable="columnProductionMonth" msprop:Generator_ColumnPropNameInRow="ProductionMonth" msprop:Generator_ColumnPropNameInTable="ProductionMonthColumn" msprop:Generator_UserColumnName="ProductionMonth" type="xs:string" minOccurs="0" />
               <xs:element name="SequenceNo" msprop:Generator_ColumnVarNameInTable="columnSequenceNo" msprop:Generator_ColumnPropNameInRow="SequenceNo" msprop:Generator_ColumnPropNameInTable="SequenceNoColumn" msprop:Generator_UserColumnName="SequenceNo" type="xs:string" minOccurs="0" />
               <xs:element name="BDXExtractDate" msprop:Generator_ColumnVarNameInTable="columnBDXExtractDate" msprop:Generator_ColumnPropNameInRow="BDXExtractDate" msprop:Generator_ColumnPropNameInTable="BDXExtractDateColumn" msprop:Generator_UserColumnName="BDXExtractDate" type="xs:string" minOccurs="0" />
+              <xs:element name="bordxYear" msprop:Generator_ColumnVarNameInTable="columnbordxYear" msprop:Generator_ColumnPropNameInRow="bordxYear" msprop:Generator_ColumnPropNameInTable="bordxYearColumn" msprop:Generator_UserColumnName="bordxYear" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

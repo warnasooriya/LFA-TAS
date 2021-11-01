@@ -103,5 +103,18 @@
     <property name="Make"/>
     <property name="Model"/>
     <property name="VehicleRegistrationDate"/>
+	  <!--  additional policy details for tyres-->
+	  <property name="NumberOfTyreCover"/>
+	  <property name="TyreBrand"/>
+	  <property name="FrontWidth"/>
+	  <property name="FrontTyreProfile"/>
+	  <property name="FrontRadius"/>
+	  <property name="FrontSpeedRating"/>
+	  <property name="FrontDot"/>
+	  <property name="RearWidth"/>
+	  <property name="RearTyreProfile"/>
+	  <property name="RearRadius"/>
+	  <property name="RearSpeedRating"/>
+	  <property name="RearDot"/>
   </class>
 </hibernate-mapping>

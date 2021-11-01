@@ -8,8 +8,8 @@
       NHibernate.Driver.SqlClientDriver
     </property>
     <property name="connection.connection_string">
-		Server=.\SQLEXPRESS;Database=TAS;User ID=sa;Password=sql@aws.com;
-		<!--Server=letusbuild\sqlexpress;Database=TAS;User ID=sa;Password=buildmesa;-->
+      Server=trivowdbserver-ireland.cizg4u9jqori.eu-west-1.rds.amazonaws.com;Database=TAS;User ID=trivowadmin;Password=sql@aws.com;
+      <!--Server=letusbuild\sqlexpress;Database=TAS;User ID=sa;Password=buildmesa;-->
     </property>
     <property name="dialect">
       NHibernate.Dialect.MsSql2012Dialect

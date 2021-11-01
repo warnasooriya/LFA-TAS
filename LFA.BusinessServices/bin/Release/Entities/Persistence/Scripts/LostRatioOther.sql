@@ -1,6 +1,6 @@
-SELECT 
-ISNULL(APClm.EntryDate,0) AS 'EarnedDate',
-ISNULL(APClmN.ClaimDate,0) AS 'ClaimDate',
+SELECT
+CONVERT(datetime,'{EarnedDate}') AS 'EarnedDate',
+CONVERT(datetime,'{ClaimDate}') AS 'ClaimDate',
 ISNULL(V.MakeName,'not specific') AS MakeName,
 ISNULL(V.ModelName,'not specific')AS ModelName,
 ISNULL(V.Count,'not specific') as CylinderCount,
@@ -12,33 +12,38 @@ wt.WarrantyTypeDescription AS 'CoverType',
 ISNULL(V.Status,ISNULL(Y.Status,ISNULL(BW.Status,ISNULL(OT.Status,'-')))) AS 'WarrantyType',
 COUNT(p.Id) AS 'PolicyCount',
 SUM(p.GrossPremiumBeforeTax) AS 'GrossPremium',
-SUM(p.GrossPremiumBeforeTax*ROUND((CONVERT(decimal(10,2),CASE WHEN DATEDIFF (day,p.PolicyStartDate,
-case
-when '{EarnedDate}'='1/15/9999 12:00:00 AM'
-then GETDATE()
-else '{EarnedDate}'
-end 
-)<0 THEN 0 ELSE DATEDIFF (day,p.PolicyStartDate,
-case
-when '{EarnedDate}'='1/15/9999 12:00:00 AM'
-then GETDATE()
-else '{EarnedDate}'
-end ) END)/CONVERT(decimal(10,2),DATEDIFF(day,p.PolicyStartDate,p.PolicyEndDate))),0,0)) AS 'ErnedGrossPremium',
+--SUM(p.GrossPremiumBeforeTax*ROUND((CONVERT(decimal(10,2),CASE WHEN DATEDIFF (day,p.PolicyStartDate,
+--case
+--when '{EarnedDate}'='1/15/9999 12:00:00 AM'
+--then GETDATE()
+--else '{EarnedDate}'
+--end
+--)<0 THEN 0 ELSE DATEDIFF (day,p.PolicyStartDate,
+--case
+--when '{EarnedDate}'='1/15/9999 12:00:00 AM'
+--then GETDATE()
+--else '{EarnedDate}'
+--end ) END)/CONVERT(decimal(10,2),DATEDIFF(day,p.PolicyStartDate,p.PolicyEndDate))),0,0)) AS 'ErnedGrossPremium',
+SUM(p.GrossPremiumBeforeTax * dbo.GetRiskCompletedByPolicyId(p.PolicyStartDate,p.PolicyEndDate,'{EarnedDate}'))   AS 'ErnedGrossPremium',
+
+
 SUM(p.NRP) AS 'NetPremium',
-SUM(p.NRP*ROUND((CONVERT(decimal(10,2),CASE WHEN DATEDIFF (day,p.PolicyStartDate,
-case
-when '{EarnedDate}'='1/15/9999 12:00:00 AM'
-then GETDATE()
-else '{EarnedDate}'
-end 
-)<0 THEN 0 ELSE DATEDIFF (day,p.PolicyStartDate,
-case
-when '{EarnedDate}'='1/15/9999 12:00:00 AM'
-then GETDATE()
-else '{EarnedDate}'
-end 
-) END)/CONVERT(decimal(10,2),DATEDIFF(day,p.PolicyStartDate,p.PolicyEndDate))),0,0)) AS 'ErnedNetPremium',
-AVG(ROUND((CONVERT(decimal(10,2),CASE WHEN DATEDIFF (day,p.PolicyStartDate,GETDATE())<0 THEN 0 ELSE DATEDIFF (day,p.PolicyStartDate,GETDATE()) END)/CONVERT(decimal(10,2),DATEDIFF(day,p.PolicyStartDate,p.PolicyEndDate))),0,0)) AS 'RiskCompleted',
+--SUM(p.NRP*ROUND((CONVERT(decimal(10,2),CASE WHEN DATEDIFF (day,p.PolicyStartDate,
+--case
+--when '{EarnedDate}'='1/15/9999 12:00:00 AM'
+--then GETDATE()
+--else '{EarnedDate}'
+--end
+--)<0 THEN 0 ELSE DATEDIFF (day,p.PolicyStartDate,
+--case
+--when '{EarnedDate}'='1/15/9999 12:00:00 AM'
+--then GETDATE()
+--else '{EarnedDate}'
+--end
+--) END)/CONVERT(decimal(10,2),DATEDIFF(day,p.PolicyStartDate,p.PolicyEndDate))),0,0)) AS 'ErnedNetPremium',
+SUM(p.NRP * dbo.GetRiskCompletedByPolicyId(p.PolicyStartDate,p.PolicyEndDate,'{EarnedDate}'))  AS 'ErnedNetPremium',
+-- AVG(ROUND((CONVERT(decimal(10,2),CASE WHEN DATEDIFF (day,p.PolicyStartDate,GETDATE())<0 THEN 0 ELSE DATEDIFF (day,p.PolicyStartDate,GETDATE()) END)/CONVERT(decimal(10,2),DATEDIFF(day,p.PolicyStartDate,p.PolicyEndDate))),0,0)) AS 'RiskCompleted',
+AVG(dbo.GetRiskCompletedByPolicyId(p.PolicyStartDate,p.PolicyEndDate,'{EarnedDate}') ) AS 'RiskCompleted',
 SUM(ISNULL(APClmN.ReinApprovedQty,0)) AS 'ReInPaidClaimsCount',
 SUM(ISNULL(APClmN.ReinApprovedAmount,0)) AS 'ReInPaidClaimsValue',
 SUM(ISNULL(APClm.ReinApprovedQty,0)) AS 'ReInPaidReservedClaimsCount',
@@ -50,53 +55,48 @@ SUM(ISNULL(APClm.ReinApprovedAmount,0)) AS 'ReInPaidReservedClaimsValue',
 FROM [dbo].[Policy] p
 INNER JOIN [dbo].[Contract] cn ON cn.Id=p.ContractId
 INNER JOIN [dbo].[ContractExtensionPremium] ce ON ce.Id=p.ContractExtensionPremiumID
-INNER JOIN [dbo].[WarrantyType] wt ON wt.Id=ce.WarrentyTypeId  
+INNER JOIN [dbo].[WarrantyType] wt ON wt.Id=ce.WarrentyTypeId
 INNER JOIN [dbo].[ReinsurerContract] rcn ON rcn.Id=cn.ReinsurerContractID
 INNER JOIN [dbo].[Dealer] d ON d.Id=p.DealerId
 INNER JOIN [dbo].[Insurer] i ON i.Id=cn.InsurerId
 INNER JOIN [dbo].[Reinsurer] ri ON ri.Id=rcn.ReinsurerID
 INNER JOIN [dbo].[Country] co ON co.Id=d.CountryId
-INNER JOIN [dbo].[BordxDetails] bd ON bd.PolicyId=p.Id
-INNER JOIN [dbo].[Bordx] b ON b.Id =bd.BordxId
+INNER JOIN Bordx b on p.BordxId=b.Id
+--INNER JOIN [dbo].[BordxDetails] bd ON bd.PolicyId=p.Id
+--INNER JOIN [dbo].[Bordx] b ON b.Id =bd.BordxId
 INNER JOIN [dbo].[ContractInsuaranceLimitation] cil ON cil.ContractId =cn.Id
 INNER JOIN [dbo].[InsuaranceLimitation] il on cil.InsuaranceLimitationId=il.Id
 LEFT OUTER JOIN (
-SELECT cl.PolicyId ,Sum(cl.PaidAmount) ReinApprovedAmount, Count(cl.Id) ReinApprovedQty,clb.EntryDate
+SELECT cl.PolicyId ,Sum(case when cl.PaidAmount > 0 then  cl.PaidAmount else  cl.AuthorizedAmount  end) ReinApprovedAmount, Count(cl.Id) ReinApprovedQty
 FROM [dbo].[Claim] cl
-INNER JOIN [dbo].[ClaimGroupClaim] clg on clg.ClaimId = cl.Id
-INNER JOIN [dbo].[ClaimBatchGroup] clbg on clbg.Id = clg.ClaimGroupId
-INNER JOIN [dbo].[ClaimBatch] clb on clb.Id = clbg.ClaimBatchId
-WHERE clb.EntryDate<case
-when '{EarnedDate}'='1/15/9999 12:00:00 AM'
+WHERE FORMAT(cl.EntryDate,'yyyy-MM-dd') <= case
+when '{ClaimDate}' = '1/15/9999 12:00:00 AM'
 then GETDATE()
-else '{EarnedDate}'
-end 
-AND cl.IsApproved =1
-GROUP BY cl.PolicyId,clb.EntryDate
+else '{ClaimDate}'
+end
+AND (cl.IsApproved =1 OR cl.IsBatching=1)
+GROUP BY cl.PolicyId
 )APClm ON APClm.policyId=p.Id
 LEFT OUTER JOIN (
-SELECT cl.PolicyId ,Sum(cl.PaidAmount) ReinApprovedAmount, Count(cl.Id) ReinApprovedQty,clb.EntryDate,cl.ClaimDate
+SELECT cl.PolicyId ,Sum(cl.PaidAmount) ReinApprovedAmount, Count(cl.Id) ReinApprovedQty
 FROM [dbo].[Claim] cl
-INNER JOIN [dbo].[ClaimGroupClaim] clg on clg.ClaimId = cl.Id
-INNER JOIN [dbo].[ClaimBatchGroup] clbg on clbg.Id = clg.ClaimGroupId
-INNER JOIN [dbo].[ClaimBatch] clb on clb.Id = clbg.ClaimBatchId
-WHERE clb.EntryDate<case
-when '{EarnedDate}'='1/15/9999 12:00:00 AM'
+WHERE FORMAT(cl.EntryDate,'yyyy-MM-dd') <= case
+when '{ClaimDate}'<'1/15/9999 12:00:00 AM'
 then GETDATE()
-else '{EarnedDate}'
-end 
-AND cl.IsApproved =0 AND
-cl.ClaimDate=case
+else '{ClaimDate}'
+end
+AND cl.IsApproved =1 AND cl.IsBatching=1  AND
+format(cl.ClaimDate,'yyyy-MM-dd') <= case
 	when '{ClaimDate}'='1/15/9999 12:00:00 AM'
-	then ClaimDate
+	then FORMAT(ClaimDate,'yyyy-MM-dd')
 	else '{ClaimDate}'
 	end
-GROUP BY cl.PolicyId,clb.EntryDate,cl.ClaimDate
-)APClmN ON APClm.policyId=p.Id
+GROUP BY cl.PolicyId
+)APClmN ON APClmN.policyId=p.Id
 JOIN (
   SELECT vp.policyid,its.Status ,mk.MakeName,md.ModelName,co.Count,ec.EngineCapacityNumber
-  FROM vehiclepolicy vp 
-  INNER JOIN vehicledetails vd ON vd.id = vp.vehicleid 
+  FROM vehiclepolicy vp
+  INNER JOIN vehicledetails vd ON vd.id = vp.vehicleid
   INNER JOIN  itemstatus its ON its.ID= vd.itemstatusid
   INNER JOIN  Make mk on mk.Id=vd.MakeId
   INNER JOIN  Model md on md.Id=vd.ModelId
@@ -124,22 +124,22 @@ JOIN (
 	end
 ) V ON V.PolicyID=p.ID
 LEFT OUTER JOIN (
-  SELECT yp.policyid,its.Status 
-  FROM yellowgoodpolicy yp 
+  SELECT yp.policyid,its.Status
+  FROM yellowgoodpolicy yp
      INNER JOIN yellowgooddetails yd ON yd.id = yp. YellowGoodId
   INNER JOIN  itemstatus its ON its.ID= yd.itemstatusid
 ) Y ON Y.PolicyID=p.ID
 LEFT OUTER JOIN (
-  SELECT bwp.policyid,its.Status 
+  SELECT bwp.policyid,its.Status
   FROM bandwpolicy  bwp
-     INNER JOIN brownandwhitedetails bwd ON bwd.id = bwp.bandwid 
+     INNER JOIN brownandwhitedetails bwd ON bwd.id = bwp.bandwid
   INNER JOIN  itemstatus its ON its.ID= bwd.itemstatusid
 ) BW ON BW.PolicyID=p.ID
 
 LEFT OUTER JOIN (
-  SELECT oip.policyid,its.Status 
+  SELECT oip.policyid,its.Status
      FROM otheritempolicy oip
-     INNER JOIN otheritemdetails oid ON oid.id = oip.otheritemid  
+     INNER JOIN otheritemdetails oid ON oid.id = oip.otheritemid
   INNER JOIN  itemstatus its ON its.ID= oid.itemstatusid
 ) OT ON OT.PolicyID=p.ID
 
@@ -158,6 +158,6 @@ where b.StartDate=case
 	then cil.InsuaranceLimitationId
 	else '{InsuaranceLimitationId}'
 	end
---where p.DealerId='{DealerId}' AND cn.InsurerId='{InsuereId}' AND rcn.ReinsurerID='{ReinsuereId}' AND rcn.UWYear ='{UWYear}'
-Group by co.CountryName,d.DealerName,rcn.UWYear,ISNULL(APClm.EntryDate,0),ISNULL(APClmN.ClaimDate,0) ,b.StartDate  , b.EndDate,il.InsuaranceLimitationName,V.MakeName,V.ModelName,V.Count,V.EngineCapacityNumber,wt.WarrantyTypeDescription,
-ISNULL(V.Status,ISNULL(Y.Status,ISNULL(BW.Status,ISNULL(OT.Status,'-')))) 
+and p.DealerId='{DealerId}' AND  co.Id='{CountryId}'   AND rcn.UWYear ='{UWYear}'
+Group by co.CountryName,d.DealerName,rcn.UWYear,b.StartDate  , b.EndDate,il.InsuaranceLimitationName,V.MakeName,V.ModelName,V.Count,V.EngineCapacityNumber,wt.WarrantyTypeDescription,
+ISNULL(V.Status,ISNULL(Y.Status,ISNULL(BW.Status,ISNULL(OT.Status,'-'))))

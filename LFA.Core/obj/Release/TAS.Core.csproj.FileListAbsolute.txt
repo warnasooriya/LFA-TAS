@@ -7,3 +7,12 @@ C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\obj\Rel
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\obj\Release\TAS.Core.csproj.CopyComplete
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\obj\Release\TAS.Core.dll
 C:\Users\Ravi\Source\Workspaces\Total Administration System\TAS\LFA.Core\obj\Release\TAS.Core.pdb
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Release\RevDeBug.setup
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Release\TAS.Core.dll
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Release\TAS.Core.pdb
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Release\NLog.dll
+G:\Git\C#\LFA-TAS\LFA.Core\bin\Release\NLog.xml
+G:\Git\C#\LFA-TAS\LFA.Core\obj\Release\TAS.Core.dll
+G:\Git\C#\LFA-TAS\LFA.Core\obj\Release\TAS.Core.pdb
+G:\Git\C#\LFA-TAS\LFA.Core\obj\Release\RdbLog.txt
+G:\Git\C#\LFA-TAS\LFA.Core\obj\Release\TAS.Core.csprojResolveAssemblyReference.cache

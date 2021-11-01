@@ -13,6 +13,9 @@
     <property name="Productcode">
       <column name="ProductCode" sql-type="varchar" not-null="false" />
     </property>
+	<property name="ProductDisplayCode">
+		<column name="ProductDisplayCode" sql-type="varchar" not-null="false" />
+	</property>
     <property name="Productdescription">
       <column name="ProductDescription" sql-type="varchar" not-null="false" />
     </property>

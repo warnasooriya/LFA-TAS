@@ -24,8 +24,8 @@ C.ClaimDate,
 C.ConversionRate,
 C.TotalClaimAmount,
 C.AuthorizedAmount AS TotalPayable,
-PA.PartName,
-PA.PartNumber,
+REPLACE(REPLACE(PA.PartName,'BL -','RL -'),'BR -','RR -') AS PartName,
+CONCAT('C',PA.PartNumber,'0000') as PartNumber,
 CI.TotalPrice,
 (CI.AuthorizedAmount * C.ConversionRate) AS AuthorizedAmount,
 --CONCAT((CI.AuthorizedAmount * C.ConversionRate),' AED') AS AuthorizedAmount,
@@ -47,7 +47,7 @@ INNER JOIN [dbo].[OtherItemPolicy] VP ON VP.PolicyId=P.Id
 INNER JOIN [dbo].[OtherItemDetails] V ON V.Id = VP.OtherItemId
 INNER JOIN [dbo].[ItemStatus] IT ON IT.Id = V.ItemStatusId
 INNER JOIN [dbo].[InternalUser] UCS ON UCS.Id = C.ClaimSubmittedBy
-INNER JOIN [dbo].[SystemUser] UCA ON UCA.LoginMapId = C.ApprovedBy
+INNER JOIN [dbo].[InternalUser] UCA ON UCA.Id = C.ApprovedBy
 INNER JOIN [dbo].[Currency] CUR ON CUR.Id = C.ClaimCurrencyId
 INNER JOIN [dbo].[InvoiceCodeDetails] ICD ON ICD.PolicyId = P.Id
 INNER JOIN [dbo].[InvoiceCode] IC ON IC.Id = ICD.InvoiceCodeId

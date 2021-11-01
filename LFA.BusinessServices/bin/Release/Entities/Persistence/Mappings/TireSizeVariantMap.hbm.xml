@@ -11,6 +11,7 @@
     <property name="MakeId" />
     <property name="ModelId" />
     <property name="VariantId" />
+    <property name="IsActive" />
     <!--<property name="OriginalTireDepth" />-->
 
   </class>
