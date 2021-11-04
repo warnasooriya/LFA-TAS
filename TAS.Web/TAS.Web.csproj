@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TAS.Web</RootNamespace>
     <AssemblyName>TAS.Web</AssemblyName>
-	<IgnoreDeployManagedRuntimeVersion>True</IgnoreDeployManagedRuntimeVersion> 
+    <IgnoreDeployManagedRuntimeVersion>True</IgnoreDeployManagedRuntimeVersion>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -304,6 +304,9 @@
     <Content Include="bower_components\angular-bootstrap-multiselect-master\dist\angular-bootstrap-multiselect-templates.js" />
     <Content Include="bower_components\angular-bootstrap-multiselect-master\dist\angular-bootstrap-multiselect.js" />
     <Content Include="bower_components\angular-bootstrap-multiselect-master\dist\angular-bootstrap-multiselect.min.js" />
+    <Content Include="bower_components\angular-bootstrap-multiselect-master\dist\prod\mods\toggle-open-state-nodes-checked-state-leafs-on-label-click.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bower_components\angular-bootstrap-multiselect-master\Gruntfile.js" />
     <Content Include="bower_components\angular-bootstrap-multiselect-master\index.js" />
     <Content Include="bower_components\angular-bootstrap-multiselect-master\src\multiselect.html" />
