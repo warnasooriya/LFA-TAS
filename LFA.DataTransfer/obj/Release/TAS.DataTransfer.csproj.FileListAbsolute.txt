@@ -19,3 +19,6 @@ G:\Git\C#\LFA-TAS\LFA.DataTransfer\bin\Release\NLog.xml
 G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Release\TAS.DataTransfer.dll
 G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Release\TAS.DataTransfer.pdb
 G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Release\RdbLog.txt
+c:\TasRelease\RevDeBug.setup
+c:\TasRelease\TAS.DataTransfer.dll
+c:\TasRelease\TAS.DataTransfer.pdb

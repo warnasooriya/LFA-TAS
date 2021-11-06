@@ -37,3 +37,9 @@ G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.dll
 G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.pdb
 G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\RdbLog.txt
 G:\TFS\TAS-Commodity\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.csprojAssemblyReference.cache
+c:\TasRelease\RevDeBug.setup
+c:\TasRelease\TAS.DataTransfer.dll
+c:\TasRelease\TAS.DataTransfer.pdb
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.dll
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Debug\TAS.DataTransfer.pdb
+G:\Git\C#\LFA-TAS\LFA.DataTransfer\obj\Debug\RdbLog.txt

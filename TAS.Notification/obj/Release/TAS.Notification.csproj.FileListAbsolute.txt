@@ -10,3 +10,6 @@ G:\Git\C#\LFA-TAS\TAS.Notification\bin\Release\TAS.Notification.pdb
 G:\Git\C#\LFA-TAS\TAS.Notification\obj\Release\TAS.Notification.dll
 G:\Git\C#\LFA-TAS\TAS.Notification\obj\Release\TAS.Notification.pdb
 G:\Git\C#\LFA-TAS\TAS.Notification\obj\Release\RdbLog.txt
+c:\TasRelease\RevDeBug.setup
+c:\TasRelease\TAS.Notification.dll
+c:\TasRelease\TAS.Notification.pdb

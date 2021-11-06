@@ -2,4 +2,4 @@ version: 0.0
 os: windows
 files:
   - source: \
-    destination: C:\inetpub\wwwroot
+    destination: C:\inetpub\wwwroot\SSL

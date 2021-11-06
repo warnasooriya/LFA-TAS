@@ -16,3 +16,6 @@ G:\Git\C#\LFA-TAS\LFA.Core\obj\Release\TAS.Core.dll
 G:\Git\C#\LFA-TAS\LFA.Core\obj\Release\TAS.Core.pdb
 G:\Git\C#\LFA-TAS\LFA.Core\obj\Release\RdbLog.txt
 G:\Git\C#\LFA-TAS\LFA.Core\obj\Release\TAS.Core.csprojResolveAssemblyReference.cache
+c:\TasRelease\RevDeBug.setup
+c:\TasRelease\TAS.Core.dll
+c:\TasRelease\TAS.Core.pdb

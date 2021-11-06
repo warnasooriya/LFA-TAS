@@ -22,3 +22,9 @@ G:\TFS\TAS-Commodity\TAS.Notification\obj\Debug\TAS.Notification.csproj.CoreComp
 G:\TFS\TAS-Commodity\TAS.Notification\obj\Debug\TAS.Notification.dll
 G:\TFS\TAS-Commodity\TAS.Notification\obj\Debug\TAS.Notification.pdb
 G:\TFS\TAS-Commodity\TAS.Notification\obj\Debug\RdbLog.txt
+c:\TasRelease\RevDeBug.setup
+c:\TasRelease\TAS.Notification.dll
+c:\TasRelease\TAS.Notification.pdb
+G:\Git\C#\LFA-TAS\TAS.Notification\obj\Debug\TAS.Notification.dll
+G:\Git\C#\LFA-TAS\TAS.Notification\obj\Debug\TAS.Notification.pdb
+G:\Git\C#\LFA-TAS\TAS.Notification\obj\Debug\RdbLog.txt

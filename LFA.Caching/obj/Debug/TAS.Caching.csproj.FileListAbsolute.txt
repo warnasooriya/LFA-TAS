@@ -52,3 +52,11 @@ G:\TFS\TAS-Commodity\LFA.Caching\obj\Debug\TAS.Caching.csproj.CopyComplete
 G:\TFS\TAS-Commodity\LFA.Caching\obj\Debug\TAS.Caching.dll
 G:\TFS\TAS-Commodity\LFA.Caching\obj\Debug\TAS.Caching.pdb
 G:\TFS\TAS-Commodity\LFA.Caching\obj\Debug\RdbLog.txt
+c:\TasRelease\RevDeBug.setup
+c:\TasRelease\TAS.Caching.dll.config
+c:\TasRelease\TAS.Caching.dll
+c:\TasRelease\TAS.Caching.pdb
+G:\Git\C#\LFA-TAS\LFA.Caching\obj\Debug\TAS.Caching.csprojResolveAssemblyReference.cache
+G:\Git\C#\LFA-TAS\LFA.Caching\obj\Debug\TAS.Caching.dll
+G:\Git\C#\LFA-TAS\LFA.Caching\obj\Debug\TAS.Caching.pdb
+G:\Git\C#\LFA-TAS\LFA.Caching\obj\Debug\RdbLog.txt

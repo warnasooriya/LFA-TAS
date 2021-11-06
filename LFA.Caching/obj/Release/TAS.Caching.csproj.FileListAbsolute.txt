@@ -30,3 +30,7 @@ G:\Git\C#\LFA-TAS\LFA.Caching\obj\Release\TAS.Caching.dll
 G:\Git\C#\LFA-TAS\LFA.Caching\obj\Release\TAS.Caching.pdb
 G:\Git\C#\LFA-TAS\LFA.Caching\obj\Release\RdbLog.txt
 G:\Git\C#\LFA-TAS\LFA.Caching\obj\Release\TAS.Caching.csprojResolveAssemblyReference.cache
+c:\TasRelease\RevDeBug.setup
+c:\TasRelease\TAS.Caching.dll.config
+c:\TasRelease\TAS.Caching.dll
+c:\TasRelease\TAS.Caching.pdb
