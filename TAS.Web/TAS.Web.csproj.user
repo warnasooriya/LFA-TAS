@@ -20,8 +20,8 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
-    <RevDeBugCompilerPath>c:\users\ravi\appdata\local\microsoft\visualstudio\16.0_5f5414c0\extensions\n2k5xp34.ec1\tmcc\</RevDeBugCompilerPath>
-    <CustomAfterMicrosoftCommonTargets>c:\users\ravi\appdata\local\microsoft\visualstudio\16.0_5f5414c0\extensions\n2k5xp34.ec1\tmcc\RevDeBug.ImportAfter.targets</CustomAfterMicrosoftCommonTargets>
+    <RevDeBugCompilerPath>c:\users\ravi\appdata\local\microsoft\visualstudio\16.0_5f5414c0\extensions\txhzzsnd.t5s\tmcc\</RevDeBugCompilerPath>
+    <CustomAfterMicrosoftCommonTargets>c:\users\ravi\appdata\local\microsoft\visualstudio\16.0_5f5414c0\extensions\txhzzsnd.t5s\tmcc\RevDeBug.ImportAfter.targets</CustomAfterMicrosoftCommonTargets>
     <RevDeBugActive>True</RevDeBugActive>
     <SaveMetadataAsync>true</SaveMetadataAsync>
     <RevDeBugDisableNuget>true</RevDeBugDisableNuget>
